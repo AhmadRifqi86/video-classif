@@ -173,7 +173,10 @@ class VideoMamba(nn.Module):
         elif hasattr(self.cnn_backbone, 'classifier'):
             cnn_out_size = self.cnn_backbone.classifier.in_features
             self.cnn_backbone.classifier = nn.Identity()
-            
+        
+        for param in self.cnn_backbone.parameters():  #backbone param is freezed
+            param.requires_grad = False
+ 
         # Project CNN features to Mamba dimension
         self.adapt = nn.Linear(cnn_out_size, d_model)
         
