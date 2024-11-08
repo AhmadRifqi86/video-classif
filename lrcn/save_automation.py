@@ -8,27 +8,27 @@ from datetime import datetime
 # Configuration dictionary
 CONFIG = {
     "EARLY_STOP": [0.0,0.42],
-    "SEQUENCE_LENGTH": [40, 60],
-    "BATCH_SIZE": [8],
+    "SEQUENCE_LENGTH": [40, 30],
+    "BATCH_SIZE": [2,8],
     "HIDDEN_SIZE": [48, 56],
     "CNN_BACKBONE": ["densenet121", "resnet50"],
     "RNN_INPUT_SIZE": [512, 768],
     "RNN_LAYER": [4, 6, 2],
-    "RNN_TYPE": ["lstm","gru"],
-    "SAMPLING_METHOD": ["uniform", "ssim", "optiflow"],
+    "RNN_TYPE": ["lstm"],
+    "SAMPLING_METHOD": ["uniform"],
     "RNN_OUT": ["all", "last"],
-    "MAX_VIDEOS": [300, 400],
-    "EPOCH": [10],
+    "MAX_VIDEOS": [300],
+    "EPOCH": [30],
     "FINETUNE": [True],
-    "CLASSIF_MODE": ["multiple_binary", "multiclass"]
+    "CLASSIF_MODE": ["multiclass"]
 }
 
 MODEL_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth'
-SOURCE_CODE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/lrcn/dump_lrcn.py'
-LOG_FILE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/lrcn/train_log.txt'
+SOURCE_CODE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/lrcn/ucf50-lrcn.py'
+LOG_FILE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/lrcn/medsos_log.txt'
 BEST_MODEL_DIR = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/best_models/'
 TEST_RUNS = 2  # Number of times to test each configuration
-CHECKPOINT_FILE = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/lrcn/fix_checkpoint.json'  # File to track best results
+CHECKPOINT_FILE = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/lrcn/medsos_checkpoint.json'  # File to track best results
 
 if not os.path.exists(BEST_MODEL_DIR):
     os.makedirs(BEST_MODEL_DIR)

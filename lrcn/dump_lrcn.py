@@ -29,16 +29,16 @@ EARLY_STOP = 0.0
 SEQUENCE_LENGTH = 40
 BATCH_SIZE = 8
 HIDDEN_SIZE = 56
-CNN_BACKBONE = "densenet121"
+CNN_BACKBONE = "resnet50"
 RNN_INPUT_SIZE = 768
-RNN_LAYER = 4
-RNN_TYPE = "lstm"
+RNN_LAYER = 6
+RNN_TYPE = "gru"
 SAMPLING_METHOD = "optiflow"
-RNN_OUT = "last"
-MAX_VIDEOS = 400
+RNN_OUT = "all"
+MAX_VIDEOS = 300
 EPOCH = 10
 FINETUNE = True
-CLASSIF_MODE = "multiclass"
+CLASSIF_MODE = "multiple_binary"
 MODEL_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth'
 
 CONF_EARLY_STOP = EARLY_STOP
@@ -500,8 +500,6 @@ else:  # multiple_binary
     for i in range(len(CLASS_LABELS)):
         # Compute weights for each binary class
         class_weights = compute_class_weight(class_weight='balanced', classes=np.array([0, 1]), y=y_train[:, i])
-        # Create loss function without passing weights directly
-        # Instead use pos_weight parameter for BCE
         pos_weight = torch.tensor([class_weights[1]/class_weights[0]]).to(device)
         class_weights_list.append(nn.BCEWithLogitsLoss(pos_weight=pos_weight))
     criterion = class_weights_list

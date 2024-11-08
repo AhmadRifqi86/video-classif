@@ -1,0 +1,130 @@
+Config (Run 1/2): {'EARLY_STOP': 0.0, 'SEQUENCE_LENGTH': 40, 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 48, 'CNN_BACKBONE': 'densenet121', 'RNN_INPUT_SIZE': 512, 'RNN_LAYER': 4, 'RNN_TYPE': 'lstm', 'SAMPLING_METHOD': 'uniform', 'RNN_OUT': 'all', 'MAX_VIDEOS': 300, 'EPOCH': 30, 'FINETUNE': True, 'CLASSIF_MODE': 'multiclass'}, ACCURACY=0.675, F1=0.675
+Train Config: 
+Seq_Length:      40
+Batch_Size:      2
+Hidden_Size:     48
+CNN_Backbone:    densenet121
+RNN_Input_Size:  512
+RNN_Layer:       4
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      300
+Epoch:           30
+Classif_Mode:    multiclass
+Loading class: Harmful
+Loading class: Adult
+Loading class: Safe
+Loading class: Suicide
+Final data shape: (1200, 40, 80, 80, 3)
+Final labels shape: (1200,)
+Training with multiclass classification mode
+Epoch 1/30, Loss: 1.3954, Accuracy: 0.2281
+Epoch 2/30, Loss: 1.3494, Accuracy: 0.2990
+Epoch 3/30, Loss: 1.2595, Accuracy: 0.3740
+Epoch 4/30, Loss: 1.2569, Accuracy: 0.4062
+Epoch 5/30, Loss: 1.1614, Accuracy: 0.4490
+Epoch 6/30, Loss: 1.1729, Accuracy: 0.4875
+Epoch 7/30, Loss: 1.1501, Accuracy: 0.5010
+Epoch 8/30, Loss: 1.1095, Accuracy: 0.5250
+Epoch 9/30, Loss: 1.0390, Accuracy: 0.5781
+Epoch 10/30, Loss: 1.0180, Accuracy: 0.5740
+Epoch 11/30, Loss: 0.9986, Accuracy: 0.5906
+Epoch 12/30, Loss: 0.9990, Accuracy: 0.5969
+Epoch 13/30, Loss: 0.9677, Accuracy: 0.6073
+Epoch 14/30, Loss: 0.9539, Accuracy: 0.6104
+Epoch 15/30, Loss: 0.9401, Accuracy: 0.6323
+Epoch 16/30, Loss: 0.9521, Accuracy: 0.6083
+Epoch 17/30, Loss: 0.8767, Accuracy: 0.6656
+Epoch 18/30, Loss: 0.8712, Accuracy: 0.6396
+Epoch 19/30, Loss: 0.8663, Accuracy: 0.6562
+Epoch 20/30, Loss: 0.8384, Accuracy: 0.6583
+Epoch 21/30, Loss: 0.8980, Accuracy: 0.6385
+Epoch 22/30, Loss: 0.8715, Accuracy: 0.6573
+Epoch 23/30, Loss: 0.8605, Accuracy: 0.6562
+Epoch 24/30, Loss: 0.8278, Accuracy: 0.6823
+Epoch 25/30, Loss: 0.8641, Accuracy: 0.6552
+Epoch 26/30, Loss: 0.8116, Accuracy: 0.6833
+Epoch 27/30, Loss: 0.7802, Accuracy: 0.6948
+Epoch 28/30, Loss: 0.7495, Accuracy: 0.7104
+Epoch 29/30, Loss: 0.7659, Accuracy: 0.6969
+Epoch 30/30, Loss: 0.7703, Accuracy: 0.6885
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+Overall Accuracy: 0.6750
+Class: Harmful - Precision: 0.5915, Recall: 0.6774, f1-Score: 0.6316
+Class: Adult - Precision: 0.7091, Recall: 0.6500, f1-Score: 0.6783
+Class: Safe - Precision: 0.7077, Recall: 0.7667, f1-Score: 0.7360
+Class: Suicide - Precision: 0.7143, Recall: 0.6034, f1-Score: 0.6542
+Overall Precision: 0.6807, Overall Recall: 0.6744, Overall F1-Score: 0.6750
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=DenseNet121_Weights.IMAGENET1K_V1`. You can also use `weights=DenseNet121_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Config (Run 2/2): {'EARLY_STOP': 0.0, 'SEQUENCE_LENGTH': 40, 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 48, 'CNN_BACKBONE': 'densenet121', 'RNN_INPUT_SIZE': 512, 'RNN_LAYER': 4, 'RNN_TYPE': 'lstm', 'SAMPLING_METHOD': 'uniform', 'RNN_OUT': 'all', 'MAX_VIDEOS': 300, 'EPOCH': 30, 'FINETUNE': True, 'CLASSIF_MODE': 'multiclass'}, ACCURACY=0.6875, F1=0.6799
+Train Config: 
+Seq_Length:      40
+Batch_Size:      2
+Hidden_Size:     48
+CNN_Backbone:    densenet121
+RNN_Input_Size:  512
+RNN_Layer:       4
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      300
+Epoch:           30
+Classif_Mode:    multiclass
+Loading class: Harmful
+Loading class: Adult
+Loading class: Safe
+Loading class: Suicide
+Final data shape: (1200, 40, 80, 80, 3)
+Final labels shape: (1200,)
+Training with multiclass classification mode
+Epoch 1/30, Loss: 1.3890, Accuracy: 0.2542
+Epoch 2/30, Loss: 1.3253, Accuracy: 0.3594
+Epoch 3/30, Loss: 1.2679, Accuracy: 0.3927
+Epoch 4/30, Loss: 1.2004, Accuracy: 0.4510
+Epoch 5/30, Loss: 1.1820, Accuracy: 0.4615
+Epoch 6/30, Loss: 1.1203, Accuracy: 0.5073
+Epoch 7/30, Loss: 1.1135, Accuracy: 0.5385
+Epoch 8/30, Loss: 1.0590, Accuracy: 0.5563
+Epoch 9/30, Loss: 1.0513, Accuracy: 0.5365
+Epoch 10/30, Loss: 1.0409, Accuracy: 0.5552
+Epoch 11/30, Loss: 1.0115, Accuracy: 0.5719
+Epoch 12/30, Loss: 1.0082, Accuracy: 0.5958
+Epoch 13/30, Loss: 0.9726, Accuracy: 0.6073
+Epoch 14/30, Loss: 0.9721, Accuracy: 0.5990
+Epoch 15/30, Loss: 0.9129, Accuracy: 0.6240
+Epoch 16/30, Loss: 0.9416, Accuracy: 0.6240
+Epoch 17/30, Loss: 0.9268, Accuracy: 0.6062
+Epoch 18/30, Loss: 0.9009, Accuracy: 0.6385
+Epoch 19/30, Loss: 0.8671, Accuracy: 0.6615
+Epoch 20/30, Loss: 0.8983, Accuracy: 0.6521
+Epoch 21/30, Loss: 0.8985, Accuracy: 0.6396
+Epoch 22/30, Loss: 0.8593, Accuracy: 0.6677
+Epoch 23/30, Loss: 0.8209, Accuracy: 0.6865
+Epoch 24/30, Loss: 0.8306, Accuracy: 0.6750
+Epoch 25/30, Loss: 0.8498, Accuracy: 0.6687
+Epoch 26/30, Loss: 0.8362, Accuracy: 0.6656
+Epoch 27/30, Loss: 0.8003, Accuracy: 0.6813
+Epoch 28/30, Loss: 0.8086, Accuracy: 0.6781
+Epoch 29/30, Loss: 0.8154, Accuracy: 0.6667
+Epoch 30/30, Loss: 0.7711, Accuracy: 0.6969
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+Overall Accuracy: 0.6875
+Class: Harmful - Precision: 0.7179, Recall: 0.4516, f1-Score: 0.5545
+Class: Adult - Precision: 0.6857, Recall: 0.8000, f1-Score: 0.7385
+Class: Safe - Precision: 0.7143, Recall: 0.6667, f1-Score: 0.6897
+Class: Suicide - Precision: 0.6533, Recall: 0.8448, f1-Score: 0.7368
+Overall Precision: 0.6928, Overall Recall: 0.6908, Overall F1-Score: 0.6799
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=DenseNet121_Weights.IMAGENET1K_V1`. You can also use `weights=DenseNet121_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+

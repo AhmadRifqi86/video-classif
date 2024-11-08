@@ -1,0 +1,27 @@
+[
+    {
+        "config": {
+            "EARLY_STOP": 0.0,
+            "SEQUENCE_LENGTH": 40,
+            "BATCH_SIZE": 2,
+            "HIDDEN_SIZE": 48,
+            "CNN_BACKBONE": "densenet121",
+            "RNN_INPUT_SIZE": 512,
+            "RNN_LAYER": 4,
+            "RNN_TYPE": "lstm",
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 300,
+            "EPOCH": 30,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.6875,
+            "precision": 0.6928,
+            "recall": 0.6908,
+            "f1_score": 0.6799
+        },
+        "best_model_filename": "best_model_seq40_batch2_hidden48_cnndensenet121_rnn512_layer4_rnnTypelstm_methoduniform_outall_max300_epochs30_finetuneTrue_f10.6799.pth"
+    }
+]

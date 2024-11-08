@@ -70,7 +70,7 @@ import snscrape.modules.twitter as sntwitter
 
 def download_twitter_video(url, category):
     # Command yt-dlp dengan opsi --cookies-from-browser
-    output_path = f'/home/arifadh/Desktop/socmed_vid/{category}/%(title)s.%(ext)s'
+    output_path = f'/media/arifadh/CRUCIAL2T/socmed/{category}/%(title)s.%(ext)s'
     command = [
         'yt-dlp', 
         '--cookies-from-browser', 'firefox',  # Replace 'firefox' with the browser you use

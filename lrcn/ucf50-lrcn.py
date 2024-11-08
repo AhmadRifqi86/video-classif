@@ -17,24 +17,24 @@ from skimage.metrics import structural_similarity as ssim
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Configuration constants
-DATASET_PATH = '/home/arifadh/Desktop/Dataset/UCF50'  # Path to dataset
+DATASET_PATH = '/home/arifadh/Desktop/Dataset/tikHarm/Dataset/train'  # Path to dataset
 TEST_PATH = '/path/to/test'
-IMG_HEIGHT, IMG_WIDTH = 64, 64 # Image dimensions
-SEQUENCE_LENGTH = 30  # Number of frames per video
-BATCH_SIZE = 2  # Batch size for training
-HIDDEN_SIZE = 32  # RNN hidden size
-CNN_BACKBONE = "densenet121"  # CNN backbone model
-RNN_INPUT_SIZE = 512  # Size of RNN input
-RNN_LAYER = 4  # Number of RNN layers
-RNN_TYPE = "gru"  # Type of RNN (lstm or gru)
-SAMPLING_METHOD = "uniform"  # Frame sampling method
-RNN_OUT = "all"  # RNN output type
-MAX_VIDEOS = 50  # Maximum videos per class
-EPOCH = 20  # Number of training epochs
-FINETUNE = True  # Whether to fine-tune CNN
-CLASSIF_MODE = "multiclass"  # Classification mode
-MODEL_PATH = 'model.pth'  # Path to save model
-EARLY_STOP = 0.0  # Early stopping threshold
+IMG_HEIGHT, IMG_WIDTH = 80, 80 # Image dimensions
+SEQUENCE_LENGTH = 40
+BATCH_SIZE = 2
+HIDDEN_SIZE = 48
+CNN_BACKBONE = "densenet121"
+RNN_INPUT_SIZE = 512
+RNN_LAYER = 4
+RNN_TYPE = "lstm"
+SAMPLING_METHOD = "uniform"
+RNN_OUT = "last"
+MAX_VIDEOS = 300
+EPOCH = 30
+FINETUNE = True
+CLASSIF_MODE = "multiclass"
+MODEL_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth'  # Path to save model
+EARLY_STOP = 0.0
 
 # Transfer configuration to variables
 CONF_SEQUENCE_LENGTH = SEQUENCE_LENGTH
@@ -55,7 +55,7 @@ CONF_EARLY_STOP = EARLY_STOP
 
 def compute_ssim(img1, img2):
     """Compute SSIM between two images."""
-    return ssim(img1, img2, multichannel=True)
+    return ssim(img1, img2, multichannel=True,win_size=3, channel_axis=-1)
 
 def ssim_sampling(frames, sequence_length):
     """Sample frames based on structural similarity."""
@@ -124,29 +124,20 @@ class LRCN(nn.Module):
         
         # Load CNN backbone
         self.cnn_backbone = getattr(models, cnn_backbone)(pretrained=True)
-        
-        # Handle different CNN architectures
-        if "resnet" in cnn_backbone:
-            # self.cnn_backbone.conv1 = nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False)
-            # self.cnn_backbone.maxpool = nn.Identity()
+        if hasattr(self.cnn_backbone, 'fc'):
             cnn_out_size = self.cnn_backbone.fc.in_features
             self.cnn_backbone.fc = nn.Identity()
-        elif "densenet" in cnn_backbone:
-            # original_conv = self.cnn_backbone.features.conv0
-            # self.cnn_backbone.features.conv0 = nn.Conv2d(3, original_conv.out_channels, kernel_size=3, stride=1, padding=1, bias=False)
-            
-            # # Remove initial pooling
-            # self.cnn_backbone.features.pool0 = nn.Identity()
+        elif hasattr(self.cnn_backbone, 'classifier'):
             cnn_out_size = self.cnn_backbone.classifier.in_features
             self.cnn_backbone.classifier = nn.Identity()
-        elif "vgg" in cnn_backbone:
-            cnn_out_size = 25088
-            self.cnn_backbone.classifier = nn.Identity()
-        else:
-            raise ValueError(f"Unsupported CNN backbone: {cnn_backbone}")
+        
+        for param in self.cnn_backbone.parameters():  #backbone param is freezed
+            param.requires_grad = False
 
         # Adaptation layer
-        self.adapt = nn.Linear(cnn_out_size, rnn_input_size)
+        self.adapt1 = nn.Linear(cnn_out_size, cnn_out_size//2)
+        self.adapt2 = nn.Linear(cnn_out_size//2, cnn_out_size//4)
+        self.adapt3 = nn.Linear(cnn_out_size//4, rnn_input_size)
         
         # RNN layer
         if rnn_type == "lstm":
@@ -176,8 +167,9 @@ class LRCN(nn.Module):
         #print("x before cnn: ",x.size())
         x = self.cnn_backbone(x)
         x = x.view(batch_size, seq_len, -1)
-        x = self.adapt(x)
-        
+        x = self.adapt1(x)
+        x = self.adapt2(x)
+        x = self.adapt3(x)
         # Process through RNN
         rnn_out, _ = self.rnn(x)
         
@@ -195,35 +187,36 @@ class LRCN(nn.Module):
         
         return out
 
-def load_dataset(path, max_videos_per_class=100, task_type="multiclass", 
-                sampling_method="uniform"):
+def load_dataset(path, max_videos_per_class=100, task_type="multiclass", sampling_method="uniform"):
     data = []
     labels = []
     class_labels = []
-    
-    # Pre-define the expected shape of each video
-    expected_shape = (CONF_SEQUENCE_LENGTH, IMG_HEIGHT, IMG_WIDTH, 3)
-    
+
     # First pass: collect all class names to determine total number of classes
     all_classes = [d for d in os.listdir(path) if os.path.isdir(os.path.join(path, d))]
     num_classes = len(all_classes)
-    
+
     for class_name in all_classes:
         class_dir = os.path.join(path, class_name)
         print(f"Loading class: {class_name}")
         class_labels.append(class_name)
         label = len(class_labels) - 1
-        
+
         video_count = 0
         for video_name in os.listdir(class_dir):
             if video_count >= max_videos_per_class:
                 break
+
             video_path = os.path.join(class_dir, video_name)
-            if video_path.endswith('.avi'):
+            if video_path.endswith('.mp4'):  # Adjust as per the video format
+                #print("processing: ",video_name)
                 try:
                     cap = cv2.VideoCapture(video_path)
-                    frames = []
+                    if not cap.isOpened():
+                        print(f"Warning: Could not open video file {video_name}")
+                        continue  # Skip this file if it can't be opened
                     
+                    frames = []
                     while True:
                         ret, frame = cap.read()
                         if not ret:
@@ -231,58 +224,51 @@ def load_dataset(path, max_videos_per_class=100, task_type="multiclass",
                         frame = cv2.resize(frame, (IMG_HEIGHT, IMG_WIDTH))
                         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                         frames.append(frame)
-                    
+
                     cap.release()
                     
-                    if len(frames) > 0:
-                        # Apply frame sampling
-                        if sampling_method == "ssim":
-                            frames = ssim_sampling(frames, CONF_SEQUENCE_LENGTH)
-                        else:
-                            frames = uniform_sampling(frames, CONF_SEQUENCE_LENGTH)
-                            
-                        # Handle short videos
-                        if len(frames) < CONF_SEQUENCE_LENGTH:
-                            frames = duplicate_frames(frames, CONF_SEQUENCE_LENGTH)
-                        
-                        # Ensure frames array has correct shape
-                        frames = np.array(frames)
-                        if frames.shape != expected_shape:
-                            # Skip videos with incorrect shape
-                            print(f"Skipping video {video_name} due to incorrect shape: {frames.shape}")
-                            continue
-                        
-                        frames = frames / 255.0
-                        data.append(frames)
-                        
-                        if task_type == "multiclass":
-                            labels.append(label)
-                        else:  # binary or multilabel classification
-                            # Create a zero array of proper size first
-                            binary_label = np.zeros(num_classes, dtype=np.float32)
-                            binary_label[label] = 1
-                            labels.append(binary_label)
-                            
-                        video_count += 1
+                    if len(frames) == 0:
+                        print(f"Warning: No frames found in {video_name}")
+                        continue  # Skip if no frames were read
+
+                    # Apply frame sampling
+                    if sampling_method == "ssim":
+                        frames = ssim_sampling(frames, CONF_SEQUENCE_LENGTH)
+                    else:
+                        frames = uniform_sampling(frames, CONF_SEQUENCE_LENGTH)
+                    
+                    # Handle short videos
+                    if len(frames) < CONF_SEQUENCE_LENGTH:
+                        frames = duplicate_frames(frames, CONF_SEQUENCE_LENGTH)
+                    
+                    frames = np.array(frames) / 255.0  # Normalize pixel values
+                    data.append(frames)
+
+                    # Set labels based on task type
+                    if task_type == "multiclass":
+                        labels.append(label)
+                    else:
+                        # For binary/multilabel, create a one-hot label array
+                        binary_label = np.zeros(num_classes, dtype=np.float32)
+                        binary_label[label] = 1
+                        labels.append(binary_label)
+
+                    video_count += 1
+
                 except Exception as e:
                     print(f"Error processing video {video_name}: {str(e)}")
-                    continue
-    
-    # Convert to numpy arrays with explicit dtype
+                    continue  # Skip to the next video if there's an error
+
+    # Convert lists to numpy arrays for consistency
     data_array = np.array(data, dtype=np.float32)
-    
-    # Handle labels conversion based on task type
-    if task_type == "multiclass":
-        labels_array = np.array(labels, dtype=np.int64)
-    else:
-        # For binary/multilabel, we already have consistent shaped arrays
-        labels_array = np.array(labels, dtype=np.float32)
+    labels_array = np.array(labels, dtype=np.int64 if task_type == "multiclass" else np.float32)
     
     print(f"Final data shape: {data_array.shape}")
     print(f"Final labels shape: {labels_array.shape}")
     
     return data_array, labels_array, class_labels
-
+        
+    
 def train_model(model, train_loader, criterion, optimizer, num_epochs=10, 
                 save_model=True, early_stop=0.0):
     print(f"Training with {CONF_CLASSIF_MODE} classification mode")
@@ -333,56 +319,81 @@ def train_model(model, train_loader, criterion, optimizer, num_epochs=10,
 
 def evaluate_model(model, test_loader, class_names):
     model.eval()
+    correct = 0
+    total = 0
     all_labels = []
     all_predictions = []
-    
+
     with torch.no_grad():
         for inputs, labels in test_loader:
             inputs, labels = inputs.to(device), labels.to(device)
+            inputs = inputs.squeeze(2)
             outputs = model(inputs)
-            
-            if CONF_CLASSIF_MODE == "multiclass":
-                _, predicted = torch.max(outputs, 1)
-                all_predictions.extend(predicted.cpu().numpy())
-                all_labels.extend(labels.cpu().numpy())
-            else:
-                predictions = (torch.sigmoid(outputs) > 0.5).float()
+
+            if CONF_CLASSIF_MODE == "multiple_binary":
+                predictions = torch.sigmoid(outputs) > 0.5
                 all_predictions.append(predictions.cpu().numpy())
                 all_labels.append(labels.cpu().numpy())
-    
+            else:
+                _, predicted = torch.max(outputs, 1)
+                total += labels.size(0)
+                correct += (predicted == labels).sum().item()
+                all_predictions.extend(predicted.cpu().numpy())
+                all_labels.extend(labels.cpu().numpy())
+
     if CONF_CLASSIF_MODE == "multiple_binary":
         all_labels = np.concatenate(all_labels, axis=0)
         all_predictions = np.concatenate(all_predictions, axis=0)
-        
-        # Per-class metrics
+
+        # Calculate accuracy, precision, recall, and f1-score for each class
+        accuracies = []
         for i, class_name in enumerate(class_names):
-            precision, recall, f1, _ = precision_recall_fscore_support(
-                all_labels[:, i], all_predictions[:, i], average="binary")
-            accuracy = np.mean(all_predictions[:, i] == all_labels[:, i])
-            print(f"Class {class_name}:")
-            print(f"Precision: {precision:.4f}, Recall: {recall:.4f}, "
-                  f"F1: {f1:.4f}, Accuracy: {accuracy:.4f}")
-    else:
-        # Multiclass metrics
-        accuracy = np.mean(np.array(all_predictions) == np.array(all_labels))
-        precision, recall, f1, _ = precision_recall_fscore_support(
-            all_labels, all_predictions, average=None)
+            precision, recall, f1, _ = precision_recall_fscore_support(all_labels[:, i], all_predictions[:, i], average="binary")
+            accuracy = np.mean(all_predictions[:, i] == all_labels[:, i])  # Calculate accuracy for this class
+            accuracies.append(accuracy)
+            print(f"Class {class_name} - Precision: {precision:.4f}, Recall: {recall:.4f}, f1-Score: {f1:.4f}, Accuracy: {accuracy:.4f}")
         
+        # Calculate overall precision, recall, and F1-score across all classes
+        overall_precision, overall_recall, overall_f1, _ = precision_recall_fscore_support(all_labels, all_predictions, average="macro")
+        print(f"Overall Precision: {overall_precision:.4f}, Overall Recall: {overall_recall:.4f}, Overall F1-Score: {overall_f1:.4f}")
+
+        # Calculate and print overall accuracy across all classes
+        overall_accuracy = np.mean(np.all(all_predictions == all_labels, axis=1))
+        print(f"Overall Accuracy: {overall_accuracy:.4f}")
+
+    elif CONF_CLASSIF_MODE == "multiclass":
+        accuracy = correct / total  # This is the overall accuracy
         print(f"Overall Accuracy: {accuracy:.4f}")
+
+        # Class-wise precision, recall, and F1-score
+        precision, recall, f1, _ = precision_recall_fscore_support(all_labels, all_predictions, average=None, zero_division=0)
+
+        # Print per-class results
         for i, class_name in enumerate(class_names):
-            print(f"Class {class_name}:")
-            print(f"Precision: {precision[i]:.4f}, Recall: {recall[i]:.4f}, "
-                  f"F1: {f1[i]:.4f}")
+            print(f"Class: {class_name} - Precision: {precision[i]:.4f}, Recall: {recall[i]:.4f}, f1-Score: {f1[i]:.4f}")
+
+        # Calculate overall precision, recall, and F1-score across all classes
+        overall_precision, overall_recall, overall_f1, _ = precision_recall_fscore_support(all_labels, all_predictions, average="macro")
+        print(f"Overall Precision: {overall_precision:.4f}, Overall Recall: {overall_recall:.4f}, Overall F1-Score: {overall_f1:.4f}")
+    else:
+        accuracy = correct / total
+        print(f"Test Accuracy: {accuracy:.4f}")
 
 
 def main():
-    print("Configuration:")
-    print(f"Sequence Length: {CONF_SEQUENCE_LENGTH}")
-    print(f"Batch Size: {CONF_BATCH_SIZE}")
-    print(f"Hidden Size: {CONF_HIDDEN_SIZE}")
-    print(f"CNN Backbone: {CONF_CNN_BACKBONE}")
-    print(f"RNN Type: {CONF_RNN_TYPE}")
-    print(f"Classification Mode: {CONF_CLASSIF_MODE}")
+    print("Train Config: ")
+    print(f"Seq_Length:      {CONF_SEQUENCE_LENGTH}")
+    print(f"Batch_Size:      {CONF_BATCH_SIZE}")
+    print(f"Hidden_Size:     {CONF_HIDDEN_SIZE}")
+    print(f"CNN_Backbone:    {CONF_CNN_BACKBONE}")
+    print(f"RNN_Input_Size:  {CONF_RNN_INPUT_SIZE}")
+    print(f"RNN_Layer:       {CONF_RNN_LAYER}")
+    print(f"RNN_type:        {CONF_RNN_TYPE}")
+    print(f"Sampling_Method: {CONF_SAMPLING_METHOD}")
+    print(f"RNN_Out:         {CONF_RNN_OUT}")
+    print(f"Max_Videos:      {CONF_MAX_VIDEOS}") 
+    print(f"Epoch:           {CONF_EPOCH}")
+    print(f"Classif_Mode:    {CONF_CLASSIF_MODE}")
     
     # Set device
     # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -403,16 +414,17 @@ def main():
     
     # Compute class weights for balanced learning
     if CONF_CLASSIF_MODE == "multiclass":
-        class_weights = compute_class_weight(
-            class_weight='balanced', 
-            classes=np.unique(y_train), 
-            y=y_train
-        )
-        class_weights = torch.FloatTensor(class_weights).to(device)
-        criterion = nn.CrossEntropyLoss()
-    else:
-        # Multiple binary classification
-        criterion = [nn.BCEWithLogitsLoss() for _ in range(len(class_labels))]
+        class_weights = compute_class_weight(class_weight='balanced', classes=np.unique(y_train), y=y_train)
+        class_weights_tensor = torch.tensor(class_weights, dtype=torch.float).to(device)
+        criterion = nn.CrossEntropyLoss(weight=class_weights_tensor)
+    else:  # multiple_binary
+        class_weights_list = []
+        for i in range(len(class_labels)):
+            # Compute weights for each binary class
+            class_weights = compute_class_weight(class_weight='balanced', classes=np.array([0, 1]), y=y_train[:, i])
+            pos_weight = torch.tensor([class_weights[1]/class_weights[0]]).to(device)
+            class_weights_list.append(nn.BCEWithLogitsLoss(pos_weight=pos_weight))
+        criterion = class_weights_list
     
     # Prepare datasets and dataloaders
     train_dataset = VideoDataset(X_train, y_train)
@@ -443,7 +455,7 @@ def main():
             param.requires_grad = False
     
     # Select optimizer
-    optimizer = optim.Adam(model.parameters(), lr=0.001)
+    optimizer = optim.Adam(model.parameters(), lr=0.0001)
     
     # Train the model
     train_model(
