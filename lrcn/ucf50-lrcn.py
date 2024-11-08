@@ -1,7 +1,8 @@
 import os
 import cv2
 import torch
-import re
+import time
+import pickle
 import numpy as np
 from torch.utils.data import Dataset, DataLoader
 from sklearn.model_selection import train_test_split
@@ -18,18 +19,24 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Configuration constants
 DATASET_PATH = '/home/arifadh/Desktop/Dataset/tikHarm/Dataset/train'  # Path to dataset
+VAL_PATH = '/home/arifadh/Desktop/Dataset/tikHarm/Dataset/val'
+TEST_PATH = '/home/arifadh/Desktop/Dataset/tikHarm/Dataset/test'
+PROCESSED_DATA_PATH = "/home/arifadh/Desktop/Skripsi-Magang-Proyek/temporary"
+DATA_FILE = os.path.join(PROCESSED_DATA_PATH, "X_data_700.npy")
+LABELS_FILE = os.path.join(PROCESSED_DATA_PATH, "y_labels_700.npy")
+CLASSES_FILE = os.path.join(PROCESSED_DATA_PATH, "class_labels_700.pkl")
 TEST_PATH = '/path/to/test'
 IMG_HEIGHT, IMG_WIDTH = 80, 80 # Image dimensions
 SEQUENCE_LENGTH = 40
 BATCH_SIZE = 2
 HIDDEN_SIZE = 48
 CNN_BACKBONE = "densenet121"
-RNN_INPUT_SIZE = 512
-RNN_LAYER = 4
+RNN_INPUT_SIZE = 768
+RNN_LAYER = 2
 RNN_TYPE = "lstm"
 SAMPLING_METHOD = "uniform"
-RNN_OUT = "last"
-MAX_VIDEOS = 300
+RNN_OUT = "all"
+MAX_VIDEOS = 700
 EPOCH = 30
 FINETUNE = True
 CLASSIF_MODE = "multiclass"
@@ -274,6 +281,7 @@ def train_model(model, train_loader, criterion, optimizer, num_epochs=10,
     print(f"Training with {CONF_CLASSIF_MODE} classification mode")
     model.train()
     
+    start = time.time()
     for epoch in range(num_epochs):
         running_loss = 0.0
         correct = 0
@@ -313,6 +321,8 @@ def train_model(model, train_loader, criterion, optimizer, num_epochs=10,
             print("Early stopping triggered")
             break
     
+    duration = time.time() - start
+    print(f"training_duration: {duration:.4f}")
     if save_model:
         torch.save(model.state_dict(), CONF_MODEL_PATH)
         print(f"Model saved to {CONF_MODEL_PATH}")
@@ -323,7 +333,7 @@ def evaluate_model(model, test_loader, class_names):
     total = 0
     all_labels = []
     all_predictions = []
-
+    start = time.time()
     with torch.no_grad():
         for inputs, labels in test_loader:
             inputs, labels = inputs.to(device), labels.to(device)
@@ -378,7 +388,25 @@ def evaluate_model(model, test_loader, class_names):
     else:
         accuracy = correct / total
         print(f"Test Accuracy: {accuracy:.4f}")
+    duration = time.time()-start
+    print(f"inference_duration: {duration:.4f}")
 
+def save_processed_data(X, y, class_labels):
+    """Save processed data to disk."""
+    np.save(DATA_FILE, X)
+    np.save(LABELS_FILE, y)
+    with open(CLASSES_FILE, "wb") as f:
+        pickle.dump(class_labels, f)
+    print(f"Data saved to {PROCESSED_DATA_PATH}")
+
+def load_processed_data():
+    """Load processed data from disk."""
+    X = np.load(DATA_FILE)
+    y = np.load(LABELS_FILE)
+    with open(CLASSES_FILE, "rb") as f:
+        class_labels = pickle.load(f)
+    print(f"Data loaded from {PROCESSED_DATA_PATH}")
+    return X, y, class_labels
 
 def main():
     print("Train Config: ")
@@ -398,14 +426,20 @@ def main():
     # Set device
     # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # print(f"Using device: {device}")
-    
+    print(f"{DATA_FILE},{LABELS_FILE},{CLASSES_FILE}")
     # Load and prepare data
-    X, y, class_labels = load_dataset(
-        DATASET_PATH, 
-        max_videos_per_class=CONF_MAX_VIDEOS,
-        task_type=CONF_CLASSIF_MODE,
-        sampling_method=CONF_SAMPLING_METHOD
-    )
+    if os.path.exists(DATA_FILE) and os.path.exists(LABELS_FILE) and os.path.exists(CLASSES_FILE):
+        print("Processed data found. Loading data...")
+        X, y, class_labels = load_processed_data()
+    else:
+        print("No processed data found. Loading and processing raw dataset...")
+        X, y, class_labels = load_dataset(
+            DATASET_PATH, 
+            max_videos_per_class=CONF_MAX_VIDEOS,
+            task_type=CONF_CLASSIF_MODE,
+            sampling_method=CONF_SAMPLING_METHOD
+        )
+        save_processed_data(X, y, class_labels)
     
     # Split data into train and test sets
     X_train, X_test, y_train, y_test = train_test_split(

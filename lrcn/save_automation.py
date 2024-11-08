@@ -9,7 +9,7 @@ from datetime import datetime
 CONFIG = {
     "EARLY_STOP": [0.0,0.42],
     "SEQUENCE_LENGTH": [40, 30],
-    "BATCH_SIZE": [2,8],
+    "BATCH_SIZE": [2,4],
     "HIDDEN_SIZE": [48, 56],
     "CNN_BACKBONE": ["densenet121", "resnet50"],
     "RNN_INPUT_SIZE": [512, 768],
@@ -17,7 +17,7 @@ CONFIG = {
     "RNN_TYPE": ["lstm"],
     "SAMPLING_METHOD": ["uniform"],
     "RNN_OUT": ["all", "last"],
-    "MAX_VIDEOS": [300],
+    "MAX_VIDEOS": [700],
     "EPOCH": [30],
     "FINETUNE": [True],
     "CLASSIF_MODE": ["multiclass"]
@@ -78,9 +78,10 @@ def run_training(config, test_runs, best_results):
         # Process the output
         print("Training done, recording result")
         result = stdout.decode('utf-8')
+        #print("error message:\n",stderr)
         try:
             # Extract metrics from the output
-            accuracy, precision, recall, f1 = extract_metrics(result)
+            accuracy, precision, recall, f1,train_dur, inf_dur = extract_metrics(result)
             print("extracted f1: ", f1)
         except Exception as e:
             with open(LOG_FILE_PATH, 'a') as log_file:
@@ -92,8 +93,10 @@ def run_training(config, test_runs, best_results):
         if best_f1 is None or f1 > best_f1:
             best_f1 = f1
             best_acc, best_precision, best_recal = accuracy,precision,recall
+            best_train, best_inf = train_dur, inf_dur
             best_model_filename = f"best_model_seq{config['SEQUENCE_LENGTH']}_batch{config['BATCH_SIZE']}_hidden{config['HIDDEN_SIZE']}_cnn{config['CNN_BACKBONE']}_rnn{config['RNN_INPUT_SIZE']}_layer{config['RNN_LAYER']}_rnnType{config['RNN_TYPE']}_method{config['SAMPLING_METHOD']}_out{config['RNN_OUT']}_max{config['MAX_VIDEOS']}_epochs{config['EPOCH']}_finetune{config['FINETUNE']}_f1{f1:.4f}.pth"
             best_model_path = os.path.join(BEST_MODEL_DIR, best_model_filename)
+            #print("best f1 is existed")
 
         with open(LOG_FILE_PATH, 'a') as log_file:
             log_file.write(f"Config (Run {run+1}/{test_runs}): {config}, ACCURACY={accuracy}, F1={f1}\n")
@@ -103,20 +106,22 @@ def run_training(config, test_runs, best_results):
             log_file.write("\n\n")
 
     if best_model_path:
-        # Save the best model
-        print(f"Saving best model for configuration: {best_model_filename}")
-        subprocess.run(f"cp {MODEL_PATH} {best_model_path}", shell=True)
+            # Save the best model
+            print(f"Saving best model for configuration: {best_model_filename}")
+            subprocess.run(f"cp {MODEL_PATH} {best_model_path}", shell=True)
 
-        best_results.append({
-            "config": config,
-            "metrics": {
-                "accuracy": best_acc,
-                "precision": best_precision,
-                "recall": best_recal,
-                "f1_score": best_f1
-            },
-            "best_model_filename": best_model_filename
-        })
+            best_results.append({
+                "config": config,
+                "metrics": {
+                    "accuracy": best_acc,
+                    "precision": best_precision,
+                    "recall": best_recal,
+                    "f1_score": best_f1,
+                    "training duration": best_train,
+                    "inference duration": best_inf
+                },
+                "best_model_filename": best_model_filename
+            })    
 
     return best_f1, best_model_filename
 
@@ -128,16 +133,23 @@ def extract_metrics(output):
     precision_pattern = r"Overall Precision: (\d\.\d+|\d\.\d)"
     recall_pattern = r"Overall Recall: (\d\.\d+|\d\.\d)"
     f1_pattern = r"Overall F1-Score: (\d\.\d+|\d\.\d)"
-
+    train_dur = r"training_duration:\s+([\d.]+)"
+    inf_dur = r"inference_duration:\s+([\d.]+)"
+    #print("extract_metrics: pattern defined")
     # Search for metrics in the output
+
     accuracy = re.search(overall_accuracy_pattern, output)
     precision = re.search(precision_pattern, output)
     recall = re.search(recall_pattern, output)
     f1 = re.search(f1_pattern, output)
-
+    train_time = re.search(train_dur,output)
+    inf_time = re.search(inf_dur,output)
+    # print("extract_metrics: metrics collected")
+    # print(f"{accuracy},{f1},{precision},{recall},{train_time},{inf_time}")
     # Ensure all metrics are found
-    if accuracy and precision and recall and f1:
-        return float(accuracy.group(1)), float(precision.group(1)), float(recall.group(1)), float(f1.group(1))
+    if accuracy and precision and recall and f1 and train_time and inf_time:
+        print(f"extract_metrics: f1: {float(f1.group(1))}")
+        return float(accuracy.group(1)), float(precision.group(1)), float(recall.group(1)), float(f1.group(1)),float(train_time.group(1)),float(inf_time.group(1))
     else:
         raise ValueError("Could not extract metrics from output")
 
