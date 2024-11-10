@@ -25,11 +25,12 @@ CONFIG = {
 }
 
 MODEL_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth'
-SOURCE_CODE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/lrcn/ucf50-lrcn.py'
-LOG_FILE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/lrcn/medsos_log.txt'
+CONFIG_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/all_config.py'
+SOURCE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/main.py'
+LOG_FILE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/medsos_log.txt'
 BEST_MODEL_DIR = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/best_models_medsos/'
 TEST_RUNS = 2  # Number of times to test each configuration
-CHECKPOINT_FILE = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/lrcn/medsos_checkpoint.json'  # File to track best results
+CHECKPOINT_FILE = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/medsos_checkpoint.json'  # File to track best results
 SLEEP = 300
 
 if not os.path.exists(BEST_MODEL_DIR):
@@ -61,7 +62,7 @@ def run_training(config, test_runs, best_results):
         # Prepare sed commands to update the source code with the current config values
         sed_commands = [
             "sed -i '/^{key} =/ s|=.*|= {value}|' {source}".format(
-                key=key, value=value if isinstance(value, (int, float, list)) else f'"{value}"', source=SOURCE_CODE_PATH
+                key=key, value=value if isinstance(value, (int, float, list)) else f'"{value}"', source=CONFIG_PATH
             )
             for key, value in config.items()
         ]
@@ -74,7 +75,7 @@ def run_training(config, test_runs, best_results):
 
         # Run the training script
         print("Perform training")
-        process = subprocess.Popen(f'python3 {SOURCE_CODE_PATH}', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process = subprocess.Popen(f'python3 {SOURCE_PATH}', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = process.communicate()
 
         # Process the output

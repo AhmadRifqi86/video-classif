@@ -2758,3 +2758,7 @@ Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_uti
 
 
 
+Error extracting metrics: Could not extract metrics from output
+Run 0 output: 
+Error extracting metrics: Could not extract metrics from output
+Run 1 output: 
