@@ -46,11 +46,7 @@ def train_model(model, train_loader, criterion, optimizer, num_epochs=10,
         epoch_acc = correct / total
         print(f"Epoch {epoch + 1}/{num_epochs}, Loss: {epoch_loss:.4f}, "
               f"Accuracy: {epoch_acc:.4f}")
-        
-        if epoch_loss < early_stop:
-            print("Early stopping triggered")
-            break
-    
+
     duration = time.time() - start
     print(f"training_duration: {duration:.4f}")
     if save_model:

@@ -100,8 +100,7 @@ def main():
         train_loader, 
         criterion, 
         optimizer, 
-        num_epochs=all_config.CONF_EPOCH,
-        early_stop=all_config.CONF_EARLY_STOP
+        num_epochs=all_config.CONF_EPOCH
     )
     
     # Evaluate the model

@@ -73,6 +73,7 @@ def load_dataset(path, max_videos_per_class=100, task_type="multiclass", samplin
 
     # First pass: collect all class names to determine total number of classes
     all_classes = [d for d in os.listdir(path) if os.path.isdir(os.path.join(path, d))]
+    print(all_classes)
     num_classes = len(all_classes)
 
     for class_name in all_classes:
@@ -88,7 +89,7 @@ def load_dataset(path, max_videos_per_class=100, task_type="multiclass", samplin
 
             video_path = os.path.join(class_dir, video_name)
             if video_path.endswith('.mp4'):  # Adjust as per the video format
-                #print("processing: ",video_name)
+                print("processing: ",video_name)
                 try:
                     cap = cv2.VideoCapture(video_path)
                     if not cap.isOpened():
