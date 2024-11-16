@@ -153,7 +153,7 @@ class LRCN(nn.Module):
             self.rnn_output_size = hidden_size * (2 if bidirectional else 1)
         elif rnn_type == "mamba":
             self.rnn = nn.ModuleList([
-                ResidualBlock(rnn_input_size, rnn_input_size * 4, hidden_size, hidden_size, bidirectional=bidirectional)
+                ResidualBlock(rnn_input_size, rnn_input_size * 2, hidden_size, hidden_size, bidirectional=bidirectional)
                 for _ in range(all_config.CONF_RNN_LAYER)
             ])
             self.rnn_output_size = rnn_input_size * (2 if bidirectional else 1)
