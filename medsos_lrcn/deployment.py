@@ -5,6 +5,7 @@ import numpy as np
 import argparse
 import all_config
 from datetime import datetime
+from loader_data import load_dataset_inference
 from collections import Counter
 from torchvision import transforms
 from loader_data import uniform_sampling, ssim_sampling, duplicate_frames  # Replace `some_module` with the actual module name
@@ -16,60 +17,11 @@ LABEL_MAPPING = {
     2: "Safe",
     3: "Suicide"
 }
-# Load dataset for inference
-def load_dataset_inference(path, sampling_method="uniform", sequence_length=30):
-    data = []
-    video_names = []
 
-    for video_name in os.listdir(path):
-        video_path = os.path.join(path, video_name)
-        if not video_path.endswith('.mp4'):  # Adjust for supported formats
-            continue
+def print_usage():
+    print("usage: ")
+    print("python3 deployment.py --model [MODEL PATH] --videos [VIDEO DIR]")
 
-        print(f"Processing video: {video_name}")
-        try:
-            cap = cv2.VideoCapture(video_path)
-            if not cap.isOpened():
-                print(f"Warning: Could not open video file {video_name}")
-                continue  # Skip this file if it can't be opened
-            
-            frames = []
-            while True:
-                ret, frame = cap.read()
-                if not ret:
-                    break
-                frame = cv2.resize(frame, (all_config.IMG_HEIGHT, all_config.IMG_WIDTH))
-                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                frames.append(frame)
-
-            cap.release()
-
-            if len(frames) == 0:
-                print(f"Warning: No frames found in {video_name}")
-                continue  # Skip if no frames were read
-
-            # Apply frame sampling
-            if sampling_method == "ssim":
-                frames = ssim_sampling(frames, sequence_length)
-            else:
-                frames = uniform_sampling(frames, sequence_length)
-
-            # Handle short videos
-            if len(frames) < sequence_length:
-                frames = duplicate_frames(frames, sequence_length)
-
-            frames = np.array(frames) / 255.0  # Normalize pixel values
-            data.append(frames)
-            video_names.append(video_name)
-
-        except Exception as e:
-            print(f"Error processing video {video_name}: {str(e)}")
-            continue  # Skip to the next video if there's an error
-
-    # Convert data to numpy array
-    data_array = np.array(data, dtype=np.float32)
-    print(f"Final data shape: {data_array.shape}")
-    return data_array, video_names
 
 # Function to classify videos and return results as JSON
 def classify_and_display(model, data_tensors, video_names):
@@ -105,7 +57,7 @@ def classify_and_display(model, data_tensors, video_names):
         print(f"{label}: {count}")
 
 # Main function
-def main(model_path, video_folder, sampling_method="uniform", sequence_length=30):
+def main(model_path, video_folder=all_config.VIDEO_DIR, sampling_method=all_config.SAMPLING_METHOD, sequence_length=all_config.SEQUENCE_LENGTH):
     # Load the trained model
     print(f"Loading model from {model_path}...")
     model = torch.load(model_path).to(all_config.CONF_DEVICE)
@@ -124,13 +76,16 @@ if __name__ == "__main__":
     # Set up CLI arguments
     parser = argparse.ArgumentParser(description="Classify videos using a trained model.")
     parser.add_argument("--model", required=True, help="Path to the trained model file (e.g., .pth).")
-    parser.add_argument("--videos", required=True, help="Path to the folder containing videos to classify.")
+    parser.add_argument("--videos", help="Path to the folder containing videos to classify.")
     parser.add_argument("--sampling", default="uniform", choices=["uniform", "ssim"], help="Frame sampling method (default: uniform).")
     parser.add_argument("--sequence_length", default=40, type=int, help="Number of frames per video for classification.")
     args = parser.parse_args()
 
+    model_path = os.path.join(all_config.BEST_MODEL_DIR, args.model)
+
     # Run the main function
-    main(args.model, args.videos, args.sampling, args.sequence_length)
+    #main(args.model, args.videos, args.sampling, args.sequence_length)
+    main(model_path, args.videos, args.sampling, args.sequence_length)
 
 
 

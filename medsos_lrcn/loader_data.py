@@ -164,3 +164,58 @@ def load_processed_data():
         class_labels = pickle.load(f)
     print(f"Data loaded from {all_config.PROCESSED_DATA_PATH}")
     return X, y, class_labels
+
+
+def load_dataset_inference(path, sampling_method="uniform", sequence_length=30):
+    data = []
+    video_names = []
+
+    for video_name in os.listdir(path):
+        video_path = os.path.join(path, video_name)
+        if not video_path.endswith('.mp4'):  # Adjust for supported formats
+            continue
+
+        print(f"Processing video: {video_name}")
+        try:
+            cap = cv2.VideoCapture(video_path)
+            if not cap.isOpened():
+                print(f"Warning: Could not open video file {video_name}")
+                continue  # Skip this file if it can't be opened
+            
+            frames = []
+            while True:
+                ret, frame = cap.read()
+                if not ret:
+                    break
+                frame = cv2.resize(frame, (all_config.IMG_HEIGHT, all_config.IMG_WIDTH))
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frames.append(frame)
+
+            cap.release()
+
+            if len(frames) == 0:
+                print(f"Warning: No frames found in {video_name}")
+                continue  # Skip if no frames were read
+
+            # Apply frame sampling
+            if sampling_method == "ssim":
+                frames = ssim_sampling(frames, sequence_length)
+            else:
+                frames = uniform_sampling(frames, sequence_length)
+
+            # Handle short videos
+            if len(frames) < sequence_length:
+                frames = duplicate_frames(frames, sequence_length)
+
+            frames = np.array(frames) / 255.0  # Normalize pixel values
+            data.append(frames)
+            video_names.append(video_name)
+
+        except Exception as e:
+            print(f"Error processing video {video_name}: {str(e)}")
+            continue  # Skip to the next video if there's an error
+
+    # Convert data to numpy array
+    data_array = np.array(data, dtype=np.float32)
+    print(f"Final data shape: {data_array.shape}")
+    return data_array, video_names

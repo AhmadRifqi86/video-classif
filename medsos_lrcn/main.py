@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.optim as optim
 from models import LRCN
 from loader_data import load_dataset, VideoDataset, load_processed_data, save_processed_data
-from train_eval import train_model, evaluate_model
+from train_eval import train_model, evaluate_model, count_parameters
 import all_config
 from torch.utils.data import DataLoader
 from sklearn.model_selection import train_test_split
@@ -93,6 +93,9 @@ def main():
     
     # Select optimizer
     optimizer = optim.Adam(model.parameters(), lr=0.0001)
+
+    num_param = count_parameters(model)
+    print("Param info: ", num_param)
     
     # Train the model
     train_model(

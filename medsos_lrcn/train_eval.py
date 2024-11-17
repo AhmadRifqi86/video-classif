@@ -20,7 +20,7 @@ def train_model(model, train_loader, criterion, optimizer, num_epochs=10,
         for inputs, labels in train_loader:
             inputs, labels = inputs.to(all_config.CONF_DEVICE), labels.to(all_config.CONF_DEVICE)
             optimizer.zero_grad()
-            outputs = model(inputs)
+            outputs = model(inputs)     #this part is done on edge device
             
             if all_config.CONF_CLASSIF_MODE == "multiclass":
                 loss = criterion(outputs, labels)
@@ -36,9 +36,9 @@ def train_model(model, train_loader, criterion, optimizer, num_epochs=10,
                 loss = sum(batch_losses)
                 predictions = (torch.sigmoid(outputs) > 0.5).float()
                 total += labels.numel()
-                correct += (predictions == labels).sum().item()
+                correct += (predictions == labels).sum().item()  #loss calculation also done on edge device
             
-            loss.backward()
+            loss.backward() #this and below done on server
             optimizer.step()
             running_loss += loss.item() * inputs.size(0)
             
@@ -116,3 +116,15 @@ def evaluate_model(model, test_loader, class_names):
         print(f"Test Accuracy: {accuracy:.4f}")
     duration = time.time()-start
     print(f"inference_duration: {duration:.4f}")
+
+
+def count_parameters(model):
+    trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    non_trainable_params = sum(p.numel() for p in model.parameters() if not p.requires_grad)
+    total_params = trainable_params + non_trainable_params
+    
+    return {
+        "Trainable parameters": trainable_params,
+        "Non-trainable parameters": non_trainable_params,
+        "Total parameters": total_params,
+    }

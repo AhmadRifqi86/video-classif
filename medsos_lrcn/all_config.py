@@ -9,11 +9,11 @@ TEST_PATH = '/path/to/test'
 IMG_HEIGHT, IMG_WIDTH = 80, 80 # Image dimensions
 SEQUENCE_LENGTH = 40
 BATCH_SIZE = 8
-HIDDEN_SIZE = 8
-CNN_BACKBONE = "mobilenet_v2"
+HIDDEN_SIZE = 24
+CNN_BACKBONE = "resnet50"
 RNN_INPUT_SIZE = 8
-RNN_LAYER = 4
-RNN_TYPE = "mamba"
+RNN_LAYER = 3
+RNN_TYPE = "lstm"
 SAMPLING_METHOD = "uniform"
 RNN_OUT = "all"
 MAX_VIDEOS = 700
@@ -28,7 +28,7 @@ DATA_FILE = os.path.join(PROCESSED_DATA_PATH, f"X_data_{MAX_VIDEOS}_{SEQUENCE_LE
 LABELS_FILE = os.path.join(PROCESSED_DATA_PATH, f"y_labels_{MAX_VIDEOS}_{SEQUENCE_LENGTH}fr_{SAMPLING_METHOD}.npy")
 CLASSES_FILE = os.path.join(PROCESSED_DATA_PATH, f"class_labels_{MAX_VIDEOS}_{SEQUENCE_LENGTH}fr_{SAMPLING_METHOD}.pkl")
 
-#MODEL_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth'
+#automation, deployment, data collection
 CONFIG_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/all_config.py'
 SOURCE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/main.py'
 LOG_FILE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/medsos_log.txt'
@@ -36,6 +36,7 @@ BEST_MODEL_DIR = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/best_models_medsos
 TEST_RUNS = 3  # Number of times to test each configuration
 CHECKPOINT_FILE = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/medsos_checkpoint.json'  # File to track best results
 SLEEP = 60
+VIDEO_DIR = '/home/arifadh/Downloads/tiktok_videos'
 
 # Transfer configuration to variables
 CONF_SEQUENCE_LENGTH = SEQUENCE_LENGTH
