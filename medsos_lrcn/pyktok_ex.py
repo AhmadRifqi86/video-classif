@@ -1,10 +1,12 @@
 import pyktok as pyk
 from playwright.sync_api import sync_playwright
 import time
+import all_config
 import browser_cookie3
 
 
 pyk.specify_browser('firefox')
+print(pyk.__file__)
 
 def load_cookies(page):
     cookies = browser_cookie3.firefox(domain_name="tiktok.com")
@@ -79,5 +81,5 @@ print("Extracted Video Links:")
 for link in video_links:
     print(link)
 
-# pyk.save_tiktok_multi_urls(video_links,True,'tiktok.csv',1)
-#pyk.save_tiktok_multi_page('.aicu',ent_type='user',save_video=False,metadata_fn='tiktok.csv')
+pyk.save_tiktok_multi_urls(video_links[:5],True,'tiktok.csv',1,save_dir=all_config.VIDEO_DIR)
+#pyk.save_tiktok_multi_page('.aicu',ent_type='user',save_video=False,metadata_fn='tiktok.csv',save_dir=all_config.VIDEO_DIR)
