@@ -8,8 +8,9 @@ from datetime import datetime
 from loader_data import load_dataset_inference
 from collections import Counter
 from torchvision import transforms
-from loader_data import uniform_sampling, ssim_sampling, duplicate_frames  # Replace `some_module` with the actual module name
-import json
+import re
+import requests
+import loader_data
 
 LABEL_MAPPING = {
     0: "Harmful",
@@ -56,6 +57,35 @@ def classify_and_display(model, data_tensors, video_names):
     for label, count in label_counter.items():
         print(f"{label}: {count}")
 
+    return results
+
+def post_results_to_backend(results):
+    for result in results:
+        video_name = result["video_name"]
+        label = result["label"]
+        
+        # Construct URL from video_name
+        video_url = loader_data.construct_url(video_name)
+        if not video_url:
+            print(f"Failed to construct URL for {video_name}")
+            continue
+        
+        # Prepare payload
+        payload = {
+            "url": video_url,
+            "labels": label
+        }
+        
+        # Send POST request, send one url at a time
+        try:
+            response = requests.post(all_config.BACKEND_URL, json=payload)
+            if response.status_code in [200,201]:
+                print(f"Successfully sent classification result to backend for {video_name}")
+            else:
+                print(f"Failed to send classification result for {video_name}. HTTP {response.status_code}: {response.text}")
+        except Exception as e:
+            print(f"Error sending result to backend for {video_name}: {e}")
+
 # Main function
 def main(model_path, video_folder=all_config.VIDEO_DIR, sampling_method=all_config.SAMPLING_METHOD, sequence_length=all_config.SEQUENCE_LENGTH):
     # Load the trained model
@@ -70,7 +100,8 @@ def main(model_path, video_folder=all_config.VIDEO_DIR, sampling_method=all_conf
     data_tensors = [torch.tensor(video).permute(0, 3, 1, 2).float().to(all_config.CONF_DEVICE) for video in data]
 
     # Classify videos and display results as JSON
-    classify_and_display(model, data_tensors, video_names)
+    result = classify_and_display(model, data_tensors, video_names)
+    post_results_to_backend(result)
 
 if __name__ == "__main__":
     # Set up CLI arguments
@@ -85,7 +116,7 @@ if __name__ == "__main__":
 
     # Run the main function
     #main(args.model, args.videos, args.sampling, args.sequence_length)
-    main(model_path, args.videos, args.sampling, args.sequence_length)
+    main(model_path, all_config.VIDEO_DIR, args.sampling, args.sequence_length)
 
 
 

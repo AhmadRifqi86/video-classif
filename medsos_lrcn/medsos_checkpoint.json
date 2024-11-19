@@ -14390,5 +14390,1019 @@
             "inference duration": 6.1972
         },
         "best_model_filename": "best_model_seq40_batch16_hidden24_cnnresnet50_rnn8_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7163.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 24,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7306,
+            "precision": 0.7301,
+            "recall": 0.7282,
+            "f1_score": 0.7274,
+            "training duration": 207.9503,
+            "inference duration": 6.2185
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden24_cnnresnet50_rnn8_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7274.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 24,
+            "RNN_INPUT_SIZE": 32,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7577,
+            "precision": 0.7568,
+            "recall": 0.7557,
+            "f1_score": 0.756,
+            "training duration": 206.0212,
+            "inference duration": 6.2225
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden24_cnnresnet50_rnn32_layer2_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7560.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 24,
+            "RNN_INPUT_SIZE": 32,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7649,
+            "precision": 0.7655,
+            "recall": 0.7617,
+            "f1_score": 0.7626,
+            "training duration": 207.0387,
+            "inference duration": 6.2402
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden24_cnnresnet50_rnn32_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7626.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 24,
+            "RNN_INPUT_SIZE": 32,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7523,
+            "precision": 0.7532,
+            "recall": 0.7491,
+            "f1_score": 0.7491,
+            "training duration": 207.573,
+            "inference duration": 6.2744
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden24_cnnresnet50_rnn32_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7491.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 32,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7523,
+            "precision": 0.7543,
+            "recall": 0.7515,
+            "f1_score": 0.7507,
+            "training duration": 206.532,
+            "inference duration": 6.2252
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden32_cnnresnet50_rnn16_layer2_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7507.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 32,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7541,
+            "precision": 0.7552,
+            "recall": 0.75,
+            "f1_score": 0.7509,
+            "training duration": 206.9695,
+            "inference duration": 6.2312
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden32_cnnresnet50_rnn16_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7509.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 32,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7505,
+            "precision": 0.7499,
+            "recall": 0.7499,
+            "f1_score": 0.7489,
+            "training duration": 207.5258,
+            "inference duration": 6.2191
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden32_cnnresnet50_rnn16_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7489.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 32,
+            "RNN_INPUT_SIZE": 24,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7523,
+            "precision": 0.7526,
+            "recall": 0.7487,
+            "f1_score": 0.7492,
+            "training duration": 206.1283,
+            "inference duration": 6.2143
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden32_cnnresnet50_rnn24_layer2_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7492.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 32,
+            "RNN_INPUT_SIZE": 24,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.745,
+            "precision": 0.7459,
+            "recall": 0.7431,
+            "f1_score": 0.7434,
+            "training duration": 206.8817,
+            "inference duration": 6.221
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden32_cnnresnet50_rnn24_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7434.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 32,
+            "RNN_INPUT_SIZE": 24,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7541,
+            "precision": 0.7527,
+            "recall": 0.7518,
+            "f1_score": 0.7511,
+            "training duration": 207.4435,
+            "inference duration": 6.2052
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden32_cnnresnet50_rnn24_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7511.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 32,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7667,
+            "precision": 0.7672,
+            "recall": 0.7637,
+            "f1_score": 0.7636,
+            "training duration": 206.3042,
+            "inference duration": 6.2154
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden32_cnnresnet50_rnn8_layer2_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7636.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 32,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7577,
+            "precision": 0.7618,
+            "recall": 0.7552,
+            "f1_score": 0.7546,
+            "training duration": 206.9878,
+            "inference duration": 6.207
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden32_cnnresnet50_rnn8_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7546.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 32,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7288,
+            "precision": 0.7381,
+            "recall": 0.7262,
+            "f1_score": 0.7283,
+            "training duration": 206.8267,
+            "inference duration": 6.2117
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden32_cnnresnet50_rnn8_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7283.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 32,
+            "RNN_INPUT_SIZE": 32,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7505,
+            "precision": 0.75,
+            "recall": 0.7476,
+            "f1_score": 0.7473,
+            "training duration": 206.4811,
+            "inference duration": 6.2254
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden32_cnnresnet50_rnn32_layer2_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7473.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 32,
+            "RNN_INPUT_SIZE": 32,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7577,
+            "precision": 0.7579,
+            "recall": 0.7546,
+            "f1_score": 0.7548,
+            "training duration": 207.1734,
+            "inference duration": 6.2214
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden32_cnnresnet50_rnn32_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7548.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 32,
+            "RNN_INPUT_SIZE": 32,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7486,
+            "precision": 0.7468,
+            "recall": 0.7453,
+            "f1_score": 0.7454,
+            "training duration": 206.3041,
+            "inference duration": 6.1935
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden32_cnnresnet50_rnn32_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7454.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 8,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.745,
+            "precision": 0.7496,
+            "recall": 0.744,
+            "f1_score": 0.7426,
+            "training duration": 87.8791,
+            "inference duration": 2.2408
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden8_cnnmobilenet_v2_rnn16_layer2_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7426.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 8,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7396,
+            "precision": 0.7422,
+            "recall": 0.7396,
+            "f1_score": 0.7401,
+            "training duration": 90.6948,
+            "inference duration": 2.2587
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden8_cnnmobilenet_v2_rnn16_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7401.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 8,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7269,
+            "precision": 0.7309,
+            "recall": 0.7243,
+            "f1_score": 0.7252,
+            "training duration": 87.7447,
+            "inference duration": 2.2813
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden8_cnnmobilenet_v2_rnn16_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7252.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 8,
+            "RNN_INPUT_SIZE": 24,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7577,
+            "precision": 0.7568,
+            "recall": 0.7564,
+            "f1_score": 0.7558,
+            "training duration": 85.5369,
+            "inference duration": 2.1291
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden8_cnnmobilenet_v2_rnn24_layer2_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7558.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 8,
+            "RNN_INPUT_SIZE": 24,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7378,
+            "precision": 0.7448,
+            "recall": 0.7334,
+            "f1_score": 0.7344,
+            "training duration": 85.8642,
+            "inference duration": 2.1446
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden8_cnnmobilenet_v2_rnn24_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7344.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 8,
+            "RNN_INPUT_SIZE": 24,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7378,
+            "precision": 0.7457,
+            "recall": 0.735,
+            "f1_score": 0.734,
+            "training duration": 90.1967,
+            "inference duration": 2.2368
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden8_cnnmobilenet_v2_rnn24_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7340.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 8,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7486,
+            "precision": 0.7499,
+            "recall": 0.7453,
+            "f1_score": 0.7451,
+            "training duration": 87.8841,
+            "inference duration": 2.1432
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden8_cnnmobilenet_v2_rnn8_layer2_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7451.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 8,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7559,
+            "precision": 0.7579,
+            "recall": 0.7524,
+            "f1_score": 0.7525,
+            "training duration": 95.6072,
+            "inference duration": 2.1864
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden8_cnnmobilenet_v2_rnn8_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7525.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 8,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.698,
+            "precision": 0.7222,
+            "recall": 0.6958,
+            "f1_score": 0.6981,
+            "training duration": 96.5308,
+            "inference duration": 2.4032
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden8_cnnmobilenet_v2_rnn8_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.6981.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 8,
+            "RNN_INPUT_SIZE": 32,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7523,
+            "precision": 0.7505,
+            "recall": 0.7501,
+            "f1_score": 0.7501,
+            "training duration": 85.5776,
+            "inference duration": 2.1954
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden8_cnnmobilenet_v2_rnn32_layer2_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7501.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 8,
+            "RNN_INPUT_SIZE": 32,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7559,
+            "precision": 0.7565,
+            "recall": 0.755,
+            "f1_score": 0.7535,
+            "training duration": 87.7872,
+            "inference duration": 2.1349
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden8_cnnmobilenet_v2_rnn32_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7535.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 8,
+            "RNN_INPUT_SIZE": 32,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7342,
+            "precision": 0.7335,
+            "recall": 0.7321,
+            "f1_score": 0.7325,
+            "training duration": 87.6477,
+            "inference duration": 2.1341
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden8_cnnmobilenet_v2_rnn32_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7325.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 16,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7414,
+            "precision": 0.7599,
+            "recall": 0.7406,
+            "f1_score": 0.7393,
+            "training duration": 83.6931,
+            "inference duration": 2.1333
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden16_cnnmobilenet_v2_rnn16_layer2_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7393.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 16,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7396,
+            "precision": 0.7464,
+            "recall": 0.7385,
+            "f1_score": 0.7376,
+            "training duration": 86.6003,
+            "inference duration": 2.2269
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden16_cnnmobilenet_v2_rnn16_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7376.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 16,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7595,
+            "precision": 0.7632,
+            "recall": 0.7556,
+            "f1_score": 0.7564,
+            "training duration": 90.1812,
+            "inference duration": 2.2592
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden16_cnnmobilenet_v2_rnn16_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7564.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 16,
+            "RNN_INPUT_SIZE": 24,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7559,
+            "precision": 0.7635,
+            "recall": 0.7502,
+            "f1_score": 0.751,
+            "training duration": 85.5813,
+            "inference duration": 2.191
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden16_cnnmobilenet_v2_rnn24_layer2_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7510.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 16,
+            "RNN_INPUT_SIZE": 24,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7541,
+            "precision": 0.7616,
+            "recall": 0.7524,
+            "f1_score": 0.7519,
+            "training duration": 85.8422,
+            "inference duration": 2.1433
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden16_cnnmobilenet_v2_rnn24_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7519.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 16,
+            "RNN_INPUT_SIZE": 24,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7505,
+            "precision": 0.7484,
+            "recall": 0.748,
+            "f1_score": 0.7481,
+            "training duration": 88.1112,
+            "inference duration": 2.2414
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden16_cnnmobilenet_v2_rnn24_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7481.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 16,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7595,
+            "precision": 0.7585,
+            "recall": 0.7573,
+            "f1_score": 0.7569,
+            "training duration": 87.0018,
+            "inference duration": 2.1578
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden16_cnnmobilenet_v2_rnn8_layer2_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7569.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 16,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7432,
+            "precision": 0.7467,
+            "recall": 0.7433,
+            "f1_score": 0.7402,
+            "training duration": 87.0118,
+            "inference duration": 2.1357
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden16_cnnmobilenet_v2_rnn8_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7402.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 16,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.745,
+            "precision": 0.7668,
+            "recall": 0.7379,
+            "f1_score": 0.7366,
+            "training duration": 90.4334,
+            "inference duration": 2.4171
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden16_cnnmobilenet_v2_rnn8_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7366.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 16,
+            "RNN_INPUT_SIZE": 32,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7577,
+            "precision": 0.7587,
+            "recall": 0.7555,
+            "f1_score": 0.7548,
+            "training duration": 82.9386,
+            "inference duration": 2.1232
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden16_cnnmobilenet_v2_rnn32_layer2_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7548.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 8,
+            "HIDDEN_SIZE": 16,
+            "RNN_INPUT_SIZE": 32,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7559,
+            "precision": 0.7553,
+            "recall": 0.7556,
+            "f1_score": 0.7536,
+            "training duration": 89.4917,
+            "inference duration": 2.3559
+        },
+        "best_model_filename": "best_model_seq40_batch8_hidden16_cnnmobilenet_v2_rnn32_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7536.pth"
     }
 ]

@@ -6,6 +6,8 @@ import pickle
 import all_config
 from skimage.metrics import structural_similarity as ssim
 from torch.utils.data import Dataset
+import json
+import re
 
 def compute_ssim(img1, img2):
     """Compute SSIM between two images."""
@@ -219,3 +221,33 @@ def load_dataset_inference(path, sampling_method="uniform", sequence_length=30):
     data_array = np.array(data, dtype=np.float32)
     print(f"Final data shape: {data_array.shape}")
     return data_array, video_names
+
+
+def load_checkpoint():
+    if os.path.exists(all_config.CHECKPOINT_FILE):
+        with open(all_config.CHECKPOINT_FILE, 'r') as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                print("Error loading checkpoint. Invalid JSON format.")
+                return []
+    return []
+
+def save_checkpoint(best_results):
+    with open(all_config.CHECKPOINT_FILE, 'w') as f:
+        json.dump(best_results, f, indent=4)
+
+def serialize_document(document):
+    if document is None:
+        return None
+    document["_id"] = str(document["_id"])  # Convert ObjectId to string
+    return document
+
+def construct_url(video_name):
+    pattern = r"(?P<username>@.+?)_video_(?P<video_id>\d+)"
+    match = re.match(pattern, video_name)
+    if match:
+        username = match.group("username")
+        video_id = match.group("video_id")
+        return f"https://www.tiktok.com/{username}/video/{video_id}"
+    return None

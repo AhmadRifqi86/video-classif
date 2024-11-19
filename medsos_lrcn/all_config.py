@@ -8,11 +8,11 @@ PROCESSED_DATA_PATH = "/home/arifadh/Desktop/Skripsi-Magang-Proyek/temporary"
 TEST_PATH = '/path/to/test'
 IMG_HEIGHT, IMG_WIDTH = 80, 80 # Image dimensions
 SEQUENCE_LENGTH = 40
-BATCH_SIZE = 16
-HIDDEN_SIZE = 24
-CNN_BACKBONE = "resnet50"
-RNN_INPUT_SIZE = 8
-RNN_LAYER = 4
+BATCH_SIZE = 8
+HIDDEN_SIZE = 16
+CNN_BACKBONE = "mobilenet_v2"
+RNN_INPUT_SIZE = 32
+RNN_LAYER = 3
 RNN_TYPE = "lstm"
 SAMPLING_METHOD = "uniform"
 RNN_OUT = "all"
@@ -30,13 +30,17 @@ CLASSES_FILE = os.path.join(PROCESSED_DATA_PATH, f"class_labels_{MAX_VIDEOS}_{SE
 
 #automation, deployment, data collection
 CONFIG_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/all_config.py'
-SOURCE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/main.py'
+SOURCE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/main.py'  #ini nanti ganti nama 
 LOG_FILE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/medsos_log.txt'
 BEST_MODEL_DIR = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/best_models_medsos/'
 TEST_RUNS = 3  # Number of times to test each configuration
 CHECKPOINT_FILE = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/medsos_checkpoint.json'  # File to track best results
 SLEEP = 60
 VIDEO_DIR = '/home/arifadh/Downloads/tiktok_videos/'
+BACKEND_URL = "http://localhost:5000/classify"
+MONGO_URI = "mongodb://localhost:27017/"
+DATABASE_NAME = "video_classification"
+COLLECTION_NAME = "classification_results"
 
 # Transfer configuration to variables
 CONF_SEQUENCE_LENGTH = SEQUENCE_LENGTH
