@@ -162,8 +162,11 @@ class LRCN(nn.Module):
 
         # Adaptation layer
         self.adapt1 = nn.Linear(cnn_out_size, cnn_out_size//2)
+        self.bn1 = nn.BatchNorm1d(cnn_out_size//2)
         self.adapt2 = nn.Linear(cnn_out_size//2, cnn_out_size//4)
+        self.bn2 = nn.BatchNorm1d(cnn_out_size//4)
         self.adapt3 = nn.Linear(cnn_out_size//4, rnn_input_size)
+        self.bn3 = nn.BatchNorm1d(rnn_input_size)
         self.drop1 = nn.Dropout(p = all_config.CONF_DROPOUT)
         # RNN layer
         if rnn_type == "lstm":
@@ -202,10 +205,20 @@ class LRCN(nn.Module):
         x = x.view(batch_size * seq_len, c, h, w)
         x = self.cnn_backbone(x)
         x = x.view(batch_size, seq_len, -1)
-        x = self.adapt1(x)
-        x = self.adapt2(x)
-        x = self.adapt3(x)
-
+        x = self.adapt3(self.adapt2(self.adapt1(x)))
+        # x = self.adapt1(x)
+        # x = x.permute(0,2,1)
+        # x = self.bn1(x)
+        # x = x.permute(0,2,1)
+        # x = self.adapt2(x)
+        # x = x.permute(0,2,1)
+        # x = self.bn2(x)
+        # x = x.permute(0,2,1)
+        # x = self.adapt3(x)
+        # x = x.permute(0,2,1)
+        # x = self.bn3(x)
+        # x = x.permute(0,2,1)
+        # x = self.drop1(x)
         # Process through RNN
         if self.rnn_type == "mamba":
             for layer in self.rnn:

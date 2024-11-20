@@ -23,13 +23,17 @@ def print_usage():
     print("usage: ")
     print("python3 deployment.py --model [MODEL PATH] --videos [VIDEO DIR]")
 
-
 # Function to classify videos and return results as JSON
 def classify_and_display(model, data_tensors, video_names):
     results = []
     label_counter = Counter()  # Counter to track label occurrences
     
     for idx, video_tensor in enumerate(data_tensors):
+        #check is classified or not
+        # if is_url_classified(video_names[idx]):
+        #     continue
+
+        #classify the video using model
         video_tensor = video_tensor.unsqueeze(0)  # Add batch dimension
         with torch.no_grad():
             output = model(video_tensor)
@@ -59,7 +63,7 @@ def classify_and_display(model, data_tensors, video_names):
 
     return results
 
-def post_results_to_backend(results):
+def post_results(results):
     for result in results:
         video_name = result["video_name"]
         label = result["label"]
@@ -86,6 +90,26 @@ def post_results_to_backend(results):
         except Exception as e:
             print(f"Error sending result to backend for {video_name}: {e}")
 
+def is_url_classified(video_url):
+    # video_url = loader_data.construct_url(video_url)
+    # print("checker, video_url: ",video_url)
+    try:
+        response = requests.get(all_config.BACKEND_CHECKER, params={"url": video_url})
+        if response.status_code == 200:
+            data = response.json()
+            if "url" in data and "labels" in data:
+                print(f"URL {video_url} is already classified with label: {data['labels']}")
+                return True
+            else:
+                print(f"URL {video_url} is not classified yet.")
+                return False
+        else:
+            print(f"Failed to check classification status for {video_url}. HTTP {response.status_code}: {response.text}")
+            return False
+    except Exception as e:
+        print(f"Error checking classification status for {video_url}: {e}")
+        return False
+
 # Main function
 def main(model_path, video_folder=all_config.VIDEO_DIR, sampling_method=all_config.SAMPLING_METHOD, sequence_length=all_config.SEQUENCE_LENGTH):
     # Load the trained model
@@ -101,7 +125,7 @@ def main(model_path, video_folder=all_config.VIDEO_DIR, sampling_method=all_conf
 
     # Classify videos and display results as JSON
     result = classify_and_display(model, data_tensors, video_names)
-    post_results_to_backend(result)
+    post_results(result)
 
 if __name__ == "__main__":
     # Set up CLI arguments
@@ -121,5 +145,5 @@ if __name__ == "__main__":
 
 
 #python3 deployment.py 
-# --model /home/arifadh/Desktop/Skripsi-Magang-Proyek/best_models_medsos/best_model_seq40_batch16_hidden32_cnnresnet34_rnn16_layer2_rnnTypemamba_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7453.pth 
+# --model best_model_seq40_batch16_hidden32_cnnresnet34_rnn16_layer2_rnnTypemamba_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7453.pth 
 # --videos /home/arifadh/Desktop/Dataset/tikHarm/Dataset/test/Adult/

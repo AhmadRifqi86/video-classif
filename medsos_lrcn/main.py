@@ -3,13 +3,50 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from models import LRCN
-from loader_data import load_dataset, VideoDataset, load_processed_data, save_processed_data
+from loader_data import load_dataset, VideoDataset, load_processed_data, save_processed_data, save_sampled_data
 from train_eval import train_model, evaluate_model, count_parameters
 import all_config
 from torch.utils.data import DataLoader
-from sklearn.model_selection import train_test_split
+from torch.utils.data.sampler import SubsetRandomSampler
 from sklearn.utils.class_weight import compute_class_weight
+import h5py
 import numpy as np
+
+def compute_dataset_class_weights(dataset, indices, num_classes, task_type="multiclass"):
+    """
+    Compute class weights for the dataset using the training indices
+    """
+    # Load all labels for the training set
+    train_labels = []
+    for idx in indices:
+        _, label = dataset[idx]
+        train_labels.append(label.numpy())
+    train_labels = np.array(train_labels)
+    
+    if task_type == "multiclass":
+        # Compute weights for multiclass classification
+        class_weights = compute_class_weight(
+            class_weight='balanced',
+            classes=np.arange(num_classes),  # Use all possible classes
+            y=train_labels
+        )
+        return nn.CrossEntropyLoss(
+            weight=torch.tensor(class_weights, dtype=torch.float).to(all_config.CONF_DEVICE)
+        )
+    else:
+        # Compute weights for multiple binary classification
+        criterion_list = []
+        for i in range(num_classes):
+            binary_labels = train_labels[:, i]
+            class_weights = compute_class_weight(
+                class_weight='balanced',
+                classes=np.array([0, 1]),
+                y=binary_labels
+            )
+            pos_weight = torch.tensor([class_weights[1]/class_weights[0]]).to(all_config.CONF_DEVICE)
+            criterion_list.append(nn.BCEWithLogitsLoss(pos_weight=pos_weight))
+        return criterion_list
+    
 
 def main():
     print("Train Config: ")
@@ -25,79 +62,94 @@ def main():
     print(f"Max_Videos:      {all_config.CONF_MAX_VIDEOS}") 
     print(f"Epoch:           {all_config.CONF_EPOCH}")
     print(f"Classif_Mode:    {all_config.CONF_CLASSIF_MODE}")
-    
-    # Set device
-    # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    # print(f"Using device: {device}")
-    print(f"{all_config.DATA_FILE},{all_config.LABELS_FILE},{all_config.CLASSES_FILE}")
-    # Load and prepare data
-    if os.path.exists(all_config.DATA_FILE) and os.path.exists(all_config.LABELS_FILE) and os.path.exists(all_config.CLASSES_FILE):
-        print("Processed data found. Loading data...")
-        X, y, class_labels = load_processed_data()
+
+    if os.path.exists(all_config.DATA_FILE) and os.path.exists(all_config.CLASSES_FILE):
+        print("Processed data found. Loading class labels...")
+        class_labels = np.load(all_config.CLASSES_FILE)
     else:
         print("No processed data found. Loading and processing raw dataset...")
-        X, y, class_labels = load_dataset(
+        load_dataset(
             all_config.DATASET_PATH, 
             max_videos_per_class=all_config.CONF_MAX_VIDEOS,
-            task_type=all_config.CONF_CLASSIF_MODE,
-            sampling_method=all_config.CONF_SAMPLING_METHOD
+            batch = all_config.BATCH_SIZE,
+            task_type=all_config.CONF_CLASSIF_MODE
         )
-        save_processed_data(X, y, class_labels)
     
-    # Split data into train and test sets
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42
+    # Get total dataset size from HDF5 file
+    with h5py.File(all_config.DATA_FILE, 'r') as hf:
+        total_samples = len(hf['videos'])
+    
+    # Calculate split indices
+    print("splitting")
+    train_size = int(0.8 * total_samples)
+    indices = np.random.permutation(total_samples)
+    train_indices = indices[:train_size]
+    test_indices = indices[train_size:]
+    
+    # Create train and test datasets using indices
+    print("load train")
+    train_dataset = VideoDataset(
+        all_config.DATA_FILE,
+        all_config.DATA_FILE,  # Same file contains both videos and labels
+        task_type=all_config.CONF_CLASSIF_MODE
     )
     
-    # Compute class weights for balanced learning
-    if all_config.CONF_CLASSIF_MODE == "multiclass":
-        class_weights = compute_class_weight(class_weight='balanced', classes=np.unique(y_train), y=y_train)
-        class_weights_tensor = torch.tensor(class_weights, dtype=torch.float).to(all_config.CONF_DEVICE)
-        criterion = nn.CrossEntropyLoss(weight=class_weights_tensor)
-    else:  # multiple_binary
-        class_weights_list = []
-        for i in range(len(class_labels)):
-            # Compute weights for each binary class
-            class_weights = compute_class_weight(class_weight='balanced', classes=np.array([0, 1]), y=y_train[:, i])
-            pos_weight = torch.tensor([class_weights[1]/class_weights[0]]).to(all_config.CONF_DEVICE)
-            class_weights_list.append(nn.BCEWithLogitsLoss(pos_weight=pos_weight))
-        criterion = class_weights_list
+    print("load test")
+    test_dataset = VideoDataset(
+        all_config.DATA_FILE,
+        all_config.DATA_FILE,  # Same file contains both videos and labels
+        task_type=all_config.CONF_CLASSIF_MODE
+    )
     
-    # Prepare datasets and dataloaders
-    train_dataset = VideoDataset(X_train, y_train)
-    test_dataset = VideoDataset(X_test, y_test)
+    # Create data loaders with samplers for the splits
+    print("randomize")
+    train_sampler = SubsetRandomSampler(train_indices)
+    test_sampler = SubsetRandomSampler(test_indices)
     
+    print("Dataloader train")
     train_loader = DataLoader(
         train_dataset, 
-        batch_size=all_config.CONF_BATCH_SIZE, 
-        shuffle=True
-    )
-    test_loader = DataLoader(
-        test_dataset, 
-        batch_size=all_config.CONF_BATCH_SIZE, 
-        shuffle=False
+        batch_size=all_config.CONF_BATCH_SIZE,
+        sampler=train_sampler,
+        num_workers=4,
+        pin_memory=True
     )
     
-    # Initialize model
+    print("Dataloader test")
+    test_loader = DataLoader(
+        test_dataset, 
+        batch_size=all_config.CONF_BATCH_SIZE,
+        sampler=test_sampler,
+        num_workers=4,
+        pin_memory=True
+    )
+    
+    print("creating model")
+     # Initialize model
     model = LRCN(
         num_classes=len(class_labels), 
         sequence_length=all_config.CONF_SEQUENCE_LENGTH, 
         hidden_size=all_config.CONF_HIDDEN_SIZE, 
         rnn_input_size=all_config.CONF_RNN_INPUT_SIZE
     ).to(all_config.CONF_DEVICE)
+
+    print("creating criterion")
+    criterion = compute_dataset_class_weights(
+        dataset=train_dataset,
+        indices=train_indices,
+        num_classes=len(class_labels),
+        task_type=all_config.CONF_CLASSIF_MODE
+    )
     
-    # Freeze CNN backbone if not fine-tuning
-    # if not CONF_FINETUNE:
-    #     for param in model.cnn_backbone.parameters():
-    #         param.requires_grad = False
     
     # Select optimizer
+    print("creating optimizer and display param count")
     optimizer = optim.Adam(model.parameters(), lr=0.0001)
-
     num_param = count_parameters(model)
     print("Param info: ", num_param)
-    
+
     # Train the model
+    print("start training")
     train_model(
         model, 
         train_loader, 
@@ -107,6 +159,7 @@ def main():
     )
     
     # Evaluate the model
+    print("evaluate")
     evaluate_model(model, test_loader, class_labels)
 
 if __name__ == "__main__":

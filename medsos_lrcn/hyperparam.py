@@ -23,7 +23,6 @@ CONFIG = {
     "RNN_OUT": ["all"],
     "MAX_VIDEOS": [700],
     "CLASSIF_MODE": ["multiclass"],
-
 }
 
 # Ensure directories exist
@@ -102,7 +101,7 @@ def genetic_algorithm(configs):
 # Main function to choose the strategy
 if __name__ == "__main__":
     best_results = loader_data.load_checkpoint()
-    strategy = "genetic"
+    strategy = "bayesian"
     if strategy == "grid":
         grid_search(CONFIG)
     elif strategy == "bayesian":

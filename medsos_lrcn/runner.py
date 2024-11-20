@@ -52,7 +52,7 @@ def run_training(config, test_runs, best_results):
             continue
 
         # Save the best model
-        if best_f1 is None or f1 > best_f1:
+        if best_f1 is None or (f1 > best_f1 and f1 > 0.73):
             best_f1 = f1
             best_model_filename = (
                 f"best_model_seq{config['SEQUENCE_LENGTH']}_batch{config['BATCH_SIZE']}_hidden{config['HIDDEN_SIZE']}_"
