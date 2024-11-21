@@ -17276,5 +17276,31 @@
             "inference duration": 2.6486
         },
         "best_model_filename": "best_model_seq40_batch16_hidden32_cnnmobilenet_v2_rnn32_layer3_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7500.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 40,
+            "RNN_TYPE": "lstm",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 32,
+            "RNN_INPUT_SIZE": 32,
+            "RNN_LAYER": 4,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 700,
+            "FINETUNE": true,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7571,
+            "precision": 0.7585,
+            "recall": 0.7565,
+            "f1_score": 0.7538,
+            "training duration": 92.9801,
+            "inference duration": 2.5841
+        },
+        "best_model_filename": "best_model_seq40_batch16_hidden32_cnnmobilenet_v2_rnn32_layer4_rnnTypelstm_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7538.pth"
     }
 ]

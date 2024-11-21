@@ -89,7 +89,7 @@ def main():
     print("vid links after filtered: ",vid_links)
     #filter check
 
-    pyk.save_tiktok_multi_urls(vid_links,True,'tiktok.csv',1,save_dir=all_config.VIDEO_DIR)
+    pyk.save_tiktok_multi_urls(vid_links,True,'',1,save_dir=all_config.VIDEO_DIR)
 
 
 if __name__ == "__main__":
