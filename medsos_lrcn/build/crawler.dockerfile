@@ -29,11 +29,13 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copy the Python script and all required files into the container
-COPY . /app
+COPY skripsi/medsos_lrcn/src/crawler.py /app
+COPY skripsi/medsos_lrcn/src/all_config.py /app
+COPY skripsi/medsos_lrcn/build/crawler_req.txt /app
 
 # Install Python dependencies
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install -r skripsi/medsos_lrcn/build/crawler_req.txt
 
 # Ensure Playwright dependencies are installed
 RUN playwright install --with-deps firefox

@@ -1,14 +1,17 @@
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
-import all_config
 
 
 app = Flask(__name__)
 
 # MongoDB Setup
-MONGO_URI = all_config.MONGO_URI
-DATABASE_NAME = all_config.DATABASE_NAME
-COLLECTION_NAME = all_config.COLLECTION_NAME
+# MONGO_URI = all_config.MONGO_URI
+# DATABASE_NAME = all_config.DATABASE_NAME
+# COLLECTION_NAME = all_config.COLLECTION_NAME
+
+MONGO_URI = "mongodb://localhost:27017/"
+DATABASE_NAME = "video_classification"
+COLLECTION_NAME = "classification_results"
 
 client = MongoClient(MONGO_URI)
 db = client[DATABASE_NAME]
@@ -59,4 +62,4 @@ def get_classification():
 
 # Run the Flask App
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)

@@ -1,14 +1,10 @@
 import os
 import torch
-import cv2
-import numpy as np
 import argparse
 import all_config
 from datetime import datetime
 from loader_data import load_dataset_inference
 from collections import Counter
-from torchvision import transforms
-import re
 import requests
 import loader_data
 
@@ -23,6 +19,26 @@ def print_usage():
     print("usage: ")
     print("python3 deployment.py --model [MODEL PATH] --videos [VIDEO DIR]")
 
+def is_url_classified(video_url):
+    video_url = loader_data.construct_url(video_url)
+    # print("checker, video_url: ",video_url)
+    try:
+        response = requests.get(all_config.BACKEND_CHECKER, params={"url": video_url})
+        if response.status_code == 200:
+            data = response.json()
+            if "url" in data and "labels" in data:
+                print(f"URL {video_url} is already classified with label: {data['labels']}")
+                return True
+            else:
+                print(f"URL {video_url} is not classified yet.")
+                return False
+        else:
+            print(f"Failed to check classification status for {video_url}. HTTP {response.status_code}: {response.text}")
+            return False
+    except Exception as e:
+        print(f"Error checking classification status for {video_url}: {e}")
+        return False
+
 # Function to classify videos and return results as JSON
 def classify_and_display(model, data_tensors, video_names):
     results = []
@@ -30,8 +46,8 @@ def classify_and_display(model, data_tensors, video_names):
     
     for idx, video_tensor in enumerate(data_tensors):
         #check is classified or not
-        # if is_url_classified(video_names[idx]):
-        #     continue
+        if is_url_classified(video_names[idx]):
+            continue
 
         #classify the video using model
         video_tensor = video_tensor.unsqueeze(0)  # Add batch dimension
@@ -90,26 +106,6 @@ def post_results(results):
         except Exception as e:
             print(f"Error sending result to backend for {video_name}: {e}")
 
-def is_url_classified(video_url):
-    # video_url = loader_data.construct_url(video_url)
-    # print("checker, video_url: ",video_url)
-    try:
-        response = requests.get(all_config.BACKEND_CHECKER, params={"url": video_url})
-        if response.status_code == 200:
-            data = response.json()
-            if "url" in data and "labels" in data:
-                print(f"URL {video_url} is already classified with label: {data['labels']}")
-                return True
-            else:
-                print(f"URL {video_url} is not classified yet.")
-                return False
-        else:
-            print(f"Failed to check classification status for {video_url}. HTTP {response.status_code}: {response.text}")
-            return False
-    except Exception as e:
-        print(f"Error checking classification status for {video_url}: {e}")
-        return False
-
 # Main function
 def main(model_path, video_folder=all_config.VIDEO_DIR, sampling_method=all_config.SAMPLING_METHOD, sequence_length=all_config.SEQUENCE_LENGTH):
     # Load the trained model
@@ -139,8 +135,8 @@ if __name__ == "__main__":
     model_path = os.path.join(all_config.BEST_MODEL_DIR, args.model)
 
     # Run the main function
-    #main(args.model, args.videos, args.sampling, args.sequence_length)
-    main(model_path, all_config.VIDEO_DIR, args.sampling, args.sequence_length)
+    main(args.model, args.videos, args.sampling, args.sequence_length)
+    #main(model_path, all_config.VIDEO_DIR, args.sampling, args.sequence_length)
 
 
 

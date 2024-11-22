@@ -1,13 +1,33 @@
 import pyktok as pyk
 from playwright.sync_api import sync_playwright
 import time
-import all_config
 import browser_cookie3
-import deployment
+import requests
 
-
+BACKEND_CHECKER = 'http://localhost:5000/video_labels'
+VIDEO_DIR = '/home/arifadh/Downloads/tiktok_videos/'
 pyk.specify_browser('firefox')
 #print(pyk.__file__)
+
+def is_url_classified(video_url):
+    # video_url = loader_data.construct_url(video_url)
+    # print("checker, video_url: ",video_url)
+    try:
+        response = requests.get(BACKEND_CHECKER, params={"url": video_url})
+        if response.status_code == 200:
+            data = response.json()
+            if "url" in data and "labels" in data:
+                print(f"URL {video_url} is already classified with label: {data['labels']}")
+                return True
+            else:
+                print(f"URL {video_url} is not classified yet.")
+                return False
+        else:
+            print(f"Failed to check classification status for {video_url}. HTTP {response.status_code}: {response.text}")
+            return False
+    except Exception as e:
+        print(f"Error checking classification status for {video_url}: {e}")
+        return False
 
 def load_cookies(page):
     cookies = browser_cookie3.firefox(domain_name="tiktok.com")
@@ -82,14 +102,14 @@ def main():
     # Print the video links
     print("Extracted Video Links:")
     for link in video_links:
-        if deployment.is_url_classified(link):
+        if is_url_classified(link):
             continue
         vid_links.append(link)
 
     print("vid links after filtered: ",vid_links)
     #filter check
 
-    pyk.save_tiktok_multi_urls(vid_links,True,'',1,save_dir=all_config.VIDEO_DIR)
+    pyk.save_tiktok_multi_urls(vid_links,True,'',1,save_dir=VIDEO_DIR)
 
 
 if __name__ == "__main__":
