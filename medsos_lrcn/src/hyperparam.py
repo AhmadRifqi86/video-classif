@@ -11,9 +11,9 @@ import loader_data
 
 # Configuration dictionary
 CONFIG = {
-    "EPOCH": [8, 10, 12],
-    "SEQUENCE_LENGTH": [40],
-    "RNN_TYPE": ["mamba", "lstm"],
+    "EPOCH": [8],
+    "SEQUENCE_LENGTH": [60],
+    "RNN_TYPE": ["mamba"],
     "CNN_BACKBONE": ["resnet34", "resnet50", "mobilenet_v2"],
     "BATCH_SIZE": [8, 16],
     "HIDDEN_SIZE": [8, 16, 24, 32],
@@ -21,7 +21,7 @@ CONFIG = {
     "RNN_LAYER": [2, 3, 4],
     "SAMPLING_METHOD": ["uniform"],
     "RNN_OUT": ["all"],
-    "MAX_VIDEOS": [700],
+    "MAX_VIDEOS": [1000],
     "CLASSIF_MODE": ["multiclass"],
 }
 
@@ -76,6 +76,8 @@ def genetic_algorithm(configs):
     
     # Dynamically register attributes based on CONFIG
     for param, values in configs.items():
+        print("param: ",param)
+        print("values: ",values[0])
         if isinstance(values[0], int):
             toolbox.register(param, random.randint, min(values), max(values))
         elif isinstance(values[0], float):

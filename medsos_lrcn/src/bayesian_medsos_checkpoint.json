@@ -1,0 +1,127 @@
+[
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 60,
+            "RNN_TYPE": "mamba",
+            "CNN_BACKBONE": "resnet34",
+            "BATCH_SIZE": 14,
+            "HIDDEN_SIZE": 14,
+            "RNN_INPUT_SIZE": 19,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 1000,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7152,
+            "precision": 0.7176,
+            "recall": 0.715,
+            "f1_score": 0.7159,
+            "training_duration": 362.8472,
+            "inference_duration": 12.5069
+        },
+        "best_model_filename": "best_model_seq60_batch14_hidden14_cnnresnet34_rnn19_layer3_rnnTypemamba_methoduniform_outall_max1000_epochs8_classifmodemulticlass.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 60,
+            "RNN_TYPE": "mamba",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 12,
+            "HIDDEN_SIZE": 20,
+            "RNN_INPUT_SIZE": 23,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 1000,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7612,
+            "precision": 0.7645,
+            "recall": 0.7623,
+            "f1_score": 0.7601,
+            "training_duration": 365.956,
+            "inference_duration": 12.0756
+        },
+        "best_model_filename": "best_model_seq60_batch12_hidden20_cnnmobilenet_v2_rnn23_layer3_rnnTypemamba_methoduniform_outall_max1000_epochs8_classifmodemulticlass.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 60,
+            "RNN_TYPE": "mamba",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 10,
+            "HIDDEN_SIZE": 29,
+            "RNN_INPUT_SIZE": 10,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 1000,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.7369,
+            "precision": 0.7437,
+            "recall": 0.7365,
+            "f1_score": 0.737,
+            "training_duration": 351.3882,
+            "inference_duration": 11.4848
+        },
+        "best_model_filename": "best_model_seq60_batch10_hidden29_cnnmobilenet_v2_rnn10_layer2_rnnTypemamba_methoduniform_outall_max1000_epochs8_classifmodemulticlass.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 60,
+            "RNN_TYPE": "mamba",
+            "CNN_BACKBONE": "mobilenet_v2",
+            "BATCH_SIZE": 10,
+            "HIDDEN_SIZE": 29,
+            "RNN_INPUT_SIZE": 10,
+            "RNN_LAYER": 2,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 1000,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.742,
+            "precision": 0.7477,
+            "recall": 0.7465,
+            "f1_score": 0.7405,
+            "training_duration": 351.0794,
+            "inference_duration": 11.4035
+        },
+        "best_model_filename": "best_model_seq60_batch10_hidden29_cnnmobilenet_v2_rnn10_layer2_rnnTypemamba_methoduniform_outall_max1000_epochs8_classifmodemulticlass.pth"
+    },
+    {
+        "config": {
+            "EPOCH": 8,
+            "SEQUENCE_LENGTH": 60,
+            "RNN_TYPE": "mamba",
+            "CNN_BACKBONE": "resnet50",
+            "BATCH_SIZE": 16,
+            "HIDDEN_SIZE": 21,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "SAMPLING_METHOD": "uniform",
+            "RNN_OUT": "all",
+            "MAX_VIDEOS": 1000,
+            "CLASSIF_MODE": "multiclass"
+        },
+        "metrics": {
+            "accuracy": 0.742,
+            "precision": 0.7433,
+            "recall": 0.743,
+            "f1_score": 0.7417,
+            "training_duration": 580.8707,
+            "inference_duration": 17.0724
+        },
+        "best_model_filename": "best_model_seq60_batch16_hidden21_cnnresnet50_rnn16_layer3_rnnTypemamba_methoduniform_outall_max1000_epochs8_classifmodemulticlass.pth"
+    }
+]

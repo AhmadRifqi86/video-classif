@@ -3,10 +3,11 @@ import torch
 import argparse
 import all_config
 from datetime import datetime
-from loader_data import load_dataset_inference
 from collections import Counter
 import requests
 import loader_data
+import json
+
 
 LABEL_MAPPING = {
     0: "Harmful",
@@ -69,7 +70,6 @@ def classify_and_display(model, data_tensors, video_names):
         print(f"Processed {video_names[idx]}: {label_string}")
 
     # Display results as JSON
-    import json
     print(json.dumps(results, indent=4))
     
     # Display label counts
@@ -114,7 +114,7 @@ def main(model_path, video_folder=all_config.VIDEO_DIR, sampling_method=all_conf
     model.eval()
 
     # Load dataset (videos to classify)
-    data, video_names = load_dataset_inference(video_folder, sampling_method, sequence_length)
+    data, video_names = loader_data.load_dataset_inference(video_folder, sampling_method, sequence_length)
 
     # Transform data to PyTorch tensors and permute dimensions
     data_tensors = [torch.tensor(video).permute(0, 3, 1, 2).float().to(all_config.CONF_DEVICE) for video in data]

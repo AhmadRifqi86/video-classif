@@ -9,7 +9,7 @@ from skimage.metrics import structural_similarity as ssim
 from torch.utils.data import Dataset
 import json
 import re
-from tqdm import tqdm
+#from tqdm import tqdm
 
 def compute_ssim(img1, img2):
     """Compute SSIM between two images."""

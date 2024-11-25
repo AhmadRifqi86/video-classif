@@ -9,7 +9,7 @@ app = Flask(__name__)
 # DATABASE_NAME = all_config.DATABASE_NAME
 # COLLECTION_NAME = all_config.COLLECTION_NAME
 
-MONGO_URI = "mongodb://localhost:27017/"
+MONGO_URI = "mongodb://mongodb:27017/"
 DATABASE_NAME = "video_classification"
 COLLECTION_NAME = "classification_results"
 

@@ -119,7 +119,10 @@ class ResidualBlock(nn.Module):
 
 
 class LRCN(nn.Module):
-    def __init__(self, num_classes, sequence_length, hidden_size, rnn_input_size, cnn_backbone="resnet18", rnn_type="lstm", rnn_out="all", bidirectional=all_config.CONF_BIDIR):
+    def __init__(self, num_classes, sequence_length, hidden_size, rnn_input_size, 
+                 cnn_backbone=all_config.CONF_CNN_BACKBONE, 
+                 rnn_type=all_config.CONF_RNN_TYPE, rnn_out=all_config.CONF_RNN_OUT, 
+                 bidirectional=all_config.CONF_BIDIR):
         super(LRCN, self).__init__()
         self.sequence_length = sequence_length
         self.hidden_size = hidden_size

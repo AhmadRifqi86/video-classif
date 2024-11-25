@@ -205,7 +205,19 @@ class LRCN(nn.Module):
         x = x.view(batch_size * seq_len, c, h, w)
         x = self.cnn_backbone(x)
         x = x.view(batch_size, seq_len, -1)
-        x = self.adapt3(self.adapt2(self.adapt1(x)))
+        x = self.adapt1(x)
+        x = x.permute(0,2,1)
+        x = self.bn1(x)
+        x = x.permute(0,2,1)
+        x = self.adapt2(x)
+        x = x.permute(0,2,1)
+        x = self.bn2(x)
+        x = x.permute(0,2,1)
+        x = self.adapt3(x)
+        x = x.permute(0,2,1)
+        x = self.bn3(x)
+        x = x.permute(0,2,1)
+        x = self.drop1(x)
         # Process through RNN
         if self.rnn_type == "mamba":
             for layer in self.rnn:

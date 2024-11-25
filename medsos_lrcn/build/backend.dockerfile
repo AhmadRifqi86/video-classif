@@ -11,7 +11,6 @@ WORKDIR /app
 # Copy the application code into the container, does it need to copy all code file?
 COPY skripsi/medsos_lrcn/src/backend.py /app
 COPY skripsi/medsos_lrcn/src/all_config.py /app
-COPY skripsi/medsos_lrcn/build/backend_req.txt /app
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -22,7 +21,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install Python dependencies
 RUN pip install --upgrade pip
-RUN pip install -r ./backend_req.txt
+RUN pip install flask==3.1.0 pymongo==4.10.1
 
 # Expose port 5000 for the Flask application
 EXPOSE 5000
@@ -39,14 +38,13 @@ CMD ["python", "backend.py"]
 
 
 #run
-#docker run -p 5000:5000 -d backend
+#docker network create backend-network
+#docker run -d --name mongodb --network backend-network -p 27017:27017 mongo:5.0 [if first time]
+#docker run -d --name backend --network backend-network -p 5000:5000 backend [if first time]
 
-
-#run mongo
-#docker pull mongo
-#docker run --name backend --network flask-mongo-network -p 5000:5000 -d backend
-
-
+#test endpoint:
+#curl -X POST -H "Content-Type: application/json" -d '{"url": "http://example.com/video.mp4", "labels": "Safe"}' http://localhost:5000/classify
+#curl -X GET "http://localhost:5000/video_labels?url=http://example.com/video.mp4"
 
 #important command:
 # docker ps -a ;list container and state

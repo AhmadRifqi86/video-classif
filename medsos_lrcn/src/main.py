@@ -2,7 +2,7 @@ import os
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from models import LRCN
+from models_back import LRCN
 from loader_data import load_dataset, VideoDataset, load_processed_data, save_processed_data, save_sampled_data
 from train_eval import train_model, evaluate_model, count_parameters
 import all_config

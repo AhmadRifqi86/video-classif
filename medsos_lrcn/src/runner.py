@@ -3,11 +3,13 @@ import all_config
 import os
 import time
 import re
+from loader_data import save_checkpoint
 
 
 def run_training(config, test_runs, best_results):
-    best_f1 = None
+    #best_f1 = None
     best_model_filename = None
+    best_f1 = -float("inf")  # Use negative infinity to represent the initial state
 
     for run in range(test_runs):
         sed_commands = []
@@ -27,21 +29,31 @@ def run_training(config, test_runs, best_results):
         for command in sed_commands:
             subprocess.run(command, shell=True)
 
-        # Run training
+        # Run training and capture real-time logs
         print("Starting training...")
         process = subprocess.Popen(
-            f'python3 {all_config.SOURCE_PATH}', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+            f'python3 {all_config.SOURCE_PATH}', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
         )
-        stdout, stderr = process.communicate()
-        result = stdout.decode('utf-8')
-        error_output = stderr.decode('utf-8')
+        result = []
+        # Log training progression in real-time
+        with open(all_config.LOG_FILE_PATH, 'a') as log_file:
+            log_file.write(f"Run {run + 1}/{test_runs}\n")
+            log_file.write(f"Config: {config}\n")
+            log_file.write("Training logs:\n")
+            for line in process.stdout:
+                log_file.write(line)
+                result.append(line)
+                print(line, end="")  # Print to console as well
 
+        stdout, stderr = process.communicate()
+        result = ''.join(result)  # Concatenate list of lines into a single string
+        error_output = stderr
         print("Training completed.")
         try:
             # Extract metrics
             accuracy, precision, recall, f1, train_dur, inf_dur = extract_metrics(result)
             print(f"Metrics: Accuracy={accuracy}, Precision={precision}, Recall={recall}, F1={f1}, "
-                  f"Train Duration={train_dur}s, Inference Duration={inf_dur}s")
+                f"Train Duration={train_dur}s, Inference Duration={inf_dur}s")
         except Exception as e:
             # Log errors during metric extraction
             with open(all_config.LOG_FILE_PATH, 'a') as log_file:
@@ -52,14 +64,13 @@ def run_training(config, test_runs, best_results):
             continue
 
         # Save the best model
-        if best_f1 is None or (f1 > best_f1 and f1 > 0.73):
+        if f1 > best_f1 and f1 > 0.71:  # Only update if the new result is better and exceeds the threshold
             best_f1 = f1
             best_model_filename = (
                 f"best_model_seq{config['SEQUENCE_LENGTH']}_batch{config['BATCH_SIZE']}_hidden{config['HIDDEN_SIZE']}_"
                 f"cnn{config['CNN_BACKBONE']}_rnn{config['RNN_INPUT_SIZE']}_layer{config['RNN_LAYER']}_"
                 f"rnnType{config['RNN_TYPE']}_method{config['SAMPLING_METHOD']}_out{config['RNN_OUT']}_"
-                f"max{config['MAX_VIDEOS']}_epochs{config['EPOCH']}_classifmode{config['CLASSIF_MODE']}_"
-                f"f1{f1:.4f}.pth"
+                f"max{config['MAX_VIDEOS']}_epochs{config['EPOCH']}_classifmode{config['CLASSIF_MODE']}.pth"
             )
             best_model_path = os.path.join(all_config.BEST_MODEL_DIR, best_model_filename)
 
@@ -80,13 +91,12 @@ def run_training(config, test_runs, best_results):
                 },
                 "best_model_filename": best_model_filename
             })
-
+            #save the best result after append
+            save_checkpoint(best_results)
         # Log results for the current run
         with open(all_config.LOG_FILE_PATH, 'a') as log_file:
-            log_file.write(f"Run {run + 1}/{test_runs}\n")
-            log_file.write(f"Config: {config}\n")
             log_file.write(f"Metrics: Accuracy={accuracy}, Precision={precision}, Recall={recall}, F1={f1}, "
-                           f"Train Duration={train_dur}s, Inference Duration={inf_dur}s\n")
+                        f"Train Duration={train_dur}s, Inference Duration={inf_dur}s\n")
             if error_output:
                 log_file.write(f"Error Output:\n{error_output}\n\n")
     time.sleep(all_config.SLEEP)
@@ -95,6 +105,7 @@ def run_training(config, test_runs, best_results):
 
 # Extract metrics
 def extract_metrics(output):
+    #print("extract_metric input: ",output)
     patterns = {
         "accuracy": r"Overall Accuracy: (\d\.\d+|\d\.\d)",
         "precision": r"Overall Precision: (\d\.\d+|\d\.\d)",
@@ -104,5 +115,12 @@ def extract_metrics(output):
         "inf_duration": r"inference_duration:\s+([\d.]+)"
     }
 
-    metrics = {key: float(re.search(pattern, output).group(1)) for key, pattern in patterns.items()}
+    metrics = {}
+    for key, pattern in patterns.items():
+        match = re.search(pattern, output)
+        if match:
+            metrics[key] = float(match.group(1))
+        else:
+            raise ValueError(f"Could not find a match for {key} in the output.")
+    print("extracted metrics: ",metrics)
     return metrics["accuracy"], metrics["precision"], metrics["recall"], metrics["f1"], metrics["train_duration"], metrics["inf_duration"]
