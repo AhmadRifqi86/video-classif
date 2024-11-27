@@ -8,6 +8,7 @@ import requests
 import loader_data
 import json
 
+  #harus mindahin ini ke all_config
 
 LABEL_MAPPING = {
     0: "Harmful",
@@ -20,25 +21,6 @@ def print_usage():
     print("usage: ")
     print("python3 deployment.py --model [MODEL PATH] --videos [VIDEO DIR]")
 
-def is_url_classified(video_url):
-    video_url = loader_data.construct_url(video_url)
-    # print("checker, video_url: ",video_url)
-    try:
-        response = requests.get(all_config.BACKEND_CHECKER, params={"url": video_url})
-        if response.status_code == 200:
-            data = response.json()
-            if "url" in data and "labels" in data:
-                print(f"URL {video_url} is already classified with label: {data['labels']}")
-                return True
-            else:
-                print(f"URL {video_url} is not classified yet.")
-                return False
-        else:
-            print(f"Failed to check classification status for {video_url}. HTTP {response.status_code}: {response.text}")
-            return False
-    except Exception as e:
-        print(f"Error checking classification status for {video_url}: {e}")
-        return False
 
 # Function to classify videos and return results as JSON
 def classify_and_display(model, data_tensors, video_names):
@@ -47,7 +29,7 @@ def classify_and_display(model, data_tensors, video_names):
     
     for idx, video_tensor in enumerate(data_tensors):
         #check is classified or not
-        if is_url_classified(video_names[idx]):
+        if loader_data.is_url_classified(video_names[idx]):
             continue
 
         #classify the video using model
@@ -113,7 +95,7 @@ def main(model_path, video_folder=all_config.VIDEO_DIR, sampling_method=all_conf
     model = torch.load(model_path).to(all_config.CONF_DEVICE)
     model.eval()
 
-    # Load dataset (videos to classify)
+    # Load dataset (videos to classify)  #kapan-kapan benerin ini, such that processing is occured after url checking
     data, video_names = loader_data.load_dataset_inference(video_folder, sampling_method, sequence_length)
 
     # Transform data to PyTorch tensors and permute dimensions

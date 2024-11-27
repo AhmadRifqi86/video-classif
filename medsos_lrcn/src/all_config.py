@@ -1,6 +1,8 @@
 import os
 import torch
 
+APP_STAGE = os.getenv("APP_STAGE", "devel")
+
 DATASET_PATH = '/home/arifadh/Desktop/Dataset/tikHarm/Dataset/train'  # Path to dataset
 VAL_PATH = '/home/arifadh/Desktop/Dataset/tikHarm/Dataset/val'
 TEST_PATH = '/home/arifadh/Desktop/Dataset/tikHarm/Dataset/test'
@@ -9,10 +11,10 @@ TEST_PATH = '/path/to/test'
 IMG_HEIGHT, IMG_WIDTH = 80, 80 # Image dimensions
 SEQUENCE_LENGTH = 60
 BATCH_SIZE = 16
-HIDDEN_SIZE = 13
+HIDDEN_SIZE = 25
 CNN_BACKBONE = "resnet34"
-RNN_INPUT_SIZE = 18
-RNN_LAYER = 3
+RNN_INPUT_SIZE = 23
+RNN_LAYER = 2
 RNN_TYPE = "mamba"
 SAMPLING_METHOD = "uniform"
 RNN_OUT = "all"
@@ -33,14 +35,14 @@ CLASSES_FILE = os.path.join(PROCESSED_DATA_PATH, f"class_labels_{MAX_VIDEOS}_{SE
 #automation, deployment, data collection
 CONFIG_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/all_config.py'
 SOURCE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/main.py'  #ini nanti ganti nama 
-LOG_FILE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/new_medsos_log_bayesian.txt'
-BEST_MODEL_DIR = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/best_models_medsos_bayesian/'
+LOG_FILE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/new_medsos_log_genetic.txt'
+BEST_MODEL_DIR = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/best_models_medsos_genetic/'
 TEST_RUNS = 3  # Number of times to test each configuration
-CHECKPOINT_FILE = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/bayesian_medsos_checkpoint.json'  # File to track best results
+CHECKPOINT_FILE = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/genetic_medsos_checkpoint.json'  # File to track best results
 SLEEP = 60
 VIDEO_DIR = '/home/arifadh/Downloads/tiktok_videos/'
-BACKEND_URL = "http://localhost:5000/classify"
-BACKEND_CHECKER = "http://localhost:5000/video_labels"
+BACKEND_URL = "http://backend:5000/classify" if APP_STAGE == "prod" else "http://localhost:5000/classify"  #harus mindahin ini ke all_config
+BACKEND_CHECKER = "http://backend:5000/video_labels" if APP_STAGE == "prod" else "http://localhost:5000/video_labels"  #harus mindahin ini ke all_config
 MONGO_URI = "mongodb://localhost:27017/"
 DATABASE_NAME = "video_classification"
 COLLECTION_NAME = "classification_results"

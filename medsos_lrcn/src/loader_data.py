@@ -9,6 +9,7 @@ from skimage.metrics import structural_similarity as ssim
 from torch.utils.data import Dataset
 import json
 import re
+import requests
 #from tqdm import tqdm
 
 def compute_ssim(img1, img2):
@@ -464,6 +465,9 @@ def load_dataset_inference(path, sampling_method="uniform", sequence_length=30):
         if not video_path.endswith('.mp4'):  # Adjust for supported formats
             continue
 
+        if is_url_classified(video_name):
+            continue
+
         print(f"Processing video: {video_name}")
         try:
             cap = cv2.VideoCapture(video_path)
@@ -538,3 +542,23 @@ def construct_url(video_name):
         video_id = match.group("video_id")
         return f"https://www.tiktok.com/{username}/video/{video_id}"
     return None
+
+def is_url_classified(video_url):
+    video_url = construct_url(video_url)
+    # print("checker, video_url: ",video_url)
+    try:
+        response = requests.get(all_config.BACKEND_CHECKER, params={"url": video_url})
+        if response.status_code == 200:
+            data = response.json()
+            if "url" in data and "labels" in data:
+                print(f"URL {video_url} is already classified with label: {data['labels']}")
+                return True
+            else:
+                print(f"URL {video_url} is not classified yet.")
+                return False
+        else:
+            print(f"Failed to check classification status for {video_url}. HTTP {response.status_code}: {response.text}")
+            return False
+    except Exception as e:
+        print(f"Error checking classification status for {video_url}: {e}")
+        return False

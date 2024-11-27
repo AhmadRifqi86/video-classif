@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Prevent interactive prompts
 ENV DEBIAN_FRONTEND=noninteractive
+ENV APP_STAGE=prod
 
 # Set the timezone to avoid timezone prompts
 ENV TZ=Asia/Jakarta
@@ -36,5 +37,5 @@ CMD ["python3", "deployment.py"]
 
 #cd /home/arifadh/Skripsi-Magang-Proyek
 #docker build -f skripsi/medsos_lrcn/build/deployment.dockerfile -t deploy .
-#docker run --gpus all -it --rm -v /home/arifadh/Desktop/Skripsi-Magang-Proyek/best_models_medsos:/app/models -v /home/arifadh/Downloads/tiktok_videos:/app/videos deploy python3 deployment.py --model /app/models/best_model_seq40_batch16_hidden32_cnnresnet34_rnn16_layer2_rnnTypemamba_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7453.pth --videos /app/videos
+#docker run --gpus all -it --rm --network backend-network -v /home/arifadh/Desktop/Skripsi-Magang-Proyek/best_models_medsos:/app/models -v /home/arifadh/Downloads/tiktok_videos:/app/videos deploy python3 deployment.py --model /app/models/best_model_seq40_batch16_hidden32_cnnresnet34_rnn16_layer2_rnnTypemamba_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7453.pth --videos /app/videos
 

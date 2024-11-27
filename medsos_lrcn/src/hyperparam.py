@@ -29,6 +29,9 @@ CONFIG = {
 if not os.path.exists(all_config.BEST_MODEL_DIR):
     os.makedirs(all_config.BEST_MODEL_DIR)
 
+def is_config_duplicate(config, best_results):
+    """Check if a configuration is already present in best_results."""
+    return any(config == result["config"] for result in best_results)
 
 # Optimization strategies
 def grid_search(configs):
@@ -62,12 +65,17 @@ def bayesian_optimization(configs):
                 config[param] = trial.suggest_categorical(param, values)
                 print("config[param]: ",config[param])
         
+        if is_config_duplicate(config, best_results):
+            print(f"Skipping duplicate configuration: {config}")
+            return -float("inf") 
+        
         best_f1, _ = runner.run_training(config, all_config.TEST_RUNS, best_results)
         return best_f1
 
     study = optuna.create_study(direction="maximize")
     study.optimize(objective, n_trials=50)
     loader_data.save_checkpoint(best_results)
+
 
 def genetic_algorithm(configs):
     creator.create("FitnessMax", base.Fitness, weights=(1.0,))
@@ -76,8 +84,6 @@ def genetic_algorithm(configs):
     
     # Dynamically register attributes based on CONFIG
     for param, values in configs.items():
-        print("param: ",param)
-        print("values: ",values[0])
         if isinstance(values[0], int):
             toolbox.register(param, random.randint, min(values), max(values))
         elif isinstance(values[0], float):
@@ -87,15 +93,26 @@ def genetic_algorithm(configs):
         else:  # Categorical values
             toolbox.register(param, random.choice, values)
     
-    # Dynamically create individuals based on attributes
+    # Define evaluate function with duplicate check
+    def evaluate_individual(ind):
+        config = dict(zip(configs.keys(), ind))
+        if is_config_duplicate(config, best_results):
+            print(f"Skipping duplicate configuration: {config}")
+            return -float("inf"),  # Assign the lowest possible score
+        
+        best_f1, _ = runner.run_training(config, all_config.TEST_RUNS, best_results)
+        return best_f1,
+
+    # Register functions
     toolbox.register("individual", tools.initCycle, creator.Individual, 
                      tuple(getattr(toolbox, param) for param in configs.keys()), n=1)
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-    toolbox.register("evaluate", lambda ind: (runner.run_training(dict(zip(configs.keys(), ind)), all_config.TEST_RUNS, best_results)[0],))
+    toolbox.register("evaluate", evaluate_individual)
     toolbox.register("mate", tools.cxTwoPoint)
     toolbox.register("mutate", tools.mutUniformInt, low=5, up=100, indpb=0.2)
     toolbox.register("select", tools.selTournament, tournsize=3)
 
+    # Run Genetic Algorithm
     population = toolbox.population(n=20)
     algorithms.eaSimple(population, toolbox, cxpb=0.5, mutpb=0.2, ngen=10, verbose=True)
     loader_data.save_checkpoint(best_results)
@@ -103,7 +120,7 @@ def genetic_algorithm(configs):
 # Main function to choose the strategy
 if __name__ == "__main__":
     best_results = loader_data.load_checkpoint()
-    strategy = "bayesian"
+    strategy = "genetic"
     if strategy == "grid":
         grid_search(CONFIG)
     elif strategy == "bayesian":

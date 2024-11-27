@@ -1,13 +1,24 @@
-import pyktok as pyk
+#import pyktok as pyk        #import if development stage
+#import custom_pyktok.pyktok as pyk #import statement if build
 from playwright.sync_api import sync_playwright
 import time
 import browser_cookie3
 import requests
+import os
 
-BACKEND_CHECKER = 'http://localhost:5000/video_labels'
-VIDEO_DIR = '/home/arifadh/Downloads/tiktok_videos/'
+APP_STAGE = os.getenv("APP_STAGE", "devel")
+
+if APP_STAGE == "prod":
+    import custom_pyktok.pyktok as pyk
+    print("Using custom packaged version of pyktok")
+else:
+    import pyktok as pyk
+    print("Using development version of pyktok")
+
+BACKEND_CHECKER = 'http://backend:5000/video_labels' if APP_STAGE == "prod" else 'http://localhost:5000/video_labels'
+VIDEO_DIR = '/app/videos' if APP_STAGE == "prod" else '/home/arifadh/Downloads/tiktok_videos'
 pyk.specify_browser('firefox')
-#print(pyk.__file__)
+print(pyk.__file__)
 
 def is_url_classified(video_url):
     # video_url = loader_data.construct_url(video_url)
@@ -61,7 +72,7 @@ def scrape_tiktok_video_links(profile_url):
         page.goto(profile_url)
 
         # Load cookies and reload the page
-        load_cookies(page)
+        #load_cookies(page)
         page.reload()
         time.sleep(5)
 
@@ -93,7 +104,7 @@ def scrape_tiktok_video_links(profile_url):
 
 def main():
     # TikTok profile URL, jadiin apa ya ini? ga mungkin constant
-    profile_url = "https://www.tiktok.com/@naiwen88"  #how to retrieve this nigga
+    profile_url = "https://www.tiktok.com/@nusaaroom"  #how to retrieve this nigga
 
     # Extract video links
     video_links = scrape_tiktok_video_links(profile_url)
@@ -109,7 +120,7 @@ def main():
     print("vid links after filtered: ",vid_links)
     #filter check
 
-    pyk.save_tiktok_multi_urls(vid_links,True,'',1,save_dir=VIDEO_DIR)
+    #pyk.save_tiktok_multi_urls(vid_links,True,'',1,save_dir=VIDEO_DIR)
 
 
 if __name__ == "__main__":
