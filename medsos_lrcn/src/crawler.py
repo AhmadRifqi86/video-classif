@@ -5,6 +5,7 @@ import time
 import browser_cookie3
 import requests
 import os
+import random
 
 APP_STAGE = os.getenv("APP_STAGE", "devel")
 
@@ -54,7 +55,15 @@ def load_cookies(page):
 
 def scrape_tiktok_video_links(profile_url):
     with sync_playwright() as p:
-        browser = p.firefox.launch(headless=False)  # Launch browser
+        browser = p.firefox.launch(
+            headless=True #,
+            # args=[
+            #     '--no-sandbox',
+            #     '--disable-setuid-sandbox',
+            #     '--disable-dev-shm-usage'
+            # ]
+        )
+        
         page = browser.new_page()
 
         # Set headers to mimic a real browser
@@ -72,7 +81,7 @@ def scrape_tiktok_video_links(profile_url):
         page.goto(profile_url)
 
         # Load cookies and reload the page
-        #load_cookies(page)
+        load_cookies(page)
         page.reload()
         time.sleep(5)
 
@@ -89,14 +98,16 @@ def scrape_tiktok_video_links(profile_url):
 
         # Scroll to load more videos
         for _ in range(5):
+            print("scroll")
             page.mouse.wheel(0, 10000)
-            time.sleep(2)
+            time.sleep(random.randint(1,6))
 
         # Extract video links
         video_links = page.eval_on_selector_all(
             "a[href*='/video/']",
             "elements => elements.map(e => e.href)"
         )
+        print("extracted vid_links: ",video_links)
 
         # Close the browser
         browser.close()
@@ -120,7 +131,7 @@ def main():
     print("vid links after filtered: ",vid_links)
     #filter check
 
-    #pyk.save_tiktok_multi_urls(vid_links,True,'',1,save_dir=VIDEO_DIR)
+    pyk.save_tiktok_multi_urls(vid_links,True,'',1,save_dir=VIDEO_DIR)
 
 
 if __name__ == "__main__":
