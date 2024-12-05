@@ -43,7 +43,7 @@ def classify_video():
 
 
 # GET Method
-@app.route('/video_labels', methods=['GET'])
+@app.route('/video_labels', methods=['GET'])  #Endpoint for inference
 def get_classification():
     try:
         url = request.args.get("url")

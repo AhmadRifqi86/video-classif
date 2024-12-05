@@ -51,7 +51,7 @@ def run_training(config, test_runs, best_results):
         print("Training completed.")
         try:
             # Extract metrics
-            accuracy, precision, recall, f1, train_dur, inf_dur = extract_metrics(result)
+            accuracy, precision, recall, f1, train_dur, inf_dur,trainable = extract_metrics(result)
             print(f"Metrics: Accuracy={accuracy}, Precision={precision}, Recall={recall}, F1={f1}, "
                 f"Train Duration={train_dur}s, Inference Duration={inf_dur}s")
         except Exception as e:
@@ -67,10 +67,10 @@ def run_training(config, test_runs, best_results):
         if f1 > best_f1 and f1 > 0.71:  # Only update if the new result is better and exceeds the threshold
             best_f1 = f1
             best_model_filename = (
-                f"best_model_seq{config['SEQUENCE_LENGTH']}_batch{config['BATCH_SIZE']}_hidden{config['HIDDEN_SIZE']}_"
-                f"cnn{config['CNN_BACKBONE']}_rnn{config['RNN_INPUT_SIZE']}_layer{config['RNN_LAYER']}_"
-                f"rnnType{config['RNN_TYPE']}_method{config['SAMPLING_METHOD']}_out{config['RNN_OUT']}_"
-                f"max{config['MAX_VIDEOS']}_epochs{config['EPOCH']}_classifmode{config['CLASSIF_MODE']}.pth"
+                f"best_model_seq{all_config.SEQUENCE_LENGTH}_batch{all_config.CONF_BATCH_SIZE}_hidden{all_config.HIDDEN_SIZE}_"
+                f"cnn{all_config.CONF_CNN_BACKBONE}_rnn{all_config.RNN_INPUT_SIZE}_layer{all_config.RNN_LAYER}_"
+                f"rnnType{all_config.RNN_TYPE}_method{all_config.SAMPLING_METHOD}_out{all_config.RNN_OUT}_"
+                f"max{all_config.MAX_VIDEOS}_epochs{all_config.EPOCH}_classifmode{all_config.CLASSIF_MODE}.pth"
             )
             best_model_path = os.path.join(all_config.BEST_MODEL_DIR, best_model_filename)
 
@@ -87,7 +87,8 @@ def run_training(config, test_runs, best_results):
                     "recall": recall,
                     "f1_score": f1,
                     "training_duration": train_dur,
-                    "inference_duration": inf_dur
+                    "inference_duration": inf_dur,
+                    "trainable_param":trainable
                 },
                 "best_model_filename": best_model_filename
             })
@@ -105,22 +106,30 @@ def run_training(config, test_runs, best_results):
 
 # Extract metrics
 def extract_metrics(output):
-    #print("extract_metric input: ",output)
     patterns = {
         "accuracy": r"Overall Accuracy: (\d\.\d+|\d\.\d)",
         "precision": r"Overall Precision: (\d\.\d+|\d\.\d)",
         "recall": r"Overall Recall: (\d\.\d+|\d\.\d)",
         "f1": r"Overall F1-Score: (\d\.\d+|\d\.\d)",
         "train_duration": r"training_duration:\s+([\d.]+)",
-        "inf_duration": r"inference_duration:\s+([\d.]+)"
+        "inf_duration": r"inference_duration:\s+([\d.]+)",
+        "trainable_params": r"'Trainable parameters':\s+(\d+)"
     }
 
     metrics = {}
     for key, pattern in patterns.items():
         match = re.search(pattern, output)
         if match:
-            metrics[key] = float(match.group(1))
+            metrics[key] = float(match.group(1)) if key not in ["trainable_params"] else int(match.group(1))
         else:
             raise ValueError(f"Could not find a match for {key} in the output.")
-    print("extracted metrics: ",metrics)
-    return metrics["accuracy"], metrics["precision"], metrics["recall"], metrics["f1"], metrics["train_duration"], metrics["inf_duration"]
+    print("extracted metrics: ", metrics)
+    return (
+        metrics["accuracy"], 
+        metrics["precision"], 
+        metrics["recall"], 
+        metrics["f1"], 
+        metrics["train_duration"], 
+        metrics["inf_duration"], 
+        metrics["trainable_params"]
+    )

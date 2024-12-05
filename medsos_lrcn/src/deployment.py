@@ -23,15 +23,11 @@ def print_usage():
 
 
 # Function to classify videos and return results as JSON
-def classify_and_display(model, data_tensors, video_names):
+def classify_and_display_old(model, data_tensors, video_names):
     results = []
     label_counter = Counter()  # Counter to track label occurrences
     
     for idx, video_tensor in enumerate(data_tensors):
-        #check is classified or not
-        if loader_data.is_url_classified(video_names[idx]):
-            continue
-
         #classify the video using model
         video_tensor = video_tensor.unsqueeze(0)  # Add batch dimension
         with torch.no_grad():
@@ -61,7 +57,81 @@ def classify_and_display(model, data_tensors, video_names):
 
     return results
 
+
+def classify_and_display(model, data_tensors, video_names):
+    results = []
+    label_counter = Counter()  # Counter to track label occurrences
+
+    for idx, video_tensor in enumerate(data_tensors):
+        # Classify the video using the model
+        video_tensor = video_tensor.unsqueeze(0)  # Add batch dimension
+        with torch.no_grad():
+            output = model(video_tensor)
+            probabilities = torch.softmax(output, dim=1)  # Get probabilities
+            sorted_indices = torch.argsort(probabilities, dim=1, descending=True)  # Sort by probability
+
+            # Extract sorted labels and scores
+            sorted_labels = [
+                LABEL_MAPPING.get(idx.item(), "Unknown") for idx in sorted_indices[0]
+            ]
+            sorted_scores = probabilities[0, sorted_indices[0]].tolist()
+
+        timestamp = datetime.now()
+        result = {
+            "video_name": video_names[idx],
+            "labels": sorted_labels,
+            "scores": sorted_scores,
+            "timestamp": timestamp.isoformat()
+        }
+        results.append(result)
+        
+        # Track label occurrences (using the top label)
+        top_label = sorted_labels[0]
+        label_counter[top_label] += 1
+        print(f"Processed {video_names[idx]}: {sorted_labels[0]}")
+
+    # Display results as JSON
+    print(json.dumps(results, indent=4))
+
+    # Display label counts
+    print("\nLabel Counts:")
+    for label, count in label_counter.items():
+        print(f"{label}: {count}")
+
+    return results
+
 def post_results(results):
+    for result in results:
+        video_name = result["video_name"]
+        labels = result["labels"]
+        scores = result["scores"]
+        ts = result["timestamp"]
+
+        # Construct URL from video_name
+        video_url = loader_data.construct_url(video_name)
+        if not video_url:
+            print(f"Failed to construct URL for {video_name}")
+            continue
+
+        # Prepare payload
+        payload = {
+            "url": video_url,
+            "labels": labels,
+            "scores": scores,
+            "timestamp": ts
+        }
+
+        # Send POST request, send one URL at a time
+        try:
+            response = requests.post(all_config.BACKEND_URL, json=payload)
+            if response.status_code in [200, 201]:
+                print(f"Successfully sent classification result to backend for {video_name}")
+            else:
+                print(f"Failed to send classification result for {video_name}. HTTP {response.status_code}: {response.text}")
+        except Exception as e:
+            print(f"Error sending result to backend for {video_name}: {e}")
+
+def post_results_old(results):
     for result in results:
         video_name = result["video_name"]
         label = result["label"]
@@ -111,7 +181,7 @@ if __name__ == "__main__":
     parser.add_argument("--model", required=True, help="Path to the trained model file (e.g., .pth).")
     parser.add_argument("--videos", help="Path to the folder containing videos to classify.")
     parser.add_argument("--sampling", default="uniform", choices=["uniform", "ssim"], help="Frame sampling method (default: uniform).")
-    parser.add_argument("--sequence_length", default=40, type=int, help="Number of frames per video for classification.")
+    parser.add_argument("--sequence_length", default=60, type=int, help="Number of frames per video for classification.")
     args = parser.parse_args()
 
     model_path = os.path.join(all_config.BEST_MODEL_DIR, args.model)
@@ -123,5 +193,5 @@ if __name__ == "__main__":
 
 
 #python3 deployment.py 
-# --model best_model_seq40_batch16_hidden32_cnnresnet34_rnn16_layer2_rnnTypemamba_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7453.pth 
+# --model /home/Desktop/Skripsi-Magang-Proyek/best_model_medsos/best_model_seq40_batch16_hidden32_cnnresnet34_rnn16_layer2_rnnTypemamba_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7453.pth 
 # --videos /home/arifadh/Desktop/Dataset/tikHarm/Dataset/test/Adult/

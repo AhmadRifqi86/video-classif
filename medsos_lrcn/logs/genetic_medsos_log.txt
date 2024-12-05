@@ -1,0 +1,2605 @@
+Run 1/3
+Config: {'CNN_BACKBONE': 'densenet121', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 3, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     24
+CNN_Backbone:    densenet121
+RNN_Input_Size:  24
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1986164, 'Non-trainable parameters': 6953856, 'Total parameters': 8940020}
+start training
+Epoch 1/8, Loss: 0.8875, Accuracy: 0.5398
+Epoch 2/8, Loss: 0.6483, Accuracy: 0.6846
+Epoch 3/8, Loss: 0.5474, Accuracy: 0.7427
+Epoch 4/8, Loss: 0.4912, Accuracy: 0.7657
+Epoch 5/8, Loss: 0.4366, Accuracy: 0.7932
+Epoch 6/8, Loss: 0.4092, Accuracy: 0.8073
+Epoch 7/8, Loss: 0.3589, Accuracy: 0.8351
+Epoch 8/8, Loss: 0.3272, Accuracy: 0.8479
+training_duration: 656.4392
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6986
+Class: Harmful - Precision: 0.5801, Recall: 0.6907, f1-Score: 0.6306
+Class: Adult - Precision: 0.7619, Recall: 0.6919, f1-Score: 0.7252
+Class: Safe - Precision: 0.6968, Recall: 0.6453, f1-Score: 0.6701
+Class: Suicide - Precision: 0.7857, Recall: 0.7662, f1-Score: 0.7758
+Overall Precision: 0.7061, Overall Recall: 0.6985, Overall F1-Score: 0.7004
+inference_duration: 20.0958
+Metrics: Accuracy=0.6986, Precision=0.7061, Recall=0.6985, F1=0.7004, Train Duration=656.4392s, Inference Duration=20.0958s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=DenseNet121_Weights.IMAGENET1K_V1`. You can also use `weights=DenseNet121_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'densenet121', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 3, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     24
+CNN_Backbone:    densenet121
+RNN_Input_Size:  24
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1986164, 'Non-trainable parameters': 6953856, 'Total parameters': 8940020}
+start training
+Epoch 1/8, Loss: 0.8613, Accuracy: 0.5459
+Epoch 2/8, Loss: 0.6113, Accuracy: 0.7079
+Epoch 3/8, Loss: 0.5647, Accuracy: 0.7312
+Epoch 4/8, Loss: 0.4885, Accuracy: 0.7699
+Epoch 5/8, Loss: 0.4354, Accuracy: 0.8009
+Epoch 6/8, Loss: 0.3955, Accuracy: 0.8124
+Epoch 7/8, Loss: 0.3253, Accuracy: 0.8482
+Epoch 8/8, Loss: 0.3155, Accuracy: 0.8552
+training_duration: 656.1395
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6756
+Class: Harmful - Precision: 0.5887, Recall: 0.6634, f1-Score: 0.6239
+Class: Adult - Precision: 0.7159, Recall: 0.6961, f1-Score: 0.7059
+Class: Safe - Precision: 0.8455, Recall: 0.5073, f1-Score: 0.6341
+Class: Suicide - Precision: 0.6443, Recall: 0.8490, f1-Score: 0.7326
+Overall Precision: 0.6986, Overall Recall: 0.6790, Overall F1-Score: 0.6741
+inference_duration: 19.9576
+Metrics: Accuracy=0.6756, Precision=0.6986, Recall=0.679, F1=0.6741, Train Duration=656.1395s, Inference Duration=19.9576s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=DenseNet121_Weights.IMAGENET1K_V1`. You can also use `weights=DenseNet121_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'densenet121', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 3, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     24
+CNN_Backbone:    densenet121
+RNN_Input_Size:  24
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1986164, 'Non-trainable parameters': 6953856, 'Total parameters': 8940020}
+start training
+Epoch 1/8, Loss: 0.8735, Accuracy: 0.5526
+Epoch 2/8, Loss: 0.6242, Accuracy: 0.7060
+Run 1/3
+Config: {'CNN_BACKBONE': 'resnet34', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 3, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     24
+CNN_Backbone:    resnet34
+RNN_Input_Size:  24
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1490420, 'Non-trainable parameters': 21284672, 'Total parameters': 22775092}
+start training
+Epoch 1/8, Loss: 0.8333, Accuracy: 0.5743
+Epoch 2/8, Loss: 0.6314, Accuracy: 0.6996
+Epoch 3/8, Loss: 0.5493, Accuracy: 0.7386
+Epoch 4/8, Loss: 0.5201, Accuracy: 0.7558
+Epoch 5/8, Loss: 0.4831, Accuracy: 0.7680
+Epoch 6/8, Loss: 0.4259, Accuracy: 0.8009
+Epoch 7/8, Loss: 0.4208, Accuracy: 0.7999
+Epoch 8/8, Loss: 0.3744, Accuracy: 0.8316
+training_duration: 399.6811
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6654
+Class: Harmful - Precision: 0.6467, Recall: 0.4641, f1-Score: 0.5404
+Class: Adult - Precision: 0.6684, Recall: 0.6757, f1-Score: 0.6720
+Class: Safe - Precision: 0.6495, Recall: 0.7165, f1-Score: 0.6814
+Class: Suicide - Precision: 0.6897, Recall: 0.8205, f1-Score: 0.7494
+Overall Precision: 0.6636, Overall Recall: 0.6692, Overall F1-Score: 0.6608
+inference_duration: 12.5496
+Metrics: Accuracy=0.6654, Precision=0.6636, Recall=0.6692, F1=0.6608, Train Duration=399.6811s, Inference Duration=12.5496s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet34_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet34_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'resnet34', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 3, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     24
+CNN_Backbone:    resnet34
+RNN_Input_Size:  24
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1490420, 'Non-trainable parameters': 21284672, 'Total parameters': 22775092}
+start training
+Epoch 1/8, Loss: 0.8884, Accuracy: 0.5475
+Epoch 2/8, Loss: 0.6585, Accuracy: 0.6881
+Epoch 3/8, Loss: 0.6055, Accuracy: 0.7105
+Epoch 4/8, Loss: 0.5254, Accuracy: 0.7450
+Epoch 5/8, Loss: 0.4844, Accuracy: 0.7680
+Epoch 6/8, Loss: 0.4475, Accuracy: 0.7875
+Epoch 7/8, Loss: 0.4101, Accuracy: 0.8070
+Epoch 8/8, Loss: 0.3992, Accuracy: 0.8188
+training_duration: 392.2754
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6794
+Class: Harmful - Precision: 0.6398, Recall: 0.6166, f1-Score: 0.6280
+Class: Adult - Precision: 0.6352, Recall: 0.7400, f1-Score: 0.6836
+Class: Safe - Precision: 0.7746, Recall: 0.5473, f1-Score: 0.6414
+Class: Suicide - Precision: 0.6982, Recall: 0.8201, f1-Score: 0.7543
+Overall Precision: 0.6870, Overall Recall: 0.6810, Overall F1-Score: 0.6768
+inference_duration: 12.4262
+Metrics: Accuracy=0.6794, Precision=0.687, Recall=0.681, F1=0.6768, Train Duration=392.2754s, Inference Duration=12.4262s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet34_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet34_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'resnet34', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 3, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     24
+CNN_Backbone:    resnet34
+RNN_Input_Size:  24
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1490420, 'Non-trainable parameters': 21284672, 'Total parameters': 22775092}
+start training
+Epoch 1/8, Loss: 0.8653, Accuracy: 0.5554
+Epoch 2/8, Loss: 0.6767, Accuracy: 0.6750
+Epoch 3/8, Loss: 0.5767, Accuracy: 0.7220
+Epoch 4/8, Loss: 0.5395, Accuracy: 0.7520
+Epoch 5/8, Loss: 0.4991, Accuracy: 0.7603
+Epoch 6/8, Loss: 0.4667, Accuracy: 0.7756
+Epoch 7/8, Loss: 0.4377, Accuracy: 0.7903
+Epoch 8/8, Loss: 0.4253, Accuracy: 0.8006
+training_duration: 383.8554
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7075
+Class: Harmful - Precision: 0.5792, Recall: 0.6995, f1-Score: 0.6337
+Class: Adult - Precision: 0.7594, Recall: 0.7172, f1-Score: 0.7377
+Class: Safe - Precision: 0.7697, Recall: 0.6513, f1-Score: 0.7056
+Class: Suicide - Precision: 0.7476, Recall: 0.7585, f1-Score: 0.7530
+Overall Precision: 0.7140, Overall Recall: 0.7066, Overall F1-Score: 0.7075
+inference_duration: 12.4431
+Metrics: Accuracy=0.7075, Precision=0.714, Recall=0.7066, F1=0.7075, Train Duration=383.8554s, Inference Duration=12.4431s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet34_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet34_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 1, 'RNN_LAYER': 3}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     32
+CNN_Backbone:    mobilenet_v2
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1184676, 'Non-trainable parameters': 2223872, 'Total parameters': 3408548}
+start training
+Epoch 1/8, Loss: 0.8881, Accuracy: 0.5190
+Epoch 2/8, Loss: 0.6627, Accuracy: 0.6910
+Epoch 3/8, Loss: 0.6133, Accuracy: 0.7156
+Epoch 4/8, Loss: 0.5583, Accuracy: 0.7405
+Epoch 5/8, Loss: 0.5423, Accuracy: 0.7498
+Epoch 6/8, Loss: 0.5114, Accuracy: 0.7648
+Epoch 7/8, Loss: 0.4944, Accuracy: 0.7696
+Epoch 8/8, Loss: 0.4781, Accuracy: 0.7769
+training_duration: 373.7996
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7305
+Class: Harmful - Precision: 0.6068, Recall: 0.7282, f1-Score: 0.6620
+Class: Adult - Precision: 0.8415, Recall: 0.7150, f1-Score: 0.7731
+Class: Safe - Precision: 0.7403, Recall: 0.5758, f1-Score: 0.6477
+Class: Suicide - Precision: 0.7706, Recall: 0.9036, f1-Score: 0.8318
+Overall Precision: 0.7398, Overall Recall: 0.7306, Overall F1-Score: 0.7287
+inference_duration: 12.5468
+Metrics: Accuracy=0.7305, Precision=0.7398, Recall=0.7306, F1=0.7287, Train Duration=373.7996s, Inference Duration=12.5468s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V2_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 1, 'RNN_LAYER': 3}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     32
+CNN_Backbone:    mobilenet_v2
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1184676, 'Non-trainable parameters': 2223872, 'Total parameters': 3408548}
+start training
+Epoch 1/8, Loss: 0.8740, Accuracy: 0.5235
+Epoch 2/8, Loss: 0.6634, Accuracy: 0.6862
+Epoch 3/8, Loss: 0.5931, Accuracy: 0.7258
+Epoch 4/8, Loss: 0.5848, Accuracy: 0.7248
+Epoch 5/8, Loss: 0.5405, Accuracy: 0.7469
+Epoch 6/8, Loss: 0.5211, Accuracy: 0.7568
+Epoch 7/8, Loss: 0.5053, Accuracy: 0.7657
+Epoch 8/8, Loss: 0.4855, Accuracy: 0.7795
+training_duration: 388.5494
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7420
+Class: Harmful - Precision: 0.6696, Recall: 0.7415, f1-Score: 0.7037
+Class: Adult - Precision: 0.6575, Recall: 0.8789, f1-Score: 0.7523
+Class: Safe - Precision: 0.8732, Recall: 0.6294, f1-Score: 0.7316
+Class: Suicide - Precision: 0.8625, Recall: 0.7225, f1-Score: 0.7863
+Overall Precision: 0.7657, Overall Recall: 0.7431, Overall F1-Score: 0.7435
+inference_duration: 13.1185
+Metrics: Accuracy=0.742, Precision=0.7657, Recall=0.7431, F1=0.7435, Train Duration=388.5494s, Inference Duration=13.1185s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V2_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 1, 'RNN_LAYER': 3}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     32
+CNN_Backbone:    mobilenet_v2
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1184676, 'Non-trainable parameters': 2223872, 'Total parameters': 3408548}
+start training
+Epoch 1/8, Loss: 0.8482, Accuracy: 0.5507
+Epoch 2/8, Loss: 0.6314, Accuracy: 0.7021
+Epoch 3/8, Loss: 0.5989, Accuracy: 0.7236
+Epoch 4/8, Loss: 0.5744, Accuracy: 0.7408
+Epoch 5/8, Loss: 0.5442, Accuracy: 0.7363
+Epoch 6/8, Loss: 0.5317, Accuracy: 0.7494
+Epoch 7/8, Loss: 0.4998, Accuracy: 0.7638
+Epoch 8/8, Loss: 0.4624, Accuracy: 0.7919
+training_duration: 398.8913
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7229
+Class: Harmful - Precision: 0.6190, Recall: 0.7065, f1-Score: 0.6599
+Class: Adult - Precision: 0.7722, Recall: 0.7052, f1-Score: 0.7372
+Class: Safe - Precision: 0.6533, Recall: 0.7277, f1-Score: 0.6885
+Class: Suicide - Precision: 0.8789, Recall: 0.7455, f1-Score: 0.8068
+Overall Precision: 0.7309, Overall Recall: 0.7212, Overall F1-Score: 0.7231
+inference_duration: 12.2039
+Metrics: Accuracy=0.7229, Precision=0.7309, Recall=0.7212, F1=0.7231, Train Duration=398.8913s, Inference Duration=12.2039s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V2_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 1, 'RNN_INPUT_SIZE': 2, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     8
+CNN_Backbone:    resnet50
+RNN_Input_Size:  16
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 3227876, 'Non-trainable parameters': 23508032, 'Total parameters': 26735908}
+start training
+Epoch 1/8, Loss: 0.8462, Accuracy: 0.5545
+Epoch 2/8, Loss: 0.6537, Accuracy: 0.6763
+Epoch 3/8, Loss: 0.6046, Accuracy: 0.7108
+Epoch 4/8, Loss: 0.5740, Accuracy: 0.7299
+Epoch 5/8, Loss: 0.5613, Accuracy: 0.7331
+Epoch 6/8, Loss: 0.5094, Accuracy: 0.7606
+Epoch 7/8, Loss: 0.4890, Accuracy: 0.7664
+Epoch 8/8, Loss: 0.4752, Accuracy: 0.7753
+training_duration: 714.0473
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7292
+Class: Harmful - Precision: 0.7098, Recall: 0.6954, f1-Score: 0.7026
+Class: Adult - Precision: 0.7212, Recall: 0.7041, f1-Score: 0.7126
+Class: Safe - Precision: 0.6707, Recall: 0.7746, f1-Score: 0.7190
+Class: Suicide - Precision: 0.8380, Recall: 0.7353, f1-Score: 0.7833
+Overall Precision: 0.7349, Overall Recall: 0.7274, Overall F1-Score: 0.7293
+inference_duration: 17.5181
+Metrics: Accuracy=0.7292, Precision=0.7349, Recall=0.7274, F1=0.7293, Train Duration=714.0473s, Inference Duration=17.5181s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 1, 'RNN_INPUT_SIZE': 2, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     8
+CNN_Backbone:    resnet50
+RNN_Input_Size:  16
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 3227876, 'Non-trainable parameters': 23508032, 'Total parameters': 26735908}
+start training
+Epoch 1/8, Loss: 0.9044, Accuracy: 0.5101
+Epoch 2/8, Loss: 0.6440, Accuracy: 0.7005
+Epoch 3/8, Loss: 0.6043, Accuracy: 0.7101
+Epoch 4/8, Loss: 0.5925, Accuracy: 0.7168
+Epoch 5/8, Loss: 0.5463, Accuracy: 0.7427
+Epoch 6/8, Loss: 0.5369, Accuracy: 0.7466
+Epoch 7/8, Loss: 0.5183, Accuracy: 0.7558
+Epoch 8/8, Loss: 0.4748, Accuracy: 0.7718
+training_duration: 709.1088
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7152
+Class: Harmful - Precision: 0.6463, Recall: 0.7162, f1-Score: 0.6795
+Class: Adult - Precision: 0.8120, Recall: 0.6171, f1-Score: 0.7013
+Class: Safe - Precision: 0.7529, Recall: 0.6465, f1-Score: 0.6957
+Class: Suicide - Precision: 0.7051, Recall: 0.8777, f1-Score: 0.7820
+Overall Precision: 0.7291, Overall Recall: 0.7144, Overall F1-Score: 0.7146
+inference_duration: 17.3653
+Metrics: Accuracy=0.7152, Precision=0.7291, Recall=0.7144, F1=0.7146, Train Duration=709.1088s, Inference Duration=17.3653s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 1, 'RNN_INPUT_SIZE': 2, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     8
+CNN_Backbone:    resnet50
+RNN_Input_Size:  16
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 3227876, 'Non-trainable parameters': 23508032, 'Total parameters': 26735908}
+start training
+Epoch 1/8, Loss: 0.8602, Accuracy: 0.5382
+Epoch 2/8, Loss: 0.6648, Accuracy: 0.6842
+Epoch 3/8, Loss: 0.5999, Accuracy: 0.7111
+Epoch 4/8, Loss: 0.5980, Accuracy: 0.7127
+Epoch 5/8, Loss: 0.5536, Accuracy: 0.7408
+Epoch 6/8, Loss: 0.5697, Accuracy: 0.7271
+Epoch 7/8, Loss: 0.4911, Accuracy: 0.7667
+Epoch 8/8, Loss: 0.4873, Accuracy: 0.7766
+training_duration: 698.9226
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7484
+Class: Harmful - Precision: 0.7217, Recall: 0.7251, f1-Score: 0.7234
+Class: Adult - Precision: 0.8774, Recall: 0.6634, f1-Score: 0.7556
+Class: Safe - Precision: 0.6205, Recall: 0.7809, f1-Score: 0.6915
+Class: Suicide - Precision: 0.8229, Recall: 0.8360, f1-Score: 0.8294
+Overall Precision: 0.7606, Overall Recall: 0.7514, Overall F1-Score: 0.7500
+inference_duration: 17.4306
+Metrics: Accuracy=0.7484, Precision=0.7606, Recall=0.7514, F1=0.75, Train Duration=698.9226s, Inference Duration=17.4306s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'resnet101', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 4, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     32
+CNN_Backbone:    resnet101
+RNN_Input_Size:  32
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4990788, 'Non-trainable parameters': 42500160, 'Total parameters': 47490948}
+start training
+Epoch 1/8, Loss: 0.8601, Accuracy: 0.5500
+Epoch 2/8, Loss: 0.6253, Accuracy: 0.7044
+Epoch 3/8, Loss: 0.5594, Accuracy: 0.7363
+Epoch 4/8, Loss: 0.5290, Accuracy: 0.7485
+Epoch 5/8, Loss: 0.4934, Accuracy: 0.7654
+Epoch 6/8, Loss: 0.4523, Accuracy: 0.7820
+Epoch 7/8, Loss: 0.4231, Accuracy: 0.8019
+Epoch 8/8, Loss: 0.3636, Accuracy: 0.8351
+training_duration: 1073.9593
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7292
+Class: Harmful - Precision: 0.6333, Recall: 0.7876, f1-Score: 0.7021
+Class: Adult - Precision: 0.7656, Recall: 0.7313, f1-Score: 0.7481
+Class: Safe - Precision: 0.7670, Recall: 0.6750, f1-Score: 0.7181
+Class: Suicide - Precision: 0.7829, Recall: 0.7249, f1-Score: 0.7527
+Overall Precision: 0.7372, Overall Recall: 0.7297, Overall F1-Score: 0.7303
+inference_duration: 31.5650
+Metrics: Accuracy=0.7292, Precision=0.7372, Recall=0.7297, F1=0.7303, Train Duration=1073.9593s, Inference Duration=31.565s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet101_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet101_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'resnet101', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 4, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     32
+CNN_Backbone:    resnet101
+RNN_Input_Size:  32
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4990788, 'Non-trainable parameters': 42500160, 'Total parameters': 47490948}
+start training
+Epoch 1/8, Loss: 0.8471, Accuracy: 0.5622
+Epoch 2/8, Loss: 0.6536, Accuracy: 0.6852
+Epoch 3/8, Loss: 0.5779, Accuracy: 0.7319
+Epoch 4/8, Loss: 0.5459, Accuracy: 0.7472
+Epoch 5/8, Loss: 0.5064, Accuracy: 0.7705
+Epoch 6/8, Loss: 0.4507, Accuracy: 0.7868
+Epoch 7/8, Loss: 0.4114, Accuracy: 0.8082
+Epoch 8/8, Loss: 0.3760, Accuracy: 0.8281
+training_duration: 1076.2089
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7139
+Class: Harmful - Precision: 0.5777, Recall: 0.7398, f1-Score: 0.6488
+Class: Adult - Precision: 0.8264, Recall: 0.6575, f1-Score: 0.7323
+Class: Safe - Precision: 0.6714, Recall: 0.7150, f1-Score: 0.6925
+Class: Suicide - Precision: 0.8686, Recall: 0.7379, f1-Score: 0.7979
+Overall Precision: 0.7360, Overall Recall: 0.7125, Overall F1-Score: 0.7179
+inference_duration: 31.5982
+Metrics: Accuracy=0.7139, Precision=0.736, Recall=0.7125, F1=0.7179, Train Duration=1076.2089s, Inference Duration=31.5982s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet101_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet101_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'resnet101', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 4, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     32
+CNN_Backbone:    resnet101
+RNN_Input_Size:  32
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4990788, 'Non-trainable parameters': 42500160, 'Total parameters': 47490948}
+start training
+Epoch 1/8, Loss: 0.9275, Accuracy: 0.5088
+Epoch 2/8, Loss: 0.6187, Accuracy: 0.7037
+Epoch 3/8, Loss: 0.5635, Accuracy: 0.7379
+Epoch 4/8, Loss: 0.5332, Accuracy: 0.7421
+Epoch 5/8, Loss: 0.4778, Accuracy: 0.7766
+Epoch 6/8, Loss: 0.4656, Accuracy: 0.7801
+Epoch 7/8, Loss: 0.4337, Accuracy: 0.7993
+Epoch 8/8, Loss: 0.3667, Accuracy: 0.8297
+training_duration: 1076.4529
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7420
+Class: Harmful - Precision: 0.6683, Recall: 0.7074, f1-Score: 0.6873
+Class: Adult - Precision: 0.7926, Recall: 0.7563, f1-Score: 0.7740
+Class: Safe - Precision: 0.7766, Recall: 0.6667, f1-Score: 0.7174
+Class: Suicide - Precision: 0.7356, Recall: 0.8547, f1-Score: 0.7907
+Overall Precision: 0.7433, Overall Recall: 0.7463, Overall F1-Score: 0.7424
+inference_duration: 31.5647
+Metrics: Accuracy=0.742, Precision=0.7433, Recall=0.7463, F1=0.7424, Train Duration=1076.4529s, Inference Duration=31.5647s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet101_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet101_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 1, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     32
+CNN_Backbone:    mobilenet_v2
+RNN_Input_Size:  8
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1187892, 'Non-trainable parameters': 2223872, 'Total parameters': 3411764}
+start training
+Epoch 1/8, Loss: 0.8521, Accuracy: 0.5539
+Epoch 2/8, Loss: 0.6625, Accuracy: 0.6807
+Epoch 3/8, Loss: 0.5966, Accuracy: 0.7264
+Epoch 4/8, Loss: 0.5638, Accuracy: 0.7386
+Epoch 5/8, Loss: 0.5306, Accuracy: 0.7549
+Epoch 6/8, Loss: 0.5110, Accuracy: 0.7693
+Epoch 7/8, Loss: 0.5013, Accuracy: 0.7756
+Epoch 8/8, Loss: 0.4839, Accuracy: 0.7795
+training_duration: 389.2944
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7037
+Class: Harmful - Precision: 0.7323, Recall: 0.4844, f1-Score: 0.5831
+Class: Adult - Precision: 0.7222, Recall: 0.8164, f1-Score: 0.7664
+Class: Safe - Precision: 0.6923, Recall: 0.6683, f1-Score: 0.6801
+Class: Suicide - Precision: 0.6784, Recall: 0.8462, f1-Score: 0.7531
+Overall Precision: 0.7063, Overall Recall: 0.7038, Overall F1-Score: 0.6957
+inference_duration: 12.2102
+Metrics: Accuracy=0.7037, Precision=0.7063, Recall=0.7038, F1=0.6957, Train Duration=389.2944s, Inference Duration=12.2102s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V2_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 1, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     32
+CNN_Backbone:    mobilenet_v2
+RNN_Input_Size:  8
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1187892, 'Non-trainable parameters': 2223872, 'Total parameters': 3411764}
+start training
+Epoch 1/8, Loss: 0.9023, Accuracy: 0.5107
+Epoch 2/8, Loss: 0.6137, Accuracy: 0.7133
+Epoch 3/8, Loss: 0.5897, Accuracy: 0.7181
+Epoch 4/8, Loss: 0.5578, Accuracy: 0.7430
+Epoch 5/8, Loss: 0.5092, Accuracy: 0.7625
+Epoch 6/8, Loss: 0.5031, Accuracy: 0.7689
+Epoch 7/8, Loss: 0.4859, Accuracy: 0.7830
+Epoch 8/8, Loss: 0.4785, Accuracy: 0.7769
+training_duration: 394.7181
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7165
+Class: Harmful - Precision: 0.6893, Recall: 0.6762, f1-Score: 0.6827
+Class: Adult - Precision: 0.7110, Recall: 0.7069, f1-Score: 0.7089
+Class: Safe - Precision: 0.7475, Recall: 0.6981, f1-Score: 0.7220
+Class: Suicide - Precision: 0.7184, Recall: 0.7914, f1-Score: 0.7532
+Overall Precision: 0.7166, Overall Recall: 0.7182, Overall F1-Score: 0.7167
+inference_duration: 12.0226
+Metrics: Accuracy=0.7165, Precision=0.7166, Recall=0.7182, F1=0.7167, Train Duration=394.7181s, Inference Duration=12.0226s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V2_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 1, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     32
+CNN_Backbone:    mobilenet_v2
+RNN_Input_Size:  8
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1187892, 'Non-trainable parameters': 2223872, 'Total parameters': 3411764}
+start training
+Epoch 1/8, Loss: 0.9095, Accuracy: 0.5097
+Epoch 2/8, Loss: 0.6647, Accuracy: 0.6865
+Epoch 3/8, Loss: 0.6015, Accuracy: 0.7197
+Epoch 4/8, Loss: 0.5670, Accuracy: 0.7402
+Epoch 5/8, Loss: 0.5548, Accuracy: 0.7399
+Epoch 6/8, Loss: 0.5261, Accuracy: 0.7552
+Epoch 7/8, Loss: 0.5184, Accuracy: 0.7603
+Epoch 8/8, Loss: 0.4909, Accuracy: 0.7734
+training_duration: 392.7586
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7510
+Class: Harmful - Precision: 0.8120, Recall: 0.5745, f1-Score: 0.6729
+Class: Adult - Precision: 0.7174, Recall: 0.8333, f1-Score: 0.7710
+Class: Safe - Precision: 0.6878, Recall: 0.7525, f1-Score: 0.7187
+Class: Suicide - Precision: 0.8191, Recall: 0.8359, f1-Score: 0.8274
+Overall Precision: 0.7591, Overall Recall: 0.7490, Overall F1-Score: 0.7475
+inference_duration: 12.2235
+Metrics: Accuracy=0.751, Precision=0.7591, Recall=0.749, F1=0.7475, Train Duration=392.7586s, Inference Duration=12.2235s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V2_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  24
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 3964532, 'Non-trainable parameters': 23508032, 'Total parameters': 27472564}
+start training
+Epoch 1/8, Loss: 0.8494, Accuracy: 0.5580
+Epoch 2/8, Loss: 0.6521, Accuracy: 0.6862
+Epoch 3/8, Loss: 0.5545, Accuracy: 0.7395
+Epoch 4/8, Loss: 0.5000, Accuracy: 0.7680
+Epoch 5/8, Loss: 0.5009, Accuracy: 0.7597
+Epoch 6/8, Loss: 0.4651, Accuracy: 0.7852
+Epoch 7/8, Loss: 0.3778, Accuracy: 0.8265
+Epoch 8/8, Loss: 0.3852, Accuracy: 0.8226
+training_duration: 655.0466
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7024
+Class: Harmful - Precision: 0.6018, Recall: 0.6488, f1-Score: 0.6244
+Class: Adult - Precision: 0.6726, Recall: 0.8352, f1-Score: 0.7451
+Class: Safe - Precision: 0.7081, Recall: 0.6359, f1-Score: 0.6701
+Class: Suicide - Precision: 0.8874, Recall: 0.7053, f1-Score: 0.7859
+Overall Precision: 0.7175, Overall Recall: 0.7063, Overall F1-Score: 0.7064
+inference_duration: 18.9205
+Metrics: Accuracy=0.7024, Precision=0.7175, Recall=0.7063, F1=0.7064, Train Duration=655.0466s, Inference Duration=18.9205s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  24
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 3964532, 'Non-trainable parameters': 23508032, 'Total parameters': 27472564}
+start training
+Epoch 1/8, Loss: 0.8675, Accuracy: 0.5420
+Epoch 2/8, Loss: 0.5929, Accuracy: 0.7312
+Epoch 3/8, Loss: 0.5775, Accuracy: 0.7303
+Epoch 4/8, Loss: 0.5001, Accuracy: 0.7625
+Epoch 5/8, Loss: 0.4871, Accuracy: 0.7763
+Epoch 6/8, Loss: 0.4437, Accuracy: 0.7983
+Epoch 7/8, Loss: 0.4070, Accuracy: 0.8060
+Epoch 8/8, Loss: 0.3843, Accuracy: 0.8213
+training_duration: 657.5024
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6718
+Class: Harmful - Precision: 0.5461, Recall: 0.7291, f1-Score: 0.6245
+Class: Adult - Precision: 0.7961, Recall: 0.6237, f1-Score: 0.6994
+Class: Safe - Precision: 0.7447, Recall: 0.5048, f1-Score: 0.6017
+Class: Suicide - Precision: 0.6941, Recall: 0.8539, f1-Score: 0.7657
+Overall Precision: 0.6952, Overall Recall: 0.6779, Overall F1-Score: 0.6728
+inference_duration: 18.8777
+Metrics: Accuracy=0.6718, Precision=0.6952, Recall=0.6779, F1=0.6728, Train Duration=657.5024s, Inference Duration=18.8777s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  24
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 3964532, 'Non-trainable parameters': 23508032, 'Total parameters': 27472564}
+start training
+Epoch 1/8, Loss: 0.9616, Accuracy: 0.4826
+Epoch 2/8, Loss: 0.6353, Accuracy: 0.7028
+Epoch 3/8, Loss: 0.5892, Accuracy: 0.7232
+Epoch 4/8, Loss: 0.5178, Accuracy: 0.7613
+Epoch 5/8, Loss: 0.4866, Accuracy: 0.7731
+Epoch 6/8, Loss: 0.4530, Accuracy: 0.7872
+Epoch 7/8, Loss: 0.4157, Accuracy: 0.8086
+Epoch 8/8, Loss: 0.3818, Accuracy: 0.8229
+training_duration: 657.1882
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7152
+Class: Harmful - Precision: 0.7419, Recall: 0.4894, f1-Score: 0.5897
+Class: Adult - Precision: 0.7268, Recall: 0.7460, f1-Score: 0.7363
+Class: Safe - Precision: 0.6652, Recall: 0.7641, f1-Score: 0.7112
+Class: Suicide - Precision: 0.7386, Recall: 0.8436, f1-Score: 0.7876
+Overall Precision: 0.7181, Overall Recall: 0.7108, Overall F1-Score: 0.7062
+inference_duration: 18.9625
+Metrics: Accuracy=0.7152, Precision=0.7181, Recall=0.7108, F1=0.7062, Train Duration=657.1882s, Inference Duration=18.9625s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'resnet34', 'BATCH_SIZE': 62, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 2, 'RNN_LAYER': 3}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      496
+Hidden_Size:     32
+CNN_Backbone:    resnet34
+RNN_Input_Size:  16
+RNN_Layer:       3
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 768580, 'Non-trainable parameters': 21284672, 'Total parameters': 22053252}
+start training
+Error extracting metrics: Could not find a match for accuracy in the output.
+Run 0 output:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      496
+Hidden_Size:     32
+CNN_Backbone:    resnet34
+RNN_Input_Size:  16
+RNN_Layer:       3
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 768580, 'Non-trainable parameters': 21284672, 'Total parameters': 22053252}
+start training
+
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet34_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet34_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Traceback (most recent call last):
+  File "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/main.py", line 167, in <module>
+    main()
+  File "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/main.py", line 154, in main
+    train_model(
+  File "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/train_eval.py", line 23, in train_model
+    outputs = model(inputs)     #this part is done on edge device
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/models_bidir.py", line 191, in forward
+    x = self.cnn_backbone(x)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/resnet.py", line 285, in forward
+    return self._forward_impl(x)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/resnet.py", line 268, in _forward_impl
+    x = self.conv1(x)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 458, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 454, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 11.35 GiB. GPU 0 has a total capacity of 7.75 GiB of which 5.39 GiB is free. Including non-PyTorch memory, this process has 2.32 GiB memory in use. Of the allocated memory 2.21 GiB is allocated by PyTorch, and 22.65 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'resnet34', 'BATCH_SIZE': 62, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 2, 'RNN_LAYER': 3}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      496
+Hidden_Size:     32
+CNN_Backbone:    resnet34
+RNN_Input_Size:  16
+RNN_Layer:       3
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 768580, 'Non-trainable parameters': 21284672, 'Total parameters': 22053252}
+start training
+Error extracting metrics: Could not find a match for accuracy in the output.
+Run 1 output:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      496
+Hidden_Size:     32
+CNN_Backbone:    resnet34
+RNN_Input_Size:  16
+RNN_Layer:       3
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 768580, 'Non-trainable parameters': 21284672, 'Total parameters': 22053252}
+start training
+
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet34_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet34_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Traceback (most recent call last):
+  File "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/main.py", line 167, in <module>
+    main()
+  File "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/main.py", line 154, in main
+    train_model(
+  File "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/train_eval.py", line 23, in train_model
+    outputs = model(inputs)     #this part is done on edge device
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/models_bidir.py", line 191, in forward
+    x = self.cnn_backbone(x)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/resnet.py", line 285, in forward
+    return self._forward_impl(x)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/resnet.py", line 268, in _forward_impl
+    x = self.conv1(x)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 458, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 454, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 11.35 GiB. GPU 0 has a total capacity of 7.75 GiB of which 5.39 GiB is free. Including non-PyTorch memory, this process has 2.32 GiB memory in use. Of the allocated memory 2.21 GiB is allocated by PyTorch, and 22.65 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'resnet34', 'BATCH_SIZE': 62, 'HIDDEN_SIZE': 4, 'RNN_INPUT_SIZE': 2, 'RNN_LAYER': 3}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      496
+Hidden_Size:     32
+CNN_Backbone:    resnet34
+RNN_Input_Size:  16
+RNN_Layer:       3
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 768580, 'Non-trainable parameters': 21284672, 'Total parameters': 22053252}
+start training
+Error extracting metrics: Could not find a match for accuracy in the output.
+Run 2 output:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      496
+Hidden_Size:     32
+CNN_Backbone:    resnet34
+RNN_Input_Size:  16
+RNN_Layer:       3
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 768580, 'Non-trainable parameters': 21284672, 'Total parameters': 22053252}
+start training
+
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet34_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet34_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Traceback (most recent call last):
+  File "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/main.py", line 167, in <module>
+    main()
+  File "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/main.py", line 154, in main
+    train_model(
+  File "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/train_eval.py", line 23, in train_model
+    outputs = model(inputs)     #this part is done on edge device
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/models_bidir.py", line 191, in forward
+    x = self.cnn_backbone(x)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/resnet.py", line 285, in forward
+    return self._forward_impl(x)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/resnet.py", line 268, in _forward_impl
+    x = self.conv1(x)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 458, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/arifadh/.local/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 454, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 11.35 GiB. GPU 0 has a total capacity of 7.75 GiB of which 5.39 GiB is free. Including non-PyTorch memory, this process has 2.32 GiB memory in use. Of the allocated memory 2.21 GiB is allocated by PyTorch, and 22.65 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     16
+CNN_Backbone:    mobilenet_v2
+RNN_Input_Size:  24
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 2370836, 'Non-trainable parameters': 2223872, 'Total parameters': 4594708}
+start training
+Epoch 1/8, Loss: 0.8061, Accuracy: 0.5954
+Epoch 2/8, Loss: 0.5927, Accuracy: 0.7197
+Epoch 3/8, Loss: 0.5390, Accuracy: 0.7459
+Epoch 4/8, Loss: 0.5207, Accuracy: 0.7609
+Epoch 5/8, Loss: 0.4486, Accuracy: 0.7916
+Epoch 6/8, Loss: 0.4253, Accuracy: 0.7983
+Epoch 7/8, Loss: 0.3843, Accuracy: 0.8175
+Epoch 8/8, Loss: 0.3751, Accuracy: 0.8258
+training_duration: 387.9558
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6845
+Class: Harmful - Precision: 0.5885, Recall: 0.7391, f1-Score: 0.6552
+Class: Adult - Precision: 0.7459, Recall: 0.6900, f1-Score: 0.7169
+Class: Safe - Precision: 0.7285, Recall: 0.5556, f1-Score: 0.6304
+Class: Suicide - Precision: 0.7219, Recall: 0.7584, f1-Score: 0.7397
+Overall Precision: 0.6962, Overall Recall: 0.6858, Overall F1-Score: 0.6856
+inference_duration: 11.9214
+Metrics: Accuracy=0.6845, Precision=0.6962, Recall=0.6858, F1=0.6856, Train Duration=387.9558s, Inference Duration=11.9214s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V2_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     16
+CNN_Backbone:    mobilenet_v2
+RNN_Input_Size:  24
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 2370836, 'Non-trainable parameters': 2223872, 'Total parameters': 4594708}
+start training
+Epoch 1/8, Loss: 0.8181, Accuracy: 0.5829
+Epoch 2/8, Loss: 0.6441, Accuracy: 0.6983
+Epoch 3/8, Loss: 0.5806, Accuracy: 0.7197
+Epoch 4/8, Loss: 0.5154, Accuracy: 0.7520
+Epoch 5/8, Loss: 0.4727, Accuracy: 0.7760
+Epoch 6/8, Loss: 0.4192, Accuracy: 0.8003
+Epoch 7/8, Loss: 0.4081, Accuracy: 0.8047
+Epoch 8/8, Loss: 0.3678, Accuracy: 0.8271
+training_duration: 393.1492
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6884
+Class: Harmful - Precision: 0.6890, Recall: 0.5622, f1-Score: 0.6192
+Class: Adult - Precision: 0.5970, Recall: 0.8870, f1-Score: 0.7136
+Class: Safe - Precision: 0.7011, Recall: 0.6202, f1-Score: 0.6582
+Class: Suicide - Precision: 0.8140, Recall: 0.7107, f1-Score: 0.7588
+Overall Precision: 0.7003, Overall Recall: 0.6950, Overall F1-Score: 0.6874
+inference_duration: 12.1055
+Metrics: Accuracy=0.6884, Precision=0.7003, Recall=0.695, F1=0.6874, Train Duration=393.1492s, Inference Duration=12.1055s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V2_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'BATCH_SIZE': 3, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      24
+Hidden_Size:     16
+CNN_Backbone:    mobilenet_v2
+RNN_Input_Size:  24
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 2370836, 'Non-trainable parameters': 2223872, 'Total parameters': 4594708}
+start training
+Epoch 1/8, Loss: 0.8549, Accuracy: 0.5698
+Epoch 2/8, Loss: 0.6391, Accuracy: 0.7053
+Epoch 3/8, Loss: 0.5825, Accuracy: 0.7252
+Epoch 4/8, Loss: 0.5334, Accuracy: 0.7446
+Epoch 5/8, Loss: 0.4990, Accuracy: 0.7696
+Epoch 6/8, Loss: 0.4345, Accuracy: 0.8063
+Epoch 7/8, Loss: 0.4087, Accuracy: 0.8137
+Epoch 8/8, Loss: 0.3582, Accuracy: 0.8332
+training_duration: 393.5746
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6679
+Class: Harmful - Precision: 0.6313, Recall: 0.6188, f1-Score: 0.6250
+Class: Adult - Precision: 0.6186, Recall: 0.7604, f1-Score: 0.6822
+Class: Safe - Precision: 0.7857, Recall: 0.4400, f1-Score: 0.5641
+Class: Suicide - Precision: 0.6920, Recall: 0.8677, f1-Score: 0.7700
+Overall Precision: 0.6819, Overall Recall: 0.6717, Overall F1-Score: 0.6603
+inference_duration: 12.1059
+Metrics: Accuracy=0.6679, Precision=0.6819, Recall=0.6717, F1=0.6603, Train Duration=393.5746s, Inference Duration=12.1059s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V2_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     16
+CNN_Backbone:    resnet50
+RNN_Input_Size:  24
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 3974612, 'Non-trainable parameters': 23508032, 'Total parameters': 27482644}
+start training
+Epoch 1/8, Loss: 0.8562, Accuracy: 0.5507
+Epoch 2/8, Loss: 0.6622, Accuracy: 0.6769
+Epoch 3/8, Loss: 0.6098, Accuracy: 0.7111
+Epoch 4/8, Loss: 0.5784, Accuracy: 0.7188
+Epoch 5/8, Loss: 0.5424, Accuracy: 0.7418
+Epoch 6/8, Loss: 0.5387, Accuracy: 0.7530
+Epoch 7/8, Loss: 0.4871, Accuracy: 0.7737
+Epoch 8/8, Loss: 0.4760, Accuracy: 0.7750
+training_duration: 693.8907
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7395
+Class: Harmful - Precision: 0.6818, Recall: 0.6888, f1-Score: 0.6853
+Class: Adult - Precision: 0.7054, Recall: 0.8061, f1-Score: 0.7524
+Class: Safe - Precision: 0.7444, Recall: 0.6872, f1-Score: 0.7147
+Class: Suicide - Precision: 0.8398, Recall: 0.7755, f1-Score: 0.8064
+Overall Precision: 0.7428, Overall Recall: 0.7394, Overall F1-Score: 0.7397
+inference_duration: 17.3643
+Metrics: Accuracy=0.7395, Precision=0.7428, Recall=0.7394, F1=0.7397, Train Duration=693.8907s, Inference Duration=17.3643s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     16
+CNN_Backbone:    resnet50
+RNN_Input_Size:  24
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 3974612, 'Non-trainable parameters': 23508032, 'Total parameters': 27482644}
+start training
+Epoch 1/8, Loss: 0.8550, Accuracy: 0.5510
+Epoch 2/8, Loss: 0.6782, Accuracy: 0.6708
+Epoch 3/8, Loss: 0.6043, Accuracy: 0.7063
+Epoch 4/8, Loss: 0.5811, Accuracy: 0.7354
+Epoch 5/8, Loss: 0.5567, Accuracy: 0.7341
+Epoch 6/8, Loss: 0.5322, Accuracy: 0.7555
+Epoch 7/8, Loss: 0.4946, Accuracy: 0.7683
+Epoch 8/8, Loss: 0.4969, Accuracy: 0.7699
+training_duration: 697.7046
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7586
+Class: Harmful - Precision: 0.6555, Recall: 0.7959, f1-Score: 0.7189
+Class: Adult - Precision: 0.7461, Recall: 0.8136, f1-Score: 0.7784
+Class: Safe - Precision: 0.8214, Recall: 0.6540, f1-Score: 0.7282
+Class: Suicide - Precision: 0.8478, Recall: 0.7839, f1-Score: 0.8146
+Overall Precision: 0.7677, Overall Recall: 0.7619, Overall F1-Score: 0.7600
+inference_duration: 17.3935
+Metrics: Accuracy=0.7586, Precision=0.7677, Recall=0.7619, F1=0.76, Train Duration=697.7046s, Inference Duration=17.3935s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     16
+CNN_Backbone:    resnet50
+RNN_Input_Size:  24
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 3974612, 'Non-trainable parameters': 23508032, 'Total parameters': 27482644}
+start training
+Epoch 1/8, Loss: 0.8560, Accuracy: 0.5449
+Epoch 2/8, Loss: 0.6789, Accuracy: 0.6731
+Epoch 3/8, Loss: 0.5992, Accuracy: 0.7108
+Epoch 4/8, Loss: 0.5631, Accuracy: 0.7335
+Epoch 5/8, Loss: 0.5672, Accuracy: 0.7261
+Epoch 6/8, Loss: 0.5061, Accuracy: 0.7683
+Epoch 7/8, Loss: 0.4960, Accuracy: 0.7641
+Epoch 8/8, Loss: 0.4790, Accuracy: 0.7709
+training_duration: 696.7203
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6935
+Class: Harmful - Precision: 0.5599, Recall: 0.8281, f1-Score: 0.6681
+Class: Adult - Precision: 0.8345, Recall: 0.5918, f1-Score: 0.6925
+Class: Safe - Precision: 0.6402, Recall: 0.7062, f1-Score: 0.6716
+Class: Suicide - Precision: 0.8973, Recall: 0.6517, f1-Score: 0.7550
+Overall Precision: 0.7330, Overall Recall: 0.6945, Overall F1-Score: 0.6968
+inference_duration: 17.4071
+Metrics: Accuracy=0.6935, Precision=0.733, Recall=0.6945, F1=0.6968, Train Duration=696.7203s, Inference Duration=17.4071s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'resnet101', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 1, 'RNN_INPUT_SIZE': 4, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     8
+CNN_Backbone:    resnet101
+RNN_Input_Size:  32
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4998084, 'Non-trainable parameters': 42500160, 'Total parameters': 47498244}
+start training
+Epoch 1/8, Loss: 0.8581, Accuracy: 0.5634
+Epoch 2/8, Loss: 0.6675, Accuracy: 0.6734
+Epoch 3/8, Loss: 0.6194, Accuracy: 0.7009
+Epoch 4/8, Loss: 0.5705, Accuracy: 0.7319
+Epoch 5/8, Loss: 0.5539, Accuracy: 0.7389
+Epoch 6/8, Loss: 0.5150, Accuracy: 0.7645
+Epoch 7/8, Loss: 0.4903, Accuracy: 0.7776
+Epoch 8/8, Loss: 0.4646, Accuracy: 0.7795
+training_duration: 968.9680
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7471
+Class: Harmful - Precision: 0.7363, Recall: 0.6505, f1-Score: 0.6907
+Class: Adult - Precision: 0.8132, Recall: 0.7957, f1-Score: 0.8043
+Class: Safe - Precision: 0.7965, Recall: 0.6555, f1-Score: 0.7192
+Class: Suicide - Precision: 0.6721, Recall: 0.9121, f1-Score: 0.7739
+Overall Precision: 0.7545, Overall Recall: 0.7534, Overall F1-Score: 0.7470
+inference_duration: 27.6354
+Metrics: Accuracy=0.7471, Precision=0.7545, Recall=0.7534, F1=0.747, Train Duration=968.968s, Inference Duration=27.6354s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet101_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet101_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'resnet101', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 1, 'RNN_INPUT_SIZE': 4, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     8
+CNN_Backbone:    resnet101
+RNN_Input_Size:  32
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4998084, 'Non-trainable parameters': 42500160, 'Total parameters': 47498244}
+start training
+Epoch 1/8, Loss: 0.8718, Accuracy: 0.5372
+Epoch 2/8, Loss: 0.6598, Accuracy: 0.6814
+Epoch 3/8, Loss: 0.6238, Accuracy: 0.7108
+Epoch 4/8, Loss: 0.5760, Accuracy: 0.7303
+Epoch 5/8, Loss: 0.5202, Accuracy: 0.7625
+Epoch 6/8, Loss: 0.5437, Accuracy: 0.7450
+Epoch 7/8, Loss: 0.4893, Accuracy: 0.7776
+Epoch 8/8, Loss: 0.4439, Accuracy: 0.7932
+training_duration: 971.4311
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7407
+Class: Harmful - Precision: 0.6505, Recall: 0.6541, f1-Score: 0.6523
+Class: Adult - Precision: 0.7681, Recall: 0.7718, f1-Score: 0.7700
+Class: Safe - Precision: 0.7396, Recall: 0.7245, f1-Score: 0.7320
+Class: Suicide - Precision: 0.7980, Recall: 0.8061, f1-Score: 0.8020
+Overall Precision: 0.7391, Overall Recall: 0.7391, Overall F1-Score: 0.7391
+inference_duration: 27.5987
+Metrics: Accuracy=0.7407, Precision=0.7391, Recall=0.7391, F1=0.7391, Train Duration=971.4311s, Inference Duration=27.5987s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet101_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet101_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'resnet101', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 1, 'RNN_INPUT_SIZE': 4, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     8
+CNN_Backbone:    resnet101
+RNN_Input_Size:  32
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4998084, 'Non-trainable parameters': 42500160, 'Total parameters': 47498244}
+start training
+Epoch 1/8, Loss: 0.8566, Accuracy: 0.5449
+Epoch 2/8, Loss: 0.6703, Accuracy: 0.6759
+Epoch 3/8, Loss: 0.6022, Accuracy: 0.7140
+Epoch 4/8, Loss: 0.5851, Accuracy: 0.7236
+Epoch 5/8, Loss: 0.5552, Accuracy: 0.7344
+Epoch 6/8, Loss: 0.5197, Accuracy: 0.7488
+Epoch 7/8, Loss: 0.5277, Accuracy: 0.7549
+Epoch 8/8, Loss: 0.4615, Accuracy: 0.7894
+training_duration: 971.1356
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7484
+Class: Harmful - Precision: 0.7029, Recall: 0.6833, f1-Score: 0.6930
+Class: Adult - Precision: 0.7430, Recall: 0.7990, f1-Score: 0.7700
+Class: Safe - Precision: 0.7243, Recall: 0.7277, f1-Score: 0.7260
+Class: Suicide - Precision: 0.8278, Recall: 0.7801, f1-Score: 0.8032
+Overall Precision: 0.7495, Overall Recall: 0.7475, Overall F1-Score: 0.7480
+inference_duration: 27.6136
+Metrics: Accuracy=0.7484, Precision=0.7495, Recall=0.7475, F1=0.748, Train Duration=971.1356s, Inference Duration=27.6136s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet101_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet101_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 2, 'RNN_LAYER': 47}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     16
+CNN_Backbone:    mobilenet_v2
+RNN_Input_Size:  16
+RNN_Layer:       47
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1841284, 'Non-trainable parameters': 2223872, 'Total parameters': 4065156}
+start training
+Epoch 1/8, Loss: 0.7999, Accuracy: 0.5893
+Epoch 2/8, Loss: 0.6117, Accuracy: 0.7095
+Epoch 3/8, Loss: 0.5411, Accuracy: 0.7510
+Epoch 4/8, Loss: 0.5210, Accuracy: 0.7590
+Epoch 5/8, Loss: 0.4674, Accuracy: 0.7903
+Epoch 6/8, Loss: 0.4429, Accuracy: 0.7913
+Epoch 7/8, Loss: 0.4154, Accuracy: 0.8054
+Epoch 8/8, Loss: 0.3765, Accuracy: 0.8249
+training_duration: 1309.0184
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7344
+Class: Harmful - Precision: 0.7892, Recall: 0.6009, f1-Score: 0.6823
+Class: Adult - Precision: 0.6891, Recall: 0.7430, f1-Score: 0.7151
+Class: Safe - Precision: 0.7156, Recall: 0.7588, f1-Score: 0.7366
+Class: Suicide - Precision: 0.7512, Recall: 0.8556, f1-Score: 0.8000
+Overall Precision: 0.7363, Overall Recall: 0.7396, Overall F1-Score: 0.7335
+inference_duration: 15.7819
+Metrics: Accuracy=0.7344, Precision=0.7363, Recall=0.7396, F1=0.7335, Train Duration=1309.0184s, Inference Duration=15.7819s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V2_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 2, 'RNN_LAYER': 47}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     16
+CNN_Backbone:    mobilenet_v2
+RNN_Input_Size:  16
+RNN_Layer:       47
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1841284, 'Non-trainable parameters': 2223872, 'Total parameters': 4065156}
+start training
+Epoch 1/8, Loss: 0.8406, Accuracy: 0.5721
+Epoch 2/8, Loss: 0.6211, Accuracy: 0.7082
+Epoch 3/8, Loss: 0.5606, Accuracy: 0.7408
+Epoch 4/8, Loss: 0.5236, Accuracy: 0.7600
+Epoch 5/8, Loss: 0.4967, Accuracy: 0.7683
+Epoch 6/8, Loss: 0.4606, Accuracy: 0.7875
+Epoch 7/8, Loss: 0.4244, Accuracy: 0.8060
+Epoch 8/8, Loss: 0.4132, Accuracy: 0.8130
+training_duration: 1312.3237
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7433
+Class: Harmful - Precision: 0.6356, Recall: 0.7647, f1-Score: 0.6942
+Class: Adult - Precision: 0.8122, Recall: 0.7767, f1-Score: 0.7940
+Class: Safe - Precision: 0.7204, Recall: 0.7273, f1-Score: 0.7238
+Class: Suicide - Precision: 0.8467, Recall: 0.7017, f1-Score: 0.7674
+Overall Precision: 0.7537, Overall Recall: 0.7426, Overall F1-Score: 0.7449
+inference_duration: 16.0072
+Metrics: Accuracy=0.7433, Precision=0.7537, Recall=0.7426, F1=0.7449, Train Duration=1312.3237s, Inference Duration=16.0072s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V2_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 2, 'RNN_LAYER': 47}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     16
+CNN_Backbone:    mobilenet_v2
+RNN_Input_Size:  16
+RNN_Layer:       47
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 1841284, 'Non-trainable parameters': 2223872, 'Total parameters': 4065156}
+start training
+Epoch 1/8, Loss: 0.8041, Accuracy: 0.5829
+Epoch 2/8, Loss: 0.6357, Accuracy: 0.6948
+Epoch 3/8, Loss: 0.5837, Accuracy: 0.7290
+Epoch 4/8, Loss: 0.5192, Accuracy: 0.7562
+Epoch 5/8, Loss: 0.4999, Accuracy: 0.7673
+Epoch 6/8, Loss: 0.4464, Accuracy: 0.7990
+Epoch 7/8, Loss: 0.4242, Accuracy: 0.8050
+Epoch 8/8, Loss: 0.3808, Accuracy: 0.8306
+training_duration: 1309.5554
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7088
+Class: Harmful - Precision: 0.7108, Recall: 0.6051, f1-Score: 0.6537
+Class: Adult - Precision: 0.6875, Recall: 0.8148, f1-Score: 0.7458
+Class: Safe - Precision: 0.8512, Recall: 0.5282, f1-Score: 0.6519
+Class: Suicide - Precision: 0.6618, Recall: 0.8824, f1-Score: 0.7563
+Overall Precision: 0.7278, Overall Recall: 0.7076, Overall F1-Score: 0.7019
+inference_duration: 15.8075
+Metrics: Accuracy=0.7088, Precision=0.7278, Recall=0.7076, F1=0.7019, Train Duration=1309.5554s, Inference Duration=15.8075s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V2_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 3}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     16
+CNN_Backbone:    resnet50
+RNN_Input_Size:  24
+RNN_Layer:       3
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 3965732, 'Non-trainable parameters': 23508032, 'Total parameters': 27473764}
+start training
+Epoch 1/8, Loss: 0.8500, Accuracy: 0.5583
+Epoch 2/8, Loss: 0.6316, Accuracy: 0.7025
+Epoch 3/8, Loss: 0.6289, Accuracy: 0.6983
+Epoch 4/8, Loss: 0.5730, Accuracy: 0.7335
+Epoch 5/8, Loss: 0.5494, Accuracy: 0.7386
+Epoch 6/8, Loss: 0.5292, Accuracy: 0.7514
+Epoch 7/8, Loss: 0.4843, Accuracy: 0.7756
+Epoch 8/8, Loss: 0.4589, Accuracy: 0.7872
+training_duration: 647.7380
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7114
+Class: Harmful - Precision: 0.5970, Recall: 0.7960, f1-Score: 0.6823
+Class: Adult - Precision: 0.7660, Recall: 0.7500, f1-Score: 0.7579
+Class: Safe - Precision: 0.6860, Recall: 0.5871, f1-Score: 0.6327
+Class: Suicide - Precision: 0.8710, Recall: 0.7143, f1-Score: 0.7849
+Overall Precision: 0.7300, Overall Recall: 0.7118, Overall F1-Score: 0.7144
+inference_duration: 17.1791
+Metrics: Accuracy=0.7114, Precision=0.73, Recall=0.7118, F1=0.7144, Train Duration=647.738s, Inference Duration=17.1791s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 3}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     16
+CNN_Backbone:    resnet50
+RNN_Input_Size:  24
+RNN_Layer:       3
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 3965732, 'Non-trainable parameters': 23508032, 'Total parameters': 27473764}
+start training
+Epoch 1/8, Loss: 0.8744, Accuracy: 0.5356
+Epoch 2/8, Loss: 0.6666, Accuracy: 0.6788
+Epoch 3/8, Loss: 0.6116, Accuracy: 0.7105
+Epoch 4/8, Loss: 0.5691, Accuracy: 0.7283
+Epoch 5/8, Loss: 0.5573, Accuracy: 0.7347
+Epoch 6/8, Loss: 0.5237, Accuracy: 0.7459
+Epoch 7/8, Loss: 0.5010, Accuracy: 0.7625
+Epoch 8/8, Loss: 0.4820, Accuracy: 0.7801
+training_duration: 648.8831
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7369
+Class: Harmful - Precision: 0.6614, Recall: 0.7830, f1-Score: 0.7171
+Class: Adult - Precision: 0.8382, Recall: 0.6590, f1-Score: 0.7379
+Class: Safe - Precision: 0.6905, Recall: 0.7436, f1-Score: 0.7160
+Class: Suicide - Precision: 0.8172, Recall: 0.7488, f1-Score: 0.7815
+Overall Precision: 0.7518, Overall Recall: 0.7336, Overall F1-Score: 0.7381
+inference_duration: 17.1864
+Metrics: Accuracy=0.7369, Precision=0.7518, Recall=0.7336, F1=0.7381, Train Duration=648.8831s, Inference Duration=17.1864s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 3, 'RNN_LAYER': 3}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     16
+CNN_Backbone:    resnet50
+RNN_Input_Size:  24
+RNN_Layer:       3
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 3965732, 'Non-trainable parameters': 23508032, 'Total parameters': 27473764}
+start training
+Epoch 1/8, Loss: 0.8871, Accuracy: 0.5299
+Epoch 2/8, Loss: 0.6786, Accuracy: 0.6708
+Epoch 3/8, Loss: 0.6195, Accuracy: 0.7079
+Epoch 4/8, Loss: 0.5445, Accuracy: 0.7443
+Epoch 5/8, Loss: 0.5538, Accuracy: 0.7354
+Epoch 6/8, Loss: 0.5114, Accuracy: 0.7609
+Epoch 7/8, Loss: 0.4706, Accuracy: 0.7763
+Epoch 8/8, Loss: 0.4729, Accuracy: 0.7766
+training_duration: 650.2185
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6960
+Class: Harmful - Precision: 0.7374, Recall: 0.6667, f1-Score: 0.7003
+Class: Adult - Precision: 0.8309, Recall: 0.5765, f1-Score: 0.6807
+Class: Safe - Precision: 0.5480, Recall: 0.7938, f1-Score: 0.6484
+Class: Suicide - Precision: 0.7807, Recall: 0.7487, f1-Score: 0.7644
+Overall Precision: 0.7243, Overall Recall: 0.6964, Overall F1-Score: 0.6985
+inference_duration: 17.1110
+Metrics: Accuracy=0.696, Precision=0.7243, Recall=0.6964, F1=0.6985, Train Duration=650.2185s, Inference Duration=17.111s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'resnet34', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 3, 'RNN_INPUT_SIZE': 1, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     24
+CNN_Backbone:    resnet34
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 316756, 'Non-trainable parameters': 21284672, 'Total parameters': 21601428}
+start training
+Epoch 1/8, Loss: 0.9317, Accuracy: 0.4934
+Epoch 2/8, Loss: 0.6755, Accuracy: 0.6833
+Epoch 3/8, Loss: 0.6296, Accuracy: 0.6957
+Epoch 4/8, Loss: 0.6024, Accuracy: 0.7095
+Epoch 5/8, Loss: 0.5619, Accuracy: 0.7386
+Epoch 6/8, Loss: 0.5310, Accuracy: 0.7546
+Epoch 7/8, Loss: 0.5365, Accuracy: 0.7498
+Epoch 8/8, Loss: 0.5129, Accuracy: 0.7552
+training_duration: 366.4368
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6999
+Class: Harmful - Precision: 0.7126, Recall: 0.5714, f1-Score: 0.6343
+Class: Adult - Precision: 0.6822, Recall: 0.7807, f1-Score: 0.7282
+Class: Safe - Precision: 0.6329, Recall: 0.7463, f1-Score: 0.6849
+Class: Suicide - Precision: 0.8101, Recall: 0.7191, f1-Score: 0.7619
+Overall Precision: 0.7095, Overall Recall: 0.7044, Overall F1-Score: 0.7023
+inference_duration: 11.7695
+Metrics: Accuracy=0.6999, Precision=0.7095, Recall=0.7044, F1=0.7023, Train Duration=366.4368s, Inference Duration=11.7695s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet34_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet34_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'resnet34', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 3, 'RNN_INPUT_SIZE': 1, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     24
+CNN_Backbone:    resnet34
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 316756, 'Non-trainable parameters': 21284672, 'Total parameters': 21601428}
+start training
+Epoch 1/8, Loss: 0.9084, Accuracy: 0.5117
+Epoch 2/8, Loss: 0.7005, Accuracy: 0.6692
+Epoch 3/8, Loss: 0.6181, Accuracy: 0.7152
+Epoch 4/8, Loss: 0.6112, Accuracy: 0.7133
+Epoch 5/8, Loss: 0.5767, Accuracy: 0.7319
+Epoch 6/8, Loss: 0.5520, Accuracy: 0.7389
+Epoch 7/8, Loss: 0.5398, Accuracy: 0.7530
+Epoch 8/8, Loss: 0.5269, Accuracy: 0.7562
+training_duration: 367.6419
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7280
+Class: Harmful - Precision: 0.6435, Recall: 0.7255, f1-Score: 0.6820
+Class: Adult - Precision: 0.7564, Recall: 0.6860, f1-Score: 0.7195
+Class: Safe - Precision: 0.7619, Recall: 0.6465, f1-Score: 0.6995
+Class: Suicide - Precision: 0.7686, Recall: 0.8421, f1-Score: 0.8037
+Overall Precision: 0.7326, Overall Recall: 0.7250, Overall F1-Score: 0.7262
+inference_duration: 11.8945
+Metrics: Accuracy=0.728, Precision=0.7326, Recall=0.725, F1=0.7262, Train Duration=367.6419s, Inference Duration=11.8945s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet34_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet34_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'resnet34', 'BATCH_SIZE': 2, 'HIDDEN_SIZE': 3, 'RNN_INPUT_SIZE': 1, 'RNN_LAYER': 2}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     24
+CNN_Backbone:    resnet34
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 316756, 'Non-trainable parameters': 21284672, 'Total parameters': 21601428}
+start training
+Epoch 1/8, Loss: 0.8924, Accuracy: 0.5117
+Epoch 2/8, Loss: 0.6939, Accuracy: 0.6632
+Epoch 3/8, Loss: 0.6331, Accuracy: 0.6894
+Epoch 4/8, Loss: 0.5838, Accuracy: 0.7216
+Epoch 5/8, Loss: 0.5736, Accuracy: 0.7354
+Epoch 6/8, Loss: 0.5604, Accuracy: 0.7322
+Epoch 7/8, Loss: 0.5408, Accuracy: 0.7408
+Epoch 8/8, Loss: 0.5148, Accuracy: 0.7597
+training_duration: 368.0453
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6948
+Class: Harmful - Precision: 0.6941, Recall: 0.6609, f1-Score: 0.6771
+Class: Adult - Precision: 0.5915, Recall: 0.8081, f1-Score: 0.6830
+Class: Safe - Precision: 0.7337, Recall: 0.6049, f1-Score: 0.6631
+Class: Suicide - Precision: 0.8063, Recall: 0.7330, f1-Score: 0.7679
+Overall Precision: 0.7064, Overall Recall: 0.7017, Overall F1-Score: 0.6978
+inference_duration: 11.7388
+Metrics: Accuracy=0.6948, Precision=0.7064, Recall=0.7017, F1=0.6978, Train Duration=368.0453s, Inference Duration=11.7388s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet34_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet34_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 1, 'RNN_INPUT_SIZE': 4, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     8
+CNN_Backbone:    resnet50
+RNN_Input_Size:  32
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4998084, 'Non-trainable parameters': 23508032, 'Total parameters': 28506116}
+start training
+Epoch 1/8, Loss: 0.8281, Accuracy: 0.5749
+Epoch 2/8, Loss: 0.6085, Accuracy: 0.7149
+Epoch 3/8, Loss: 0.5416, Accuracy: 0.7469
+Epoch 4/8, Loss: 0.5034, Accuracy: 0.7641
+Epoch 5/8, Loss: 0.4947, Accuracy: 0.7641
+Epoch 6/8, Loss: 0.4191, Accuracy: 0.8009
+Epoch 7/8, Loss: 0.3605, Accuracy: 0.8348
+Epoch 8/8, Loss: 0.3599, Accuracy: 0.8300
+training_duration: 655.8952
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6884
+Class: Harmful - Precision: 0.6204, Recall: 0.7415, f1-Score: 0.6756
+Class: Adult - Precision: 0.7812, Recall: 0.5747, f1-Score: 0.6623
+Class: Safe - Precision: 0.7614, Recall: 0.5982, f1-Score: 0.6700
+Class: Suicide - Precision: 0.6538, Recall: 0.8500, f1-Score: 0.7391
+Overall Precision: 0.7042, Overall Recall: 0.6911, Overall F1-Score: 0.6867
+inference_duration: 18.9625
+Metrics: Accuracy=0.6884, Precision=0.7042, Recall=0.6911, F1=0.6867, Train Duration=655.8952s, Inference Duration=18.9625s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 1, 'RNN_INPUT_SIZE': 4, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     8
+CNN_Backbone:    resnet50
+RNN_Input_Size:  32
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4998084, 'Non-trainable parameters': 23508032, 'Total parameters': 28506116}
+start training
+Epoch 1/8, Loss: 0.8398, Accuracy: 0.5638
+Epoch 2/8, Loss: 0.6108, Accuracy: 0.7111
+Epoch 3/8, Loss: 0.5099, Accuracy: 0.7517
+Epoch 4/8, Loss: 0.5255, Accuracy: 0.7491
+Epoch 5/8, Loss: 0.4504, Accuracy: 0.7958
+Epoch 6/8, Loss: 0.3880, Accuracy: 0.8121
+Epoch 7/8, Loss: 0.3582, Accuracy: 0.8322
+Epoch 8/8, Loss: 0.3142, Accuracy: 0.8562
+training_duration: 659.9308
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6948
+Class: Harmful - Precision: 0.6792, Recall: 0.5745, f1-Score: 0.6225
+Class: Adult - Precision: 0.7515, Recall: 0.6902, f1-Score: 0.7195
+Class: Safe - Precision: 0.6468, Recall: 0.7103, f1-Score: 0.6771
+Class: Suicide - Precision: 0.7136, Recall: 0.7970, f1-Score: 0.7530
+Overall Precision: 0.6978, Overall Recall: 0.6930, Overall F1-Score: 0.6930
+inference_duration: 18.9392
+Metrics: Accuracy=0.6948, Precision=0.6978, Recall=0.693, F1=0.693, Train Duration=659.9308s, Inference Duration=18.9392s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 3/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 1, 'RNN_INPUT_SIZE': 4, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     8
+CNN_Backbone:    resnet50
+RNN_Input_Size:  32
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4998084, 'Non-trainable parameters': 23508032, 'Total parameters': 28506116}
+start training
+Epoch 1/8, Loss: 0.8591, Accuracy: 0.5507
+Epoch 2/8, Loss: 0.6148, Accuracy: 0.7130
+Epoch 3/8, Loss: 0.5503, Accuracy: 0.7389
+Epoch 4/8, Loss: 0.5474, Accuracy: 0.7347
+Epoch 5/8, Loss: 0.4996, Accuracy: 0.7562
+Epoch 6/8, Loss: 0.4127, Accuracy: 0.8073
+Epoch 7/8, Loss: 0.4068, Accuracy: 0.7993
+Epoch 8/8, Loss: 0.3751, Accuracy: 0.8172
+training_duration: 659.4132
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7037
+Class: Harmful - Precision: 0.7845, Recall: 0.4892, f1-Score: 0.6026
+Class: Adult - Precision: 0.7292, Recall: 0.7143, f1-Score: 0.7216
+Class: Safe - Precision: 0.6118, Recall: 0.7474, f1-Score: 0.6729
+Class: Suicide - Precision: 0.7353, Recall: 0.8454, f1-Score: 0.7865
+Overall Precision: 0.7152, Overall Recall: 0.6991, Overall F1-Score: 0.6959
+inference_duration: 19.0331
+Metrics: Accuracy=0.7037, Precision=0.7152, Recall=0.6991, F1=0.6959, Train Duration=659.4132s, Inference Duration=19.0331s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 1/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 4, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     16
+CNN_Backbone:    resnet50
+RNN_Input_Size:  32
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 5008324, 'Non-trainable parameters': 23508032, 'Total parameters': 28516356}
+start training
+Epoch 1/8, Loss: 0.9131, Accuracy: 0.5107
+Epoch 2/8, Loss: 0.6194, Accuracy: 0.6996
+Epoch 3/8, Loss: 0.5930, Accuracy: 0.7197
+Epoch 4/8, Loss: 0.5209, Accuracy: 0.7603
+Epoch 5/8, Loss: 0.5006, Accuracy: 0.7712
+Epoch 6/8, Loss: 0.4624, Accuracy: 0.7798
+Epoch 7/8, Loss: 0.3777, Accuracy: 0.8175
+Epoch 8/8, Loss: 0.3453, Accuracy: 0.8399
+training_duration: 661.2383
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7088
+Class: Harmful - Precision: 0.7097, Recall: 0.5528, f1-Score: 0.6215
+Class: Adult - Precision: 0.7641, Recall: 0.7413, f1-Score: 0.7525
+Class: Safe - Precision: 0.6404, Recall: 0.7449, f1-Score: 0.6887
+Class: Suicide - Precision: 0.7317, Recall: 0.8021, f1-Score: 0.7653
+Overall Precision: 0.7115, Overall Recall: 0.7103, Overall F1-Score: 0.7070
+inference_duration: 19.1524
+Metrics: Accuracy=0.7088, Precision=0.7115, Recall=0.7103, F1=0.707, Train Duration=661.2383s, Inference Duration=19.1524s
+Error Output:
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+Run 2/3
+Config: {'CNN_BACKBONE': 'resnet50', 'BATCH_SIZE': 4, 'HIDDEN_SIZE': 2, 'RNN_INPUT_SIZE': 4, 'RNN_LAYER': 4}
+Training logs:
+Train Config: 
+Seq_Length:      60
+Batch_Size:      32
+Hidden_Size:     16
+CNN_Backbone:    resnet50
+RNN_Input_Size:  32
+RNN_Layer:       4
+RNN_type:        mamba
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Processed data found. Loading class labels...
+splitting
+load train
+load test
+randomize
+Dataloader train
+Dataloader test
+creating model
+bidir:  True
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 5008324, 'Non-trainable parameters': 23508032, 'Total parameters': 28516356}
+start training

@@ -162,11 +162,11 @@ class LRCN(nn.Module):
 
         # Adaptation layer
         self.adapt1 = nn.Linear(cnn_out_size, cnn_out_size//2)
-        self.bn1 = nn.BatchNorm1d(cnn_out_size//2)
+        self.bn1 = nn.LayerNorm(cnn_out_size//2)
         self.adapt2 = nn.Linear(cnn_out_size//2, cnn_out_size//4)
-        self.bn2 = nn.BatchNorm1d(cnn_out_size//4)
+        self.bn2 = nn.LayerNorm(cnn_out_size//4)
         self.adapt3 = nn.Linear(cnn_out_size//4, rnn_input_size)
-        self.bn3 = nn.BatchNorm1d(rnn_input_size)
+        self.bn3 = nn.LayerNorm(rnn_input_size)
         self.drop1 = nn.Dropout(p = all_config.CONF_DROPOUT)
         # RNN layer
         if rnn_type == "lstm":
@@ -191,7 +191,12 @@ class LRCN(nn.Module):
         # Output layer
         if all_config.CONF_CLASSIF_MODE == "multiclass":
             fc_input_size = self.rnn_output_size * (sequence_length if rnn_out == "all" else 1)
-            self.fc = nn.Linear(fc_input_size, num_classes)
+            self.fc = nn.Linear(fc_input_size,num_classes)
+            self.fca = nn.Linear(fc_input_size, fc_input_size//2)
+            self.fcb = nn.Linear(fc_input_size//2,fc_input_size//4)
+            self.final= nn.Linear(fc_input_size//4,num_classes)
+            self.bna = nn.LayerNorm(fc_input_size//2)
+            self.bnb = nn.LayerNorm(fc_input_size//4)
         else:
             fc_input_size = self.rnn_output_size * (sequence_length if rnn_out == "all" else 1)
             self.fc = nn.ModuleList([
@@ -205,19 +210,9 @@ class LRCN(nn.Module):
         x = x.view(batch_size * seq_len, c, h, w)
         x = self.cnn_backbone(x)
         x = x.view(batch_size, seq_len, -1)
-        x = self.adapt1(x)
-        x = x.permute(0,2,1)
-        x = self.bn1(x)
-        x = x.permute(0,2,1)
-        x = self.adapt2(x)
-        x = x.permute(0,2,1)
-        x = self.bn2(x)
-        x = x.permute(0,2,1)
-        x = self.adapt3(x)
-        x = x.permute(0,2,1)
-        x = self.bn3(x)
-        x = x.permute(0,2,1)
-        x = self.drop1(x)
+        x = self.bn1(self.adapt1(x))
+        x = self.bn2(self.adapt2(x))
+        x = self.drop1(self.bn3(self.adapt3(x)))
         # Process through RNN
         if self.rnn_type == "mamba":
             for layer in self.rnn:
@@ -234,7 +229,10 @@ class LRCN(nn.Module):
         
         # Final classification
         if all_config.CONF_CLASSIF_MODE == "multiclass":
-            out = self.fc(rnn_out)
+            #out = self.fc(rnn_out)
+            out = self.bna(self.fca(rnn_out))
+            out = self.bnb(self.fcb(out))
+            out = self.final(out)
         else:
             out = torch.cat([fc(rnn_out) for fc in self.fc], dim=1)
         

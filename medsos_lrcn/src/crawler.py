@@ -115,7 +115,7 @@ def scrape_tiktok_video_links(profile_url):
 
 def main():
     # TikTok profile URL, jadiin apa ya ini? ga mungkin constant
-    profile_url = "https://www.tiktok.com/@nusaaroom"  #how to retrieve this nigga
+    profile_url = "https://www.tiktok.com/@gisel_laaa"  #how to retrieve this nigga
 
     # Extract video links
     video_links = scrape_tiktok_video_links(profile_url)

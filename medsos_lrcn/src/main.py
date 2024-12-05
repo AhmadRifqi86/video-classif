@@ -2,7 +2,8 @@ import os
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from models_back import LRCN
+#from models_back import LRCN
+from models_bidir import LRCN
 from loader_data import load_dataset, VideoDataset, load_processed_data, save_processed_data, save_sampled_data
 from train_eval import train_model, evaluate_model, count_parameters
 import all_config
@@ -133,14 +134,14 @@ def main():
         rnn_input_size=all_config.CONF_RNN_INPUT_SIZE
     ).to(all_config.CONF_DEVICE)
 
-    print("creating criterion")
-    criterion = compute_dataset_class_weights(
-        dataset=train_dataset,
-        indices=train_indices,
-        num_classes=len(class_labels),
-        task_type=all_config.CONF_CLASSIF_MODE
-    )
-    
+    # print("creating criterion")
+    # criterion = compute_dataset_class_weights(
+    #     dataset=train_dataset,
+    #     indices=train_indices,
+    #     num_classes=len(class_labels),
+    #     task_type=all_config.CONF_CLASSIF_MODE
+    # )
+    criterion = nn.CrossEntropyLoss()
     
     # Select optimizer
     print("creating optimizer and display param count")
@@ -161,6 +162,7 @@ def main():
     # Evaluate the model
     print("evaluate")
     evaluate_model(model, test_loader, class_labels)
+    torch.cuda.empty_cache()
 
 if __name__ == "__main__":
     main()

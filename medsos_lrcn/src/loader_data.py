@@ -466,6 +466,15 @@ def load_dataset_inference(path, sampling_method="uniform", sequence_length=30):
             continue
 
         if is_url_classified(video_name):
+            print("deleting video: ",video_name)  #deleting video_path
+            if os.path.exists(video_path):
+                try:
+                    os.remove(video_path)
+                    print(f"Deleted video: {video_path}")
+                except Exception as e:
+                    print(f"Error deleting video {video_path}: {e}")
+            else:
+                print(f"Video {video_path} not found.")
             continue
 
         print(f"Processing video: {video_name}")

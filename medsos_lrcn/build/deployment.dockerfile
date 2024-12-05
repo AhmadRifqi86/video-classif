@@ -29,7 +29,7 @@ RUN pip install h5py requests==2.32.3 numpy==1.24.4 scikit-image einops
 COPY skripsi/medsos_lrcn/src/deployment.py /app
 COPY skripsi/medsos_lrcn/src/all_config.py /app
 COPY skripsi/medsos_lrcn/src/loader_data.py /app
-COPY skripsi/medsos_lrcn/src/models.py /app
+COPY skripsi/medsos_lrcn/src/models_bidir.py /app
 COPY skripsi/medsos_lrcn/src/testcv.py /app
 
 # Define the command to run your application

@@ -100,7 +100,6 @@ class ParallelMamba(nn.Module):
             y = torch.cat([y_forward, y_backward], dim=-1)
         else:
             y = y_forward
-
         y = y * F.silu(res)
         output = self.out_proj(y)
 
@@ -145,9 +144,17 @@ class LRCN(nn.Module):
         for param in self.cnn_backbone.parameters():
             param.requires_grad = False
 
-        self.adapt1 = nn.Linear(cnn_out_size, cnn_out_size//2)
-        self.adapt2 = nn.Linear(cnn_out_size // 2, cnn_out_size // 4)
-        self.adapt3 = nn.Linear(cnn_out_size // 4, rnn_input_size)
+        self.adapt1 = nn.Linear(cnn_out_size, cnn_out_size//2)  #512 -> 256, apa nyoba bagi 4?
+        self.bn1 = nn.LayerNorm(cnn_out_size//2)
+        self.adapt2 = nn.Linear(cnn_out_size//2, cnn_out_size//4) #256 -> 128
+        self.bn2 = nn.LayerNorm(cnn_out_size//4)
+        self.adapt3 = nn.Linear(cnn_out_size//4, rnn_input_size) #256 -> 8
+        self.bn3 = nn.LayerNorm(rnn_input_size)
+        # self.adapt3 = nn.Linear(cnn_out_size//4, cnn_out_size//8)
+        # self.bn3 = nn.LayerNorm(cnn_out_size//8)
+        # self.adapt4 = nn.Linear(cnn_out_size//8,rnn_input_size)
+        # self.bn4 = nn.LayerNorm(rnn_input_size)
+        self.drop1 = nn.Dropout(p = all_config.CONF_DROPOUT)
 
         if rnn_type == "lstm":
             self.rnn = nn.LSTM(input_size=rnn_input_size, hidden_size=hidden_size,
@@ -159,7 +166,7 @@ class LRCN(nn.Module):
                 ResidualBlock(rnn_input_size, rnn_input_size * 2, hidden_size, hidden_size, bidirectional=bidirectional)
                 for _ in range(all_config.CONF_RNN_LAYER)
             ])
-            self.rnn_output_size = rnn_input_size * (2 if bidirectional else 1)
+            self.rnn_output_size = rnn_input_size #* (2 if bidirectional else 1)
         else:
             self.rnn = nn.GRU(input_size=rnn_input_size, hidden_size=hidden_size,
                               num_layers=all_config.CONF_RNN_LAYER, bidirectional=bidirectional, 
@@ -168,20 +175,29 @@ class LRCN(nn.Module):
 
         if all_config.CONF_CLASSIF_MODE == "multiclass":
             fc_input_size = self.rnn_output_size * (sequence_length if rnn_out == "all" else 1)
-            self.fc = nn.Linear(fc_input_size, num_classes)
+            # print("init rnn_output_size: ",self.rnn_output_size)
+            #self.fc = nn.Linear(fc_input_size, num_classes)
+            self.fc = nn.Linear(fc_input_size, fc_input_size // 2)
+            self.fca = nn.Linear(fc_input_size // 2, fc_input_size // 4)
+            self.fcb = nn.Linear(fc_input_size // 4, num_classes)
+            self.bna = nn.LayerNorm(fc_input_size // 2)
+            self.bnb = nn.LayerNorm(fc_input_size // 4)
+            self.drop2 = nn.Dropout(all_config.CONF_DROPOUT)
+            # print("fc in size: ",fc_input_size)
         else:
             fc_input_size = self.rnn_output_size * (sequence_length if rnn_out == "all" else 1)
             self.fc = nn.ModuleList([nn.Linear(fc_input_size, 1) for _ in range(num_classes)])
 
     def forward(self, x):
         batch_size, seq_len, c, h, w = x.size()
-
         x = x.view(batch_size * seq_len, c, h, w)
         x = self.cnn_backbone(x)
         x = x.view(batch_size, seq_len, -1)
-        x = self.adapt1(x)
-        x = self.adapt2(x)
-        x = self.adapt3(x)
+        x = F.silu(self.bn1(self.adapt1(x)))
+        x = F.silu(self.bn2(self.adapt2(x)))
+        x = self.drop1(F.silu(self.bn3(self.adapt3(x))))
+        #x = F.silu(self.drop1(self.bn3(self.adapt3(x))))
+        #print("cnn_out size: ",x.size())
 
         if self.rnn_type == "mamba":
             for layer in self.rnn:
@@ -189,14 +205,18 @@ class LRCN(nn.Module):
             rnn_out = x
         else:
             rnn_out, _ = self.rnn(x)
-
+        
         if all_config.CONF_RNN_OUT == "all":
             rnn_out = rnn_out.contiguous().view(batch_size, -1)
         else:
             rnn_out = rnn_out[:, -1, :]
 
+        #print("rnn out size: ",rnn_out.size())
         if all_config.CONF_CLASSIF_MODE == "multiclass":
-            out = self.fc(rnn_out)
+            out = F.silu(self.bna(self.fc(rnn_out)))
+            out = F.silu(self.bnb(self.fca(out)))
+            out = self.drop2(out)
+            out = self.fcb(out)
         else:
             out = torch.cat([fc(rnn_out) for fc in self.fc], dim=1)
 
