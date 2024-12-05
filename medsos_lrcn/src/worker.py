@@ -31,7 +31,6 @@ LABEL_MAPPING = {
     3: "Suicide"
 }
 
-
 # Classify and display results
 def classify_and_display(model, data_tensors, video_names):
     results = []
