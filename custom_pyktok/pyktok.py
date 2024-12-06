@@ -16,7 +16,6 @@ import pandas as pd
 import random
 import re
 import requests
-from TikTokApi import TikTokApi
 import time
 from pathlib import Path
 
@@ -323,98 +322,98 @@ def alt_get_tiktok_json(video_url,browser_name=None):
 
 # the function below is based on this one: https://github.com/davidteather/TikTok-Api/blob/main/examples/user_example.py
 
-async def get_video_urls(tt_ent,
-                         ent_type="user",
-                         video_ct=30,
-                         headless=True):
-    if ent_type not in ['user','hashtag','video_related']:
-        raise Exception('Only allowed `ent_type` values are "user", "hashtag", or "video_related".')
+# async def get_video_urls(tt_ent,
+#                          ent_type="user",
+#                          video_ct=30,
+#                          headless=True):
+#     if ent_type not in ['user','hashtag','video_related']:
+    #     raise Exception('Only allowed `ent_type` values are "user", "hashtag", or "video_related".')
 
-    url_p1 = "https://www.tiktok.com/@"
-    url_p2 = "/video/"
-    tt_list = []
+    # url_p1 = "https://www.tiktok.com/@"
+    # url_p2 = "/video/"
+    # tt_list = []
 
-    async with TikTokApi() as api:
-        await api.create_sessions(headless=headless,
-                                  ms_tokens=[ms_token],
-                                  num_sessions=1,
-                                  sleep_after=3,
-                                  context_options=context_dict)
-        if ent_type == 'user':
-            ent = api.user(tt_ent)
-        elif ent_type == 'hashtag':
-            ent = api.hashtag(name=tt_ent)
-        else:
-            ent = api.video(url=tt_ent)
+    # async with TikTokApi() as api:
+    #     await api.create_sessions(headless=headless,
+    #                               ms_tokens=[ms_token],
+    #                               num_sessions=1,
+    #                               sleep_after=3,
+    #                               context_options=context_dict)
+    #     if ent_type == 'user':
+    #         ent = api.user(tt_ent)
+    #     elif ent_type == 'hashtag':
+    #         ent = api.hashtag(name=tt_ent)
+    # #     else:
+    #         ent = api.video(url=tt_ent)
 
-        if ent_type in ['user','hashtag']:
-            async for video in ent.videos(count=video_ct):
-                tt_list.append(video.as_dict)
-        else:
-            async for related_video in ent.related_videos(count=video_ct):
-                tt_list.append(related_video.as_dict)
+    #     if ent_type in ['user','hashtag']:
+    #         async for video in ent.videos(count=video_ct):
+    #             tt_list.append(video.as_dict)
+    #     else:
+    #         async for related_video in ent.related_videos(count=video_ct):
+    #             tt_list.append(related_video.as_dict)
 
-    id_list = [i['id'] for i in tt_list]
-    if ent_type == 'user':
-        video_list = [url_p1 + tt_ent + url_p2 + i for i in id_list]
-    else:
-        author_list = [i['author']['uniqueId'] for i in tt_list]
-        video_list = []
-        for n, i in enumerate(author_list):
-            video_url = url_p1 + author_list[n] + url_p2 + id_list[n]
-            video_list.append(video_url)
-    return video_list
+    # id_list = [i['id'] for i in tt_list]
+    # if ent_type == 'user':
+    #     video_list = [url_p1 + tt_ent + url_p2 + i for i in id_list]
+    # else:
+    #     author_list = [i['author']['uniqueId'] for i in tt_list]
+    #     video_list = []
+    #     for n, i in enumerate(author_list):
+    #         video_url = url_p1 + author_list[n] + url_p2 + id_list[n]
+    #         video_list.append(video_url)
+    # return video_list
 
-def save_tiktok_multi_page(tt_ent,
-                           ent_type="user",
-                           video_ct=30,
-                           headless=True,
-                           save_video=True,
-                           metadata_fn='',
-                           sleep=4,
-                           browser_name=None):
-    video_urls = asyncio.run(get_video_urls(tt_ent,
-                                            ent_type,
-                                            video_ct,
-                                            headless))
-    save_tiktok_multi_urls(video_urls,
-                           save_video,
-                           metadata_fn,
-                           sleep,
-                           browser_name)
+# def save_tiktok_multi_page(tt_ent,
+#                            ent_type="user",
+    #                        video_ct=30,
+    #                        headless=True,
+    #                        save_video=True,
+    #                        metadata_fn='',
+    #                        sleep=4,
+    #                        browser_name=None):
+    # video_urls = asyncio.run(get_video_urls(tt_ent,
+    #                                         ent_type,
+    #                                         video_ct,
+    #                                         headless))
+    # save_tiktok_multi_urls(video_urls,
+    #                        save_video,
+    #                        metadata_fn,
+    #                        sleep,
+    #                        browser_name)
 
 # the function below is based on this one: https://github.com/davidteather/TikTok-Api/blob/main/examples/comment_example.py
 
-async def get_comments(video_id,comment_count=30,headless=True):
-    comment_list = []
-    async with TikTokApi() as api:
-        await api.create_sessions(headless=headless,
-                                  ms_tokens=[ms_token],
-                                  num_sessions=1,
-                                  sleep_after=3,
-                                  context_options=context_dict)
-        video = api.video(id=video_id)
-        async for comment in video.comments(count=comment_count):
-            comment_list.append(comment.as_dict)
-    return pd.DataFrame(comment_list)
+# async def get_comments(video_id,comment_count=30,headless=True):
+#     comment_list = []
+#     async with TikTokApi() as api:
+#         await api.create_sessions(headless=headless,
+#                                   ms_tokens=[ms_token],
+#                                   num_sessions=1,
+#                                   sleep_after=3,
+#                                   context_options=context_dict)
+#         video = api.video(id=video_id)
+#         async for comment in video.comments(count=comment_count):
+#             comment_list.append(comment.as_dict)
+#     return pd.DataFrame(comment_list)
 
-def save_tiktok_comments(video_url,
-                         filename='',
-                         comment_count=30,
-                         headless=True,
-                         save_comments=True,
-                         return_comments=True,):
-    video_id = int(re.findall(video_id_regex,video_url)[0])
-    comment_results = asyncio.run(get_comments(video_id,comment_count,headless))
-    if save_comments:
-        if filename == '':
-            regex_url = re.findall(url_regex, video_url)[0]
-            filename = regex_url.replace('/', '_') + '_comments.csv'
-        data_to_save = deduplicate_metadata(filename,comment_results,'cid')
-        data_to_save.to_csv(filename,mode='w',index=False)
-        print(len(comment_results),"comments saved.")
-    if return_comments:
-        return comment_results
+# def save_tiktok_comments(video_url,
+#                          filename='',
+#                          comment_count=30,
+#                          headless=True,
+#                          save_comments=True,
+#                          return_comments=True,):
+#     video_id = int(re.findall(video_id_regex,video_url)[0])
+#     comment_results = asyncio.run(get_comments(video_id,comment_count,headless))
+#     if save_comments:
+#         if filename == '':
+#             regex_url = re.findall(url_regex, video_url)[0]
+#             filename = regex_url.replace('/', '_') + '_comments.csv'
+#         data_to_save = deduplicate_metadata(filename,comment_results,'cid')
+#         data_to_save.to_csv(filename,mode='w',index=False)
+#         print(len(comment_results),"comments saved.")
+#     if return_comments:
+#         return comment_results
 
 
 

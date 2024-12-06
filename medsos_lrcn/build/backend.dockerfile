@@ -5,6 +5,7 @@ FROM python:3.9-slim
 #ENV APP_STAGE=prod
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+ENV APP_STAGE=prod
 
 # Set the working directory in the container
 WORKDIR /app
@@ -43,7 +44,7 @@ CMD ["python", "backend.py"]
 #run
 #docker network create backend-network
 #docker run -d --name mongodb --network backend-network -p 27017:27017 mongo:5.0 [if first time]
-#docker run -d --name backend --network backend-network -p 5000:5000 backend [if first time]
+#docker run -d --name backend_rt --network backend-network -p 5000:5000 backend_rt [if first time]
 
 #test endpoint:
 #curl -X POST -H "Content-Type: application/json" -d '{"url": "http://example.com/video.mp4", "labels": "Safe"}' http://localhost:5000/classify

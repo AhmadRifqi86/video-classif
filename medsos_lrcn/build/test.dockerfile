@@ -1,19 +1,23 @@
-FROM nvcr.io/nvidia/pytorch:23.08-py3
-
-# Set the working directory
+FROM nvidia/cuda:12.2.0-runtime-ubuntu22.04
 WORKDIR /app
 
-# Copy the Python script, model, and configuration files
-COPY skripsi/medsos_lrcn/src/testcv.py /app/
+# Copy application files
+COPY skripsi/custom_pyktok /app/custom_pyktok
+COPY skripsi/medsos_lrcn/src/worker.py /app
+COPY skripsi/medsos_lrcn/src/all_config.py /app
+COPY skripsi/medsos_lrcn/src/loader_data.py /app
+COPY skripsi/medsos_lrcn/src/models_bidir.py /app
+COPY skripsi/medsos_lrcn/src/testcv.py /app
 
-# Define the entrypoint to allow passing CLI arguments
-CMD ["python3", "testcv.py"]
+# Playwright setup
+RUN firefox --headless & (sleep 5 && kill $!) || true
 
-# Set a default command (can be overridden when running the container)
-#CMD ["--model", "/app/models/best_model_seq40_batch16_hidden32_cnnresnet34_rnn16_layer2_rnnTypemamba_methoduniform_outall_max700_epochs8_finetuneTrue_classifmodemulticlass_f10.7453.pth"]
+EXPOSE 54000
 
-#docker build -f skripsi/medsos_lrcn/build/test.dockerfile -t testcv .
-#docker run -it --rm -v /home/arifadh/Downloads/tiktok_videos:/app testcv
+CMD ["python3","worker.py"]
+
+#docker run --gpus all --network backend-network -v /home/arifadh/
 
 
-#docker run --rm -v /home/arifadh/Downloads/tiktok_videos:/app/videos testcv bash
+
+

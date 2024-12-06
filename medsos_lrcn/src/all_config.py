@@ -43,8 +43,8 @@ TEST_RUNS = 3  # Number of times to test each configuration
 CHECKPOINT_FILE = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/logs/bayesian_medsos_checkpoint.json'  # File to track best results
 SLEEP = 60
 VIDEO_DIR = '/home/arifadh/Downloads/tiktok_videos/'
-BACKEND_URL = "http://backend:5000/classify" if APP_STAGE == "prod" else "http://localhost:5000/classify"  #harus mindahin ini ke all_config
-BACKEND_CHECKER = "http://backend:5000/video_labels" if APP_STAGE == "prod" else "http://localhost:5000/video_labels"  #harus mindahin ini ke all_config
+BACKEND_URL = "http://backend_rt:5000/classify" if APP_STAGE == "prod" else "http://localhost:5000/classify"  #harus mindahin ini ke all_config
+BACKEND_CHECKER = "http://backend_rt:5000/video_labels" if APP_STAGE == "prod" else "http://localhost:5000/video_labels"  #harus mindahin ini ke all_config
 MONGO_URI = "mongodb://localhost:27017/"
 DATABASE_NAME = "video_classification"
 COLLECTION_NAME = "classification_results"

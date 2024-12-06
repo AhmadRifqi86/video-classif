@@ -25,6 +25,7 @@ MODEL_PATH = os.getenv("MODEL_PATH", "/home/arifadh/Desktop/Skripsi-Magang-Proye
 SAMPLING_METHOD = os.getenv("SAMPLING_METHOD", "uniform")  # Example: sampling method
 SEQUENCE_LENGTH = int(os.getenv("SEQUENCE_LENGTH", 60))  # Example: sequence length
 VIDEO_DIR = os.getenv("VIDEO_DIR", "/home/arifadh/Downloads/tiktok_videos")
+ZEROMQ_URI = "tcp://0.0.0.0:54000"
 
 LABEL_MAPPING = {
     0: "Harmful",
@@ -136,7 +137,7 @@ def consume_messages():
     socket = context.socket(zmq.PULL)
     
     # Workers connect to the backend's PUSH socket
-    socket.bind("tcp://0.0.0.0:54000")
+    socket.bind(ZEROMQ_URI)
 
     print("Worker connected to ZeroMQ queue. Waiting for messages...")
 

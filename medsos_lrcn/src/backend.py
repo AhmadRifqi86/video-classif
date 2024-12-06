@@ -1,13 +1,17 @@
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
 import zmq
+import os
+
+APP_STAGE = os.getenv("APP_STAGE", "devel")
 
 app = Flask(__name__)
 
 
-MONGO_URI = "mongodb://localhost:27017/"
+MONGO_URI = "mongodb://localhost:27017/" if APP_STAGE == "devel" else "mongodb://mongodb:27017/"
 DATABASE_NAME = "video_classification"
 COLLECTION_NAME = "classification_results"
+ZEROMQ_URI = "tcp://localhost:54000" if APP_STAGE == "devel" else "tcp://worker:54000"
 
 client = MongoClient(MONGO_URI)
 db = client[DATABASE_NAME]
@@ -18,8 +22,8 @@ socket = None
 
 try:
     socket = context.socket(zmq.PUSH)  # Using PUSH socket to send URLs to the worker
-    socket.connect("tcp://localhost:54000")  # Connect to the worker's queue
-    print("ZeroMQ socket bound successfully to tcp://*:54000")
+    socket.connect(ZEROMQ_URI)  # Connect to the worker's queue
+    print("ZeroMQ socket bound successfully to ",ZEROMQ_URI)
 except zmq.ZMQError as e:
     print(f"Error binding ZeroMQ socket: {str(e)}")
     socket = None  # Mark socket as unavailable
@@ -35,12 +39,14 @@ def classify_video():
         data = request.json
         url = data.get("url")
         labels = data.get("labels")
+        scores = data.get("scores")
+        timestamp = data.get("timestamp")
 
         if not url or not labels:
             return jsonify({"error": "Missing url or labels in request"}), 400
 
         # Insert into MongoDB
-        document = {"url": url, "labels": labels}
+        document = {"url": url, "labels": labels, "scores":scores, "timestamp":timestamp}
         result = collection.insert_one(document)  # Insert and get the result
 
         # Prepare response with ObjectId converted to string
@@ -92,7 +98,7 @@ def get_classification_client():
 
         # Wait for the worker to process and insert the result into MongoDB
         try:
-            max_retries = 15000  # Limit the number of retries to avoid infinite loops
+            max_retries = 30000  # Limit the number of retries to avoid infinite loops
             retries = 0
 
             while retries < max_retries:
