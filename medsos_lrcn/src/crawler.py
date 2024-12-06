@@ -56,7 +56,7 @@ def load_cookies(page):
 def scrape_tiktok_video_links(profile_url):
     with sync_playwright() as p:
         browser = p.firefox.launch(
-            headless=True #,
+            headless=False #,
             # args=[
             #     '--no-sandbox',
             #     '--disable-setuid-sandbox',
@@ -113,9 +113,9 @@ def scrape_tiktok_video_links(profile_url):
         browser.close()
         return video_links
 
-def main():
+def main_old():
     # TikTok profile URL, jadiin apa ya ini? ga mungkin constant
-    profile_url = "https://www.tiktok.com/@gisel_laaa"  #how to retrieve this nigga
+    profile_url = "https://www.tiktok.com/@naiwen88"  #how to retrieve this nigga
 
     # Extract video links
     video_links = scrape_tiktok_video_links(profile_url)
@@ -133,6 +133,40 @@ def main():
 
     pyk.save_tiktok_multi_urls(vid_links,True,'',1,save_dir=VIDEO_DIR)
 
+def main():
+    # File containing TikTok profile URLs (one per line)
+    urls_file = "profile_urls.txt"  # Path to your text file
+
+    # Read URLs from the text file
+    try:
+        with open(urls_file, 'r') as file:
+            profile_urls = [line.strip() for line in file.readlines() if line.strip()]
+    except FileNotFoundError:
+        print(f"Error: The file {urls_file} does not exist.")
+        return
+    except Exception as e:
+        print(f"Error reading {urls_file}: {e}")
+        return
+
+    print("Extracted TikTok Profile URLs:")
+    print(profile_urls)
+
+    # Iterate over each profile URL
+    for profile_url in profile_urls:
+        # Extract video links for the profile
+        video_links = scrape_tiktok_video_links(profile_url)
+        vid_links = []
+
+        print(f"Extracted Video Links for {profile_url}:")
+        for link in video_links:
+            if is_url_classified(link):
+                continue
+            vid_links.append(link)
+
+        print(f"Filtered video links for {profile_url}: ", vid_links)
+
+        # Save the filtered video links
+        pyk.save_tiktok_multi_urls(vid_links, True, '', 1, save_dir=VIDEO_DIR)
 
 if __name__ == "__main__":
     main()

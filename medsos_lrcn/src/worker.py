@@ -1,12 +1,13 @@
+import zmq
 import torch
 from collections import Counter
 import datetime
 import requests
 import json
 import os
-import pika
 import all_config
 import loader_data
+import asyncio
 
 # Load config or environment variables
 APP_STAGE = os.getenv("APP_STAGE", "devel")
@@ -18,11 +19,12 @@ else:
     import pyktok as pyk
     print("Using development version of pyktok")
 
+pyk.specify_browser('firefox')
 # Load parameters from environment variables or all_config
 MODEL_PATH = os.getenv("MODEL_PATH", "/home/arifadh/Desktop/Skripsi-Magang-Proyek/best_models_medsos2/seq60_batch32_hidden32_cnnresnet50_rnninput8_layer3_typemamba_acc0.7842_unidir.pth")  # Example: model file path
 SAMPLING_METHOD = os.getenv("SAMPLING_METHOD", "uniform")  # Example: sampling method
 SEQUENCE_LENGTH = int(os.getenv("SEQUENCE_LENGTH", 60))  # Example: sequence length
-VIDEO_DIR = os.getenv("VIDEO_DIR","/home/arifadh/Downloads/tiktok_videos")
+VIDEO_DIR = os.getenv("VIDEO_DIR", "/home/arifadh/Downloads/tiktok_videos")
 
 LABEL_MAPPING = {
     0: "Harmful",
@@ -97,14 +99,15 @@ def post_results(results):
         except Exception as e:
             print(f"Error sending result to backend for {video_name}: {e}")
 
-# Callback function that is triggered when RabbitMQ sends a message
-def callback(ch, method, properties, body):
-    url = body.decode()
+# Callback function that is triggered when ZeroMQ sends a message
+def callback(message):
+    tmp = []
+    url = message.decode()
     print(f"Processing URL: {url}")
-
+    tmp.append(url)
     # Download the video using pyktok
-    pyk.save_tiktok_multi_urls(url, True, '', 1, save_dir=VIDEO_DIR)
-
+    pyk.save_tiktok_multi_urls(tmp, True, '', 1, save_dir=VIDEO_DIR) #problem nya disini
+    print("finish downloading")
     # Load the model
     print("Loading model ...")
     model = torch.load(MODEL_PATH).to(all_config.CONF_DEVICE)
@@ -122,33 +125,30 @@ def callback(ch, method, properties, body):
     # Post the results to backend
     post_results(result)
 
-    # Acknowledge the message once processing is complete
-    ch.basic_ack(delivery_tag=method.delivery_tag)
     print(f"Finished processing: {url}")
 
-# Consume messages from RabbitMQ
+async def wrapper(url):
+    await callback(url)
+
+# Consume messages from ZeroMQ (using PULL socket)
 def consume_messages():
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host=os.getenv('RABBITMQ_HOST', 'rabbitmq')))
-    channel = connection.channel()
-
-    queue = os.getenv('RABBITMQ_QUEUE', 'queue_name')
+    context = zmq.Context()
+    socket = context.socket(zmq.PULL)
     
-    # Declare the queue
-    channel.queue_declare(queue=queue, durable=True)
+    # Workers connect to the backend's PUSH socket
+    socket.bind("tcp://0.0.0.0:54000")
 
-    # Enable QoS to limit the number of messages each worker gets (1 or 2 at a time)
-    channel.basic_qos(prefetch_count=2)  # This ensures each worker gets a maximum of 2 messages at a time
+    print("Worker connected to ZeroMQ queue. Waiting for messages...")
 
-    # Start consuming messages from the queue
-    channel.basic_consume(queue=queue, on_message_callback=callback)
+    while True:
+        try:
+            message = socket.recv()
+            callback(message)
+        except zmq.ZMQError as e:
+            print(f"ZeroMQ Error: {e}")
+        except Exception as e:
+            print(f"Unexpected Error: {e}")
 
-    print(f"Waiting for messages in {queue}. To exit press CTRL+C")
-    channel.start_consuming()
 
 if __name__ == "__main__":
     consume_messages()
-
-
-
-#note
-# ENV nya harus di set pas bikin dockerfile

@@ -59,7 +59,7 @@ ENV APP_STAGE=prod
 RUN firefox --headless & (sleep 5 && kill $!) || true
 
 # Default command (replace with your specific crawler script)
-CMD ["python", "crawler_2.py"]
+CMD ["python", "crawler.py"]
 
 
 

@@ -2,6 +2,7 @@
 FROM python:3.9-slim
 
 # Set environment variables
+#ENV APP_STAGE=prod
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
@@ -19,9 +20,11 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
+# Install Python dependencies #if batch processing
 RUN pip install --upgrade pip
 RUN pip install flask==3.1.0 pymongo==4.10.1
+# Real-time dependency
+RUN pip install pyzmq==26.2.0
 
 # Expose port 5000 for the Flask application
 EXPOSE 5000

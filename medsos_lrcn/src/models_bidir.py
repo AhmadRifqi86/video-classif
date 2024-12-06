@@ -128,6 +128,7 @@ class LRCN(nn.Module):
         self.backbone = cnn_backbone
         self.rnn_type = rnn_type
         self.bidirectional = bidirectional
+        print("running models bidir")
         print("bidir: ",self.bidirectional)
 
         self.cnn_backbone = getattr(models, cnn_backbone)(pretrained=True)
@@ -189,6 +190,7 @@ class LRCN(nn.Module):
             self.fc = nn.ModuleList([nn.Linear(fc_input_size, 1) for _ in range(num_classes)])
 
     def forward(self, x):
+        #print("running models bidir")
         batch_size, seq_len, c, h, w = x.size()
         x = x.view(batch_size * seq_len, c, h, w)
         x = self.cnn_backbone(x)
