@@ -20,9 +20,10 @@ SAMPLING_METHOD = "uniform"
 RNN_OUT = "all"
 MAX_VIDEOS = 1000
 EPOCH = 8
-DROPOUT = 0.25
+DROPOUT = 0.25    #default 0.25
 FINETUNE = True
 BIDIR = False
+ADAPT = "lnsd3" #opt: lnsd3, lsnd3, lnsd4, lsnd4
 WEIGHTED_LOSS = False
 CLASSIF_MODE = "multiclass"
 MODEL_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth'  # Path to save model
@@ -52,7 +53,7 @@ COLLECTION_NAME = "classification_results"
 # Transfer configuration to variables
 CONF_SEQUENCE_LENGTH = SEQUENCE_LENGTH
 CONF_BATCH_SIZE = BATCH_SIZE
-CONF_HIDDEN_SIZE = HIDDEN_SIZE   #MULT_FACTOR * RNN_INPUT_SIZE
+CONF_HIDDEN_SIZE = MULT_FACTOR * RNN_INPUT_SIZE   #MULT_FACTOR * RNN_INPUT_SIZE
 CONF_CNN_BACKBONE = CNN_BACKBONE
 CONF_RNN_INPUT_SIZE = RNN_INPUT_SIZE
 CONF_RNN_LAYER = RNN_LAYER
@@ -68,6 +69,7 @@ CONF_CLASSIF_MODE = CLASSIF_MODE
 CONF_EARLY_STOP = EARLY_STOP
 CONF_DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 CONF_BIDIR = BIDIR
+CONF_ADAPT = ADAPT
 
 
 # first best

@@ -8,20 +8,30 @@ import all_config
 from datetime import datetime
 
 # Configuration dictionary
+# CONFIG = {
+#     "EPOCH": [8],
+#     "SEQUENCE_LENGTH": [40],
+#     "RNN_TYPE": ["mamba","lstm"],
+#     "CNN_BACKBONE": ["resnet34", "resnet50","mobilenet_v2"], #efficientnet_b1, mobilenet_v2
+#     "BATCH_SIZE": [8,16],
+#     "HIDDEN_SIZE": [8,16,24,32],
+#     "RNN_INPUT_SIZE": [16,24,8,32],
+#     "RNN_LAYER": [2,3,4],
+#     "SAMPLING_METHOD": ["uniform"],
+#     "RNN_OUT": ["all"],
+#     "MAX_VIDEOS": [700],
+#     "FINETUNE": [True],
+#     "CLASSIF_MODE": ["multiclass"]
+# }
+
 CONFIG = {
-    "EPOCH": [8],
-    "SEQUENCE_LENGTH": [40],
-    "RNN_TYPE": ["mamba","lstm"],
-    "CNN_BACKBONE": ["resnet34", "resnet50","mobilenet_v2"], #efficientnet_b1, mobilenet_v2
-    "BATCH_SIZE": [8,16],
-    "HIDDEN_SIZE": [8,16,24,32],
-    "RNN_INPUT_SIZE": [16,24,8,32],
-    "RNN_LAYER": [2,3,4],
-    "SAMPLING_METHOD": ["uniform"],
-    "RNN_OUT": ["all"],
-    "MAX_VIDEOS": [700],
-    "FINETUNE": [True],
-    "CLASSIF_MODE": ["multiclass"]
+    "CNN_BACKBONE": ["resnet50", "mobilenet_v2"],
+    "BATCH_SIZE": [2,3,4],
+    "MULT_FACTOR": [2, 3, 4],
+    "RNN_INPUT_SIZE": [6,8,12,16],
+    "RNN_LAYER": [2, 3, 4],
+    "BIDIR": [True, False],
+    "ADAPT":["A","B","C"]
 }
 
 

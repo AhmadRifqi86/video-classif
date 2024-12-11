@@ -105,7 +105,6 @@ class ParallelMamba(nn.Module):
 
         return output
 
-
 class ResidualBlock(nn.Module):
     def __init__(self, d_model, d_inner, n_state, dt_rank, bias=True, conv_bias=True, kernel_size=3, bidirectional=False):
         super().__init__()
@@ -115,6 +114,45 @@ class ResidualBlock(nn.Module):
     def forward(self, x):
         output = self.mixer(self.norm(x)) + x
         return output
+
+
+class Adapt(nn.Module):
+    def __init__(self, in_size, out_size, mode, drop=all_config.CONF_DROPOUT, depth=3):
+        super().__init__()
+        self.input_size = in_size
+        self.output_size = out_size
+        self.depth = depth
+        
+        # Generate size_list based on input_size, depth, and output_size
+        size_list = [in_size]
+        for i in range(1, depth):
+            size_list.append(size_list[-1] // 2)
+        size_list.append(out_size)
+        
+        layer_list = []
+        i = 0  # Index for `size_list`
+
+        for char in mode:
+            if char == 'l':
+                layer_list.append(nn.Linear(size_list[i], size_list[i+1]))
+                i += 1  # Move to the next pair in `size_list`
+            elif char == 'n':
+                layer_list.append(nn.LayerNorm(size_list[i]))  # Use current size
+            elif char == 's':
+                layer_list.append(nn.SiLU())
+            elif char == 'g':
+                layer_list.append(nn.GELU())
+            elif char == 'r':
+                layer_list.append(nn.ReLU())
+            elif char == 'd' and i == depth:
+                layer_list.append(nn.Dropout(drop))
+            else:
+                raise ValueError(f"Undefined layer type: {char}")
+        
+        self.adapt = nn.Sequential(*layer_list)
+
+    def forward(self, x):
+        return self.adapt(x)
 
 
 class LRCN(nn.Module):
@@ -128,8 +166,6 @@ class LRCN(nn.Module):
         self.backbone = cnn_backbone
         self.rnn_type = rnn_type
         self.bidirectional = bidirectional
-        print("running models bidir")
-        print("bidir: ",self.bidirectional)
 
         self.cnn_backbone = getattr(models, cnn_backbone)(pretrained=True)
         if hasattr(self.cnn_backbone, 'fc'):
@@ -144,18 +180,9 @@ class LRCN(nn.Module):
 
         for param in self.cnn_backbone.parameters():
             param.requires_grad = False
-
-        self.adapt1 = nn.Linear(cnn_out_size, cnn_out_size//2)  #512 -> 256, apa nyoba bagi 4?
-        self.bn1 = nn.LayerNorm(cnn_out_size//2)
-        self.adapt2 = nn.Linear(cnn_out_size//2, cnn_out_size//4) #256 -> 128
-        self.bn2 = nn.LayerNorm(cnn_out_size//4)
-        self.adapt3 = nn.Linear(cnn_out_size//4, rnn_input_size) #256 -> 8
-        self.bn3 = nn.LayerNorm(rnn_input_size)
-        # self.adapt3 = nn.Linear(cnn_out_size//4, cnn_out_size//8)
-        # self.bn3 = nn.LayerNorm(cnn_out_size//8)
-        # self.adapt4 = nn.Linear(cnn_out_size//8,rnn_input_size)
-        # self.bn4 = nn.LayerNorm(rnn_input_size)
-        self.drop1 = nn.Dropout(p = all_config.CONF_DROPOUT)
+        
+        self.adapt = Adapt(cnn_out_size,rnn_input_size,mode=all_config.CONF_ADAPT,drop=all_config.CONF_DROPOUT)
+ 
 
         if rnn_type == "lstm":
             self.rnn = nn.LSTM(input_size=rnn_input_size, hidden_size=hidden_size,
@@ -176,11 +203,10 @@ class LRCN(nn.Module):
 
         if all_config.CONF_CLASSIF_MODE == "multiclass":
             fc_input_size = self.rnn_output_size * (sequence_length if rnn_out == "all" else 1)
-            # print("init rnn_output_size: ",self.rnn_output_size)
-            #self.fc = nn.Linear(fc_input_size, num_classes)
             self.fc = nn.Linear(fc_input_size, fc_input_size // 2)
             self.fca = nn.Linear(fc_input_size // 2, fc_input_size // 4)
             self.fcb = nn.Linear(fc_input_size // 4, num_classes)
+            self.bn0 = nn.LayerNorm(fc_input_size)
             self.bna = nn.LayerNorm(fc_input_size // 2)
             self.bnb = nn.LayerNorm(fc_input_size // 4)
             self.drop2 = nn.Dropout(all_config.CONF_DROPOUT)
@@ -195,11 +221,7 @@ class LRCN(nn.Module):
         x = x.view(batch_size * seq_len, c, h, w)
         x = self.cnn_backbone(x)
         x = x.view(batch_size, seq_len, -1)
-        x = F.silu(self.bn1(self.adapt1(x)))
-        x = F.silu(self.bn2(self.adapt2(x)))
-        x = self.drop1(F.silu(self.bn3(self.adapt3(x))))
-        #x = F.silu(self.drop1(self.bn3(self.adapt3(x))))
-        #print("cnn_out size: ",x.size())
+        x = self.adapt(x)
 
         if self.rnn_type == "mamba":
             for layer in self.rnn:
@@ -215,9 +237,10 @@ class LRCN(nn.Module):
 
         #print("rnn out size: ",rnn_out.size())
         if all_config.CONF_CLASSIF_MODE == "multiclass":
-            out = F.silu(self.bna(self.fc(rnn_out)))
+            out = self.bn0(rnn_out)  #kalo masih bau coba pake batchNorm
+            out = F.silu(self.bna(self.fc(out)))
             out = F.silu(self.bnb(self.fca(out)))
-            out = self.drop2(out)
+            # out = self.drop2(out)
             out = self.fcb(out)
         else:
             out = torch.cat([fc(rnn_out) for fc in self.fc], dim=1)

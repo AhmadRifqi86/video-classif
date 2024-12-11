@@ -7,17 +7,15 @@ import all_config
 
 
 class RMSNorm(nn.Module):
-    def __init__(self,
-                 d_model: int,
-                 eps: float = 1e-5):
+    def __init__(self, d_model: int, eps: float = 1e-5):
         super().__init__()
         self.eps = eps
         self.weight = nn.Parameter(torch.ones(d_model))
 
-
     def forward(self, x):
         output = x * torch.rsqrt(x.pow(2).mean(-1, keepdim=True) + self.eps) * self.weight
         return output
+
 
 class ParallelMamba(nn.Module):
     def __init__(self, d_model, d_inner, n_state, dt_rank, bias=True, conv_bias=True, kernel_size=3, bidirectional=False):
@@ -118,17 +116,20 @@ class ResidualBlock(nn.Module):
         output = self.mixer(self.norm(x)) + x
         return output
 
+
+
 class LRCN(nn.Module):
     def __init__(self, num_classes, sequence_length, hidden_size, rnn_input_size, 
-                 cnn_backbone=all_config.CONF_CNN_BACKBONE, rnn_type=all_config.CONF_RNN_TYPE, 
-                 rnn_out=all_config.CONF_RNN_OUT):
+                 cnn_backbone=all_config.CONF_CNN_BACKBONE, 
+                 rnn_type=all_config.CONF_RNN_TYPE, rnn_out=all_config.CONF_RNN_OUT, 
+                 bidirectional=all_config.CONF_BIDIR):
         super(LRCN, self).__init__()
         self.sequence_length = sequence_length
         self.hidden_size = hidden_size
         self.backbone = cnn_backbone
         self.rnn_type = rnn_type
-        
-        # Load CNN backbone
+        self.bidirectional = bidirectional
+
         self.cnn_backbone = getattr(models, cnn_backbone)(pretrained=True)
         if hasattr(self.cnn_backbone, 'fc'):
             cnn_out_size = self.cnn_backbone.fc.in_features
@@ -139,75 +140,176 @@ class LRCN(nn.Module):
             else:
                 cnn_out_size = self.cnn_backbone.classifier.in_features
             self.cnn_backbone.classifier = nn.Identity()
-        
+
         for param in self.cnn_backbone.parameters():
             param.requires_grad = False
+        
+        # if all_config.CONF_ADAPT == "lnsd3":
+        #     print("lrcn adapt: lnsd3")
+        #     self.adapt= nn.Sequential(
+        #         nn.Linear(cnn_out_size, cnn_out_size//2),
+        #         nn.LayerNorm(cnn_out_size//2),
+        #         nn.SiLU(),
+        #         nn.Linear(cnn_out_size//2, cnn_out_size//4),
+        #         nn.LayerNorm(cnn_out_size//4),
+        #         nn.SiLU(),
+        #         nn.Linear(cnn_out_size//4, rnn_input_size),
+        #         nn.LayerNorm(rnn_input_size),
+        #         nn.SiLU(),
+        #         nn.Dropout(all_config.CONF_DROPOUT)
+        #     )
+        # elif all_config.CONF_ADAPT == "lsnd3":
+        #     print("lrcn adapt: lsnd3")
+        #     self.adapt = nn.Sequential(
+        #         nn.Linear(cnn_out_size, cnn_out_size//2),
+        #         nn.SiLU(),
+        #         nn.LayerNorm(cnn_out_size//2),
+        #         nn.Linear(cnn_out_size//2, cnn_out_size//4),
+        #         nn.SiLU(),
+        #         nn.LayerNorm(cnn_out_size//4),
+        #         nn.Linear(cnn_out_size//4, rnn_input_size),
+        #         nn.SiLU(),
+        #         nn.LayerNorm(rnn_input_size),
+        #         nn.Dropout(all_config.CONF_DROPOUT)
+        #     )
+        # elif all_config.CONF_ADAPT == "lsnd4":
+        #     self.adapt = nn.Sequential(
+        #         nn.Linear(cnn_out_size, cnn_out_size//2),
+        #         nn.SiLU(),
+        #         nn.LayerNorm(cnn_out_size//2),
+        #         nn.Linear(cnn_out_size//2, cnn_out_size//4),
+        #         nn.SiLU(),
+        #         nn.LayerNorm(cnn_out_size//4),
+        #         nn.Linear(cnn_out_size//4, cnn_out_size//8),
+        #         nn.SiLU(),
+        #         nn.LayerNorm(cnn_out_size//8),
+        #         nn.Linear(cnn_out_size//8, rnn_input_size),
+        #         nn.SiLU(),
+        #         nn.LayerNorm(rnn_input_size),
+        #         nn.Dropout(all_config.CONF_DROPOUT)
+        #     )
+        # elif all_config.CONF_ADAPT == "lnsd4":
+        #     self.adapt= nn.Sequential(
+        #         nn.Linear(cnn_out_size, cnn_out_size//2),
+        #         nn.LayerNorm(cnn_out_size//2),
+        #         nn.SiLU(),
+        #         nn.Linear(cnn_out_size//2, cnn_out_size//4),
+        #         nn.LayerNorm(cnn_out_size//4),
+        #         nn.SiLU(),
+        #         nn.Linear(cnn_out_size//4, cnn_out_size//8),
+        #         nn.LayerNorm(cnn_out_size//8),
+        #         nn.SiLU(),
+        #         nn.Linear(cnn_out_size//8, rnn_input_size),
+        #         nn.LayerNorm(rnn_input_size),
+        #         nn.SiLU(),
+        #         nn.Dropout(all_config.CONF_DROPOUT)
+        #     )
+        # elif all_config.CONF_ADAPT == "nlsd3":
+        #     self.adapt= nn.Sequential(
+        #         nn.LayerNorm(cnn_out_size),
+        #         nn.Linear(cnn_out_size, cnn_out_size//2),
+        #         nn.SiLU(),
+        #         nn.LayerNorm(cnn_out_size//2),
+        #         nn.Linear(cnn_out_size//2, cnn_out_size//4),
+        #         nn.SiLU(),
+        #         nn.LayerNorm(cnn_out_size//4),
+        #         nn.Linear(cnn_out_size//4, rnn_input_size),
+        #         nn.SiLU(),
+        #         nn.Dropout(all_config.CONF_DROPOUT)
+        #     )
+        # elif all_config.CONF_ADAPT == "lnsd1":
+        #     self.adapt = nn.Sequential(nn.Linear(cnn_out_size,rnn_input_size),nn.LayerNorm(rnn_input_size),nn.SiLU(),nn.Dropout(all_config.CONF_DROPOUT))
+        # elif all_config.CONF_ADAPT == "lsnd1":
+        #     self.adapt = nn.Sequential(nn.Linear(cnn_out_size,rnn_input_size),nn.SiLU(),nn.LayerNorm(rnn_input_size),nn.Dropout(all_config.CONF_DROPOUT))
+        # else:
+        #     self.adapt = nn.Sequential(nn.Linear(cnn_out_size,rnn_input_size),nn.SiLU())
+        # self.adapt0 = nn.Linear(cnn_out_size,rnn_input_size)
+        # self.bn0 = nn.LayerNorm(cnn_out_size)
+        self.adapt1 = nn.Linear(cnn_out_size, cnn_out_size//2)
+        self.bn1 = nn.LayerNorm(cnn_out_size//2)
+        self.adapt2 = nn.Linear(cnn_out_size//2, cnn_out_size//4)
+        self.bn2 = nn.LayerNorm(cnn_out_size//4)
+        self.adapt3 = nn.Linear(cnn_out_size//4, rnn_input_size)
+        self.bn3 = nn.LayerNorm(rnn_input_size)
+        self.drop1 = nn.Dropout(p = all_config.CONF_DROPOUT)
 
-        # Adaptation layer
-        # RNN layer
         if rnn_type == "lstm":
-            self.rnn = nn.LSTM(input_size=cnn_out_size, hidden_size=hidden_size,
-                              num_layers=all_config.CONF_RNN_LAYER, bidirectional=True, 
-                              batch_first=True)
-            self.rnn_output_size = hidden_size * 2  # bidirectional makes it *2
+            self.rnn = nn.LSTM(input_size=rnn_input_size, hidden_size=hidden_size,
+                               num_layers=all_config.CONF_RNN_LAYER, bidirectional=bidirectional, 
+                               batch_first=True)
+            self.rnn_output_size = hidden_size * (2 if bidirectional else 1)
         elif rnn_type == "mamba":
             self.rnn = nn.ModuleList([
-                ResidualBlock(cnn_out_size, rnn_input_size*2, hidden_size, hidden_size, 
-                            bias=True, conv_bias=True, kernel_size=3)
+                ResidualBlock(rnn_input_size, rnn_input_size * 2, hidden_size, hidden_size, bidirectional=bidirectional)
                 for _ in range(all_config.CONF_RNN_LAYER)
             ])
-            self.rnn_output_size = rnn_input_size  # Mamba maintains input dimension
-            self.norm_f = RMSNorm(rnn_input_size)
-        else:  # GRU
+            self.rnn_output_size = rnn_input_size #* (2 if bidirectional else 1)
+        else:
             self.rnn = nn.GRU(input_size=rnn_input_size, hidden_size=hidden_size,
-                             num_layers=all_config.CONF_RNN_LAYER, bidirectional=True, 
-                             batch_first=True)
-            self.rnn_output_size = hidden_size * 2  # bidirectional makes it *2
+                              num_layers=all_config.CONF_RNN_LAYER, bidirectional=bidirectional, 
+                              batch_first=True)
+            self.rnn_output_size = hidden_size * (2 if bidirectional else 1)
 
-        # Output layer
         if all_config.CONF_CLASSIF_MODE == "multiclass":
             fc_input_size = self.rnn_output_size * (sequence_length if rnn_out == "all" else 1)
-            self.fc = nn.Linear(fc_input_size,num_classes)
-            self.fca = nn.Linear(fc_input_size, fc_input_size//2)
-            self.fcb = nn.Linear(fc_input_size//2,fc_input_size//4)
-            self.final= nn.Linear(fc_input_size//4,num_classes)
-            self.bna = nn.LayerNorm(fc_input_size//2)
-            self.bnb = nn.LayerNorm(fc_input_size//4)
+            # print("init rnn_output_size: ",self.rnn_output_size)
+            #self.fc = nn.Linear(fc_input_size, num_classes)
+            self.fc = nn.Linear(fc_input_size, fc_input_size // 2)
+            self.fca = nn.Linear(fc_input_size // 2, fc_input_size // 4)
+            self.fcb = nn.Linear(fc_input_size // 4, num_classes)
+            self.bn0 = nn.LayerNorm(fc_input_size)
+            self.bna = nn.LayerNorm(fc_input_size // 2)
+            self.bnb = nn.LayerNorm(fc_input_size // 4)
+            self.drop2 = nn.Dropout(all_config.CONF_DROPOUT)
+            # print("fc in size: ",fc_input_size)
         else:
             fc_input_size = self.rnn_output_size * (sequence_length if rnn_out == "all" else 1)
-            self.fc = nn.ModuleList([
-                nn.Linear(fc_input_size, 1) for _ in range(num_classes)
-            ])
+            self.fc = nn.ModuleList([nn.Linear(fc_input_size, 1) for _ in range(num_classes)])
 
     def forward(self, x):
-        print("running models_back")
+        #print("running models bidir")
         batch_size, seq_len, c, h, w = x.size()
-        
-        # Process through CNN
         x = x.view(batch_size * seq_len, c, h, w)
         x = self.cnn_backbone(x)
         x = x.view(batch_size, seq_len, -1)
-        # Process through RNN
+        #x = self.adapt(x)
+        # x = self.bn1(F.gelu(self.adapt1(x)))  #Linear -> silu -> norm, lsnd, kalo ini pake bn0
+        # x = self.bn2(F.gelu(self.adapt2(x)))
+        # x = self.drop1(self.bn3(F.gelu(self.adapt3(x))))
+        # #print("cnn_out size: ",x.size())
+        # without bn0 or with
+        x = F.gelu(self.bn1(self.adapt1(x)))
+        x = F.gelu(self.bn2(self.adapt2(x)))
+        x = self.drop1(F.gelu(self.bn3(self.adapt3(x))))
+        # x = F.gelu(self.adapt1(x))  # Linear -> norm -> silu, lnsd
+        # x = F.gelu(self.adapt2(x))
+        # x = self.drop1(F.gelu(self.bn3(self.adapt3(x))))
+        #x = F.silu(self.drop1(self.bn3(self.adapt3(x))))
+
         if self.rnn_type == "mamba":
             for layer in self.rnn:
                 x = layer(x)
-            rnn_out = self.norm_f(x)
+            rnn_out = x
         else:
             rnn_out, _ = self.rnn(x)
         
-        # Handle different output modes
         if all_config.CONF_RNN_OUT == "all":
             rnn_out = rnn_out.contiguous().view(batch_size, -1)
-        else:  # last
+        else:
             rnn_out = rnn_out[:, -1, :]
-        
-        # Final classification
+
+        #print("rnn out size: ",rnn_out.size())
         if all_config.CONF_CLASSIF_MODE == "multiclass":
-            #out = self.fc(rnn_out)
-            out = self.bna(self.fca(rnn_out))
-            out = self.bnb(self.fcb(out))
-            out = self.final(out)
+            # out = self.bn0(rnn_out)  #kalo masih bau coba pake batchNorm
+            # out = F.silu(self.bna(self.fc(out)))
+            # out = F.silu(self.bnb(self.fca(out)))
+            # # out = self.drop2(out)
+            # out = self.fcb(out)
+            out = self.bn0(rnn_out)  #kalo masih bau coba pake batchNorm
+            out = F.gelu(self.bna(self.fc(out)))
+            out = F.gelu(self.bnb(self.fca(out)))
+            out = self.fcb(out)
         else:
             out = torch.cat([fc(rnn_out) for fc in self.fc], dim=1)
-        
+
         return out

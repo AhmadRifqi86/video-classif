@@ -1,12 +1,9 @@
 FROM nvidia/cuda:12.2.0-runtime-ubuntu22.04
 WORKDIR /app
 
+#System variables
 ENV DEBIAN_FRONTEND=noninteractive
 ENV APP_STAGE=prod
-ENV VIDEO_DIR=/app/videos
-ENV MODEL_PATH=/app/models/seq60_batch32_hidden32_cnnresnet50_rnninput8_layer3_typemamba_acc0.7842_unidir.pth
-ENV SAMPLING_METHOD=uniform
-ENV SEQUENCE_LENGTH=60
 ENV TZ=Asia/Jakarta
 
 RUN apt-get update -y && \
@@ -59,8 +56,14 @@ COPY skripsi/medsos_lrcn/src/loader_data.py /app
 COPY skripsi/medsos_lrcn/src/models_bidir.py /app
 COPY skripsi/medsos_lrcn/src/testcv.py /app
 
-# Playwright setup
+# Run firefox for building profile
 RUN firefox --headless & (sleep 5 && kill $!) || true
+
+# Model Inference Variables
+ENV VIDEO_DIR=/app/videos
+ENV MODEL_PATH=/app/models/seq60_batch32_hidden32_cnnresnet50_rnninput8_layer3_typemamba_acc0.7842_unidir.pth
+ENV SAMPLING_METHOD=uniform
+ENV SEQUENCE_LENGTH=60
 RUN mkdir -p $VIDEO_DIR
 
 EXPOSE 54000
@@ -68,7 +71,7 @@ EXPOSE 54000
 CMD ["python3","worker.py"]
 
 #docker run --gpus all -d --name worker --network backend-network -p 54000:54000 -v /home/arifadh/Desktop/Skripsi-Magang-Proyek/best_models_medsos2:/app/models worker python3 worker.py
-
+# tambah -e untuk ganti model, sequence_length, sampling method
 
 
 

@@ -10,9 +10,9 @@ import loader_data
 import asyncio
 
 # Load config or environment variables
-APP_STAGE = os.getenv("APP_STAGE", "devel")
+#APP_STAGE = os.getenv("APP_STAGE", "devel")
 
-if APP_STAGE == "prod":
+if all_config.APP_STAGE == "prod":
     import custom_pyktok.pyktok as pyk
     print("Using custom packaged version of pyktok")
 else:

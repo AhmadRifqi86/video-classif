@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 #from models_back import LRCN
-from models_bidir import LRCN
+from models import LRCN
 from loader_data import load_dataset, VideoDataset, load_processed_data, save_processed_data, save_sampled_data
 from train_eval import train_model, evaluate_model, count_parameters
 import all_config
@@ -63,6 +63,9 @@ def main():
     print(f"Max_Videos:      {all_config.CONF_MAX_VIDEOS}") 
     print(f"Epoch:           {all_config.CONF_EPOCH}")
     print(f"Classif_Mode:    {all_config.CONF_CLASSIF_MODE}")
+    print(f"Dropout:         {all_config.CONF_DROPOUT}")
+    print(f"Bidirectional    {all_config.CONF_BIDIR}")
+    print(f"Adapt:           {all_config.CONF_ADAPT}")
 
     if os.path.exists(all_config.DATA_FILE) and os.path.exists(all_config.CLASSES_FILE):
         print("Processed data found. Loading class labels...")
@@ -158,11 +161,30 @@ def main():
         optimizer, 
         num_epochs=all_config.CONF_EPOCH
     )
-    
+    print(f"Allocated: {torch.cuda.memory_allocated() / 1e9} GB")
+    print(f"Cached: {torch.cuda.memory_reserved() / 1e9} GB")
     # Evaluate the model
     print("evaluate")
     evaluate_model(model, test_loader, class_labels)
+    
+    # print("Cleaning up memory...")
+    # del model
+    # del train_loader
+    # del test_loader
+    # del train_dataset
+    # del test_dataset
+    # del optimizer
+    # del criterion
+    # del train_indices
+    # del test_indices
     torch.cuda.empty_cache()
+
+    # Force garbage collection
+    # import gc
+    # gc.collect()
+
+    print(f"Allocated: {torch.cuda.memory_allocated() / 1e9} GB")
+    print(f"Cached: {torch.cuda.memory_reserved() / 1e9} GB")
 
 if __name__ == "__main__":
     main()
