@@ -143,88 +143,7 @@ class LRCN(nn.Module):
 
         for param in self.cnn_backbone.parameters():
             param.requires_grad = False
-        
-        # if all_config.CONF_ADAPT == "lnsd3":
-        #     print("lrcn adapt: lnsd3")
-        #     self.adapt= nn.Sequential(
-        #         nn.Linear(cnn_out_size, cnn_out_size//2),
-        #         nn.LayerNorm(cnn_out_size//2),
-        #         nn.SiLU(),
-        #         nn.Linear(cnn_out_size//2, cnn_out_size//4),
-        #         nn.LayerNorm(cnn_out_size//4),
-        #         nn.SiLU(),
-        #         nn.Linear(cnn_out_size//4, rnn_input_size),
-        #         nn.LayerNorm(rnn_input_size),
-        #         nn.SiLU(),
-        #         nn.Dropout(all_config.CONF_DROPOUT)
-        #     )
-        # elif all_config.CONF_ADAPT == "lsnd3":
-        #     print("lrcn adapt: lsnd3")
-        #     self.adapt = nn.Sequential(
-        #         nn.Linear(cnn_out_size, cnn_out_size//2),
-        #         nn.SiLU(),
-        #         nn.LayerNorm(cnn_out_size//2),
-        #         nn.Linear(cnn_out_size//2, cnn_out_size//4),
-        #         nn.SiLU(),
-        #         nn.LayerNorm(cnn_out_size//4),
-        #         nn.Linear(cnn_out_size//4, rnn_input_size),
-        #         nn.SiLU(),
-        #         nn.LayerNorm(rnn_input_size),
-        #         nn.Dropout(all_config.CONF_DROPOUT)
-        #     )
-        # elif all_config.CONF_ADAPT == "lsnd4":
-        #     self.adapt = nn.Sequential(
-        #         nn.Linear(cnn_out_size, cnn_out_size//2),
-        #         nn.SiLU(),
-        #         nn.LayerNorm(cnn_out_size//2),
-        #         nn.Linear(cnn_out_size//2, cnn_out_size//4),
-        #         nn.SiLU(),
-        #         nn.LayerNorm(cnn_out_size//4),
-        #         nn.Linear(cnn_out_size//4, cnn_out_size//8),
-        #         nn.SiLU(),
-        #         nn.LayerNorm(cnn_out_size//8),
-        #         nn.Linear(cnn_out_size//8, rnn_input_size),
-        #         nn.SiLU(),
-        #         nn.LayerNorm(rnn_input_size),
-        #         nn.Dropout(all_config.CONF_DROPOUT)
-        #     )
-        # elif all_config.CONF_ADAPT == "lnsd4":
-        #     self.adapt= nn.Sequential(
-        #         nn.Linear(cnn_out_size, cnn_out_size//2),
-        #         nn.LayerNorm(cnn_out_size//2),
-        #         nn.SiLU(),
-        #         nn.Linear(cnn_out_size//2, cnn_out_size//4),
-        #         nn.LayerNorm(cnn_out_size//4),
-        #         nn.SiLU(),
-        #         nn.Linear(cnn_out_size//4, cnn_out_size//8),
-        #         nn.LayerNorm(cnn_out_size//8),
-        #         nn.SiLU(),
-        #         nn.Linear(cnn_out_size//8, rnn_input_size),
-        #         nn.LayerNorm(rnn_input_size),
-        #         nn.SiLU(),
-        #         nn.Dropout(all_config.CONF_DROPOUT)
-        #     )
-        # elif all_config.CONF_ADAPT == "nlsd3":
-        #     self.adapt= nn.Sequential(
-        #         nn.LayerNorm(cnn_out_size),
-        #         nn.Linear(cnn_out_size, cnn_out_size//2),
-        #         nn.SiLU(),
-        #         nn.LayerNorm(cnn_out_size//2),
-        #         nn.Linear(cnn_out_size//2, cnn_out_size//4),
-        #         nn.SiLU(),
-        #         nn.LayerNorm(cnn_out_size//4),
-        #         nn.Linear(cnn_out_size//4, rnn_input_size),
-        #         nn.SiLU(),
-        #         nn.Dropout(all_config.CONF_DROPOUT)
-        #     )
-        # elif all_config.CONF_ADAPT == "lnsd1":
-        #     self.adapt = nn.Sequential(nn.Linear(cnn_out_size,rnn_input_size),nn.LayerNorm(rnn_input_size),nn.SiLU(),nn.Dropout(all_config.CONF_DROPOUT))
-        # elif all_config.CONF_ADAPT == "lsnd1":
-        #     self.adapt = nn.Sequential(nn.Linear(cnn_out_size,rnn_input_size),nn.SiLU(),nn.LayerNorm(rnn_input_size),nn.Dropout(all_config.CONF_DROPOUT))
-        # else:
-        #     self.adapt = nn.Sequential(nn.Linear(cnn_out_size,rnn_input_size),nn.SiLU())
-        # self.adapt0 = nn.Linear(cnn_out_size,rnn_input_size)
-        # self.bn0 = nn.LayerNorm(cnn_out_size)
+    
         self.adapt1 = nn.Linear(cnn_out_size, cnn_out_size//2)
         self.bn1 = nn.LayerNorm(cnn_out_size//2)
         self.adapt2 = nn.Linear(cnn_out_size//2, cnn_out_size//4)
@@ -273,14 +192,14 @@ class LRCN(nn.Module):
         x = self.cnn_backbone(x)
         x = x.view(batch_size, seq_len, -1)
         #x = self.adapt(x)
-        x = self.bn1(F.gelu(self.adapt1(x)))  #Linear -> silu -> norm, lsnd, kalo ini pake bn0
-        x = self.bn2(F.gelu(self.adapt2(x)))
-        x = self.drop1(self.bn3(F.gelu(self.adapt3(x))))
-        # #print("cnn_out size: ",x.size())
+        # x = self.bn1(F.gelu(self.adapt1(x)))  #Linear -> silu -> norm, lsnd, kalo ini pake bn0
+        # x = self.bn2(F.gelu(self.adapt2(x)))
+        # x = self.drop1(self.bn3(F.gelu(self.adapt3(x))))
+        #print("cnn_out size: ",x.size())
         # without bn0 or with
-        # x = F.gelu(self.bn1(self.adapt1(x)))
-        # x = F.gelu(self.bn2(self.adapt2(x)))
-        # x = self.drop1(F.gelu(self.bn3(self.adapt3(x))))
+        x = self.drop1(self.bn1(F.gelu(self.adapt1(x))))  #linear -> norm -> silu
+        x = self.drop1(self.bn2(F.gelu(self.adapt2(x))))
+        x = self.bn3(F.gelu(self.adapt3(x)))
         # x = F.gelu(self.adapt1(x))  # Linear -> norm -> silu, lnsd
         # x = F.gelu(self.adapt2(x))
         # x = self.drop1(F.gelu(self.bn3(self.adapt3(x))))
@@ -300,15 +219,15 @@ class LRCN(nn.Module):
 
         #print("rnn out size: ",rnn_out.size())
         if all_config.CONF_CLASSIF_MODE == "multiclass":
-            # out = self.bn0(rnn_out)  #kalo masih bau coba pake batchNorm
-            # out = F.silu(self.bna(self.fc(out)))
-            # out = F.silu(self.bnb(self.fca(out)))
-            # # out = self.drop2(out)
-            # out = self.fcb(out)
             out = self.bn0(rnn_out)  #kalo masih bau coba pake batchNorm
-            out = F.gelu(self.bna(self.fc(out)))
-            out = F.gelu(self.bnb(self.fca(out)))
+            out = self.bna(F.gelu(self.fc(out)))
+            out = self.bnb(F.gelu(self.fca(out)))
+            out = self.drop2(out)
             out = self.fcb(out)
+            #out = self.bn0(rnn_out)  #kalo masih bau coba pake batchNorm
+            # out = F.silu(self.bna(self.fc(rnn_out)))
+            # out = F.silu(self.bnb(self.fca(out)))
+            # out = self.fcb(out)
         else:
             out = torch.cat([fc(rnn_out) for fc in self.fc], dim=1)
 

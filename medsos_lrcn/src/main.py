@@ -161,30 +161,14 @@ def main():
         optimizer, 
         num_epochs=all_config.CONF_EPOCH
     )
-    print(f"Allocated: {torch.cuda.memory_allocated() / 1e9} GB")
-    print(f"Cached: {torch.cuda.memory_reserved() / 1e9} GB")
+    # print(f"Allocated: {torch.cuda.memory_allocated() / 1e9} GB")
+    # print(f"Cached: {torch.cuda.memory_reserved() / 1e9} GB")
     # Evaluate the model
     print("evaluate")
     evaluate_model(model, test_loader, class_labels)
     
-    # print("Cleaning up memory...")
-    # del model
-    # del train_loader
-    # del test_loader
-    # del train_dataset
-    # del test_dataset
-    # del optimizer
-    # del criterion
-    # del train_indices
-    # del test_indices
-    torch.cuda.empty_cache()
-
-    # Force garbage collection
-    # import gc
-    # gc.collect()
-
-    print(f"Allocated: {torch.cuda.memory_allocated() / 1e9} GB")
-    print(f"Cached: {torch.cuda.memory_reserved() / 1e9} GB")
+    # print(f"Allocated: {torch.cuda.memory_allocated() / 1e9} GB")
+    # print(f"Cached: {torch.cuda.memory_reserved() / 1e9} GB")
 
 if __name__ == "__main__":
     main()
