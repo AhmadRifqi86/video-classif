@@ -84,7 +84,7 @@ def main():
     
     # Calculate split indices
     print("splitting")
-    train_size = int(0.8 * total_samples)
+    train_size = int(0.9 * total_samples) #ganti jadi 9
     indices = np.random.permutation(total_samples)
     train_indices = indices[:train_size]
     test_indices = indices[train_size:]
