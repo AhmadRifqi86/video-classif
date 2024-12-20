@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 #from models_back import LRCN
-from models import LRCN
+from model2 import LRCN
 from loader_data import load_dataset, VideoDataset, load_processed_data, save_processed_data, save_sampled_data
 from train_eval import train_model, evaluate_model, count_parameters
 import all_config
@@ -65,7 +65,6 @@ def main():
     print(f"Classif_Mode:    {all_config.CONF_CLASSIF_MODE}")
     print(f"Dropout:         {all_config.CONF_DROPOUT}")
     print(f"Bidirectional    {all_config.CONF_BIDIR}")
-    print(f"Adapt:           {all_config.CONF_ADAPT}")
 
     if os.path.exists(all_config.DATA_FILE) and os.path.exists(all_config.CLASSES_FILE):
         print("Processed data found. Loading class labels...")

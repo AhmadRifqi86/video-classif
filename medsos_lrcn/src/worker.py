@@ -7,12 +7,12 @@ import json
 import os
 import all_config
 import loader_data
-import asyncio
+import time
 
 # Load config or environment variables
-#APP_STAGE = os.getenv("APP_STAGE", "devel")
+APP_STAGE = os.getenv("APP_STAGE", "devel")
 
-if all_config.APP_STAGE == "prod":
+if APP_STAGE == "prod":
     import custom_pyktok.pyktok as pyk
     print("Using custom packaged version of pyktok")
 else:
@@ -21,7 +21,7 @@ else:
 
 pyk.specify_browser('firefox')
 # Load parameters from environment variables or all_config
-MODEL_PATH = os.getenv("MODEL_PATH", "/home/arifadh/Desktop/Skripsi-Magang-Proyek/best_models_medsos2/seq60_batch32_hidden32_cnnresnet50_rnninput8_layer3_typemamba_acc0.7842_unidir.pth")  # Example: model file path
+MODEL_PATH = os.getenv("MODEL_PATH", "/home/arifadh/Desktop/Skripsi-Magang-Proyek/new_best_model/seq60_max1000_mobilenetv2_mamba_batch32_hidden32_rnninp8_layer3_unidir_adp123normsiludrop0.3_dinner4dmodel_dtrankeqnstate_epoch8_acc0.8189.pth")
 SAMPLING_METHOD = os.getenv("SAMPLING_METHOD", "uniform")  # Example: sampling method
 SEQUENCE_LENGTH = int(os.getenv("SEQUENCE_LENGTH", 60))  # Example: sequence length
 VIDEO_DIR = os.getenv("VIDEO_DIR", "/home/arifadh/Downloads/tiktok_videos")
@@ -72,7 +72,7 @@ def classify_and_display(model, data_tensors, video_names):
     return results
 
 # Post results to backend
-def post_results(results):
+def post_results(results, latency):
     for result in results:
         video_name = result["video_name"]
         labels = result["labels"]
@@ -88,7 +88,8 @@ def post_results(results):
             "url": video_url,
             "labels": labels,
             "scores": scores,
-            "timestamp": ts
+            "timestamp": ts,
+            "latency": latency
         }
 
         try:
@@ -101,18 +102,16 @@ def post_results(results):
             print(f"Error sending result to backend for {video_name}: {e}")
 
 # Callback function that is triggered when ZeroMQ sends a message
-def callback(message):
+def callback(message, model):
     tmp = []
     url = message.decode()
     print(f"Processing URL: {url}")
     tmp.append(url)
     # Download the video using pyktok
-    pyk.save_tiktok_multi_urls(tmp, True, '', 1, save_dir=VIDEO_DIR) #problem nya disini
+    pyk.save_tiktok_multi_urls(tmp, True, '', 1, save_dir=VIDEO_DIR)  # problem nya disini
     print("finish downloading")
-    # Load the model
-    print("Loading model ...")
-    model = torch.load(MODEL_PATH).to(all_config.CONF_DEVICE)
-    model.eval()
+    
+    start = time.time()
 
     # Load dataset (videos to classify)
     data, video_names = loader_data.load_dataset_inference(VIDEO_DIR, SAMPLING_METHOD, SEQUENCE_LENGTH)
@@ -122,17 +121,20 @@ def callback(message):
 
     # Classify videos and display results
     result = classify_and_display(model, data_tensors, video_names)
+    latency = time.time() - start
 
     # Post the results to backend
-    post_results(result)
+    post_results(result, latency)
 
     print(f"Finished processing: {url}")
 
-async def wrapper(url):
-    await callback(url)
-
 # Consume messages from ZeroMQ (using PULL socket)
 def consume_messages():
+    # Load model once during service startup
+    print("Loading model once...")
+    model = torch.load(MODEL_PATH).to(all_config.CONF_DEVICE)
+    model.eval()
+
     context = zmq.Context()
     socket = context.socket(zmq.PULL)
     
@@ -144,12 +146,11 @@ def consume_messages():
     while True:
         try:
             message = socket.recv()
-            callback(message)
+            callback(message, model)  # Pass the model to the callback
         except zmq.ZMQError as e:
             print(f"ZeroMQ Error: {e}")
         except Exception as e:
             print(f"Unexpected Error: {e}")
-
 
 if __name__ == "__main__":
     consume_messages()

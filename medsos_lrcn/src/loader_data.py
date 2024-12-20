@@ -10,6 +10,7 @@ from torch.utils.data import Dataset
 import json
 import re
 import requests
+import random
 #from tqdm import tqdm
 
 def compute_ssim(img1, img2):
@@ -207,7 +208,192 @@ def load_dataset_simple(path, max_videos_per_class=100, task_type="multiclass", 
     return data_array, labels_array, class_labels
 
 
-def load_dataset(path, max_videos_per_class=all_config.MAX_VIDEOS, batch=all_config.CONF_BATCH_SIZE, task_type=all_config.CONF_CLASSIF_MODE):
+def sample_frames_uniform(video_path, num_frames, img_height, img_width):
+    """
+    Uniformly sample frames from a video
+    
+    Args:
+        video_path (str): Path to the video file
+        num_frames (int): Number of frames to sample
+        img_height (int): Target image height
+        img_width (int): Target image width
+    
+    Returns:
+        np.ndarray: Sampled and processed frames
+    """
+    cap = cv2.VideoCapture(video_path)
+    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    
+    if total_frames == 0:
+        cap.release()
+        return None
+    
+    # Uniform frame selection
+    frame_indices = np.linspace(0, max(total_frames - 1, 0), num_frames, dtype=int)
+    
+    frames = []
+    for idx in frame_indices:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, idx)
+        ret, frame = cap.read()
+        if ret:
+            # Resize and preprocess frame
+            frame = cv2.resize(frame, (img_height, img_width))
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            frames.append(frame)
+        else:
+            # If frame reading fails, use last successful frame
+            if frames:
+                frames.append(frames[-1])
+            else:
+                cap.release()
+                return None
+    
+    cap.release()
+    
+    # Ensure exactly num_frames are returned
+    if len(frames) < num_frames:
+        frames += [frames[-1]] * (num_frames - len(frames))
+    
+    return np.array(frames[:num_frames]) / 255.0
+
+def sample_frames_random(video_path, num_frames, img_height, img_width):
+    """
+    Randomly sample frames from a video
+    
+    Args:
+        video_path (str): Path to the video file
+        num_frames (int): Number of frames to sample
+        img_height (int): Target image height
+        img_width (int): Target image width
+    
+    Returns:
+        np.ndarray: Sampled and processed frames
+    """
+    cap = cv2.VideoCapture(video_path)
+    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    
+    if total_frames == 0:
+        cap.release()
+        return None
+    
+    # Randomly select frame indices
+    frame_indices = np.sort(np.random.choice(total_frames, num_frames, replace=False))
+    
+    frames = []
+    for idx in frame_indices:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, idx)
+        ret, frame = cap.read()
+        if ret:
+            # Resize and preprocess frame
+            frame = cv2.resize(frame, (img_height, img_width))
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            frames.append(frame)
+        else:
+            # If frame reading fails, use last successful frame
+            if frames:
+                frames.append(frames[-1])
+            else:
+                cap.release()
+                return None
+    
+    cap.release()
+    
+    # Ensure exactly num_frames are returned
+    if len(frames) < num_frames:
+        frames += [frames[-1]] * (num_frames - len(frames))
+    
+    return np.array(frames[:num_frames]) / 255.0
+
+def sample_frames_ssim(video_path, num_frames, img_height, img_width):
+    """
+    Sample frames based on Structural Similarity Index (SSIM)
+    
+    Args:
+        video_path (str): Path to the video file
+        num_frames (int): Number of frames to sample
+        img_height (int): Target image height
+        img_width (int): Target image width
+    
+    Returns:
+        np.ndarray: Sampled and processed frames
+    """
+    cap = cv2.VideoCapture(video_path)
+    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    
+    if total_frames == 0:
+        cap.release()
+        return None
+    
+    # Read all frames and preprocess
+    all_frames = []
+    for i in range(total_frames):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, i)
+        ret, frame = cap.read()
+        if ret:
+            # Resize and preprocess frame
+            frame = cv2.resize(frame, (img_height, img_width))
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            all_frames.append(frame)
+    
+    cap.release()
+    
+    if len(all_frames) == 0:
+        return None
+    
+    # Convert to grayscale for SSIM
+    all_frames_gray = [cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY) for frame in all_frames]
+    
+    # Compute SSIM between consecutive frames
+    ssim_values = []
+    for i in range(1, len(all_frames_gray)):
+        ssim_value = ssim(all_frames_gray[i-1], all_frames_gray[i])
+        ssim_values.append(ssim_value)
+    
+    # Add initial frame
+    ssim_values.insert(0, 0)
+    
+    # Sort frames by their SSIM values (lower SSIM indicates more distinct frames)
+    sorted_frame_indices = sorted(range(len(ssim_values)), key=lambda k: ssim_values[k])
+    
+    # Select frames with lowest SSIM (most distinct)
+    selected_indices = sorted(sorted_frame_indices[:num_frames])
+    
+    # Ensure exactly num_frames are returned
+    selected_frames = [all_frames[idx] for idx in selected_indices]
+    
+    if len(selected_frames) < num_frames:
+        selected_frames += [selected_frames[-1]] * (num_frames - len(selected_frames))
+    
+    return np.array(selected_frames[:num_frames]) / 255.0
+
+def load_dataset(path, max_videos_per_class=all_config.MAX_VIDEOS, 
+                 batch=all_config.LOAD_BATCH, 
+                 task_type=all_config.CONF_CLASSIF_MODE,
+                 sampling_method='uniform'):
+    """
+    Enhanced dataset loading with configurable frame sampling
+    
+    Args:
+        path (str): Path to the dataset directory
+        max_videos_per_class (int): Maximum videos to process per class
+        batch (int): Batch size for processing
+        task_type (str): Classification mode ('multiclass' or 'multilabel')
+        sampling_method (str): Frame sampling method 
+            - 'uniform': Evenly spaced frames
+            - 'random': Randomly selected frames
+            - 'ssim': Select frames with lowest structural similarity
+    """
+    # Set random seeds for reproducibility
+    np.random.seed(42)
+    random.seed(42)
+    
+    # Select sampling method
+    sampling_func = {
+        'uniform': sample_frames_uniform,
+        'random': sample_frames_random,
+        'ssim': sample_frames_ssim
+    }.get(sampling_method, sample_frames_uniform)
+    
     class_labels = []
     total_videos = 0
     
@@ -267,27 +453,18 @@ def load_dataset(path, max_videos_per_class=all_config.MAX_VIDEOS, batch=all_con
                     video_path = os.path.join(class_dir, video_name)
                     
                     try:
-                        # Read video and sample frames
-                        cap = cv2.VideoCapture(video_path)
-                        frames = []
-                        while len(frames) < all_config.CONF_SEQUENCE_LENGTH:
-                            ret, frame = cap.read()
-                            if not ret:
-                                break
-                            
-                            # Resize and preprocess frame
-                            frame = cv2.resize(frame, (all_config.IMG_HEIGHT, all_config.IMG_WIDTH))
-                            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                            frames.append(frame)
+                        # Sample frames using the specified method
+                        frames = sampling_func(
+                            video_path, 
+                            all_config.CONF_SEQUENCE_LENGTH, 
+                            all_config.IMG_HEIGHT, 
+                            all_config.IMG_WIDTH
+                        )
                         
-                        cap.release()
+                        if frames is None:
+                            print(f"Skipping {video_name}: Unable to sample frames")
+                            continue
                         
-                        # Handle short videos by duplicating frames
-                        if len(frames) < all_config.CONF_SEQUENCE_LENGTH:
-                            frames += [frames[-1]] * (all_config.CONF_SEQUENCE_LENGTH - len(frames))
-                        
-                        # Truncate to exact sequence length and normalize
-                        frames = np.array(frames[:all_config.CONF_SEQUENCE_LENGTH]) / 255.0
                         batch_videos.append(frames)
                         
                         # Create label
@@ -325,8 +502,7 @@ def load_dataset(path, max_videos_per_class=all_config.MAX_VIDEOS, batch=all_con
         print(f"Dataset processing complete. Total videos: {total_videos}")
         
         # Return loaded data
-        #return np.array(hf_data['videos']), np.array(hf_data['labels']), class_labels
-
+        return class_labels
 # def load_dataset(path, max_videos_per_class=all_config.CONF_MAX_VIDEOS, frames_per_video=all_config.CONF_SEQUENCE_LENGTH, chunk_size=64):
 #     """
 #     Load videos in chunks to manage memory efficiently
@@ -571,3 +747,169 @@ def is_url_classified(video_url):
     except Exception as e:
         print(f"Error checking classification status for {video_url}: {e}")
         return False
+
+
+
+def load_dataset_simple(path, 
+                         max_videos_per_class=all_config.MAX_VIDEOS, 
+                         batch=all_config.LOAD_BATCH, 
+                         task_type=all_config.CONF_CLASSIF_MODE,
+                         sampling_method='uniform'):
+    """
+    Enhanced dataset loading with configurable frame sampling and batch processing
+    
+    Args:
+        path (str): Path to the dataset directory
+        max_videos_per_class (int): Maximum videos to process per class
+        batch (int): Batch size for processing
+        task_type (str): Classification mode ('multiclass' or 'multilabel')
+        sampling_method (str): Frame sampling method 
+            - 'uniform': Evenly spaced frames
+            - 'random': Randomly selected frames
+            - 'ssim': Select frames with lowest structural similarity
+    
+    Returns:
+        tuple: Processed data, labels, and class labels
+    """
+    # Set random seeds for reproducibility
+    np.random.seed(42)
+    random.seed(42)
+    
+    # Select sampling method
+    sampling_func = {
+        'uniform': uniform_sampling,
+        'random': sample_frames_random,  # Assuming this function exists
+        'ssim': sample_frames_ssim       # Assuming this function exists
+    }.get(sampling_method, uniform_sampling)
+    
+    class_labels = []
+    total_videos = 0
+    
+    # First pass: collect all class names
+    all_classes = [d for d in os.listdir(path) if os.path.isdir(os.path.join(path, d))]
+    print("Found classes:", all_classes)
+    num_classes = len(all_classes)
+    
+    # Create HDF5 file for storing processed videos
+    with h5py.File(all_config.DATA_FILE, 'w') as hf_data:
+        # Create datasets with max size
+        max_total_videos = max_videos_per_class * num_classes
+        hf_data.create_dataset(
+            'videos', 
+            shape=(0, all_config.CONF_SEQUENCE_LENGTH, all_config.IMG_HEIGHT, all_config.IMG_WIDTH, 3),
+            maxshape=(max_total_videos, all_config.CONF_SEQUENCE_LENGTH, all_config.IMG_HEIGHT, all_config.IMG_WIDTH, 3),
+            dtype=np.float32,
+            chunks=True
+        )
+        
+        # Create labels dataset based on task type
+        if task_type == "multiclass":
+            label_shape = (0,)
+            label_maxshape = (max_total_videos,)
+            label_dtype = np.int64
+        else:
+            label_shape = (0, num_classes)
+            label_maxshape = (max_total_videos, num_classes)
+            label_dtype = np.float32
+            
+        hf_data.create_dataset(
+            'labels',
+            shape=label_shape,
+            maxshape=label_maxshape,
+            dtype=label_dtype,
+            chunks=True
+        )
+        
+        # Process videos class by class
+        for class_idx, class_name in enumerate(all_classes):
+            class_dir = os.path.join(path, class_name)
+            print(f"\nProcessing class: {class_name}")
+            class_labels.append(class_name)
+            
+            video_files = [f for f in os.listdir(class_dir) if f.endswith('.mp4')]
+            videos_to_process = min(len(video_files), max_videos_per_class)
+            
+            # Process videos in batches
+            for batch_start in range(0, videos_to_process, batch):
+                batch_end = min(batch_start + batch, videos_to_process)
+                batch_videos = []
+                batch_labels = []
+                
+                # Process batch of videos
+                for video_idx in range(batch_start, batch_end):
+                    video_name = video_files[video_idx]
+                    video_path = os.path.join(class_dir, video_name)
+                    
+                    try:
+                        # Open video capture
+                        cap = cv2.VideoCapture(video_path)
+                        if not cap.isOpened():
+                            print(f"Warning: Could not open video file {video_name}")
+                            continue
+                        
+                        # Read and process frames
+                        frames = []
+                        while True:
+                            ret, frame = cap.read()
+                            if not ret:
+                                break
+                            frame = cv2.resize(frame, (all_config.IMG_HEIGHT, all_config.IMG_WIDTH))
+                            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                            frames.append(frame)
+                        cap.release()
+                        
+                        # Skip if no frames
+                        if len(frames) == 0:
+                            print(f"Skipping {video_name}: No frames found")
+                            continue
+                        
+                        # Sample frames using the specified method
+                        sampled_frames = sampling_func(
+                            frames, 
+                            all_config.CONF_SEQUENCE_LENGTH, 
+                            all_config.IMG_HEIGHT, 
+                            all_config.IMG_WIDTH
+                        )
+                        
+                        if sampled_frames is None:
+                            print(f"Skipping {video_name}: Unable to sample frames")
+                            continue
+                        
+                        batch_videos.append(sampled_frames)
+                        
+                        # Create label
+                        if task_type == "multiclass":
+                            batch_labels.append(class_idx)
+                        else:
+                            binary_label = np.zeros(num_classes, dtype=np.float32)
+                            binary_label[class_idx] = 1
+                            batch_labels.append(binary_label)
+                    
+                    except Exception as e:
+                        print(f"Error processing {video_name}: {str(e)}")
+                        continue
+                
+                # Save batch to HDF5 file
+                if batch_videos:
+                    batch_videos = np.array(batch_videos)
+                    batch_labels = np.array(batch_labels)
+                    
+                    # Resize HDF5 datasets and append new data
+                    current_size = hf_data['videos'].shape[0]
+                    new_size = current_size + len(batch_videos)
+                    
+                    hf_data['videos'].resize(new_size, axis=0)
+                    hf_data['labels'].resize(new_size, axis=0)
+                    
+                    hf_data['videos'][current_size:new_size] = batch_videos
+                    hf_data['labels'][current_size:new_size] = batch_labels
+                    
+                    total_videos += len(batch_videos)
+                    print(f"Saved batch: {len(batch_videos)} videos, Total: {total_videos}")
+        
+        # Save class labels
+        np.save(all_config.CLASSES_FILE, class_labels)
+        print(f"Dataset processing complete. Total videos: {total_videos}")
+        
+        # Optionally, return data from HDF5 file
+        return class_labels
