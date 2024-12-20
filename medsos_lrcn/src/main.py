@@ -12,6 +12,7 @@ from torch.utils.data.sampler import SubsetRandomSampler
 from sklearn.utils.class_weight import compute_class_weight
 import h5py
 import numpy as np
+from collections import Counter
 
 def compute_dataset_class_weights(dataset, indices, num_classes, task_type="multiclass"):
     """
@@ -47,7 +48,20 @@ def compute_dataset_class_weights(dataset, indices, num_classes, task_type="mult
             pos_weight = torch.tensor([class_weights[1]/class_weights[0]]).to(all_config.CONF_DEVICE)
             criterion_list.append(nn.BCEWithLogitsLoss(pos_weight=pos_weight))
         return criterion_list
+
+def display_class_distribution(dataset, indices, class_labels):
+    """
+    Display class distribution for a dataset given a set of indices
+    """
+    class_counts = Counter()
+    for idx in indices:
+        _, label = dataset[idx]
+        class_counts[label.item()] += 1
     
+    print("\nClass Distribution:")
+    for label, count in class_counts.items():
+        print(f"{class_labels[label]}: {count}")
+    print(f"Total: {len(indices)}")
 
 def main():
     print("Train Config: ")
@@ -84,7 +98,7 @@ def main():
     
     # Calculate split indices
     print("splitting")
-    train_size = int(0.9 * total_samples) #ganti jadi 9
+    train_size = int(all_config.TRAIN_RATIO * total_samples)
     indices = np.random.permutation(total_samples)
     train_indices = indices[:train_size]
     test_indices = indices[train_size:]
@@ -103,6 +117,13 @@ def main():
         all_config.DATA_FILE,  # Same file contains both videos and labels
         task_type=all_config.CONF_CLASSIF_MODE
     )
+    
+    # Display train-test class distributions
+    print("\nTraining Set Distribution:")
+    display_class_distribution(train_dataset, train_indices, class_labels)
+    
+    print("\nTesting Set Distribution:")
+    display_class_distribution(test_dataset, test_indices, class_labels)
     
     # Create data loaders with samplers for the splits
     print("randomize")
@@ -128,7 +149,6 @@ def main():
     )
     
     print("creating model")
-     # Initialize model
     model = LRCN(
         num_classes=len(class_labels), 
         sequence_length=all_config.CONF_SEQUENCE_LENGTH, 
@@ -136,13 +156,7 @@ def main():
         rnn_input_size=all_config.CONF_RNN_INPUT_SIZE
     ).to(all_config.CONF_DEVICE)
 
-    # print("creating criterion")
-    # criterion = compute_dataset_class_weights(
-    #     dataset=train_dataset,
-    #     indices=train_indices,
-    #     num_classes=len(class_labels),
-    #     task_type=all_config.CONF_CLASSIF_MODE
-    # )
+    print("creating criterion")
     criterion = nn.CrossEntropyLoss()
     
     # Select optimizer
@@ -160,14 +174,9 @@ def main():
         optimizer, 
         num_epochs=all_config.CONF_EPOCH
     )
-    # print(f"Allocated: {torch.cuda.memory_allocated() / 1e9} GB")
-    # print(f"Cached: {torch.cuda.memory_reserved() / 1e9} GB")
-    # Evaluate the model
     print("evaluate")
     evaluate_model(model, test_loader, class_labels)
-    
-    # print(f"Allocated: {torch.cuda.memory_allocated() / 1e9} GB")
-    # print(f"Cached: {torch.cuda.memory_reserved() / 1e9} GB")
 
 if __name__ == "__main__":
     main()
+

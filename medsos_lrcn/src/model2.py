@@ -224,7 +224,7 @@ class LRCN(nn.Module):
             nn.Linear(cnn_out_size//2, cnn_out_size//4),
             nn.LayerNorm(cnn_out_size//4),
             nn.SiLU(),
-            nn.Dropout(p=all_config.CONF_DROPOUT)
+           nn.Dropout(p=all_config.CONF_DROPOUT)
             #SEBlock(cnn_out_size//4)
         )
         self.adapt3 = nn.Sequential( #original Linear->norm->silu->dropout
