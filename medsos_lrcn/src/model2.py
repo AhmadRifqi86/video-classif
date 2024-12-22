@@ -224,15 +224,21 @@ class LRCN(nn.Module):
             nn.Linear(cnn_out_size//2, cnn_out_size//4),
             nn.LayerNorm(cnn_out_size//4),
             nn.SiLU(),
-           nn.Dropout(p=all_config.CONF_DROPOUT)
+            nn.Dropout(p=all_config.CONF_DROPOUT)
             #SEBlock(cnn_out_size//4)
         )
         self.adapt3 = nn.Sequential( #original Linear->norm->silu->dropout
-            nn.Linear(cnn_out_size//4, rnn_input_size),
-            nn.LayerNorm(rnn_input_size),
+            nn.Linear(cnn_out_size//4, cnn_out_size//8),  #nn.Linear(cnn_out_size//4, rnn_input_size),
+            nn.LayerNorm(cnn_out_size//8), #nn.LayerNorm(rnn_input_size), 
             nn.SiLU(),
             nn.Dropout(p=all_config.CONF_DROPOUT),
             #SEBlock(rnn_input_size)
+        )
+        self.adapt4 = nn.Sequential( #original Linear->norm->silu->dropout
+            nn.Linear(cnn_out_size//8, rnn_input_size),
+            nn.LayerNorm(rnn_input_size),
+            nn.SiLU(),
+            nn.Dropout(p=all_config.CONF_DROPOUT),
         )
         self.res_proj = nn.Linear(cnn_out_size,rnn_input_size)
 
@@ -316,7 +322,7 @@ class LRCN(nn.Module):
         x = x.view(batch_size, seq_len, -1)
         
         # Enhanced feature adaptation with normalization, dropout, and SE Block, 
-        x = self.adapt3(self.adapt2(self.adapt1(x)))
+        x = self.adapt4(self.adapt3(self.adapt2(self.adapt1(x))))
         #x = self.adapt3(self.adapt2(self.adapt1(x))) + self.res_proj(x)
         #print("adapt out size: ",x.size())
         # Process through RNN
@@ -368,3 +374,7 @@ class LRCN(nn.Module):
 
 
 #mamba 4 layer, resnet50, bidir set ke false, dropout 0.5 cuma di layer terakhir adapt, epoch jadi 12, batch 32, hidden 32, rnn input 8
+
+
+
+#semua hasil bagus itu karena kelas harmful test nya sedikit, 

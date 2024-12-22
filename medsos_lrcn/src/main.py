@@ -4,7 +4,8 @@ import torch.nn as nn
 import torch.optim as optim
 #from models_back import LRCN
 from model2 import LRCN
-from loader_data import load_dataset, VideoDataset, load_processed_data, save_processed_data, save_sampled_data
+from loader_data import load_dataset, VideoDataset
+from sklearn.model_selection import train_test_split
 from train_eval import train_model, evaluate_model, count_parameters
 import all_config
 from torch.utils.data import DataLoader
@@ -49,21 +50,27 @@ def compute_dataset_class_weights(dataset, indices, num_classes, task_type="mult
             criterion_list.append(nn.BCEWithLogitsLoss(pos_weight=pos_weight))
         return criterion_list
 
-def display_class_distribution(dataset, indices, class_labels):
-    """
-    Display class distribution for a dataset given a set of indices
-    """
-    class_counts = Counter()
-    for idx in indices:
-        _, label = dataset[idx]
-        class_counts[label.item()] += 1
-    
-    print("\nClass Distribution:")
-    for label, count in class_counts.items():
-        print(f"{class_labels[label]}: {count}")
-    print(f"Total: {len(indices)}")
+# def display_class_distribution(indices, labels, class_labels):
+#     """
+#     Display the number of videos for each class in the dataset split.
+
+#     Args:
+#         indices (list): Indices of the videos in the split (train/test).
+#         labels (np.ndarray): Array of labels corresponding to the videos.
+#         class_labels (list): List of class label names.
+#     """
+#     class_counts = {class_name: 0 for class_name in class_labels}
+
+#     for idx in indices:
+#         label = labels[idx]
+#         class_counts[class_labels[label]] += 1
+
+#     print("Class distribution:")
+#     for class_name, count in class_counts.items():
+#         print(f"  {class_name}: {count} videos")
 
 def main():
+    
     print("Train Config: ")
     print(f"Seq_Length:      {all_config.CONF_SEQUENCE_LENGTH}")
     print(f"Batch_Size:      {all_config.CONF_BATCH_SIZE}")
@@ -78,30 +85,51 @@ def main():
     print(f"Epoch:           {all_config.CONF_EPOCH}")
     print(f"Classif_Mode:    {all_config.CONF_CLASSIF_MODE}")
     print(f"Dropout:         {all_config.CONF_DROPOUT}")
-    print(f"Bidirectional    {all_config.CONF_BIDIR}")
+    print(f"Bidirectional:   {all_config.CONF_BIDIR}")
 
     if os.path.exists(all_config.DATA_FILE) and os.path.exists(all_config.CLASSES_FILE):
         print("Processed data found. Loading class labels...")
         class_labels = np.load(all_config.CLASSES_FILE)
     else:
         print("No processed data found. Loading and processing raw dataset...")
-        load_dataset(
+        class_labels = load_dataset(
             all_config.DATASET_PATH, 
             max_videos_per_class=all_config.CONF_MAX_VIDEOS,
-            batch = all_config.BATCH_SIZE,
+            batch=all_config.LOAD_BATCH,
             task_type=all_config.CONF_CLASSIF_MODE
         )
     
-    # Get total dataset size from HDF5 file
+    # Get total dataset size and labels from HDF5 file
     with h5py.File(all_config.DATA_FILE, 'r') as hf:
         total_samples = len(hf['videos'])
-    
+        labels = hf['labels'][:]
+
     # Calculate split indices
     print("splitting")
-    train_size = int(all_config.TRAIN_RATIO * total_samples)
-    indices = np.random.permutation(total_samples)
-    train_indices = indices[:train_size]
-    test_indices = indices[train_size:]
+    # train_size = int(0.9 * total_samples)
+    # indices = np.random.permutation(total_samples)
+    # train_indices = indices[:train_size]
+    # test_indices = indices[train_size:]
+    train_indices, test_indices = train_test_split(
+        np.arange(total_samples),
+        test_size=0.1,  # 10% for testing
+        stratify=labels  # Ensure similar distribution
+    )
+
+    # Display class distribution
+    def display_class_distribution(indices, labels, class_labels):
+        class_counts = {class_name: 0 for class_name in class_labels}
+        for idx in indices:
+            label = labels[idx]
+            class_counts[class_labels[label]] += 1
+        for class_name, count in class_counts.items():
+            print(f"  {class_name}: {count} videos")
+
+    print("\nTrain dataset class distribution:")
+    display_class_distribution(train_indices, labels, class_labels)
+
+    print("\nTest dataset class distribution:")
+    display_class_distribution(test_indices, labels, class_labels)
     
     # Create train and test datasets using indices
     print("load train")
@@ -118,13 +146,6 @@ def main():
         task_type=all_config.CONF_CLASSIF_MODE
     )
     
-    # Display train-test class distributions
-    print("\nTraining Set Distribution:")
-    display_class_distribution(train_dataset, train_indices, class_labels)
-    
-    print("\nTesting Set Distribution:")
-    display_class_distribution(test_dataset, test_indices, class_labels)
-    
     # Create data loaders with samplers for the splits
     print("randomize")
     train_sampler = SubsetRandomSampler(train_indices)
@@ -135,6 +156,7 @@ def main():
         train_dataset, 
         batch_size=all_config.CONF_BATCH_SIZE,
         sampler=train_sampler,
+        #shuffle=True,
         num_workers=4,
         pin_memory=True
     )
@@ -144,11 +166,13 @@ def main():
         test_dataset, 
         batch_size=all_config.CONF_BATCH_SIZE,
         sampler=test_sampler,
+        #shuffle=False,
         num_workers=4,
         pin_memory=True
     )
     
     print("creating model")
+    # Initialize model
     model = LRCN(
         num_classes=len(class_labels), 
         sequence_length=all_config.CONF_SEQUENCE_LENGTH, 
@@ -174,8 +198,11 @@ def main():
         optimizer, 
         num_epochs=all_config.CONF_EPOCH
     )
+    
+    # Evaluate the model
     print("evaluate")
     evaluate_model(model, test_loader, class_labels)
+    torch.cuda.empty_cache()
 
 if __name__ == "__main__":
     main()
