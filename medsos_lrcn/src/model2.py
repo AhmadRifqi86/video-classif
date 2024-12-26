@@ -196,6 +196,7 @@ class LRCN(nn.Module):
         self.bidirectional = bidirectional
         print("running models bidir")
         print("LRCN bidir: ",self.bidirectional)
+        print("LRCN adapt dropout: ",all_config.CONF_DROPOUT)
 
         self.cnn_backbone = getattr(models, cnn_backbone)(pretrained=True)
         if hasattr(self.cnn_backbone, 'fc'):
@@ -228,18 +229,18 @@ class LRCN(nn.Module):
             #SEBlock(cnn_out_size//4)
         )
         self.adapt3 = nn.Sequential( #original Linear->norm->silu->dropout
-            nn.Linear(cnn_out_size//4, cnn_out_size//8),  #nn.Linear(cnn_out_size//4, rnn_input_size),
-            nn.LayerNorm(cnn_out_size//8), #nn.LayerNorm(rnn_input_size), 
+            nn.Linear(cnn_out_size//4, rnn_input_size),  #nn.Linear(cnn_out_size//4, rnn_input_size),
+            nn.LayerNorm(rnn_input_size), #nn.LayerNorm(rnn_input_size), 
             nn.SiLU(),
             nn.Dropout(p=all_config.CONF_DROPOUT),
             #SEBlock(rnn_input_size)
         )
-        self.adapt4 = nn.Sequential( #original Linear->norm->silu->dropout
-            nn.Linear(cnn_out_size//8, rnn_input_size),
-            nn.LayerNorm(rnn_input_size),
-            nn.SiLU(),
-            nn.Dropout(p=all_config.CONF_DROPOUT),
-        )
+        # self.adapt4 = nn.Sequential( #original Linear->norm->silu->dropout
+        #     nn.Linear(cnn_out_size//8, rnn_input_size),
+        #     nn.LayerNorm(rnn_input_size),
+        #     nn.SiLU(),
+        #     nn.Dropout(p=all_config.CONF_DROPOUT),
+        # )
         self.res_proj = nn.Linear(cnn_out_size,rnn_input_size)
 
         # # Gradual unfreezing of CNN backbone
@@ -256,7 +257,7 @@ class LRCN(nn.Module):
         if rnn_type == "lstm":
             self.rnn = nn.LSTM(input_size=rnn_input_size, hidden_size=hidden_size,
                               num_layers=all_config.CONF_RNN_LAYER, bidirectional=bidirectional, 
-                              batch_first=True, dropout=0.3)
+                              batch_first=True)
             self.rnn_output_size = hidden_size * (2 if bidirectional else 1)
             
             # Add SE Block after RNN
@@ -300,7 +301,7 @@ class LRCN(nn.Module):
                 nn.Linear(fc_input_size//2, fc_input_size//4),
                 nn.LayerNorm(fc_input_size//4),
                 #nn.SiLU(),  #nambah silu disini jelek hasilnya
-                #nn.Dropout(0.3),
+                #nn.Dropout(0.5),
                 nn.Linear(fc_input_size//4,num_classes)
             )
         else:
@@ -322,20 +323,22 @@ class LRCN(nn.Module):
         x = x.view(batch_size, seq_len, -1)
         
         # Enhanced feature adaptation with normalization, dropout, and SE Block, 
-        x = self.adapt4(self.adapt3(self.adapt2(self.adapt1(x))))
+        x = self.adapt3(self.adapt2(self.adapt1(x)))  #+ self.res_proj(x)
+        #x = self.adapt(x)
         #x = self.adapt3(self.adapt2(self.adapt1(x))) + self.res_proj(x)
         #print("adapt out size: ",x.size())
         # Process through RNN
         if self.rnn_type == "mamba":
             for layer in self.rnn:
                 x = layer(x)
+                #x = x + x * self.self_attention(x)   #nambah attention disini
             rnn_out = self.norm_f(x)
         else:
             rnn_out, _ = self.rnn(x)
         # Add self-attention to enrich RNN output
         # attention_out = self.self_attention(rnn_out)
         
-        # # # Combine RNN and attention outputs (you can modify this combination strategy)
+        # # # # Combine RNN and attention outputs (you can modify this combination strategy)
         # rnn_out = rnn_out + rnn_out*attention_out
         #print("before reshaping: ",rnn_out.size())
         # Handle different output modes

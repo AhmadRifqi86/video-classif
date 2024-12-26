@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.optim as optim
 #from models_back import LRCN
 from model2 import LRCN
-from loader_data import load_dataset, VideoDataset
+from loader_data import load_dataset, VideoDataset, file_checksum
 from sklearn.model_selection import train_test_split
 from train_eval import train_model, evaluate_model, count_parameters
 import all_config
@@ -13,6 +13,8 @@ from torch.utils.data.sampler import SubsetRandomSampler
 from sklearn.utils.class_weight import compute_class_weight
 import h5py
 import numpy as np
+import random
+import time
 from collections import Counter
 
 def compute_dataset_class_weights(dataset, indices, num_classes, task_type="multiclass"):
@@ -70,6 +72,17 @@ def compute_dataset_class_weights(dataset, indices, num_classes, task_type="mult
 #         print(f"  {class_name}: {count} videos")
 
 def main():
+
+    seed = 42  # Use same seed each time
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
+    split_seed = int(time.time())  # or use random.randint(0, 10000)
+    print(f"Data split seed: {split_seed}")  # Log this for reproducibility if needed
     
     print("Train Config: ")
     print(f"Seq_Length:      {all_config.CONF_SEQUENCE_LENGTH}")
@@ -90,6 +103,8 @@ def main():
     if os.path.exists(all_config.DATA_FILE) and os.path.exists(all_config.CLASSES_FILE):
         print("Processed data found. Loading class labels...")
         class_labels = np.load(all_config.CLASSES_FILE)
+        print("Data File checksum: ",file_checksum(all_config.DATA_FILE))
+        print("Class File checksum: ",file_checksum(all_config.CLASSES_FILE))
     else:
         print("No processed data found. Loading and processing raw dataset...")
         class_labels = load_dataset(
@@ -98,6 +113,7 @@ def main():
             batch=all_config.LOAD_BATCH,
             task_type=all_config.CONF_CLASSIF_MODE
         )
+
     
     # Get total dataset size and labels from HDF5 file
     with h5py.File(all_config.DATA_FILE, 'r') as hf:
@@ -113,7 +129,8 @@ def main():
     train_indices, test_indices = train_test_split(
         np.arange(total_samples),
         test_size=0.1,  # 10% for testing
-        stratify=labels  # Ensure similar distribution
+        stratify=labels,  # Ensure similar distribution
+        random_state=split_seed
     )
 
     # Display class distribution
@@ -147,9 +164,12 @@ def main():
     )
     
     # Create data loaders with samplers for the splits
-    print("randomize")
-    train_sampler = SubsetRandomSampler(train_indices)
-    test_sampler = SubsetRandomSampler(test_indices)
+    print("Setting up data loaders...")
+    g = torch.Generator()
+    g.manual_seed(split_seed)  # Use same seed as split for consistency
+    
+    train_sampler = SubsetRandomSampler(train_indices, generator=g)
+    test_sampler = SubsetRandomSampler(test_indices, generator=g)
     
     print("Dataloader train")
     train_loader = DataLoader(
@@ -185,6 +205,7 @@ def main():
     
     # Select optimizer
     print("creating optimizer and display param count")
+    # optimizer = optim.adam(model.parameters(), lr=0.0001,)
     optimizer = optim.Adam(model.parameters(), lr=0.0001)
     num_param = count_parameters(model)
     print("Param info: ", num_param)
@@ -202,6 +223,16 @@ def main():
     # Evaluate the model
     print("evaluate")
     evaluate_model(model, test_loader, class_labels)
+    # Clear model weights
+    print("Clearing GPU")
+    model.apply(lambda m: m.reset_parameters() if hasattr(m, 'reset_parameters') else None)
+
+    # Clear optimizer state
+    optimizer.state = {}  # Clear optimizer state
+    optimizer.param_groups[0]['params'] = list(model.parameters())  # Reset parameters
+
+    # Clear CUDA cache
+    torch.cuda.synchronize()
     torch.cuda.empty_cache()
 
 if __name__ == "__main__":

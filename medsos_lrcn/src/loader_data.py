@@ -11,6 +11,7 @@ import json
 import re
 import requests
 import random
+import hashlib
 #from tqdm import tqdm
 
 def compute_ssim(img1, img2):
@@ -913,3 +914,8 @@ def load_dataset_simple(path,
         
         # Optionally, return data from HDF5 file
         return class_labels
+
+
+def file_checksum(filepath):
+    with open(filepath, 'rb') as f:
+        return hashlib.md5(f.read()).hexdigest()

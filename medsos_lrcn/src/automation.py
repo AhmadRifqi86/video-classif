@@ -10,11 +10,12 @@ from datetime import datetime
 # Configuration dictionary
 CONFIG = {
     "CNN_BACKBONE": ["resnet50", "mobilenet_v2"],
-    "RNN_TYPE": ["lstm", "mamba"],
-    "BATCH_SIZE": [16, 32, 64],
-    "HIDDEN_SIZE": [8, 16, 24, 32],
-    "RNN_INPUT_SIZE": [8, 16, 24, 32],
-    "RNN_LAYER": [2, 3, 4],
+    "RNN_TYPE": ["mamba"],
+    "BATCH_SIZE": [16, 32, 8],
+    "MULT_FACTOR": [2,3,4],
+    "RNN_INPUT_SIZE": [8,12,16],
+    "RNN_LAYER": [2, 3],
+    "DROPOUT":[0.3,0.4,0.5],
     "BIDIR": [True, False],
 }
 
@@ -118,6 +119,7 @@ def save_checkpoint(best_results):
 
 def run_training(config, test_runs, best_results):
     best_f1 = None
+    best_acc = None
     best_model_filename = None
 
     for run in range(test_runs):
@@ -136,31 +138,76 @@ def run_training(config, test_runs, best_results):
             subprocess.run(command, shell=True)
 
         # Run the training script
-        print("Perform training")
-        process = subprocess.Popen(f'python3 {all_config.SOURCE_PATH}', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        stdout, stderr = process.communicate()
+        # print("Perform training")
+        # process = subprocess.Popen(f'python3 {all_config.SOURCE_PATH}', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        # stdout, stderr = process.communicate()
 
-        # Process the output
-        print("Training done, recording result")
-        result = stdout.decode('utf-8')
+        # # Process the output
+        # print("Training done, recording result")
+        # result = stdout.decode('utf-8')
+
+        process = subprocess.Popen(
+            f'python3 {all_config.SOURCE_PATH}', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
+        )
+        result = []
+        # Log training progression in real-time
+        with open(all_config.LOG_FILE_PATH, 'a') as log_file:
+            log_file.write(f"Run {run + 1}/{test_runs}\n")
+            log_file.write(f"Config: {config}\n")
+            log_file.write("Training logs:\n")
+            for line in process.stdout:
+                log_file.write(line)
+                result.append(line)
+                print(line, end="")  # Print to console as well
+
+        stdout, stderr = process.communicate()
+        result = ''.join(result)  # Concatenate list of lines into a single string
+        error_output = stderr
+        accuracy, precision, recall, f1, train_dur, inf_dur = extract_metrics(result)
+        print("Extracted F1: ", f1)
+        print("Extracted Accuracy: ", accuracy)
         try:
             # Extract metrics from the output
             accuracy, precision, recall, f1, train_dur, inf_dur = extract_metrics(result)
-            print("Extracted F1: ", f1)
+            
         except Exception as e:
             with open(all_config.LOG_FILE_PATH, 'a') as log_file:
                 log_file.write(f"Error extracting metrics: {e}\n")
                 log_file.write(f"Run {run} output: {result}\n")
             continue
-
+        
         # Save the best model for this configuration based on F1 score
         if best_f1 is None or f1 > best_f1:
             best_f1 = f1
-
+            best_acc = accuracy
+            best_prec = precision
+            best_rec = recall
+            best_train_dur = train_dur
+            best_inf_dur = inf_dur
+        
         # Save the model only if accuracy > 0.76
         if accuracy > 0.76:
-            best_model_filename = f"best_model_seq{all_config.SEQUENCE_LENGTH}_batch{all_config.CONF_BATCH_SIZE}_hidden{all_config.CONF_HIDDEN_SIZE}_cnn{all_config.CONF_CNN_BACKBONE}_rnn{all_config.CONF_RNN_INPUT_SIZE}_layer{all_config.CONF_RNN_LAYER}_rnnType{all_config.CONF_RNN_TYPE}_acc{accuracy:.4f}_f1{f1:.4f}.pth"
+            # Construct best model filename using config dictionary
+            best_model_filename_parts = [
+                f"seq{all_config.SEQUENCE_LENGTH}",
+                f"batch{config['BATCH_SIZE']}",
+                f"hidden{config['MULT_FACTOR']*config['RNN_INPUT_SIZE']}",
+                f"cnn{config['CNN_BACKBONE']}",
+                f"rnn{config['RNN_INPUT_SIZE']}",
+                f"layer{config['RNN_LAYER']}",
+                f"rnnType{config['RNN_TYPE']}",
+                f"drop{config['DROPOUT']}",
+                f"bidir{config['BIDIR']}",
+                f"acc{accuracy:.4f}",
+                f"f1{f1:.4f}.pth"
+            ]
+            # Join filename parts with underscores
+            best_model_filename = "_".join(best_model_filename_parts)
+            # Construct full path for the best model
             best_model_path = os.path.join(all_config.BEST_MODEL_DIR, best_model_filename)
+
+            # best_model_filename = f"seq{all_config.SEQUENCE_LENGTH}_batch{all_config.CONF_BATCH_SIZE}_hidden{all_config.CONF_HIDDEN_SIZE}_cnn{all_config.CONF_CNN_BACKBONE}_rnn{all_config.CONF_RNN_INPUT_SIZE}_layer{all_config.CONF_RNN_LAYER}_rnnType{all_config.CONF_RNN_TYPE}_drop{all_config.DROPOUT}_bidir{all_config.BIDIR}_acc{accuracy:.4f}_f1{f1:.4f}.pth"
+            # best_model_path = os.path.join(all_config.BEST_MODEL_DIR, best_model_filename)
 
             print(f"Saving model with accuracy > 0.76 for configuration: {best_model_filename}")
             subprocess.run(f"cp {all_config.MODEL_PATH} {best_model_path}", shell=True)
@@ -169,7 +216,7 @@ def run_training(config, test_runs, best_results):
             log_file.write(f"Config (Run {run+1}/{test_runs}): {config}, ACCURACY={accuracy}, F1={f1}\n")
             log_file.write(result)
             if stderr:
-                log_file.write(f"Error: {stderr.decode('utf-8')}\n")
+                log_file.write(f"Error: {stderr}\n")
             log_file.write("\n\n")
 
     # Record the best result for this configuration
@@ -177,14 +224,14 @@ def run_training(config, test_runs, best_results):
         best_results.append({
             "config": config,
             "metrics": {
-                "accuracy": accuracy,
-                "precision": precision,
-                "recall": recall,
+                "accuracy": best_acc,
+                "precision": best_prec,
+                "recall": best_rec,
                 "f1_score": best_f1,
-                "training duration": train_dur,
-                "inference duration": inf_dur
+                "training duration": best_train_dur,
+                "inference duration": best_inf_dur
             },
-            "best_model_filename": best_model_filename if accuracy > 0.76 else None
+            "best_model_filename": best_model_filename if best_acc > 0.76 else None
         })
 
     return best_f1, best_model_filename if accuracy > 0.76 else None
@@ -204,6 +251,7 @@ def extract_metrics(output):
     f1 = re.search(f1_pattern, output)
     train_time = re.search(train_dur, output)
     inf_time = re.search(inf_dur, output)
+    #print("inside extractor, f1: ",f1)
 
     if accuracy and precision and recall and f1 and train_time and inf_time:
         return float(accuracy.group(1)), float(precision.group(1)), float(recall.group(1)), float(f1.group(1)), float(train_time.group(1)), float(inf_time.group(1))

@@ -140,7 +140,7 @@ def evaluate_model(model, test_loader, class_names):
                 correct += (predicted == labels).sum().item()
                 all_predictions.extend(predicted.cpu().numpy())
                 all_labels.extend(labels.cpu().numpy())
-
+    duration = time.time()-start
     if all_config.CONF_CLASSIF_MODE == "multiple_binary":
         all_labels = np.concatenate(all_labels, axis=0)
         all_predictions = np.concatenate(all_predictions, axis=0)
@@ -185,7 +185,7 @@ def evaluate_model(model, test_loader, class_names):
         # Log classification report
         print("\nClassification Report:")
         print(classification_report(all_labels, all_predictions, target_names=class_names))
-
+        print(f"inference_duration: {duration:.4f}")
 
 def count_parameters(model):
     trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
