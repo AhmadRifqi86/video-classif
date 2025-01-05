@@ -288,7 +288,7 @@ class LRCN(nn.Module):
             num_heads=2  # You can adjust the number of heads
         )
 
-        # Improved output layer with normalization
+        # Improved output layer with normalizationkingdom of predators
         if all_config.CONF_CLASSIF_MODE == "multiclass":
             fc_input_size = self.rnn_output_size * (sequence_length if rnn_out == "all" else 1)
             #print("fc_input_size: ",fc_input_size)  #480
@@ -358,26 +358,3 @@ class LRCN(nn.Module):
     
 
 
-#attention menyebabkan convergence lebih lambat
-#menghilangkan dropout di classifier layer bikin overfit
-
-# log 13 Dec 
-#best: cuma masang dropout(all_config.DROPOUT) di layer terakhir adapt, masang dropout(0.5) di layer pertama, activation function di adapt pake silu, di fc gada activation
-#best adapt layer order linear->norm->silu
-
-
-#log 16 Dec
-#best: pake backbone mobilenet, masang dropout0.3 di semua layer adaptation, bidir set ke false, bisa nyampe 0.82
-
-#log 17 dec
-#best pake backbone resnet50, bidir jadiin true, masang dropout(0.3) cuma di layer adapt terakhir
-
-#log 18 dec
-#masang dropout nya di semua layer, sama kasih residual juga masih gede backbone resnet, bidir set ke true
-
-
-#mamba 4 layer, resnet50, bidir set ke false, dropout 0.5 cuma di layer terakhir adapt, epoch jadi 12, batch 32, hidden 32, rnn input 8
-
-
-
-#semua hasil bagus itu karena kelas harmful test nya sedikit, 

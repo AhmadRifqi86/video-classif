@@ -10,10 +10,10 @@ from datetime import datetime
 # Configuration dictionary
 CONFIG = {
     "CNN_BACKBONE": ["resnet50", "mobilenet_v2"],
-    "RNN_TYPE": ["mamba"],
-    "BATCH_SIZE": [16, 32, 8],
+    "RNN_TYPE": ["lstm"],
+    "BATCH_SIZE": [16, 32],
     "MULT_FACTOR": [2,3,4],
-    "RNN_INPUT_SIZE": [8,12,16],
+    "RNN_INPUT_SIZE": [8,16],
     "RNN_LAYER": [2, 3],
     "DROPOUT":[0.3,0.4,0.5],
     "BIDIR": [True, False],
