@@ -129547,3 +129547,3583 @@ Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_uti
 
 
 
+Run 1/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.3, 'BIDIR': False}
+Training logs:
+Data split seed: 1736154650
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.3
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.3
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4974852, 'Non-trainable parameters': 23508032, 'Total parameters': 28482884}
+start training
+Epoch 1/8, Loss: 1.0553, Accuracy: 0.4616
+Epoch 2/8, Loss: 0.7678, Accuracy: 0.6716
+Epoch 3/8, Loss: 0.7237, Accuracy: 0.7014
+Epoch 4/8, Loss: 0.6493, Accuracy: 0.7287
+Epoch 5/8, Loss: 0.6391, Accuracy: 0.7355
+Epoch 6/8, Loss: 0.6008, Accuracy: 0.7565
+Epoch 7/8, Loss: 0.5710, Accuracy: 0.7648
+Epoch 8/8, Loss: 0.5771, Accuracy: 0.7645
+training_duration: 789.9869
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.8061
+Class: Harmful - Precision: 0.8058, Recall: 0.8384, f1-Score: 0.8218
+Class: Adult - Precision: 0.7757, Recall: 0.8646, f1-Score: 0.8177
+Class: Safe - Precision: 0.7524, Recall: 0.7980, f1-Score: 0.7745
+Class: Suicide - Precision: 0.9221, Recall: 0.7245, f1-Score: 0.8114
+Overall Precision: 0.8140, Overall Recall: 0.8064, Overall F1-Score: 0.8064
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         83        6        9        1
+Adult            1       83        9        3
+Safe             9        9       79        2
+Suicide         10        9        8       71
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.81      0.84      0.82        99
+       Adult       0.78      0.86      0.82        96
+        Safe       0.75      0.80      0.77        99
+     Suicide       0.92      0.72      0.81        98
+
+    accuracy                           0.81       392
+   macro avg       0.81      0.81      0.81       392
+weighted avg       0.81      0.81      0.81       392
+
+inference_duration: 11.7661
+Clearing GPU
+Config (Run 1/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.3, 'BIDIR': False}, ACCURACY=0.8061, F1=0.8064
+Data split seed: 1736154650
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.3
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.3
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4974852, 'Non-trainable parameters': 23508032, 'Total parameters': 28482884}
+start training
+Epoch 1/8, Loss: 1.0553, Accuracy: 0.4616
+Epoch 2/8, Loss: 0.7678, Accuracy: 0.6716
+Epoch 3/8, Loss: 0.7237, Accuracy: 0.7014
+Epoch 4/8, Loss: 0.6493, Accuracy: 0.7287
+Epoch 5/8, Loss: 0.6391, Accuracy: 0.7355
+Epoch 6/8, Loss: 0.6008, Accuracy: 0.7565
+Epoch 7/8, Loss: 0.5710, Accuracy: 0.7648
+Epoch 8/8, Loss: 0.5771, Accuracy: 0.7645
+training_duration: 789.9869
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.8061
+Class: Harmful - Precision: 0.8058, Recall: 0.8384, f1-Score: 0.8218
+Class: Adult - Precision: 0.7757, Recall: 0.8646, f1-Score: 0.8177
+Class: Safe - Precision: 0.7524, Recall: 0.7980, f1-Score: 0.7745
+Class: Suicide - Precision: 0.9221, Recall: 0.7245, f1-Score: 0.8114
+Overall Precision: 0.8140, Overall Recall: 0.8064, Overall F1-Score: 0.8064
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         83        6        9        1
+Adult            1       83        9        3
+Safe             9        9       79        2
+Suicide         10        9        8       71
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.81      0.84      0.82        99
+       Adult       0.78      0.86      0.82        96
+        Safe       0.75      0.80      0.77        99
+     Suicide       0.92      0.72      0.81        98
+
+    accuracy                           0.81       392
+   macro avg       0.81      0.81      0.81       392
+weighted avg       0.81      0.81      0.81       392
+
+inference_duration: 11.7661
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 2/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.3, 'BIDIR': False}
+Training logs:
+Data split seed: 1736155491
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.3
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.3
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4974852, 'Non-trainable parameters': 23508032, 'Total parameters': 28482884}
+start training
+Epoch 1/8, Loss: 1.1027, Accuracy: 0.4216
+Epoch 2/8, Loss: 0.8250, Accuracy: 0.6071
+Epoch 3/8, Loss: 0.7168, Accuracy: 0.6915
+Epoch 4/8, Loss: 0.6933, Accuracy: 0.7188
+Epoch 5/8, Loss: 0.6613, Accuracy: 0.7301
+Epoch 6/8, Loss: 0.6057, Accuracy: 0.7457
+Epoch 7/8, Loss: 0.5772, Accuracy: 0.7693
+Epoch 8/8, Loss: 0.5843, Accuracy: 0.7543
+training_duration: 795.3009
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7755
+Class: Harmful - Precision: 0.7755, Recall: 0.7677, f1-Score: 0.7716
+Class: Adult - Precision: 0.8293, Recall: 0.7083, f1-Score: 0.7640
+Class: Safe - Precision: 0.8068, Recall: 0.7172, f1-Score: 0.7594
+Class: Suicide - Precision: 0.7177, Recall: 0.9082, f1-Score: 0.8018
+Overall Precision: 0.7823, Overall Recall: 0.7753, Overall F1-Score: 0.7742
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         76        6        9        8
+Adult            6       68        4       18
+Safe            14        5       71        9
+Suicide          2        3        4       89
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.78      0.77      0.77        99
+       Adult       0.83      0.71      0.76        96
+        Safe       0.81      0.72      0.76        99
+     Suicide       0.72      0.91      0.80        98
+
+    accuracy                           0.78       392
+   macro avg       0.78      0.78      0.77       392
+weighted avg       0.78      0.78      0.77       392
+
+inference_duration: 11.7410
+Clearing GPU
+Config (Run 2/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.3, 'BIDIR': False}, ACCURACY=0.7755, F1=0.7742
+Data split seed: 1736155491
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.3
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.3
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4974852, 'Non-trainable parameters': 23508032, 'Total parameters': 28482884}
+start training
+Epoch 1/8, Loss: 1.1027, Accuracy: 0.4216
+Epoch 2/8, Loss: 0.8250, Accuracy: 0.6071
+Epoch 3/8, Loss: 0.7168, Accuracy: 0.6915
+Epoch 4/8, Loss: 0.6933, Accuracy: 0.7188
+Epoch 5/8, Loss: 0.6613, Accuracy: 0.7301
+Epoch 6/8, Loss: 0.6057, Accuracy: 0.7457
+Epoch 7/8, Loss: 0.5772, Accuracy: 0.7693
+Epoch 8/8, Loss: 0.5843, Accuracy: 0.7543
+training_duration: 795.3009
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7755
+Class: Harmful - Precision: 0.7755, Recall: 0.7677, f1-Score: 0.7716
+Class: Adult - Precision: 0.8293, Recall: 0.7083, f1-Score: 0.7640
+Class: Safe - Precision: 0.8068, Recall: 0.7172, f1-Score: 0.7594
+Class: Suicide - Precision: 0.7177, Recall: 0.9082, f1-Score: 0.8018
+Overall Precision: 0.7823, Overall Recall: 0.7753, Overall F1-Score: 0.7742
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         76        6        9        8
+Adult            6       68        4       18
+Safe            14        5       71        9
+Suicide          2        3        4       89
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.78      0.77      0.77        99
+       Adult       0.83      0.71      0.76        96
+        Safe       0.81      0.72      0.76        99
+     Suicide       0.72      0.91      0.80        98
+
+    accuracy                           0.78       392
+   macro avg       0.78      0.78      0.77       392
+weighted avg       0.78      0.78      0.77       392
+
+inference_duration: 11.7410
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 1/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.4, 'BIDIR': True}
+Training logs:
+Data split seed: 1736156396
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11927524, 'Non-trainable parameters': 23508032, 'Total parameters': 35435556}
+start training
+Epoch 1/8, Loss: 1.2265, Accuracy: 0.3520
+Epoch 2/8, Loss: 0.8373, Accuracy: 0.6386
+Epoch 3/8, Loss: 0.7251, Accuracy: 0.6918
+Epoch 4/8, Loss: 0.6819, Accuracy: 0.7196
+Epoch 5/8, Loss: 0.6338, Accuracy: 0.7409
+Epoch 6/8, Loss: 0.6040, Accuracy: 0.7472
+Epoch 7/8, Loss: 0.5836, Accuracy: 0.7562
+Epoch 8/8, Loss: 0.5562, Accuracy: 0.7699
+training_duration: 801.2103
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7628
+Class: Harmful - Precision: 0.7957, Recall: 0.7475, f1-Score: 0.7708
+Class: Adult - Precision: 0.7647, Recall: 0.8125, f1-Score: 0.7879
+Class: Safe - Precision: 0.8052, Recall: 0.6263, f1-Score: 0.7045
+Class: Suicide - Precision: 0.7083, Recall: 0.8673, f1-Score: 0.7798
+Overall Precision: 0.7685, Overall Recall: 0.7634, Overall F1-Score: 0.7608
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         74        8        8        9
+Adult            4       78        1       13
+Safe            13       11       62       13
+Suicide          2        5        6       85
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.80      0.75      0.77        99
+       Adult       0.76      0.81      0.79        96
+        Safe       0.81      0.63      0.70        99
+     Suicide       0.71      0.87      0.78        98
+
+    accuracy                           0.76       392
+   macro avg       0.77      0.76      0.76       392
+weighted avg       0.77      0.76      0.76       392
+
+inference_duration: 11.6924
+Clearing GPU
+Config (Run 1/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.4, 'BIDIR': True}, ACCURACY=0.7628, F1=0.7608
+Data split seed: 1736156396
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11927524, 'Non-trainable parameters': 23508032, 'Total parameters': 35435556}
+start training
+Epoch 1/8, Loss: 1.2265, Accuracy: 0.3520
+Epoch 2/8, Loss: 0.8373, Accuracy: 0.6386
+Epoch 3/8, Loss: 0.7251, Accuracy: 0.6918
+Epoch 4/8, Loss: 0.6819, Accuracy: 0.7196
+Epoch 5/8, Loss: 0.6338, Accuracy: 0.7409
+Epoch 6/8, Loss: 0.6040, Accuracy: 0.7472
+Epoch 7/8, Loss: 0.5836, Accuracy: 0.7562
+Epoch 8/8, Loss: 0.5562, Accuracy: 0.7699
+training_duration: 801.2103
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7628
+Class: Harmful - Precision: 0.7957, Recall: 0.7475, f1-Score: 0.7708
+Class: Adult - Precision: 0.7647, Recall: 0.8125, f1-Score: 0.7879
+Class: Safe - Precision: 0.8052, Recall: 0.6263, f1-Score: 0.7045
+Class: Suicide - Precision: 0.7083, Recall: 0.8673, f1-Score: 0.7798
+Overall Precision: 0.7685, Overall Recall: 0.7634, Overall F1-Score: 0.7608
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         74        8        8        9
+Adult            4       78        1       13
+Safe            13       11       62       13
+Suicide          2        5        6       85
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.80      0.75      0.77        99
+       Adult       0.76      0.81      0.79        96
+        Safe       0.81      0.63      0.70        99
+     Suicide       0.71      0.87      0.78        98
+
+    accuracy                           0.76       392
+   macro avg       0.77      0.76      0.76       392
+weighted avg       0.77      0.76      0.76       392
+
+inference_duration: 11.6924
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 2/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.4, 'BIDIR': True}
+Training logs:
+Data split seed: 1736157247
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11927524, 'Non-trainable parameters': 23508032, 'Total parameters': 35435556}
+start training
+Epoch 1/8, Loss: 1.1145, Accuracy: 0.4639
+Epoch 2/8, Loss: 0.7854, Accuracy: 0.6710
+Epoch 3/8, Loss: 0.7118, Accuracy: 0.7114
+Epoch 4/8, Loss: 0.7086, Accuracy: 0.7091
+Epoch 5/8, Loss: 0.6541, Accuracy: 0.7290
+Epoch 6/8, Loss: 0.6157, Accuracy: 0.7474
+Epoch 7/8, Loss: 0.5930, Accuracy: 0.7571
+Epoch 8/8, Loss: 0.5595, Accuracy: 0.7699
+training_duration: 801.3020
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7806
+Class: Harmful - Precision: 0.7168, Recall: 0.8182, f1-Score: 0.7642
+Class: Adult - Precision: 0.7745, Recall: 0.8229, f1-Score: 0.7980
+Class: Safe - Precision: 0.8630, Recall: 0.6364, f1-Score: 0.7326
+Class: Suicide - Precision: 0.7981, Recall: 0.8469, f1-Score: 0.8218
+Overall Precision: 0.7881, Overall Recall: 0.7811, Overall F1-Score: 0.7791
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         81        5        3       10
+Adult            6       79        4        7
+Safe            20       12       63        4
+Suicide          6        6        3       83
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.72      0.82      0.76        99
+       Adult       0.77      0.82      0.80        96
+        Safe       0.86      0.64      0.73        99
+     Suicide       0.80      0.85      0.82        98
+
+    accuracy                           0.78       392
+   macro avg       0.79      0.78      0.78       392
+weighted avg       0.79      0.78      0.78       392
+
+inference_duration: 11.6419
+Clearing GPU
+Config (Run 2/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.4, 'BIDIR': True}, ACCURACY=0.7806, F1=0.7791
+Data split seed: 1736157247
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11927524, 'Non-trainable parameters': 23508032, 'Total parameters': 35435556}
+start training
+Epoch 1/8, Loss: 1.1145, Accuracy: 0.4639
+Epoch 2/8, Loss: 0.7854, Accuracy: 0.6710
+Epoch 3/8, Loss: 0.7118, Accuracy: 0.7114
+Epoch 4/8, Loss: 0.7086, Accuracy: 0.7091
+Epoch 5/8, Loss: 0.6541, Accuracy: 0.7290
+Epoch 6/8, Loss: 0.6157, Accuracy: 0.7474
+Epoch 7/8, Loss: 0.5930, Accuracy: 0.7571
+Epoch 8/8, Loss: 0.5595, Accuracy: 0.7699
+training_duration: 801.3020
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7806
+Class: Harmful - Precision: 0.7168, Recall: 0.8182, f1-Score: 0.7642
+Class: Adult - Precision: 0.7745, Recall: 0.8229, f1-Score: 0.7980
+Class: Safe - Precision: 0.8630, Recall: 0.6364, f1-Score: 0.7326
+Class: Suicide - Precision: 0.7981, Recall: 0.8469, f1-Score: 0.8218
+Overall Precision: 0.7881, Overall Recall: 0.7811, Overall F1-Score: 0.7791
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         81        5        3       10
+Adult            6       79        4        7
+Safe            20       12       63        4
+Suicide          6        6        3       83
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.72      0.82      0.76        99
+       Adult       0.77      0.82      0.80        96
+        Safe       0.86      0.64      0.73        99
+     Suicide       0.80      0.85      0.82        98
+
+    accuracy                           0.78       392
+   macro avg       0.79      0.78      0.78       392
+weighted avg       0.79      0.78      0.78       392
+
+inference_duration: 11.6419
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 1/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.4, 'BIDIR': False}
+Training logs:
+Data split seed: 1736158157
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4974852, 'Non-trainable parameters': 23508032, 'Total parameters': 28482884}
+start training
+Epoch 1/8, Loss: 1.1420, Accuracy: 0.3997
+Epoch 2/8, Loss: 0.8839, Accuracy: 0.5659
+Epoch 3/8, Loss: 0.7959, Accuracy: 0.6420
+Epoch 4/8, Loss: 0.6835, Accuracy: 0.7151
+Epoch 5/8, Loss: 0.6575, Accuracy: 0.7347
+Epoch 6/8, Loss: 0.6342, Accuracy: 0.7426
+Epoch 7/8, Loss: 0.6070, Accuracy: 0.7562
+Epoch 8/8, Loss: 0.5836, Accuracy: 0.7622
+training_duration: 791.6484
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7194
+Class: Harmful - Precision: 0.5775, Recall: 0.8283, f1-Score: 0.6805
+Class: Adult - Precision: 0.8353, Recall: 0.7396, f1-Score: 0.7845
+Class: Safe - Precision: 0.7910, Recall: 0.5354, f1-Score: 0.6386
+Class: Suicide - Precision: 0.7755, Recall: 0.7755, f1-Score: 0.7755
+Overall Precision: 0.7448, Overall Recall: 0.7197, Overall F1-Score: 0.7198
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         82        4        5        8
+Adult            9       71        5       11
+Safe            40        3       53        3
+Suicide         11        7        4       76
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.58      0.83      0.68        99
+       Adult       0.84      0.74      0.78        96
+        Safe       0.79      0.54      0.64        99
+     Suicide       0.78      0.78      0.78        98
+
+    accuracy                           0.72       392
+   macro avg       0.74      0.72      0.72       392
+weighted avg       0.74      0.72      0.72       392
+
+inference_duration: 11.6495
+Clearing GPU
+Config (Run 1/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.4, 'BIDIR': False}, ACCURACY=0.7194, F1=0.7198
+Data split seed: 1736158157
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4974852, 'Non-trainable parameters': 23508032, 'Total parameters': 28482884}
+start training
+Epoch 1/8, Loss: 1.1420, Accuracy: 0.3997
+Epoch 2/8, Loss: 0.8839, Accuracy: 0.5659
+Epoch 3/8, Loss: 0.7959, Accuracy: 0.6420
+Epoch 4/8, Loss: 0.6835, Accuracy: 0.7151
+Epoch 5/8, Loss: 0.6575, Accuracy: 0.7347
+Epoch 6/8, Loss: 0.6342, Accuracy: 0.7426
+Epoch 7/8, Loss: 0.6070, Accuracy: 0.7562
+Epoch 8/8, Loss: 0.5836, Accuracy: 0.7622
+training_duration: 791.6484
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7194
+Class: Harmful - Precision: 0.5775, Recall: 0.8283, f1-Score: 0.6805
+Class: Adult - Precision: 0.8353, Recall: 0.7396, f1-Score: 0.7845
+Class: Safe - Precision: 0.7910, Recall: 0.5354, f1-Score: 0.6386
+Class: Suicide - Precision: 0.7755, Recall: 0.7755, f1-Score: 0.7755
+Overall Precision: 0.7448, Overall Recall: 0.7197, Overall F1-Score: 0.7198
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         82        4        5        8
+Adult            9       71        5       11
+Safe            40        3       53        3
+Suicide         11        7        4       76
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.58      0.83      0.68        99
+       Adult       0.84      0.74      0.78        96
+        Safe       0.79      0.54      0.64        99
+     Suicide       0.78      0.78      0.78        98
+
+    accuracy                           0.72       392
+   macro avg       0.74      0.72      0.72       392
+weighted avg       0.74      0.72      0.72       392
+
+inference_duration: 11.6495
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 2/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.4, 'BIDIR': False}
+Training logs:
+Data split seed: 1736158997
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4974852, 'Non-trainable parameters': 23508032, 'Total parameters': 28482884}
+start training
+Epoch 1/8, Loss: 1.0265, Accuracy: 0.4980
+Epoch 2/8, Loss: 0.7649, Accuracy: 0.6710
+Epoch 3/8, Loss: 0.6935, Accuracy: 0.7142
+Epoch 4/8, Loss: 0.6670, Accuracy: 0.7281
+Epoch 5/8, Loss: 0.6252, Accuracy: 0.7457
+Epoch 6/8, Loss: 0.5906, Accuracy: 0.7571
+Epoch 7/8, Loss: 0.5806, Accuracy: 0.7636
+Epoch 8/8, Loss: 0.5780, Accuracy: 0.7648
+training_duration: 793.4866
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7449
+Class: Harmful - Precision: 0.6607, Recall: 0.7475, f1-Score: 0.7014
+Class: Adult - Precision: 0.7812, Recall: 0.7812, f1-Score: 0.7812
+Class: Safe - Precision: 0.7975, Recall: 0.6364, f1-Score: 0.7079
+Class: Suicide - Precision: 0.7619, Recall: 0.8163, f1-Score: 0.7882
+Overall Precision: 0.7503, Overall Recall: 0.7454, Overall F1-Score: 0.7447
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         74        7        9        9
+Adult           11       75        4        6
+Safe            18        8       63       10
+Suicide          9        6        3       80
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.66      0.75      0.70        99
+       Adult       0.78      0.78      0.78        96
+        Safe       0.80      0.64      0.71        99
+     Suicide       0.76      0.82      0.79        98
+
+    accuracy                           0.74       392
+   macro avg       0.75      0.75      0.74       392
+weighted avg       0.75      0.74      0.74       392
+
+inference_duration: 11.6644
+Clearing GPU
+Config (Run 2/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.4, 'BIDIR': False}, ACCURACY=0.7449, F1=0.7447
+Data split seed: 1736158997
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4974852, 'Non-trainable parameters': 23508032, 'Total parameters': 28482884}
+start training
+Epoch 1/8, Loss: 1.0265, Accuracy: 0.4980
+Epoch 2/8, Loss: 0.7649, Accuracy: 0.6710
+Epoch 3/8, Loss: 0.6935, Accuracy: 0.7142
+Epoch 4/8, Loss: 0.6670, Accuracy: 0.7281
+Epoch 5/8, Loss: 0.6252, Accuracy: 0.7457
+Epoch 6/8, Loss: 0.5906, Accuracy: 0.7571
+Epoch 7/8, Loss: 0.5806, Accuracy: 0.7636
+Epoch 8/8, Loss: 0.5780, Accuracy: 0.7648
+training_duration: 793.4866
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7449
+Class: Harmful - Precision: 0.6607, Recall: 0.7475, f1-Score: 0.7014
+Class: Adult - Precision: 0.7812, Recall: 0.7812, f1-Score: 0.7812
+Class: Safe - Precision: 0.7975, Recall: 0.6364, f1-Score: 0.7079
+Class: Suicide - Precision: 0.7619, Recall: 0.8163, f1-Score: 0.7882
+Overall Precision: 0.7503, Overall Recall: 0.7454, Overall F1-Score: 0.7447
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         74        7        9        9
+Adult           11       75        4        6
+Safe            18        8       63       10
+Suicide          9        6        3       80
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.66      0.75      0.70        99
+       Adult       0.78      0.78      0.78        96
+        Safe       0.80      0.64      0.71        99
+     Suicide       0.76      0.82      0.79        98
+
+    accuracy                           0.74       392
+   macro avg       0.75      0.75      0.74       392
+weighted avg       0.75      0.74      0.74       392
+
+inference_duration: 11.6644
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 1/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.5, 'BIDIR': True}
+Training logs:
+Data split seed: 1736159898
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.5
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.5
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11927524, 'Non-trainable parameters': 23508032, 'Total parameters': 35435556}
+start training
+Epoch 1/8, Loss: 1.1933, Accuracy: 0.4068
+Epoch 2/8, Loss: 0.8185, Accuracy: 0.6497
+Epoch 3/8, Loss: 0.7470, Accuracy: 0.6886
+Epoch 4/8, Loss: 0.6859, Accuracy: 0.7188
+Epoch 5/8, Loss: 0.6630, Accuracy: 0.7298
+Epoch 6/8, Loss: 0.6253, Accuracy: 0.7406
+Epoch 7/8, Loss: 0.6196, Accuracy: 0.7415
+Epoch 8/8, Loss: 0.5748, Accuracy: 0.7636
+training_duration: 799.9534
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7602
+Class: Harmful - Precision: 0.6614, Recall: 0.8485, f1-Score: 0.7434
+Class: Adult - Precision: 0.7742, Recall: 0.7500, f1-Score: 0.7619
+Class: Safe - Precision: 0.8333, Recall: 0.6061, f1-Score: 0.7018
+Class: Suicide - Precision: 0.8200, Recall: 0.8367, f1-Score: 0.8283
+Overall Precision: 0.7722, Overall Recall: 0.7603, Overall F1-Score: 0.7588
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         84        1        9        5
+Adult           15       72        0        9
+Safe            24       11       60        4
+Suicide          4        9        3       82
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.66      0.85      0.74        99
+       Adult       0.77      0.75      0.76        96
+        Safe       0.83      0.61      0.70        99
+     Suicide       0.82      0.84      0.83        98
+
+    accuracy                           0.76       392
+   macro avg       0.77      0.76      0.76       392
+weighted avg       0.77      0.76      0.76       392
+
+inference_duration: 11.6036
+Clearing GPU
+Config (Run 1/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.5, 'BIDIR': True}, ACCURACY=0.7602, F1=0.7588
+Data split seed: 1736159898
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.5
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.5
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11927524, 'Non-trainable parameters': 23508032, 'Total parameters': 35435556}
+start training
+Epoch 1/8, Loss: 1.1933, Accuracy: 0.4068
+Epoch 2/8, Loss: 0.8185, Accuracy: 0.6497
+Epoch 3/8, Loss: 0.7470, Accuracy: 0.6886
+Epoch 4/8, Loss: 0.6859, Accuracy: 0.7188
+Epoch 5/8, Loss: 0.6630, Accuracy: 0.7298
+Epoch 6/8, Loss: 0.6253, Accuracy: 0.7406
+Epoch 7/8, Loss: 0.6196, Accuracy: 0.7415
+Epoch 8/8, Loss: 0.5748, Accuracy: 0.7636
+training_duration: 799.9534
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7602
+Class: Harmful - Precision: 0.6614, Recall: 0.8485, f1-Score: 0.7434
+Class: Adult - Precision: 0.7742, Recall: 0.7500, f1-Score: 0.7619
+Class: Safe - Precision: 0.8333, Recall: 0.6061, f1-Score: 0.7018
+Class: Suicide - Precision: 0.8200, Recall: 0.8367, f1-Score: 0.8283
+Overall Precision: 0.7722, Overall Recall: 0.7603, Overall F1-Score: 0.7588
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         84        1        9        5
+Adult           15       72        0        9
+Safe            24       11       60        4
+Suicide          4        9        3       82
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.66      0.85      0.74        99
+       Adult       0.77      0.75      0.76        96
+        Safe       0.83      0.61      0.70        99
+     Suicide       0.82      0.84      0.83        98
+
+    accuracy                           0.76       392
+   macro avg       0.77      0.76      0.76       392
+weighted avg       0.77      0.76      0.76       392
+
+inference_duration: 11.6036
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 2/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.5, 'BIDIR': True}
+Training logs:
+Data split seed: 1736160746
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.5
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.5
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11927524, 'Non-trainable parameters': 23508032, 'Total parameters': 35435556}
+start training
+Epoch 1/8, Loss: 1.1333, Accuracy: 0.4349
+Epoch 2/8, Loss: 0.8024, Accuracy: 0.6679
+Epoch 3/8, Loss: 0.7557, Accuracy: 0.6892
+Epoch 4/8, Loss: 0.6823, Accuracy: 0.7284
+Epoch 5/8, Loss: 0.7031, Accuracy: 0.7105
+Epoch 6/8, Loss: 0.6328, Accuracy: 0.7375
+Epoch 7/8, Loss: 0.6292, Accuracy: 0.7369
+Epoch 8/8, Loss: 0.6021, Accuracy: 0.7517
+training_duration: 800.6683
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7653
+Class: Harmful - Precision: 0.6667, Recall: 0.7677, f1-Score: 0.7136
+Class: Adult - Precision: 0.7573, Recall: 0.8125, f1-Score: 0.7839
+Class: Safe - Precision: 0.7327, Recall: 0.7475, f1-Score: 0.7400
+Class: Suicide - Precision: 0.9730, Recall: 0.7347, f1-Score: 0.8372
+Overall Precision: 0.7824, Overall Recall: 0.7656, Overall F1-Score: 0.7687
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         76       10       11        2
+Adult            8       78       10        0
+Safe            18        7       74        0
+Suicide         12        8        6       72
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.67      0.77      0.71        99
+       Adult       0.76      0.81      0.78        96
+        Safe       0.73      0.75      0.74        99
+     Suicide       0.97      0.73      0.84        98
+
+    accuracy                           0.77       392
+   macro avg       0.78      0.77      0.77       392
+weighted avg       0.78      0.77      0.77       392
+
+inference_duration: 11.6817
+Clearing GPU
+Config (Run 2/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.5, 'BIDIR': True}, ACCURACY=0.7653, F1=0.7687
+Data split seed: 1736160746
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.5
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.5
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11927524, 'Non-trainable parameters': 23508032, 'Total parameters': 35435556}
+start training
+Epoch 1/8, Loss: 1.1333, Accuracy: 0.4349
+Epoch 2/8, Loss: 0.8024, Accuracy: 0.6679
+Epoch 3/8, Loss: 0.7557, Accuracy: 0.6892
+Epoch 4/8, Loss: 0.6823, Accuracy: 0.7284
+Epoch 5/8, Loss: 0.7031, Accuracy: 0.7105
+Epoch 6/8, Loss: 0.6328, Accuracy: 0.7375
+Epoch 7/8, Loss: 0.6292, Accuracy: 0.7369
+Epoch 8/8, Loss: 0.6021, Accuracy: 0.7517
+training_duration: 800.6683
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7653
+Class: Harmful - Precision: 0.6667, Recall: 0.7677, f1-Score: 0.7136
+Class: Adult - Precision: 0.7573, Recall: 0.8125, f1-Score: 0.7839
+Class: Safe - Precision: 0.7327, Recall: 0.7475, f1-Score: 0.7400
+Class: Suicide - Precision: 0.9730, Recall: 0.7347, f1-Score: 0.8372
+Overall Precision: 0.7824, Overall Recall: 0.7656, Overall F1-Score: 0.7687
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         76       10       11        2
+Adult            8       78       10        0
+Safe            18        7       74        0
+Suicide         12        8        6       72
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.67      0.77      0.71        99
+       Adult       0.76      0.81      0.78        96
+        Safe       0.73      0.75      0.74        99
+     Suicide       0.97      0.73      0.84        98
+
+    accuracy                           0.77       392
+   macro avg       0.78      0.77      0.77       392
+weighted avg       0.78      0.77      0.77       392
+
+inference_duration: 11.6817
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 1/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.5, 'BIDIR': False}
+Training logs:
+Data split seed: 1736161654
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.5
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.5
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4974852, 'Non-trainable parameters': 23508032, 'Total parameters': 28482884}
+start training
+Epoch 1/8, Loss: 1.0530, Accuracy: 0.4736
+Epoch 2/8, Loss: 0.8355, Accuracy: 0.6190
+Epoch 3/8, Loss: 0.7289, Accuracy: 0.6886
+Epoch 4/8, Loss: 0.6756, Accuracy: 0.7148
+Epoch 5/8, Loss: 0.6533, Accuracy: 0.7304
+Epoch 6/8, Loss: 0.6290, Accuracy: 0.7432
+Epoch 7/8, Loss: 0.6005, Accuracy: 0.7554
+Epoch 8/8, Loss: 0.5817, Accuracy: 0.7651
+training_duration: 791.3342
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7500
+Class: Harmful - Precision: 0.8955, Recall: 0.6061, f1-Score: 0.7229
+Class: Adult - Precision: 0.8500, Recall: 0.7083, f1-Score: 0.7727
+Class: Safe - Precision: 0.6822, Recall: 0.7374, f1-Score: 0.7087
+Class: Suicide - Precision: 0.6739, Recall: 0.9490, f1-Score: 0.7881
+Overall Precision: 0.7754, Overall Recall: 0.7502, Overall F1-Score: 0.7481
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         60        5       20       14
+Adult            2       68       11       15
+Safe             5        5       73       16
+Suicide          0        2        3       93
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.90      0.61      0.72        99
+       Adult       0.85      0.71      0.77        96
+        Safe       0.68      0.74      0.71        99
+     Suicide       0.67      0.95      0.79        98
+
+    accuracy                           0.75       392
+   macro avg       0.78      0.75      0.75       392
+weighted avg       0.78      0.75      0.75       392
+
+inference_duration: 11.6504
+Clearing GPU
+Config (Run 1/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.5, 'BIDIR': False}, ACCURACY=0.75, F1=0.7481
+Data split seed: 1736161654
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.5
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.5
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4974852, 'Non-trainable parameters': 23508032, 'Total parameters': 28482884}
+start training
+Epoch 1/8, Loss: 1.0530, Accuracy: 0.4736
+Epoch 2/8, Loss: 0.8355, Accuracy: 0.6190
+Epoch 3/8, Loss: 0.7289, Accuracy: 0.6886
+Epoch 4/8, Loss: 0.6756, Accuracy: 0.7148
+Epoch 5/8, Loss: 0.6533, Accuracy: 0.7304
+Epoch 6/8, Loss: 0.6290, Accuracy: 0.7432
+Epoch 7/8, Loss: 0.6005, Accuracy: 0.7554
+Epoch 8/8, Loss: 0.5817, Accuracy: 0.7651
+training_duration: 791.3342
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7500
+Class: Harmful - Precision: 0.8955, Recall: 0.6061, f1-Score: 0.7229
+Class: Adult - Precision: 0.8500, Recall: 0.7083, f1-Score: 0.7727
+Class: Safe - Precision: 0.6822, Recall: 0.7374, f1-Score: 0.7087
+Class: Suicide - Precision: 0.6739, Recall: 0.9490, f1-Score: 0.7881
+Overall Precision: 0.7754, Overall Recall: 0.7502, Overall F1-Score: 0.7481
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         60        5       20       14
+Adult            2       68       11       15
+Safe             5        5       73       16
+Suicide          0        2        3       93
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.90      0.61      0.72        99
+       Adult       0.85      0.71      0.77        96
+        Safe       0.68      0.74      0.71        99
+     Suicide       0.67      0.95      0.79        98
+
+    accuracy                           0.75       392
+   macro avg       0.78      0.75      0.75       392
+weighted avg       0.78      0.75      0.75       392
+
+inference_duration: 11.6504
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 2/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.5, 'BIDIR': False}
+Training logs:
+Data split seed: 1736162494
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.5
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.5
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4974852, 'Non-trainable parameters': 23508032, 'Total parameters': 28482884}
+start training
+Epoch 1/8, Loss: 1.0987, Accuracy: 0.4489
+Epoch 2/8, Loss: 0.8244, Accuracy: 0.6395
+Epoch 3/8, Loss: 0.7360, Accuracy: 0.6912
+Epoch 4/8, Loss: 0.6772, Accuracy: 0.7216
+Epoch 5/8, Loss: 0.6548, Accuracy: 0.7281
+Epoch 6/8, Loss: 0.6070, Accuracy: 0.7486
+Epoch 7/8, Loss: 0.5701, Accuracy: 0.7659
+Epoch 8/8, Loss: 0.5977, Accuracy: 0.7460
+training_duration: 791.1474
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7423
+Class: Harmful - Precision: 0.7018, Recall: 0.8081, f1-Score: 0.7512
+Class: Adult - Precision: 0.7315, Recall: 0.8229, f1-Score: 0.7745
+Class: Safe - Precision: 0.7949, Recall: 0.6263, f1-Score: 0.7006
+Class: Suicide - Precision: 0.7609, Recall: 0.7143, f1-Score: 0.7368
+Overall Precision: 0.7472, Overall Recall: 0.7429, Overall F1-Score: 0.7408
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         80        6        9        4
+Adult            4       79        5        8
+Safe            23        4       62       10
+Suicide          7       19        2       70
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.70      0.81      0.75        99
+       Adult       0.73      0.82      0.77        96
+        Safe       0.79      0.63      0.70        99
+     Suicide       0.76      0.71      0.74        98
+
+    accuracy                           0.74       392
+   macro avg       0.75      0.74      0.74       392
+weighted avg       0.75      0.74      0.74       392
+
+inference_duration: 11.6233
+Clearing GPU
+Config (Run 2/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'DROPOUT': 0.5, 'BIDIR': False}, ACCURACY=0.7423, F1=0.7408
+Data split seed: 1736162494
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       2
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.5
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.5
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4974852, 'Non-trainable parameters': 23508032, 'Total parameters': 28482884}
+start training
+Epoch 1/8, Loss: 1.0987, Accuracy: 0.4489
+Epoch 2/8, Loss: 0.8244, Accuracy: 0.6395
+Epoch 3/8, Loss: 0.7360, Accuracy: 0.6912
+Epoch 4/8, Loss: 0.6772, Accuracy: 0.7216
+Epoch 5/8, Loss: 0.6548, Accuracy: 0.7281
+Epoch 6/8, Loss: 0.6070, Accuracy: 0.7486
+Epoch 7/8, Loss: 0.5701, Accuracy: 0.7659
+Epoch 8/8, Loss: 0.5977, Accuracy: 0.7460
+training_duration: 791.1474
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7423
+Class: Harmful - Precision: 0.7018, Recall: 0.8081, f1-Score: 0.7512
+Class: Adult - Precision: 0.7315, Recall: 0.8229, f1-Score: 0.7745
+Class: Safe - Precision: 0.7949, Recall: 0.6263, f1-Score: 0.7006
+Class: Suicide - Precision: 0.7609, Recall: 0.7143, f1-Score: 0.7368
+Overall Precision: 0.7472, Overall Recall: 0.7429, Overall F1-Score: 0.7408
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         80        6        9        4
+Adult            4       79        5        8
+Safe            23        4       62       10
+Suicide          7       19        2       70
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.70      0.81      0.75        99
+       Adult       0.73      0.82      0.77        96
+        Safe       0.79      0.63      0.70        99
+     Suicide       0.76      0.71      0.74        98
+
+    accuracy                           0.74       392
+   macro avg       0.75      0.74      0.74       392
+weighted avg       0.75      0.74      0.74       392
+
+inference_duration: 11.6233
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 1/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.3, 'BIDIR': True}
+Training logs:
+Data split seed: 1736163393
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.3
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.3
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11952612, 'Non-trainable parameters': 23508032, 'Total parameters': 35460644}
+start training
+Epoch 1/8, Loss: 1.1561, Accuracy: 0.4176
+Epoch 2/8, Loss: 0.8347, Accuracy: 0.6378
+Epoch 3/8, Loss: 0.7423, Accuracy: 0.6830
+Epoch 4/8, Loss: 0.6631, Accuracy: 0.7307
+Epoch 5/8, Loss: 0.6756, Accuracy: 0.7182
+Epoch 6/8, Loss: 0.6250, Accuracy: 0.7432
+Epoch 7/8, Loss: 0.5701, Accuracy: 0.7670
+Epoch 8/8, Loss: 0.5907, Accuracy: 0.7517
+training_duration: 799.3571
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7526
+Class: Harmful - Precision: 0.7528, Recall: 0.6768, f1-Score: 0.7128
+Class: Adult - Precision: 0.6639, Recall: 0.8438, f1-Score: 0.7431
+Class: Safe - Precision: 0.7624, Recall: 0.7778, f1-Score: 0.7700
+Class: Suicide - Precision: 0.8750, Recall: 0.7143, f1-Score: 0.7865
+Overall Precision: 0.7635, Overall Recall: 0.7531, Overall F1-Score: 0.7531
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         67       14       13        5
+Adult            5       81        6        4
+Safe             7       14       77        1
+Suicide         10       13        5       70
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.75      0.68      0.71        99
+       Adult       0.66      0.84      0.74        96
+        Safe       0.76      0.78      0.77        99
+     Suicide       0.88      0.71      0.79        98
+
+    accuracy                           0.75       392
+   macro avg       0.76      0.75      0.75       392
+weighted avg       0.76      0.75      0.75       392
+
+inference_duration: 11.6540
+Clearing GPU
+Config (Run 1/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.3, 'BIDIR': True}, ACCURACY=0.7526, F1=0.7531
+Data split seed: 1736163393
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.3
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.3
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11952612, 'Non-trainable parameters': 23508032, 'Total parameters': 35460644}
+start training
+Epoch 1/8, Loss: 1.1561, Accuracy: 0.4176
+Epoch 2/8, Loss: 0.8347, Accuracy: 0.6378
+Epoch 3/8, Loss: 0.7423, Accuracy: 0.6830
+Epoch 4/8, Loss: 0.6631, Accuracy: 0.7307
+Epoch 5/8, Loss: 0.6756, Accuracy: 0.7182
+Epoch 6/8, Loss: 0.6250, Accuracy: 0.7432
+Epoch 7/8, Loss: 0.5701, Accuracy: 0.7670
+Epoch 8/8, Loss: 0.5907, Accuracy: 0.7517
+training_duration: 799.3571
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7526
+Class: Harmful - Precision: 0.7528, Recall: 0.6768, f1-Score: 0.7128
+Class: Adult - Precision: 0.6639, Recall: 0.8438, f1-Score: 0.7431
+Class: Safe - Precision: 0.7624, Recall: 0.7778, f1-Score: 0.7700
+Class: Suicide - Precision: 0.8750, Recall: 0.7143, f1-Score: 0.7865
+Overall Precision: 0.7635, Overall Recall: 0.7531, Overall F1-Score: 0.7531
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         67       14       13        5
+Adult            5       81        6        4
+Safe             7       14       77        1
+Suicide         10       13        5       70
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.75      0.68      0.71        99
+       Adult       0.66      0.84      0.74        96
+        Safe       0.76      0.78      0.77        99
+     Suicide       0.88      0.71      0.79        98
+
+    accuracy                           0.75       392
+   macro avg       0.76      0.75      0.75       392
+weighted avg       0.76      0.75      0.75       392
+
+inference_duration: 11.6540
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 2/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.3, 'BIDIR': True}
+Training logs:
+Data split seed: 1736164240
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.3
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.3
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11952612, 'Non-trainable parameters': 23508032, 'Total parameters': 35460644}
+start training
+Epoch 1/8, Loss: 1.2801, Accuracy: 0.3119
+Epoch 2/8, Loss: 1.0439, Accuracy: 0.4489
+Epoch 3/8, Loss: 0.8644, Accuracy: 0.5881
+Epoch 4/8, Loss: 0.7609, Accuracy: 0.6793
+Epoch 5/8, Loss: 0.6562, Accuracy: 0.7290
+Epoch 6/8, Loss: 0.6284, Accuracy: 0.7429
+Epoch 7/8, Loss: 0.6061, Accuracy: 0.7486
+Epoch 8/8, Loss: 0.6068, Accuracy: 0.7474
+training_duration: 800.4468
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7500
+Class: Harmful - Precision: 0.7347, Recall: 0.7273, f1-Score: 0.7310
+Class: Adult - Precision: 0.8372, Recall: 0.7500, f1-Score: 0.7912
+Class: Safe - Precision: 0.7973, Recall: 0.5960, f1-Score: 0.6821
+Class: Suicide - Precision: 0.6791, Recall: 0.9286, f1-Score: 0.7845
+Overall Precision: 0.7621, Overall Recall: 0.7505, Overall F1-Score: 0.7472
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         72        3        8       16
+Adult            3       72        6       15
+Safe            20        8       59       12
+Suicide          3        3        1       91
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.73      0.73      0.73        99
+       Adult       0.84      0.75      0.79        96
+        Safe       0.80      0.60      0.68        99
+     Suicide       0.68      0.93      0.78        98
+
+    accuracy                           0.75       392
+   macro avg       0.76      0.75      0.75       392
+weighted avg       0.76      0.75      0.75       392
+
+inference_duration: 11.6472
+Clearing GPU
+Config (Run 2/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.3, 'BIDIR': True}, ACCURACY=0.75, F1=0.7472
+Data split seed: 1736164240
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.3
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.3
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11952612, 'Non-trainable parameters': 23508032, 'Total parameters': 35460644}
+start training
+Epoch 1/8, Loss: 1.2801, Accuracy: 0.3119
+Epoch 2/8, Loss: 1.0439, Accuracy: 0.4489
+Epoch 3/8, Loss: 0.8644, Accuracy: 0.5881
+Epoch 4/8, Loss: 0.7609, Accuracy: 0.6793
+Epoch 5/8, Loss: 0.6562, Accuracy: 0.7290
+Epoch 6/8, Loss: 0.6284, Accuracy: 0.7429
+Epoch 7/8, Loss: 0.6061, Accuracy: 0.7486
+Epoch 8/8, Loss: 0.6068, Accuracy: 0.7474
+training_duration: 800.4468
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7500
+Class: Harmful - Precision: 0.7347, Recall: 0.7273, f1-Score: 0.7310
+Class: Adult - Precision: 0.8372, Recall: 0.7500, f1-Score: 0.7912
+Class: Safe - Precision: 0.7973, Recall: 0.5960, f1-Score: 0.6821
+Class: Suicide - Precision: 0.6791, Recall: 0.9286, f1-Score: 0.7845
+Overall Precision: 0.7621, Overall Recall: 0.7505, Overall F1-Score: 0.7472
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         72        3        8       16
+Adult            3       72        6       15
+Safe            20        8       59       12
+Suicide          3        3        1       91
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.73      0.73      0.73        99
+       Adult       0.84      0.75      0.79        96
+        Safe       0.80      0.60      0.68        99
+     Suicide       0.68      0.93      0.78        98
+
+    accuracy                           0.75       392
+   macro avg       0.76      0.75      0.75       392
+weighted avg       0.76      0.75      0.75       392
+
+inference_duration: 11.6472
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 1/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.3, 'BIDIR': False}
+Training logs:
+Data split seed: 1736165149
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.3
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.3
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4983300, 'Non-trainable parameters': 23508032, 'Total parameters': 28491332}
+start training
+Epoch 1/8, Loss: 1.1706, Accuracy: 0.3648
+Epoch 2/8, Loss: 1.0392, Accuracy: 0.4494
+Epoch 3/8, Loss: 0.9468, Accuracy: 0.5327
+Epoch 4/8, Loss: 0.7704, Accuracy: 0.6673
+Epoch 5/8, Loss: 0.7195, Accuracy: 0.6969
+Epoch 6/8, Loss: 0.7050, Accuracy: 0.7097
+Epoch 7/8, Loss: 0.6394, Accuracy: 0.7341
+Epoch 8/8, Loss: 0.6239, Accuracy: 0.7446
+training_duration: 790.3228
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7602
+Class: Harmful - Precision: 0.7245, Recall: 0.7172, f1-Score: 0.7208
+Class: Adult - Precision: 0.6418, Recall: 0.8958, f1-Score: 0.7478
+Class: Safe - Precision: 0.8630, Recall: 0.6364, f1-Score: 0.7326
+Class: Suicide - Precision: 0.8966, Recall: 0.7959, f1-Score: 0.8432
+Overall Precision: 0.7815, Overall Recall: 0.7613, Overall F1-Score: 0.7611
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         71       15        9        4
+Adult            5       86        1        4
+Safe            14       21       63        1
+Suicide          8       12        0       78
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.72      0.72      0.72        99
+       Adult       0.64      0.90      0.75        96
+        Safe       0.86      0.64      0.73        99
+     Suicide       0.90      0.80      0.84        98
+
+    accuracy                           0.76       392
+   macro avg       0.78      0.76      0.76       392
+weighted avg       0.78      0.76      0.76       392
+
+inference_duration: 11.6112
+Clearing GPU
+Config (Run 1/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.3, 'BIDIR': False}, ACCURACY=0.7602, F1=0.7611
+Data split seed: 1736165149
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.3
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.3
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4983300, 'Non-trainable parameters': 23508032, 'Total parameters': 28491332}
+start training
+Epoch 1/8, Loss: 1.1706, Accuracy: 0.3648
+Epoch 2/8, Loss: 1.0392, Accuracy: 0.4494
+Epoch 3/8, Loss: 0.9468, Accuracy: 0.5327
+Epoch 4/8, Loss: 0.7704, Accuracy: 0.6673
+Epoch 5/8, Loss: 0.7195, Accuracy: 0.6969
+Epoch 6/8, Loss: 0.7050, Accuracy: 0.7097
+Epoch 7/8, Loss: 0.6394, Accuracy: 0.7341
+Epoch 8/8, Loss: 0.6239, Accuracy: 0.7446
+training_duration: 790.3228
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7602
+Class: Harmful - Precision: 0.7245, Recall: 0.7172, f1-Score: 0.7208
+Class: Adult - Precision: 0.6418, Recall: 0.8958, f1-Score: 0.7478
+Class: Safe - Precision: 0.8630, Recall: 0.6364, f1-Score: 0.7326
+Class: Suicide - Precision: 0.8966, Recall: 0.7959, f1-Score: 0.8432
+Overall Precision: 0.7815, Overall Recall: 0.7613, Overall F1-Score: 0.7611
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         71       15        9        4
+Adult            5       86        1        4
+Safe            14       21       63        1
+Suicide          8       12        0       78
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.72      0.72      0.72        99
+       Adult       0.64      0.90      0.75        96
+        Safe       0.86      0.64      0.73        99
+     Suicide       0.90      0.80      0.84        98
+
+    accuracy                           0.76       392
+   macro avg       0.78      0.76      0.76       392
+weighted avg       0.78      0.76      0.76       392
+
+inference_duration: 11.6112
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 2/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.3, 'BIDIR': False}
+Training logs:
+Data split seed: 1736165987
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.3
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.3
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4983300, 'Non-trainable parameters': 23508032, 'Total parameters': 28491332}
+start training
+Epoch 1/8, Loss: 1.2610, Accuracy: 0.2901
+Epoch 2/8, Loss: 0.9953, Accuracy: 0.4767
+Epoch 3/8, Loss: 0.9116, Accuracy: 0.5608
+Epoch 4/8, Loss: 0.7657, Accuracy: 0.6818
+Epoch 5/8, Loss: 0.6846, Accuracy: 0.7236
+Epoch 6/8, Loss: 0.6363, Accuracy: 0.7469
+Epoch 7/8, Loss: 0.6110, Accuracy: 0.7500
+Epoch 8/8, Loss: 0.5781, Accuracy: 0.7702
+training_duration: 791.6143
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7628
+Class: Harmful - Precision: 0.7403, Recall: 0.5758, f1-Score: 0.6477
+Class: Adult - Precision: 0.7889, Recall: 0.7396, f1-Score: 0.7634
+Class: Safe - Precision: 0.6975, Recall: 0.8384, f1-Score: 0.7615
+Class: Suicide - Precision: 0.8302, Recall: 0.8980, f1-Score: 0.8627
+Overall Precision: 0.7642, Overall Recall: 0.7629, Overall F1-Score: 0.7588
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         57        7       28        7
+Adult           11       71        6        8
+Safe             8        5       83        3
+Suicide          1        7        2       88
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.74      0.58      0.65        99
+       Adult       0.79      0.74      0.76        96
+        Safe       0.70      0.84      0.76        99
+     Suicide       0.83      0.90      0.86        98
+
+    accuracy                           0.76       392
+   macro avg       0.76      0.76      0.76       392
+weighted avg       0.76      0.76      0.76       392
+
+inference_duration: 11.5835
+Clearing GPU
+Config (Run 2/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.3, 'BIDIR': False}, ACCURACY=0.7628, F1=0.7588
+Data split seed: 1736165987
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.3
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.3
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4983300, 'Non-trainable parameters': 23508032, 'Total parameters': 28491332}
+start training
+Epoch 1/8, Loss: 1.2610, Accuracy: 0.2901
+Epoch 2/8, Loss: 0.9953, Accuracy: 0.4767
+Epoch 3/8, Loss: 0.9116, Accuracy: 0.5608
+Epoch 4/8, Loss: 0.7657, Accuracy: 0.6818
+Epoch 5/8, Loss: 0.6846, Accuracy: 0.7236
+Epoch 6/8, Loss: 0.6363, Accuracy: 0.7469
+Epoch 7/8, Loss: 0.6110, Accuracy: 0.7500
+Epoch 8/8, Loss: 0.5781, Accuracy: 0.7702
+training_duration: 791.6143
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7628
+Class: Harmful - Precision: 0.7403, Recall: 0.5758, f1-Score: 0.6477
+Class: Adult - Precision: 0.7889, Recall: 0.7396, f1-Score: 0.7634
+Class: Safe - Precision: 0.6975, Recall: 0.8384, f1-Score: 0.7615
+Class: Suicide - Precision: 0.8302, Recall: 0.8980, f1-Score: 0.8627
+Overall Precision: 0.7642, Overall Recall: 0.7629, Overall F1-Score: 0.7588
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         57        7       28        7
+Adult           11       71        6        8
+Safe             8        5       83        3
+Suicide          1        7        2       88
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.74      0.58      0.65        99
+       Adult       0.79      0.74      0.76        96
+        Safe       0.70      0.84      0.76        99
+     Suicide       0.83      0.90      0.86        98
+
+    accuracy                           0.76       392
+   macro avg       0.76      0.76      0.76       392
+weighted avg       0.76      0.76      0.76       392
+
+inference_duration: 11.5835
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 1/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.4, 'BIDIR': True}
+Training logs:
+Data split seed: 1736166886
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11952612, 'Non-trainable parameters': 23508032, 'Total parameters': 35460644}
+start training
+Epoch 1/8, Loss: 1.2646, Accuracy: 0.3330
+Epoch 2/8, Loss: 0.9452, Accuracy: 0.5321
+Epoch 3/8, Loss: 0.8344, Accuracy: 0.5830
+Epoch 4/8, Loss: 0.7955, Accuracy: 0.5997
+Epoch 5/8, Loss: 0.7605, Accuracy: 0.6386
+Epoch 6/8, Loss: 0.7065, Accuracy: 0.6935
+Epoch 7/8, Loss: 0.6464, Accuracy: 0.7349
+Epoch 8/8, Loss: 0.6042, Accuracy: 0.7463
+training_duration: 799.6171
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7500
+Class: Harmful - Precision: 0.6336, Recall: 0.8384, f1-Score: 0.7217
+Class: Adult - Precision: 0.7624, Recall: 0.8021, f1-Score: 0.7817
+Class: Safe - Precision: 0.9474, Recall: 0.5455, f1-Score: 0.6923
+Class: Suicide - Precision: 0.7767, Recall: 0.8163, f1-Score: 0.7960
+Overall Precision: 0.7800, Overall Recall: 0.7506, Overall F1-Score: 0.7479
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         83        8        1        7
+Adult           10       77        1        8
+Safe            27       10       54        8
+Suicide         11        6        1       80
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.63      0.84      0.72        99
+       Adult       0.76      0.80      0.78        96
+        Safe       0.95      0.55      0.69        99
+     Suicide       0.78      0.82      0.80        98
+
+    accuracy                           0.75       392
+   macro avg       0.78      0.75      0.75       392
+weighted avg       0.78      0.75      0.75       392
+
+inference_duration: 11.6694
+Clearing GPU
+Config (Run 1/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.4, 'BIDIR': True}, ACCURACY=0.75, F1=0.7479
+Data split seed: 1736166886
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11952612, 'Non-trainable parameters': 23508032, 'Total parameters': 35460644}
+start training
+Epoch 1/8, Loss: 1.2646, Accuracy: 0.3330
+Epoch 2/8, Loss: 0.9452, Accuracy: 0.5321
+Epoch 3/8, Loss: 0.8344, Accuracy: 0.5830
+Epoch 4/8, Loss: 0.7955, Accuracy: 0.5997
+Epoch 5/8, Loss: 0.7605, Accuracy: 0.6386
+Epoch 6/8, Loss: 0.7065, Accuracy: 0.6935
+Epoch 7/8, Loss: 0.6464, Accuracy: 0.7349
+Epoch 8/8, Loss: 0.6042, Accuracy: 0.7463
+training_duration: 799.6171
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7500
+Class: Harmful - Precision: 0.6336, Recall: 0.8384, f1-Score: 0.7217
+Class: Adult - Precision: 0.7624, Recall: 0.8021, f1-Score: 0.7817
+Class: Safe - Precision: 0.9474, Recall: 0.5455, f1-Score: 0.6923
+Class: Suicide - Precision: 0.7767, Recall: 0.8163, f1-Score: 0.7960
+Overall Precision: 0.7800, Overall Recall: 0.7506, Overall F1-Score: 0.7479
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         83        8        1        7
+Adult           10       77        1        8
+Safe            27       10       54        8
+Suicide         11        6        1       80
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.63      0.84      0.72        99
+       Adult       0.76      0.80      0.78        96
+        Safe       0.95      0.55      0.69        99
+     Suicide       0.78      0.82      0.80        98
+
+    accuracy                           0.75       392
+   macro avg       0.78      0.75      0.75       392
+weighted avg       0.78      0.75      0.75       392
+
+inference_duration: 11.6694
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 2/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.4, 'BIDIR': True}
+Training logs:
+Data split seed: 1736167734
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11952612, 'Non-trainable parameters': 23508032, 'Total parameters': 35460644}
+start training
+Epoch 1/8, Loss: 1.2182, Accuracy: 0.3608
+Epoch 2/8, Loss: 0.9288, Accuracy: 0.5332
+Epoch 3/8, Loss: 0.8194, Accuracy: 0.5889
+Epoch 4/8, Loss: 0.7969, Accuracy: 0.6043
+Epoch 5/8, Loss: 0.6979, Accuracy: 0.6966
+Epoch 6/8, Loss: 0.6360, Accuracy: 0.7327
+Epoch 7/8, Loss: 0.6106, Accuracy: 0.7497
+Epoch 8/8, Loss: 0.6068, Accuracy: 0.7446
+training_duration: 803.9876
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7908
+Class: Harmful - Precision: 0.8081, Recall: 0.8081, f1-Score: 0.8081
+Class: Adult - Precision: 0.8140, Recall: 0.7292, f1-Score: 0.7692
+Class: Safe - Precision: 0.7789, Recall: 0.7475, f1-Score: 0.7629
+Class: Suicide - Precision: 0.7679, Recall: 0.8776, f1-Score: 0.8190
+Overall Precision: 0.7922, Overall Recall: 0.7906, Overall F1-Score: 0.7898
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         80        5        7        7
+Adult            3       70        9       14
+Safe            12        8       74        5
+Suicide          4        3        5       86
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.81      0.81      0.81        99
+       Adult       0.81      0.73      0.77        96
+        Safe       0.78      0.75      0.76        99
+     Suicide       0.77      0.88      0.82        98
+
+    accuracy                           0.79       392
+   macro avg       0.79      0.79      0.79       392
+weighted avg       0.79      0.79      0.79       392
+
+inference_duration: 11.6607
+Clearing GPU
+Config (Run 2/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.4, 'BIDIR': True}, ACCURACY=0.7908, F1=0.7898
+Data split seed: 1736167734
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11952612, 'Non-trainable parameters': 23508032, 'Total parameters': 35460644}
+start training
+Epoch 1/8, Loss: 1.2182, Accuracy: 0.3608
+Epoch 2/8, Loss: 0.9288, Accuracy: 0.5332
+Epoch 3/8, Loss: 0.8194, Accuracy: 0.5889
+Epoch 4/8, Loss: 0.7969, Accuracy: 0.6043
+Epoch 5/8, Loss: 0.6979, Accuracy: 0.6966
+Epoch 6/8, Loss: 0.6360, Accuracy: 0.7327
+Epoch 7/8, Loss: 0.6106, Accuracy: 0.7497
+Epoch 8/8, Loss: 0.6068, Accuracy: 0.7446
+training_duration: 803.9876
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7908
+Class: Harmful - Precision: 0.8081, Recall: 0.8081, f1-Score: 0.8081
+Class: Adult - Precision: 0.8140, Recall: 0.7292, f1-Score: 0.7692
+Class: Safe - Precision: 0.7789, Recall: 0.7475, f1-Score: 0.7629
+Class: Suicide - Precision: 0.7679, Recall: 0.8776, f1-Score: 0.8190
+Overall Precision: 0.7922, Overall Recall: 0.7906, Overall F1-Score: 0.7898
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         80        5        7        7
+Adult            3       70        9       14
+Safe            12        8       74        5
+Suicide          4        3        5       86
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.81      0.81      0.81        99
+       Adult       0.81      0.73      0.77        96
+        Safe       0.78      0.75      0.76        99
+     Suicide       0.77      0.88      0.82        98
+
+    accuracy                           0.79       392
+   macro avg       0.79      0.79      0.79       392
+weighted avg       0.79      0.79      0.79       392
+
+inference_duration: 11.6607
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 1/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.4, 'BIDIR': False}
+Training logs:
+Data split seed: 1736168649
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4983300, 'Non-trainable parameters': 23508032, 'Total parameters': 28491332}
+start training
+Epoch 1/8, Loss: 1.2416, Accuracy: 0.3048
+Epoch 2/8, Loss: 1.0409, Accuracy: 0.4315
+Epoch 3/8, Loss: 0.9220, Accuracy: 0.5582
+Epoch 4/8, Loss: 0.7675, Accuracy: 0.6793
+Epoch 5/8, Loss: 0.6841, Accuracy: 0.7259
+Epoch 6/8, Loss: 0.6631, Accuracy: 0.7236
+Epoch 7/8, Loss: 0.6455, Accuracy: 0.7361
+Epoch 8/8, Loss: 0.5946, Accuracy: 0.7625
+training_duration: 796.1276
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6939
+Class: Harmful - Precision: 0.8364, Recall: 0.4646, f1-Score: 0.5974
+Class: Adult - Precision: 0.5852, Recall: 0.8229, f1-Score: 0.6840
+Class: Safe - Precision: 0.7333, Recall: 0.6667, f1-Score: 0.6984
+Class: Suicide - Precision: 0.7232, Recall: 0.8265, f1-Score: 0.7714
+Overall Precision: 0.7195, Overall Recall: 0.6952, Overall F1-Score: 0.6878
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         46       24       19       10
+Adult            2       79        3       12
+Safe             5       19       66        9
+Suicide          2       13        2       81
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.84      0.46      0.60        99
+       Adult       0.59      0.82      0.68        96
+        Safe       0.73      0.67      0.70        99
+     Suicide       0.72      0.83      0.77        98
+
+    accuracy                           0.69       392
+   macro avg       0.72      0.70      0.69       392
+weighted avg       0.72      0.69      0.69       392
+
+inference_duration: 11.6375
+Clearing GPU
+Config (Run 1/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.4, 'BIDIR': False}, ACCURACY=0.6939, F1=0.6878
+Data split seed: 1736168649
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4983300, 'Non-trainable parameters': 23508032, 'Total parameters': 28491332}
+start training
+Epoch 1/8, Loss: 1.2416, Accuracy: 0.3048
+Epoch 2/8, Loss: 1.0409, Accuracy: 0.4315
+Epoch 3/8, Loss: 0.9220, Accuracy: 0.5582
+Epoch 4/8, Loss: 0.7675, Accuracy: 0.6793
+Epoch 5/8, Loss: 0.6841, Accuracy: 0.7259
+Epoch 6/8, Loss: 0.6631, Accuracy: 0.7236
+Epoch 7/8, Loss: 0.6455, Accuracy: 0.7361
+Epoch 8/8, Loss: 0.5946, Accuracy: 0.7625
+training_duration: 796.1276
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.6939
+Class: Harmful - Precision: 0.8364, Recall: 0.4646, f1-Score: 0.5974
+Class: Adult - Precision: 0.5852, Recall: 0.8229, f1-Score: 0.6840
+Class: Safe - Precision: 0.7333, Recall: 0.6667, f1-Score: 0.6984
+Class: Suicide - Precision: 0.7232, Recall: 0.8265, f1-Score: 0.7714
+Overall Precision: 0.7195, Overall Recall: 0.6952, Overall F1-Score: 0.6878
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         46       24       19       10
+Adult            2       79        3       12
+Safe             5       19       66        9
+Suicide          2       13        2       81
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.84      0.46      0.60        99
+       Adult       0.59      0.82      0.68        96
+        Safe       0.73      0.67      0.70        99
+     Suicide       0.72      0.83      0.77        98
+
+    accuracy                           0.69       392
+   macro avg       0.72      0.70      0.69       392
+weighted avg       0.72      0.69      0.69       392
+
+inference_duration: 11.6375
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 2/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.4, 'BIDIR': False}
+Training logs:
+Data split seed: 1736169494
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4983300, 'Non-trainable parameters': 23508032, 'Total parameters': 28491332}
+start training
+Epoch 1/8, Loss: 1.2186, Accuracy: 0.3307
+Epoch 2/8, Loss: 0.9888, Accuracy: 0.5020
+Epoch 3/8, Loss: 0.8537, Accuracy: 0.6312
+Epoch 4/8, Loss: 0.7363, Accuracy: 0.6915
+Epoch 5/8, Loss: 0.6597, Accuracy: 0.7330
+Epoch 6/8, Loss: 0.6371, Accuracy: 0.7290
+Epoch 7/8, Loss: 0.6053, Accuracy: 0.7523
+Epoch 8/8, Loss: 0.5907, Accuracy: 0.7565
+training_duration: 796.1590
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7372
+Class: Harmful - Precision: 0.7609, Recall: 0.7071, f1-Score: 0.7330
+Class: Adult - Precision: 0.5957, Recall: 0.8750, f1-Score: 0.7089
+Class: Safe - Precision: 0.8750, Recall: 0.6364, f1-Score: 0.7368
+Class: Suicide - Precision: 0.8276, Recall: 0.7347, f1-Score: 0.7784
+Overall Precision: 0.7648, Overall Recall: 0.7383, Overall F1-Score: 0.7393
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         70       15        7        7
+Adult            5       84        1        6
+Safe            13       21       63        2
+Suicide          4       21        1       72
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.76      0.71      0.73        99
+       Adult       0.60      0.88      0.71        96
+        Safe       0.88      0.64      0.74        99
+     Suicide       0.83      0.73      0.78        98
+
+    accuracy                           0.74       392
+   macro avg       0.76      0.74      0.74       392
+weighted avg       0.77      0.74      0.74       392
+
+inference_duration: 11.6442
+Clearing GPU
+Config (Run 2/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.4, 'BIDIR': False}, ACCURACY=0.7372, F1=0.7393
+Data split seed: 1736169494
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.4
+Bidirectional:   False
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  False
+LRCN adapt dropout:  0.4
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 4983300, 'Non-trainable parameters': 23508032, 'Total parameters': 28491332}
+start training
+Epoch 1/8, Loss: 1.2186, Accuracy: 0.3307
+Epoch 2/8, Loss: 0.9888, Accuracy: 0.5020
+Epoch 3/8, Loss: 0.8537, Accuracy: 0.6312
+Epoch 4/8, Loss: 0.7363, Accuracy: 0.6915
+Epoch 5/8, Loss: 0.6597, Accuracy: 0.7330
+Epoch 6/8, Loss: 0.6371, Accuracy: 0.7290
+Epoch 7/8, Loss: 0.6053, Accuracy: 0.7523
+Epoch 8/8, Loss: 0.5907, Accuracy: 0.7565
+training_duration: 796.1590
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7372
+Class: Harmful - Precision: 0.7609, Recall: 0.7071, f1-Score: 0.7330
+Class: Adult - Precision: 0.5957, Recall: 0.8750, f1-Score: 0.7089
+Class: Safe - Precision: 0.8750, Recall: 0.6364, f1-Score: 0.7368
+Class: Suicide - Precision: 0.8276, Recall: 0.7347, f1-Score: 0.7784
+Overall Precision: 0.7648, Overall Recall: 0.7383, Overall F1-Score: 0.7393
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         70       15        7        7
+Adult            5       84        1        6
+Safe            13       21       63        2
+Suicide          4       21        1       72
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.76      0.71      0.73        99
+       Adult       0.60      0.88      0.71        96
+        Safe       0.88      0.64      0.74        99
+     Suicide       0.83      0.73      0.78        98
+
+    accuracy                           0.74       392
+   macro avg       0.76      0.74      0.74       392
+weighted avg       0.77      0.74      0.74       392
+
+inference_duration: 11.6442
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 1/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.5, 'BIDIR': True}
+Training logs:
+Data split seed: 1736170399
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.5
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.5
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11952612, 'Non-trainable parameters': 23508032, 'Total parameters': 35460644}
+start training
+Epoch 1/8, Loss: 1.2434, Accuracy: 0.3315
+Epoch 2/8, Loss: 0.9009, Accuracy: 0.5824
+Epoch 3/8, Loss: 0.7470, Accuracy: 0.6946
+Epoch 4/8, Loss: 0.6747, Accuracy: 0.7216
+Epoch 5/8, Loss: 0.6734, Accuracy: 0.7273
+Epoch 6/8, Loss: 0.6289, Accuracy: 0.7486
+Epoch 7/8, Loss: 0.5964, Accuracy: 0.7531
+Epoch 8/8, Loss: 0.5914, Accuracy: 0.7614
+training_duration: 806.0194
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7143
+Class: Harmful - Precision: 0.5954, Recall: 0.7879, f1-Score: 0.6783
+Class: Adult - Precision: 0.8590, Recall: 0.6979, f1-Score: 0.7701
+Class: Safe - Precision: 0.6854, Recall: 0.6162, f1-Score: 0.6489
+Class: Suicide - Precision: 0.7872, Recall: 0.7551, f1-Score: 0.7708
+Overall Precision: 0.7318, Overall Recall: 0.7143, Overall F1-Score: 0.7170
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         78        3        6       12
+Adult           10       67       13        6
+Safe            33        3       61        2
+Suicide         10        5        9       74
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.60      0.79      0.68        99
+       Adult       0.86      0.70      0.77        96
+        Safe       0.69      0.62      0.65        99
+     Suicide       0.79      0.76      0.77        98
+
+    accuracy                           0.71       392
+   macro avg       0.73      0.71      0.72       392
+weighted avg       0.73      0.71      0.72       392
+
+inference_duration: 12.2178
+Clearing GPU
+Config (Run 1/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.5, 'BIDIR': True}, ACCURACY=0.7143, F1=0.717
+Data split seed: 1736170399
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.5
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.5
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11952612, 'Non-trainable parameters': 23508032, 'Total parameters': 35460644}
+start training
+Epoch 1/8, Loss: 1.2434, Accuracy: 0.3315
+Epoch 2/8, Loss: 0.9009, Accuracy: 0.5824
+Epoch 3/8, Loss: 0.7470, Accuracy: 0.6946
+Epoch 4/8, Loss: 0.6747, Accuracy: 0.7216
+Epoch 5/8, Loss: 0.6734, Accuracy: 0.7273
+Epoch 6/8, Loss: 0.6289, Accuracy: 0.7486
+Epoch 7/8, Loss: 0.5964, Accuracy: 0.7531
+Epoch 8/8, Loss: 0.5914, Accuracy: 0.7614
+training_duration: 806.0194
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7143
+Class: Harmful - Precision: 0.5954, Recall: 0.7879, f1-Score: 0.6783
+Class: Adult - Precision: 0.8590, Recall: 0.6979, f1-Score: 0.7701
+Class: Safe - Precision: 0.6854, Recall: 0.6162, f1-Score: 0.6489
+Class: Suicide - Precision: 0.7872, Recall: 0.7551, f1-Score: 0.7708
+Overall Precision: 0.7318, Overall Recall: 0.7143, Overall F1-Score: 0.7170
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         78        3        6       12
+Adult           10       67       13        6
+Safe            33        3       61        2
+Suicide         10        5        9       74
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.60      0.79      0.68        99
+       Adult       0.86      0.70      0.77        96
+        Safe       0.69      0.62      0.65        99
+     Suicide       0.79      0.76      0.77        98
+
+    accuracy                           0.71       392
+   macro avg       0.73      0.71      0.72       392
+weighted avg       0.73      0.71      0.72       392
+
+inference_duration: 12.2178
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+
+Run 2/2
+Config: {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.5, 'BIDIR': True}
+Training logs:
+Data split seed: 1736171256
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.5
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.5
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11952612, 'Non-trainable parameters': 23508032, 'Total parameters': 35460644}
+start training
+Epoch 1/8, Loss: 1.2390, Accuracy: 0.3582
+Epoch 2/8, Loss: 0.8931, Accuracy: 0.5864
+Epoch 3/8, Loss: 0.7850, Accuracy: 0.6602
+Epoch 4/8, Loss: 0.7184, Accuracy: 0.7000
+Epoch 5/8, Loss: 0.6840, Accuracy: 0.7151
+Epoch 6/8, Loss: 0.6500, Accuracy: 0.7315
+Epoch 7/8, Loss: 0.6047, Accuracy: 0.7420
+Epoch 8/8, Loss: 0.5936, Accuracy: 0.7560
+training_duration: 804.1077
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7270
+Class: Harmful - Precision: 0.7879, Recall: 0.5253, f1-Score: 0.6303
+Class: Adult - Precision: 0.7130, Recall: 0.8021, f1-Score: 0.7549
+Class: Safe - Precision: 0.6028, Recall: 0.8586, f1-Score: 0.7083
+Class: Suicide - Precision: 0.9221, Recall: 0.7245, f1-Score: 0.8114
+Overall Precision: 0.7564, Overall Recall: 0.7276, Overall F1-Score: 0.7262
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         52       15       28        4
+Adult            5       77       13        1
+Safe             8        5       85        1
+Suicide          1       11       15       71
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.79      0.53      0.63        99
+       Adult       0.71      0.80      0.75        96
+        Safe       0.60      0.86      0.71        99
+     Suicide       0.92      0.72      0.81        98
+
+    accuracy                           0.73       392
+   macro avg       0.76      0.73      0.73       392
+weighted avg       0.76      0.73      0.73       392
+
+inference_duration: 12.1082
+Clearing GPU
+Config (Run 2/2): {'CNN_BACKBONE': 'resnet50', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 4, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 3, 'DROPOUT': 0.5, 'BIDIR': True}, ACCURACY=0.727, F1=0.7262
+Data split seed: 1736171256
+Train Config: 
+Seq_Length:      60
+Batch_Size:      16
+Hidden_Size:     32
+CNN_Backbone:    resnet50
+RNN_Input_Size:  8
+RNN_Layer:       3
+RNN_type:        lstm
+Sampling_Method: uniform
+RNN_Out:         all
+Max_Videos:      1000
+Epoch:           8
+Classif_Mode:    multiclass
+Dropout:         0.5
+Bidirectional:   True
+Processed data found. Loading class labels...
+Data File checksum:  737ad8c15f24f892b691ec3e4613fb22
+Class File checksum:  f677d4593380305cdab4848449d70a55
+splitting
+
+Train dataset class distribution:
+  Harmful: 886 videos
+  Adult: 861 videos
+  Safe: 892 videos
+  Suicide: 881 videos
+
+Test dataset class distribution:
+  Harmful: 99 videos
+  Adult: 96 videos
+  Safe: 99 videos
+  Suicide: 98 videos
+load train
+load test
+Setting up data loaders...
+Dataloader train
+Dataloader test
+creating model
+running models bidir
+LRCN bidir:  True
+LRCN adapt dropout:  0.5
+creating criterion
+creating optimizer and display param count
+Param info:  {'Trainable parameters': 11952612, 'Non-trainable parameters': 23508032, 'Total parameters': 35460644}
+start training
+Epoch 1/8, Loss: 1.2390, Accuracy: 0.3582
+Epoch 2/8, Loss: 0.8931, Accuracy: 0.5864
+Epoch 3/8, Loss: 0.7850, Accuracy: 0.6602
+Epoch 4/8, Loss: 0.7184, Accuracy: 0.7000
+Epoch 5/8, Loss: 0.6840, Accuracy: 0.7151
+Epoch 6/8, Loss: 0.6500, Accuracy: 0.7315
+Epoch 7/8, Loss: 0.6047, Accuracy: 0.7420
+Epoch 8/8, Loss: 0.5936, Accuracy: 0.7560
+training_duration: 804.1077
+Model saved to /home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth
+evaluate
+Overall Accuracy: 0.7270
+Class: Harmful - Precision: 0.7879, Recall: 0.5253, f1-Score: 0.6303
+Class: Adult - Precision: 0.7130, Recall: 0.8021, f1-Score: 0.7549
+Class: Safe - Precision: 0.6028, Recall: 0.8586, f1-Score: 0.7083
+Class: Suicide - Precision: 0.9221, Recall: 0.7245, f1-Score: 0.8114
+Overall Precision: 0.7564, Overall Recall: 0.7276, Overall F1-Score: 0.7262
+
+Confusion Matrix:
+           Harmful    Adult     Safe  Suicide
+Harmful         52       15       28        4
+Adult            5       77       13        1
+Safe             8        5       85        1
+Suicide          1       11       15       71
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Harmful       0.79      0.53      0.63        99
+       Adult       0.71      0.80      0.75        96
+        Safe       0.60      0.86      0.71        99
+     Suicide       0.92      0.72      0.81        98
+
+    accuracy                           0.73       392
+   macro avg       0.76      0.73      0.73       392
+weighted avg       0.76      0.73      0.73       392
+
+inference_duration: 12.1082
+Clearing GPU
+Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+
+

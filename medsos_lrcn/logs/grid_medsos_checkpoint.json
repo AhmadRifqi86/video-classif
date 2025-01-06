@@ -7411,5 +7411,215 @@
             "inference duration": 11.9974
         },
         "best_model_filename": "seq60_batch16_hidden32_cnnresnet50_rnn8_layer2_rnnTypelstm_drop0.3_bidirTrue_acc0.7755_f10.7765.pth"
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "resnet50",
+            "RNN_TYPE": "lstm",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 4,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.3,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.8061,
+            "precision": 0.814,
+            "recall": 0.8064,
+            "f1_score": 0.8064,
+            "training duration": 789.9869,
+            "inference duration": 11.7661
+        },
+        "best_model_filename": "seq60_batch16_hidden32_cnnresnet50_rnn8_layer2_rnnTypelstm_drop0.3_bidirFalse_acc0.7755_f10.7742.pth"
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "resnet50",
+            "RNN_TYPE": "lstm",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 4,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.4,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7806,
+            "precision": 0.7881,
+            "recall": 0.7811,
+            "f1_score": 0.7791,
+            "training duration": 801.302,
+            "inference duration": 11.6419
+        },
+        "best_model_filename": "seq60_batch16_hidden32_cnnresnet50_rnn8_layer2_rnnTypelstm_drop0.4_bidirTrue_acc0.7806_f10.7791.pth"
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "resnet50",
+            "RNN_TYPE": "lstm",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 4,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.4,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7449,
+            "precision": 0.7503,
+            "recall": 0.7454,
+            "f1_score": 0.7447,
+            "training duration": 793.4866,
+            "inference duration": 11.6644
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "resnet50",
+            "RNN_TYPE": "lstm",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 4,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.5,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7653,
+            "precision": 0.7824,
+            "recall": 0.7656,
+            "f1_score": 0.7687,
+            "training duration": 800.6683,
+            "inference duration": 11.6817
+        },
+        "best_model_filename": "seq60_batch16_hidden32_cnnresnet50_rnn8_layer2_rnnTypelstm_drop0.5_bidirTrue_acc0.7653_f10.7687.pth"
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "resnet50",
+            "RNN_TYPE": "lstm",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 4,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.5,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.75,
+            "precision": 0.7754,
+            "recall": 0.7502,
+            "f1_score": 0.7481,
+            "training duration": 791.3342,
+            "inference duration": 11.6504
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "resnet50",
+            "RNN_TYPE": "lstm",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 4,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.3,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7526,
+            "precision": 0.7635,
+            "recall": 0.7531,
+            "f1_score": 0.7531,
+            "training duration": 799.3571,
+            "inference duration": 11.654
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "resnet50",
+            "RNN_TYPE": "lstm",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 4,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.3,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7602,
+            "precision": 0.7815,
+            "recall": 0.7613,
+            "f1_score": 0.7611,
+            "training duration": 790.3228,
+            "inference duration": 11.6112
+        },
+        "best_model_filename": "seq60_batch16_hidden32_cnnresnet50_rnn8_layer3_rnnTypelstm_drop0.3_bidirFalse_acc0.7628_f10.7588.pth"
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "resnet50",
+            "RNN_TYPE": "lstm",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 4,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.4,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7908,
+            "precision": 0.7922,
+            "recall": 0.7906,
+            "f1_score": 0.7898,
+            "training duration": 803.9876,
+            "inference duration": 11.6607
+        },
+        "best_model_filename": "seq60_batch16_hidden32_cnnresnet50_rnn8_layer3_rnnTypelstm_drop0.4_bidirTrue_acc0.7908_f10.7898.pth"
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "resnet50",
+            "RNN_TYPE": "lstm",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 4,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.4,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7372,
+            "precision": 0.7648,
+            "recall": 0.7383,
+            "f1_score": 0.7393,
+            "training duration": 796.159,
+            "inference duration": 11.6442
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "resnet50",
+            "RNN_TYPE": "lstm",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 4,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.5,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.727,
+            "precision": 0.7564,
+            "recall": 0.7276,
+            "f1_score": 0.7262,
+            "training duration": 804.1077,
+            "inference duration": 12.1082
+        },
+        "best_model_filename": null
     }
 ]
