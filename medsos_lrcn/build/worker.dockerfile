@@ -62,7 +62,7 @@ RUN firefox --headless & (sleep 5 && kill $!) || true
 
 # Model Inference Variables
 ENV VIDEO_DIR=/app/videos
-ENV MODEL_PATH=/app/models/seq60_batch32_hidden32_cnnresnet50_rnninput8_layer3_typemamba_acc0.7842_unidir.pth
+ENV MODEL_PATH=/app/models/seq60_batch16_hidden48_cnnresnet50_rnn16_layer3_rnnTypemamba_drop0.4_bidirFalse_acc0.8240_f10.8239.pth
 ENV SAMPLING_METHOD=uniform
 ENV SEQUENCE_LENGTH=60
 RUN mkdir -p $VIDEO_DIR
@@ -71,8 +71,11 @@ EXPOSE 54000
 
 CMD ["python3","worker.py"]
 
-#docker run --gpus all -d --name worker --network backend-network -p 54000:54000 -v /home/arifadh/Desktop/Skripsi-Magang-Proyek/best_models_medsos2:/app/models worker python3 worker.py
+#docker run --gpus all -d --name worker --network backend-network -p 54000:54000 -v /home/arifadh/Desktop/Skripsi-Magang-Proyek/grid_best_models_medsos:/app/models worker python3 worker.py
 # tambah -e untuk ganti model, sequence_length, sampling method
+#docker run --gpus all -it --rm --name worker --network backend-network -p 54000:54000 -v /home/arifadh/Desktop/Skripsi-Magang-Proyek/grid_best_models_medsos:/app/models worker bash
+#test script:
+#curl -X GET "http://localhost:5000/get_labels?url=https://www.tiktok.com/@devtyyyy/video/7375422441587313926"
 
 
 

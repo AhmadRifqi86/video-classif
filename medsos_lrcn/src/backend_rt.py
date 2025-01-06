@@ -99,7 +99,7 @@ def get_classification_client():
 
         # Wait for the worker to process and insert the result into MongoDB
         try:
-            max_retries = 30000  # Limit the number of retries to avoid infinite loops
+            max_retries = 40000  # Limit the number of retries to avoid infinite loops
             retries = 0
 
             while retries < max_retries:

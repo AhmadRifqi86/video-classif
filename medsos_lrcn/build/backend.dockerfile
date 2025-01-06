@@ -11,7 +11,7 @@ ENV APP_STAGE=prod
 WORKDIR /app
 
 # Copy the application code into the container, does it need to copy all code file?
-COPY skripsi/medsos_lrcn/src/backend.py /app
+COPY skripsi/medsos_lrcn/src/backend_rt.py /app
 COPY skripsi/medsos_lrcn/src/all_config.py /app
 
 # Install system dependencies
@@ -44,11 +44,12 @@ CMD ["python", "backend.py"]
 #run
 #docker network create backend-network
 #docker run -d --name mongodb --network backend-network -p 27017:27017 mongo:5.0 [if first time]
-#docker run -d --name backend_rt --network backend-network -p 5000:5000 backend_rt [if first time]
+#docker run -d --name backend_rt --network backend-network -p 5000:5000 backend_rt python3 backend_rt.py [if first time]
+#docker run -it --rm --name backend_rt --network backend-network -p 5000:5000 backend_rt bash [interactive test]
 
 #test endpoint:
 #curl -X POST -H "Content-Type: application/json" -d '{"url": "http://example.com/video.mp4", "labels": "Safe"}' http://localhost:5000/classify
-#curl -X GET "http://localhost:5000/video_labels?url=http://example.com/video.mp4"
+#curl -X GET "http://localhost:5000/get_labels?url=http://example.com/video.mp4"
 
 #important command:
 # docker ps -a ;list container and state
