@@ -9,13 +9,13 @@ from datetime import datetime
 
 # Configuration dictionary
 CONFIG = {
-    "CNN_BACKBONE": ["resnet50", "mobilenet_v2"],
+    "CNN_BACKBONE": ["mobilenet_v2"],
     "RNN_TYPE": ["lstm"],
     "BATCH_SIZE": [16, 32],
     "MULT_FACTOR": [2,3,4],
     "RNN_INPUT_SIZE": [8,16],
     "RNN_LAYER": [2, 3],
-    "DROPOUT":[0.3,0.4,0.5],
+    #"DROPOUT":[0.3,0.4,0.5],
     "BIDIR": [True, False],
 }
 
@@ -186,7 +186,7 @@ def run_training(config, test_runs, best_results):
             best_inf_dur = inf_dur
         
         # Save the model only if accuracy > 0.76
-        if accuracy > 0.76:
+        if accuracy > 0.79:
             # Construct best model filename using config dictionary
             best_model_filename_parts = [
                 f"seq{all_config.SEQUENCE_LENGTH}",
@@ -196,10 +196,11 @@ def run_training(config, test_runs, best_results):
                 f"rnn{config['RNN_INPUT_SIZE']}",
                 f"layer{config['RNN_LAYER']}",
                 f"rnnType{config['RNN_TYPE']}",
-                f"drop{config['DROPOUT']}",
+                #f"drop{config['DROPOUT']}",
                 f"bidir{config['BIDIR']}",
                 f"acc{accuracy:.4f}",
-                f"f1{f1:.4f}.pth"
+                f"f1{f1:.4f}.pth",
+                f"noadapt"
             ]
             # Join filename parts with underscores
             best_model_filename = "_".join(best_model_filename_parts)
@@ -231,10 +232,10 @@ def run_training(config, test_runs, best_results):
                 "training duration": best_train_dur,
                 "inference duration": best_inf_dur
             },
-            "best_model_filename": best_model_filename if best_acc > 0.76 else None
+            "best_model_filename": best_model_filename if best_acc > 0.79 else None
         })
 
-    return best_f1, best_model_filename if accuracy > 0.76 else None
+    return best_f1, best_model_filename if accuracy > 0.79 else None
 
 # Function to extract accuracy, precision, recall, and f1 score from the stdout
 def extract_metrics(output):

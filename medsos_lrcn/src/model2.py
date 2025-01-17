@@ -241,8 +241,8 @@ class LRCN(nn.Module):
         #     nn.SiLU(),
         #     nn.Dropout(p=all_config.CONF_DROPOUT),
         # )
-        self.res_proj = nn.Linear(cnn_out_size,rnn_input_size)
-
+        #self.res_proj = nn.Linear(cnn_out_size,rnn_input_size)
+        self.adapt = nn.Linear(cnn_out_size,rnn_input_size)
         # # Gradual unfreezing of CNN backbone
         # for name, param in self.cnn_backbone.named_parameters():
         #     if 'layer4' in name or 'fc' in name:
@@ -323,8 +323,8 @@ class LRCN(nn.Module):
         x = x.view(batch_size, seq_len, -1)
         
         # Enhanced feature adaptation with normalization, dropout, and SE Block, 
-        x = self.adapt3(self.adapt2(self.adapt1(x)))  #+ self.res_proj(x)
-        #x = self.adapt(x)
+        #x = self.adapt3(self.adapt2(self.adapt1(x)))  #+ self.res_proj(x)
+        x = self.adapt(x)
         #x = self.adapt3(self.adapt2(self.adapt1(x))) + self.res_proj(x)
         #print("adapt out size: ",x.size())
         # Process through RNN

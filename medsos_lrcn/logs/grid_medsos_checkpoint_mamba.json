@@ -1,0 +1,989 @@
+[
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.3,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7781,
+            "precision": 0.7891,
+            "recall": 0.7787,
+            "f1_score": 0.7772,
+            "training duration": 409.7475,
+            "inference duration": 5.8578
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.3,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7628,
+            "precision": 0.7698,
+            "recall": 0.7635,
+            "f1_score": 0.7599,
+            "training duration": 406.8655,
+            "inference duration": 6.0719
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.4,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7577,
+            "precision": 0.7767,
+            "recall": 0.7571,
+            "f1_score": 0.7549,
+            "training duration": 404.0354,
+            "inference duration": 6.1088
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.4,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7321,
+            "precision": 0.7473,
+            "recall": 0.7328,
+            "f1_score": 0.7311,
+            "training duration": 401.0705,
+            "inference duration": 6.1326
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.5,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7398,
+            "precision": 0.7386,
+            "recall": 0.7404,
+            "f1_score": 0.7389,
+            "training duration": 438.5628,
+            "inference duration": 6.6965
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.5,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7832,
+            "precision": 0.7915,
+            "recall": 0.7835,
+            "f1_score": 0.7805,
+            "training duration": 428.2375,
+            "inference duration": 6.7527
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.3,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7653,
+            "precision": 0.7663,
+            "recall": 0.7661,
+            "f1_score": 0.7638,
+            "training duration": 456.2138,
+            "inference duration": 6.3697
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.3,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7628,
+            "precision": 0.7748,
+            "recall": 0.7633,
+            "f1_score": 0.7615,
+            "training duration": 410.896,
+            "inference duration": 6.3887
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.4,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7321,
+            "precision": 0.7401,
+            "recall": 0.7329,
+            "f1_score": 0.732,
+            "training duration": 418.6614,
+            "inference duration": 6.1692
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.4,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7857,
+            "precision": 0.7861,
+            "recall": 0.7861,
+            "f1_score": 0.7861,
+            "training duration": 405.544,
+            "inference duration": 6.1862
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.5,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7423,
+            "precision": 0.7492,
+            "recall": 0.7431,
+            "f1_score": 0.7393,
+            "training duration": 429.2145,
+            "inference duration": 6.2209
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.5,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7781,
+            "precision": 0.7899,
+            "recall": 0.7793,
+            "f1_score": 0.7756,
+            "training duration": 422.5179,
+            "inference duration": 6.6559
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.3,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7985,
+            "precision": 0.8027,
+            "recall": 0.7986,
+            "f1_score": 0.7999,
+            "training duration": 413.0984,
+            "inference duration": 6.1837
+        },
+        "best_model_filename": "seq60_batch16_hidden32_cnnmobilenet_v2_rnn16_layer2_rnnTypemamba_drop0.3_bidirTrue_acc0.7985_f10.7999.pth"
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.3,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7577,
+            "precision": 0.7677,
+            "recall": 0.7587,
+            "f1_score": 0.7532,
+            "training duration": 412.5345,
+            "inference duration": 6.2087
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.4,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7449,
+            "precision": 0.7626,
+            "recall": 0.7444,
+            "f1_score": 0.7438,
+            "training duration": 451.063,
+            "inference duration": 6.219
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.4,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7704,
+            "precision": 0.7724,
+            "recall": 0.7708,
+            "f1_score": 0.7698,
+            "training duration": 421.4741,
+            "inference duration": 6.1337
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.5,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7577,
+            "precision": 0.7574,
+            "recall": 0.7582,
+            "f1_score": 0.7568,
+            "training duration": 452.9348,
+            "inference duration": 7.6823
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.5,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7806,
+            "precision": 0.7825,
+            "recall": 0.7805,
+            "f1_score": 0.781,
+            "training duration": 450.9162,
+            "inference duration": 6.054
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.3,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7653,
+            "precision": 0.7767,
+            "recall": 0.7651,
+            "f1_score": 0.7627,
+            "training duration": 464.703,
+            "inference duration": 7.1544
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.3,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7908,
+            "precision": 0.7978,
+            "recall": 0.7916,
+            "f1_score": 0.7897,
+            "training duration": 451.6413,
+            "inference duration": 6.3937
+        },
+        "best_model_filename": "seq60_batch16_hidden32_cnnmobilenet_v2_rnn16_layer3_rnnTypemamba_drop0.3_bidirFalse_acc0.7908_f10.7897.pth"
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.4,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7321,
+            "precision": 0.7398,
+            "recall": 0.7319,
+            "f1_score": 0.7297,
+            "training duration": 461.6847,
+            "inference duration": 6.6474
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.4,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7653,
+            "precision": 0.771,
+            "recall": 0.766,
+            "f1_score": 0.7646,
+            "training duration": 423.2715,
+            "inference duration": 7.0739
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.5,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7908,
+            "precision": 0.8052,
+            "recall": 0.791,
+            "f1_score": 0.7899,
+            "training duration": 443.4608,
+            "inference duration": 6.1755
+        },
+        "best_model_filename": "seq60_batch16_hidden32_cnnmobilenet_v2_rnn16_layer3_rnnTypemamba_drop0.5_bidirTrue_acc0.7908_f10.7899.pth"
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 2,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.5,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7628,
+            "precision": 0.7999,
+            "recall": 0.7616,
+            "f1_score": 0.7643,
+            "training duration": 487.4523,
+            "inference duration": 6.9968
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.3,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7577,
+            "precision": 0.7621,
+            "recall": 0.7583,
+            "f1_score": 0.7569,
+            "training duration": 426.5318,
+            "inference duration": 6.7005
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.3,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7372,
+            "precision": 0.7461,
+            "recall": 0.7367,
+            "f1_score": 0.7376,
+            "training duration": 441.6016,
+            "inference duration": 6.4389
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.4,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7143,
+            "precision": 0.7143,
+            "recall": 0.7143,
+            "f1_score": 0.7139,
+            "training duration": 411.1748,
+            "inference duration": 6.2238
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.4,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7245,
+            "precision": 0.7484,
+            "recall": 0.7246,
+            "f1_score": 0.717,
+            "training duration": 416.1055,
+            "inference duration": 6.4417
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.5,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7474,
+            "precision": 0.7539,
+            "recall": 0.7478,
+            "f1_score": 0.7486,
+            "training duration": 375.3189,
+            "inference duration": 5.9296
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.5,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7653,
+            "precision": 0.7727,
+            "recall": 0.7656,
+            "f1_score": 0.7655,
+            "training duration": 381.0725,
+            "inference duration": 5.9307
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.3,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7857,
+            "precision": 0.7944,
+            "recall": 0.7864,
+            "f1_score": 0.7838,
+            "training duration": 411.6616,
+            "inference duration": 6.0003
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.3,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7806,
+            "precision": 0.7908,
+            "recall": 0.7802,
+            "f1_score": 0.7769,
+            "training duration": 387.9468,
+            "inference duration": 5.9023
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.4,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7806,
+            "precision": 0.7805,
+            "recall": 0.7811,
+            "f1_score": 0.7799,
+            "training duration": 411.4604,
+            "inference duration": 6.1407
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.4,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7423,
+            "precision": 0.7512,
+            "recall": 0.742,
+            "f1_score": 0.7431,
+            "training duration": 384.3965,
+            "inference duration": 6.0146
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.5,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7577,
+            "precision": 0.7736,
+            "recall": 0.7575,
+            "f1_score": 0.7585,
+            "training duration": 415.5869,
+            "inference duration": 6.7907
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 8,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.5,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7474,
+            "precision": 0.7501,
+            "recall": 0.7482,
+            "f1_score": 0.7436,
+            "training duration": 414.3351,
+            "inference duration": 6.2923
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.3,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7755,
+            "precision": 0.7937,
+            "recall": 0.7757,
+            "f1_score": 0.7746,
+            "training duration": 453.9025,
+            "inference duration": 6.5573
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.3,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7755,
+            "precision": 0.7821,
+            "recall": 0.7761,
+            "f1_score": 0.776,
+            "training duration": 420.9189,
+            "inference duration": 6.5545
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.4,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7602,
+            "precision": 0.7825,
+            "recall": 0.7609,
+            "f1_score": 0.7601,
+            "training duration": 452.7737,
+            "inference duration": 6.4747
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.4,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.75,
+            "precision": 0.7532,
+            "recall": 0.75,
+            "f1_score": 0.7474,
+            "training duration": 432.8586,
+            "inference duration": 6.5088
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.5,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.75,
+            "precision": 0.7582,
+            "recall": 0.7505,
+            "f1_score": 0.7486,
+            "training duration": 456.8336,
+            "inference duration": 6.472
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 2,
+            "DROPOUT": 0.5,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7679,
+            "precision": 0.7687,
+            "recall": 0.7684,
+            "f1_score": 0.7659,
+            "training duration": 422.895,
+            "inference duration": 6.2874
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.3,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7704,
+            "precision": 0.7758,
+            "recall": 0.7706,
+            "f1_score": 0.7687,
+            "training duration": 541.2112,
+            "inference duration": 6.3935
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.3,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.7577,
+            "precision": 0.7777,
+            "recall": 0.7586,
+            "f1_score": 0.7513,
+            "training duration": 429.776,
+            "inference duration": 6.3999
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.4,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7653,
+            "precision": 0.7735,
+            "recall": 0.7653,
+            "f1_score": 0.767,
+            "training duration": 544.7866,
+            "inference duration": 6.7829
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.4,
+            "BIDIR": false
+        },
+        "metrics": {
+            "accuracy": 0.75,
+            "precision": 0.7693,
+            "recall": 0.7514,
+            "f1_score": 0.7473,
+            "training duration": 446.8064,
+            "inference duration": 6.4501
+        },
+        "best_model_filename": null
+    },
+    {
+        "config": {
+            "CNN_BACKBONE": "mobilenet_v2",
+            "RNN_TYPE": "mamba",
+            "BATCH_SIZE": 16,
+            "MULT_FACTOR": 3,
+            "RNN_INPUT_SIZE": 16,
+            "RNN_LAYER": 3,
+            "DROPOUT": 0.5,
+            "BIDIR": true
+        },
+        "metrics": {
+            "accuracy": 0.7474,
+            "precision": 0.7526,
+            "recall": 0.7474,
+            "f1_score": 0.7482,
+            "training duration": 542.1098,
+            "inference duration": 8.0405
+        },
+        "best_model_filename": null
+    }
+]
