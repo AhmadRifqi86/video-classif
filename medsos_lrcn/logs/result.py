@@ -1,75 +1,89 @@
-import os
 import json
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from scipy.stats import entropy
+import numpy as np
 
-# Load all JSON files into a DataFrame
-def load_jsons(json_folder):
-    data = []
-    for file in os.listdir(json_folder):
-        if file.endswith(".json"):
-            with open(os.path.join(json_folder, file), 'r') as f:
-                content = json.load(f)
-                config = content["config"]
-                metrics = content["metrics"]
-                row = {**config, **metrics}
-                # Calculate derived fields like hidden_size
-                row["HIDDEN_SIZE"] = row["MULT_FACTOR"] * row["RNN_INPUT_SIZE"]
-                data.append(row)
-    return pd.DataFrame(data)
+# Load JSON data from file
+def load_json_from_file(file_path):
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    return data
 
-# Generate distribution charts for each combination
-def create_distribution_charts(df, output_dir):
-    os.makedirs(output_dir, exist_ok=True)
+# Parse the JSON data into a DataFrame
+def parse_json_to_dataframe(json_data):
+    rows = []
+    for entry in json_data:
+        config = entry["config"]
+        metrics = entry["metrics"]
+        rows.append({
+            "CNN_BACKBONE": config["CNN_BACKBONE"],
+            "RNN_TYPE": config["RNN_TYPE"],
+            "accuracy": metrics["accuracy"],
+            "f1_score": metrics["f1_score"]
+        })
+    return pd.DataFrame(rows)
 
-    # Unique combinations of CNN_BACKBONE and RNN_TYPE
-    combinations = df[["CNN_BACKBONE", "RNN_TYPE"]].drop_duplicates()
+# Compute KL divergence between two distributions
+def compute_kl_divergence(data, cnn, rnn1, rnn2, metric):
+    subset1 = data[(data["CNN_BACKBONE"] == cnn) & (data["RNN_TYPE"] == rnn1)][metric]
+    subset2 = data[(data["CNN_BACKBONE"] == cnn) & (data["RNN_TYPE"] == rnn2)][metric]
+    
+    # Create histograms (probability distributions)
+    hist1, bins = np.histogram(subset1, bins=20, density=True)
+    hist2, _ = np.histogram(subset2, bins=bins, density=True)
+    
+    # Normalize to ensure valid probability distributions
+    hist1 = hist1 / np.sum(hist1)
+    hist2 = hist2 / np.sum(hist2)
+    
+    # Compute KL divergence
+    kl_div = entropy(hist1 + 1e-10, hist2 + 1e-10)  # Add small value to avoid division by zero
+    return kl_div
 
-    for _, combo in combinations.iterrows():
-        backbone = combo["CNN_BACKBONE"]
-        rnn_type = combo["RNN_TYPE"]
+# Plot the violin chart
+def plot_violin(data):
+    plt.figure(figsize=(12, 6))
+    sns.violinplot(
+        data=data,
+        x="CNN_BACKBONE",
+        y="accuracy",
+        hue="RNN_TYPE",
+        split=True,
+        inner="quart",
+        palette="muted"
+    )
+    plt.title("Accuracy Distribution by CNN Backbone and RNN Type")
+    plt.show()
+    
+    plt.figure(figsize=(12, 6))
+    sns.violinplot(
+        data=data,
+        x="CNN_BACKBONE",
+        y="f1_score",
+        hue="RNN_TYPE",
+        split=True,
+        inner="quart",
+        palette="muted"
+    )
+    plt.title("F1-Score Distribution by CNN Backbone and RNN Type")
+    plt.show()
 
-        # Filter data for this combination
-        subset = df[(df["CNN_BACKBONE"] == backbone) & (df["RNN_TYPE"] == rnn_type)]
-
-        # Distribution charts for each indicator
-        indicators = ["BATCH_SIZE", "RNN_INPUT_SIZE", "HIDDEN_SIZE", "DROPOUT", "BIDIR"]
-
-        for indicator in indicators:
-            plt.figure(figsize=(8, 6))
-            sns.boxplot(data=subset, x=indicator, y="accuracy", palette="Set2")
-            plt.title(f"Accuracy Distribution for {backbone}-{rnn_type} by {indicator}")
-            plt.ylabel("Accuracy")
-            plt.xlabel(indicator)
-            plt.grid(True, axis="y", linestyle="--", alpha=0.7)
-            plt.tight_layout()
-            filename = f"{backbone}_{rnn_type}_{indicator}_accuracy_distribution.png"
-            plt.savefig(os.path.join(output_dir, filename))
-            plt.close()
-
-            # Add F1-score distribution
-            plt.figure(figsize=(8, 6))
-            sns.boxplot(data=subset, x=indicator, y="f1_score", palette="Set3")
-            plt.title(f"F1-Score Distribution for {backbone}-{rnn_type} by {indicator}")
-            plt.ylabel("F1-Score")
-            plt.xlabel(indicator)
-            plt.grid(True, axis="y", linestyle="--", alpha=0.7)
-            plt.tight_layout()
-            filename = f"{backbone}_{rnn_type}_{indicator}_f1_distribution.png"
-            plt.savefig(os.path.join(output_dir, filename))
-            plt.close()
-
-    print(f"Distribution charts saved in {output_dir}")
+# Display KL divergence
+def display_kl_divergence(data):
+    for cnn in data["CNN_BACKBONE"].unique():
+        for metric in ["accuracy", "f1_score"]:
+            kl_mamba_lstm = compute_kl_divergence(data, cnn, "mamba", "lstm", metric)
+            print(f"KL Divergence for {cnn} (Mamba vs. LSTM) on {metric}: {kl_mamba_lstm:.4f}")
 
 # Main function
+def main():
+    file_path = "grid_medsos_checkpoint.json"  # Path to your JSON file
+    json_data = load_json_from_file(file_path)
+    data = parse_json_to_dataframe(json_data)
+    plot_violin(data)
+    display_kl_divergence(data)
+
 if __name__ == "__main__":
-    # Specify the folder containing the JSON files
-    json_folder = "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/logs/grid_medsos_checkpoint.json"
-    output_dir = "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/charts"
-
-    # Load the data
-    df = load_jsons(json_folder)
-
-    # Create distribution charts
-    create_distribution_charts(df, output_dir)
+    main()

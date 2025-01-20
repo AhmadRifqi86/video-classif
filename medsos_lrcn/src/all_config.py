@@ -38,10 +38,10 @@ CLASSES_FILE = os.path.join(PROCESSED_DATA_PATH, f"class_labels_{MAX_VIDEOS}_{SE
 #automation, deployment, data collection
 CONFIG_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/all_config.py'
 SOURCE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/main.py'  #ini nanti ganti nama 
-LOG_FILE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/logs/grid_medsos_log_noadapt.txt'
+LOG_FILE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/logs/grid_medsos_log.txt'
 BEST_MODEL_DIR = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/grid_best_models_medsos/'
 TEST_RUNS = 2  # Number of times to test each configuration
-CHECKPOINT_FILE = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/logs/grid_medsos_checkpoint_noadapt.json'  # File to track best results
+CHECKPOINT_FILE = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/logs/grid_medsos_checkpoint_mamba.json'  # File to track best results
 SLEEP = 60
 VIDEO_DIR = '/home/arifadh/Downloads/tiktok_videos/'
 BACKEND_URL = "http://backend_rt:5000/classify" if APP_STAGE == "prod" else "http://localhost:5000/classify"  #harus mindahin ini ke all_config
