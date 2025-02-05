@@ -2,8 +2,8 @@ import os
 import torch
 import torch.nn as nn
 import torch.optim as optim
-#from models_back import LRCN
-from model2 import LRCN
+from models_back import LRCN
+#from model2 import LRCN
 from loader_data import load_dataset, VideoDataset, file_checksum
 from sklearn.model_selection import train_test_split
 from train_eval import train_model, evaluate_model, count_parameters
@@ -99,6 +99,8 @@ def main():
     print(f"Classif_Mode:    {all_config.CONF_CLASSIF_MODE}")
     print(f"Dropout:         {all_config.CONF_DROPOUT}")
     print(f"Bidirectional:   {all_config.CONF_BIDIR}")
+    print(f"SSM_Expand:      {all_config.CONF_SSM_EXPAND}")
+    print(f"SSM_Delta:       {all_config.CONF_SSM_DELTA}")
 
     if os.path.exists(all_config.DATA_FILE) and os.path.exists(all_config.CLASSES_FILE):
         print("Processed data found. Loading class labels...")

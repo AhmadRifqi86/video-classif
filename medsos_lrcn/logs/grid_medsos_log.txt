@@ -232224,3 +232224,9 @@ Error: /home/arifadh/.local/lib/python3.10/site-packages/torchvision/models/_uti
 
 
 
+Run 1/4
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 2, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'BIDIR': True}
+Training logs:
+Run 1/4
+Config: {'CNN_BACKBONE': 'mobilenet_v2', 'RNN_TYPE': 'lstm', 'BATCH_SIZE': 16, 'MULT_FACTOR': 2, 'RNN_INPUT_SIZE': 8, 'RNN_LAYER': 2, 'BIDIR': True}
+Training logs:

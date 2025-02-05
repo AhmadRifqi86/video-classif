@@ -10,38 +10,41 @@ PROCESSED_DATA_PATH = "/home/arifadh/Desktop/Skripsi-Magang-Proyek/temporary"
 IMG_HEIGHT, IMG_WIDTH = 80, 80 # Image dimensions
 SEQUENCE_LENGTH = 60
 LOAD_BATCH = 128
-BATCH_SIZE = 32
+BATCH_SIZE = 16
 HIDDEN_SIZE = 32
 CNN_BACKBONE = "mobilenet_v2"
-RNN_INPUT_SIZE = 16
-RNN_LAYER = 3
-RNN_TYPE = "lstm"
+RNN_INPUT_SIZE = 8
+RNN_LAYER = 4
+RNN_TYPE = "mamba"
 SAMPLING_METHOD = "uniform"
 RNN_OUT = "all"
 MAX_VIDEOS = 1000
 EPOCH = 8
-DROPOUT = 0.3
+DROPOUT = 0.5
 FINETUNE = True
-BIDIR = False
+BIDIR = True
 WEIGHTED_LOSS = False
 CLASSIF_MODE = "multiclass"
 MODEL_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/model.pth'  # Path to save model
 EARLY_STOP = 0.0
 MULT_FACTOR = 4
 TRAIN_RATIO = 0.9
+SSM_EXPAND = 4
+SSM_DELTA = 1.0
 DATA_FILE = os.path.join(PROCESSED_DATA_PATH, f"X_data_{MAX_VIDEOS}_{SEQUENCE_LENGTH}fr_{SAMPLING_METHOD}.npy")
 LABELS_FILE = os.path.join(PROCESSED_DATA_PATH, f"y_labels_{MAX_VIDEOS}_{SEQUENCE_LENGTH}fr_{SAMPLING_METHOD}.npy")
 #CLASSES_FILE = os.path.join(PROCESSED_DATA_PATH, f"class_labels_{MAX_VIDEOS}_{SEQUENCE_LENGTH}fr_{SAMPLING_METHOD}.pkl")
 CLASSES_FILE = os.path.join(PROCESSED_DATA_PATH, f"class_labels_{MAX_VIDEOS}_{SEQUENCE_LENGTH}fr_{SAMPLING_METHOD}.pkl.npy")
+BO_CHECKPOINT = "/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/logs/bo_checkpoint.pkl"
 
 
 #automation, deployment, data collection
 CONFIG_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/all_config.py'
 SOURCE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/src/main.py'  #ini nanti ganti nama 
-LOG_FILE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/logs/grid_medsos_log.txt'
+LOG_FILE_PATH = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/logs/grid_medsos_log_mambaparam.txt'
 BEST_MODEL_DIR = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/grid_best_models_medsos/'
-TEST_RUNS = 2  # Number of times to test each configuration
-CHECKPOINT_FILE = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/logs/grid_medsos_checkpoint_mamba.json'  # File to track best results
+TEST_RUNS = 3  # Number of times to test each configuration
+CHECKPOINT_FILE = '/home/arifadh/Desktop/Skripsi-Magang-Proyek/skripsi/medsos_lrcn/logs/grid_medsos_checkpoint_mambaparam.json'  # File to track best results
 SLEEP = 60
 VIDEO_DIR = '/home/arifadh/Downloads/tiktok_videos/'
 BACKEND_URL = "http://backend_rt:5000/classify" if APP_STAGE == "prod" else "http://localhost:5000/classify"  #harus mindahin ini ke all_config
@@ -52,17 +55,17 @@ COLLECTION_NAME = "classification_results"
 
 # Transfer configuration to variables
 CONF_SEQUENCE_LENGTH = SEQUENCE_LENGTH
-CONF_BATCH_SIZE = BATCH_SIZE
-CONF_HIDDEN_SIZE =  MULT_FACTOR * RNN_INPUT_SIZE
+CONF_BATCH_SIZE = int(BATCH_SIZE)
+CONF_HIDDEN_SIZE =  int(MULT_FACTOR) * int(RNN_INPUT_SIZE)
 CONF_CNN_BACKBONE = CNN_BACKBONE
-CONF_RNN_INPUT_SIZE = RNN_INPUT_SIZE
-CONF_RNN_LAYER = RNN_LAYER
+CONF_RNN_INPUT_SIZE = int(RNN_INPUT_SIZE)
+CONF_RNN_LAYER = int(RNN_LAYER)
 CONF_RNN_TYPE = RNN_TYPE
 CONF_SAMPLING_METHOD = SAMPLING_METHOD
 CONF_RNN_OUT = RNN_OUT
 CONF_MAX_VIDEOS = MAX_VIDEOS
 CONF_EPOCH = EPOCH
-CONF_DROPOUT = DROPOUT
+CONF_DROPOUT = float(DROPOUT)
 CONF_FINETUNE = FINETUNE
 CONF_MODEL_PATH = MODEL_PATH
 CONF_CLASSIF_MODE = CLASSIF_MODE
@@ -70,6 +73,8 @@ CONF_EARLY_STOP = EARLY_STOP
 CONF_DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 CONF_BIDIR = BIDIR
 CONF_TRAIN_RATIO = TRAIN_RATIO
+CONF_SSM_EXPAND = int(SSM_EXPAND) * int(RNN_INPUT_SIZE) 
+CONF_SSM_DELTA = int(float(SSM_DELTA) * int(RNN_INPUT_SIZE) * int(MULT_FACTOR))
 
 
 # first best

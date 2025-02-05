@@ -8,16 +8,28 @@ import all_config
 from datetime import datetime
 
 # Configuration dictionary
+# CONFIG = {
+#     "CNN_BACKBONE": ["mobilenet_v2"],
+#     "RNN_TYPE": ["mamba"],
+#     # "BATCH_SIZE": [16, 32],
+#     # "MULT_FACTOR": [2,3,4],
+#     # "RNN_INPUT_SIZE": [8,16],
+#     # "RNN_LAYER": [2, 3],
+#     # #"DROPOUT":[0.3,0.4,0.5],
+#     # "BIDIR": [True, False],
+# }
+
 CONFIG = {
-    "CNN_BACKBONE": ["mobilenet_v2"],
-    "RNN_TYPE": ["lstm"],
-    "BATCH_SIZE": [16, 32],
+    #Integer(2, 4, name="SSM_HIDDEN"),
+    "SSM_HIDDEN": [2,3,4],
+    "SSM_DELTA" : [0.25,0.5,0.75,1.0],
     "MULT_FACTOR": [2,3,4],
-    "RNN_INPUT_SIZE": [8,16],
-    "RNN_LAYER": [2, 3],
-    #"DROPOUT":[0.3,0.4,0.5],
-    "BIDIR": [True, False],
+    "RNN_INPUT_SIZE":[8],
+    "RNN_LAYER":[2,3,4],
+    "DROPOUT": [0.3,0.4,0.5],
+    
 }
+
 
 if not os.path.exists(all_config.BEST_MODEL_DIR):
     os.makedirs(all_config.BEST_MODEL_DIR)
@@ -186,32 +198,33 @@ def run_training(config, test_runs, best_results):
             best_inf_dur = inf_dur
         
         # Save the model only if accuracy > 0.76
-        if accuracy > 0.79:
-            # Construct best model filename using config dictionary
-            best_model_filename_parts = [
-                f"seq{all_config.SEQUENCE_LENGTH}",
-                f"batch{config['BATCH_SIZE']}",
-                f"hidden{config['MULT_FACTOR']*config['RNN_INPUT_SIZE']}",
-                f"cnn{config['CNN_BACKBONE']}",
-                f"rnn{config['RNN_INPUT_SIZE']}",
-                f"layer{config['RNN_LAYER']}",
-                f"rnnType{config['RNN_TYPE']}",
-                #f"drop{config['DROPOUT']}",
-                f"bidir{config['BIDIR']}",
-                f"acc{accuracy:.4f}",
-                f"f1{f1:.4f}.pth",
-                f"noadapt"
-            ]
-            # Join filename parts with underscores
-            best_model_filename = "_".join(best_model_filename_parts)
-            # Construct full path for the best model
-            best_model_path = os.path.join(all_config.BEST_MODEL_DIR, best_model_filename)
+        # if accuracy > 0.79:
+        #     # Construct best model filename using config dictionary, ini nanti diganti
+        #     best_model_filename_parts = [
+        #         f"seq{all_config.SEQUENCE_LENGTH}",
+        #         f"batch{config['BATCH_SIZE']}",
+        #         f"hidden{config['MULT_FACTOR']*config['RNN_INPUT_SIZE']}",
+        #         f"ssmexpand{config['RNN_INPUT_SIZE']*config['SSM_EXPAND']}"
+        #         f"ssmdelta{config['SSM_DELTA']*config['RNN_INPUT_SIZE']*config['MULT_FACTOR']}"
+        #         f"cnn{all_config.CONF_CNN_BACKBONE}",
+        #         f"rnn{config['RNN_INPUT_SIZE']}",
+        #         f"layer{config['RNN_LAYER']}",
+        #         f"rnnType{all_config.CONF_RNN_TYPE}",
+        #         f"drop{config['DROPOUT']}",
+        #         f"bidir{all_config.CONF_BIDIR}",
+        #         f"acc{accuracy:.4f}",
+        #         f"f1{f1:.4f}.pth"
+        #     ]
+        #     # Join filename parts with underscores
+        #     best_model_filename = "_".join(best_model_filename_parts)
+        #     # Construct full path for the best model
+        #     best_model_path = os.path.join(all_config.BEST_MODEL_DIR, best_model_filename)
 
-            # best_model_filename = f"seq{all_config.SEQUENCE_LENGTH}_batch{all_config.CONF_BATCH_SIZE}_hidden{all_config.CONF_HIDDEN_SIZE}_cnn{all_config.CONF_CNN_BACKBONE}_rnn{all_config.CONF_RNN_INPUT_SIZE}_layer{all_config.CONF_RNN_LAYER}_rnnType{all_config.CONF_RNN_TYPE}_drop{all_config.DROPOUT}_bidir{all_config.BIDIR}_acc{accuracy:.4f}_f1{f1:.4f}.pth"
-            # best_model_path = os.path.join(all_config.BEST_MODEL_DIR, best_model_filename)
+        #     # best_model_filename = f"seq{all_config.SEQUENCE_LENGTH}_batch{all_config.CONF_BATCH_SIZE}_hidden{all_config.CONF_HIDDEN_SIZE}_cnn{all_config.CONF_CNN_BACKBONE}_rnn{all_config.CONF_RNN_INPUT_SIZE}_layer{all_config.CONF_RNN_LAYER}_rnnType{all_config.CONF_RNN_TYPE}_drop{all_config.DROPOUT}_bidir{all_config.BIDIR}_acc{accuracy:.4f}_f1{f1:.4f}.pth"
+        #     # best_model_path = os.path.join(all_config.BEST_MODEL_DIR, best_model_filename)
 
-            print(f"Saving model with accuracy > 0.76 for configuration: {best_model_filename}")
-            subprocess.run(f"cp {all_config.MODEL_PATH} {best_model_path}", shell=True)
+        #     print(f"Saving model with accuracy > 0.76 for configuration: {best_model_filename}")
+        #     subprocess.run(f"cp {all_config.MODEL_PATH} {best_model_path}", shell=True)
 
         with open(all_config.LOG_FILE_PATH, 'a') as log_file:
             log_file.write(f"Config (Run {run+1}/{test_runs}): {config}, ACCURACY={accuracy}, F1={f1}\n")
