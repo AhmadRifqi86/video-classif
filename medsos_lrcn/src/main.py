@@ -2,8 +2,8 @@ import os
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from models_back import LRCN
-#from model2 import LRCN
+#from models_back import LRCN
+from model2 import LRCN
 from loader_data import load_dataset, VideoDataset, file_checksum
 from sklearn.model_selection import train_test_split
 from train_eval import train_model, evaluate_model, count_parameters

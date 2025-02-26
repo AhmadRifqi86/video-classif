@@ -197,6 +197,7 @@ class LRCN(nn.Module):
         print("running models bidir")
         print("LRCN bidir: ",self.bidirectional)
         print("LRCN adapt dropout: ",all_config.CONF_DROPOUT)
+        print("LRCN RNN type: ", rnn_type)
 
         self.cnn_backbone = getattr(models, cnn_backbone)(pretrained=True)
         if hasattr(self.cnn_backbone, 'fc'):
@@ -274,6 +275,20 @@ class LRCN(nn.Module):
             
             # Add SE Block after Mamba layers
             #self.rnn_se = SEBlock(rnn_input_size)
+        elif rnn_type == "transformer":
+            # print("hidden_size: ",hidden_size)
+            # print("num_head: ",all_config.CONF_NUM_HEAD)
+            transformer_layer = nn.TransformerEncoderLayer(
+                d_model=rnn_input_size,  # Match input size to transformer model
+                nhead=all_config.CONF_NUM_HEAD,  # Number of attention heads (adjust as needed)
+                dim_feedforward=hidden_size,  # Feedforward expansion
+                dropout=all_config.CONF_DROPOUT,
+                activation="gelu",
+                batch_first=True,  # Ensure batch is first dimension
+            )
+            self.rnn = nn.TransformerEncoder(transformer_layer, num_layers=all_config.CONF_RNN_LAYER)
+            self.rnn_output_size = rnn_input_size  # Transformer output matches input size
+
         else:  # GRU
             self.rnn = nn.GRU(input_size=rnn_input_size, hidden_size=hidden_size,
                              num_layers=all_config.CONF_RNN_LAYER, bidirectional=bidirectional, 
@@ -283,10 +298,6 @@ class LRCN(nn.Module):
             # Add SE Block after RNN
             #self.rnn_se = SEBlock(self.rnn_output_size)
         
-        self.self_attention = MultiHeadAttention(
-            d_model=self.rnn_output_size, 
-            num_heads=2  # You can adjust the number of heads
-        )
 
         # Improved output layer with normalizationkingdom of predators
         if all_config.CONF_CLASSIF_MODE == "multiclass":
@@ -333,6 +344,8 @@ class LRCN(nn.Module):
                 x = layer(x)
                 #x = x + x * self.self_attention(x)   #nambah attention disini
             rnn_out = self.norm_f(x)
+        elif self.rnn_type == "transformer":
+            rnn_out = self.rnn(x)
         else:
             rnn_out, _ = self.rnn(x)
         # Add self-attention to enrich RNN output

@@ -11,6 +11,10 @@ def load_json_from_file(file_path):
         data = json.load(file)
     return data
 
+def modify_rnn_type(data):
+    data["RNN_TYPE"] = data["RNN_TYPE"].replace("mamba", "ssm")
+    return data
+
 # Parse the JSON data into a DataFrame
 def parse_json_to_dataframe(json_data):
     rows = []
@@ -74,7 +78,7 @@ def plot_violin(data):
 def display_kl_divergence(data):
     for cnn in data["CNN_BACKBONE"].unique():
         for metric in ["accuracy", "f1_score"]:
-            kl_mamba_lstm = compute_kl_divergence(data, cnn, "mamba", "lstm", metric)
+            kl_mamba_lstm = compute_kl_divergence(data, cnn, "ssm", "lstm", metric)
             print(f"KL Divergence for {cnn} (Mamba vs. LSTM) on {metric}: {kl_mamba_lstm:.4f}")
 
 # Main function
@@ -82,6 +86,7 @@ def main():
     file_path = "grid_medsos_checkpoint.json"  # Path to your JSON file
     json_data = load_json_from_file(file_path)
     data = parse_json_to_dataframe(json_data)
+    data = modify_rnn_type(data)
     plot_violin(data)
     display_kl_divergence(data)
 

@@ -58,5 +58,6 @@ CMD ["python", "backend.py"]
 # docker start [container-name] ; start a container
 # docker stop [container-name] ; stop a container
 # docker rm [container-name] ; delete a container
+# docker builder prune      ; clearing docker build remains
 
 
