@@ -8,18 +8,17 @@ import all_config
 from datetime import datetime
 
 # Configuration dictionary
-CONFIG = {
-    "CNN_BACKBONE": ["mobilenet_v2"],
-    "RNN_TYPE": ["transformer"],
-    "BATCH_SIZE": [16, 32],
-    "MULT_FACTOR": [2,3,4],
-    "RNN_INPUT_SIZE": [16,32],
-    "RNN_LAYER": [2, 3, 4],
-    "NUM_HEAD": [4,8],
-    "DROPOUT":[0.3,0.4,0.5],
-    
-    #"BIDIR": [True, False],
-}
+# CONFIG = {    #transformer
+#     "CNN_BACKBONE": ["mobilenet_v2"],
+#     "RNN_TYPE": ["transformer"],
+#     "BATCH_SIZE": [16, 32],
+#     "MULT_FACTOR": [2,3,4],
+#     "RNN_INPUT_SIZE": [16,32],
+#     "RNN_LAYER": [2, 3, 4],
+#     "NUM_HEAD": [4,8],
+#     "DROPOUT":[0.3,0.4,0.5],
+#     #"BIDIR": [True, False],
+# }
 
 # CONFIG = {
 #     #Integer(2, 4, name="SSM_HIDDEN"),
@@ -31,6 +30,17 @@ CONFIG = {
 #     "DROPOUT": [0.3,0.4,0.5],
     
 # }
+
+CONFIG = {    #SSM-LSTM
+    "CNN_BACKBONE": ["mobilenet_v2"],
+    "RNN_TYPE": ["mamba"],
+    "BATCH_SIZE": [16, 32],
+    "MULT_FACTOR": [2,3,4],
+    "RNN_INPUT_SIZE": [8,16,32],
+    "RNN_LAYER": [2, 3, 4],
+    "DROPOUT":[0.3,0.4,0.5],
+    "BIDIR": [True, False],
+}
 
 
 if not os.path.exists(all_config.BEST_MODEL_DIR):

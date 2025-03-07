@@ -119,69 +119,69 @@ class ResidualBlock(nn.Module):
 
 
 
-class MultiHeadAttention(nn.Module):
-    def __init__(self, d_model, num_heads):
-        super().__init__()
-        assert d_model % num_heads == 0, "d_model must be divisible by num_heads"
+# class MultiHeadAttention(nn.Module):
+#     def __init__(self, d_model, num_heads):
+#         super().__init__()
+#         assert d_model % num_heads == 0, "d_model must be divisible by num_heads"
         
-        self.d_model = d_model
-        self.num_heads = num_heads
-        self.head_dim = d_model // num_heads
+#         self.d_model = d_model
+#         self.num_heads = num_heads
+#         self.head_dim = d_model // num_heads
         
-        self.query = nn.Linear(d_model, d_model)
-        self.key = nn.Linear(d_model, d_model)
-        self.value = nn.Linear(d_model, d_model)
+#         self.query = nn.Linear(d_model, d_model)
+#         self.key = nn.Linear(d_model, d_model)
+#         self.value = nn.Linear(d_model, d_model)
         
-        self.out_proj = nn.Linear(d_model, d_model)
+#         self.out_proj = nn.Linear(d_model, d_model)
         
-    def forward(self, x):
-        batch_size, seq_len, d_model = x.size()
+#     def forward(self, x):
+#         batch_size, seq_len, d_model = x.size()
         
-        # Linear projections
-        query = self.query(x).view(batch_size, seq_len, self.num_heads, self.head_dim)
-        key = self.key(x).view(batch_size, seq_len, self.num_heads, self.head_dim)
-        value = self.value(x).view(batch_size, seq_len, self.num_heads, self.head_dim)
+#         # Linear projections
+#         query = self.query(x).view(batch_size, seq_len, self.num_heads, self.head_dim)
+#         key = self.key(x).view(batch_size, seq_len, self.num_heads, self.head_dim)
+#         value = self.value(x).view(batch_size, seq_len, self.num_heads, self.head_dim)
         
-        # Transpose for attention computation
-        query = query.transpose(1, 2)  # (batch_size, num_heads, seq_len, head_dim)
-        key = key.transpose(1, 2)
-        value = value.transpose(1, 2)
+#         # Transpose for attention computation
+#         query = query.transpose(1, 2)  # (batch_size, num_heads, seq_len, head_dim)
+#         key = key.transpose(1, 2)
+#         value = value.transpose(1, 2)
         
-        # Compute attention scores
-        attention_scores = torch.matmul(query, key.transpose(-2, -1)) / (self.head_dim ** 0.5)
-        attention_probs = F.softmax(attention_scores, dim=-1)
+#         # Compute attention scores
+#         attention_scores = torch.matmul(query, key.transpose(-2, -1)) / (self.head_dim ** 0.5)
+#         attention_probs = F.softmax(attention_scores, dim=-1)
         
-        # Apply attention
-        context = torch.matmul(attention_probs, value)
+#         # Apply attention
+#         context = torch.matmul(attention_probs, value)
         
-        # Reshape and project
-        context = context.transpose(1, 2).contiguous().view(batch_size, seq_len, d_model)
-        output = self.out_proj(context)
+#         # Reshape and project
+#         context = context.transpose(1, 2).contiguous().view(batch_size, seq_len, d_model)
+#         output = self.out_proj(context)
         
-        return output
+#         return output
 
 
-class SEBlock(nn.Module):
-    def __init__(self, channel, reduction=8):
-        super(SEBlock, self).__init__()
-        self.avg_pool = nn.AdaptiveAvgPool1d(1)
-        self.fc = nn.Sequential(
-            nn.Linear(channel, channel // reduction, bias=False),
-            nn.ReLU(inplace=True),
-            nn.Linear(channel // reduction, channel, bias=False),
-            nn.Sigmoid()
-        )
+# class SEBlock(nn.Module):
+#     def __init__(self, channel, reduction=8):
+#         super(SEBlock, self).__init__()
+#         self.avg_pool = nn.AdaptiveAvgPool1d(1)
+#         self.fc = nn.Sequential(
+#             nn.Linear(channel, channel // reduction, bias=False),
+#             nn.ReLU(inplace=True),
+#             nn.Linear(channel // reduction, channel, bias=False),
+#             nn.Sigmoid()
+#         )
 
-    def forward(self, x):
-        b, seq_len, c = x.size()
-        # Perform pooling along sequence length
-        y = self.avg_pool(x.transpose(1, 2)).squeeze(-1)
-        # Generate scale
-        y = self.fc(y)
-        # Reshape to (batch, channel, 1) and expand to (batch, channel, seq_len)
-        y = y.view(b, c, 1).expand(b, c, seq_len)
-        # Transpose back to original shape and apply scaling
-        return x * y.transpose(1, 2)
+#     def forward(self, x):
+#         b, seq_len, c = x.size()
+#         # Perform pooling along sequence length
+#         y = self.avg_pool(x.transpose(1, 2)).squeeze(-1)
+#         # Generate scale
+#         y = self.fc(y)
+#         # Reshape to (batch, channel, 1) and expand to (batch, channel, seq_len)
+#         y = y.view(b, c, 1).expand(b, c, seq_len)
+#         # Transpose back to original shape and apply scaling
+#         return x * y.transpose(1, 2)
 
 class LRCN(nn.Module):
     def __init__(self, num_classes, sequence_length, hidden_size, rnn_input_size, 
@@ -197,7 +197,7 @@ class LRCN(nn.Module):
         print("running models bidir")
         print("LRCN bidir: ",self.bidirectional)
         print("LRCN adapt dropout: ",all_config.CONF_DROPOUT)
-        print("LRCN RNN type: ", rnn_type)
+        print("LRCN RNN Hidden size: ", hidden_size)
 
         self.cnn_backbone = getattr(models, cnn_backbone)(pretrained=True)
         if hasattr(self.cnn_backbone, 'fc'):
@@ -276,17 +276,27 @@ class LRCN(nn.Module):
             # Add SE Block after Mamba layers
             #self.rnn_se = SEBlock(rnn_input_size)
         elif rnn_type == "transformer":
-            # print("hidden_size: ",hidden_size)
-            # print("num_head: ",all_config.CONF_NUM_HEAD)
-            transformer_layer = nn.TransformerEncoderLayer(
-                d_model=rnn_input_size,  # Match input size to transformer model
-                nhead=all_config.CONF_NUM_HEAD,  # Number of attention heads (adjust as needed)
-                dim_feedforward=hidden_size,  # Feedforward expansion
-                dropout=all_config.CONF_DROPOUT,
-                activation="gelu",
-                batch_first=True,  # Ensure batch is first dimension
-            )
-            self.rnn = nn.TransformerEncoder(transformer_layer, num_layers=all_config.CONF_RNN_LAYER)
+            print("hidden_size: ",hidden_size)
+            print("num_head: ",all_config.CONF_NUM_HEAD)
+            self.rnn = nn.ModuleList([
+                nn.TransformerEncoderLayer(
+                    d_model=rnn_input_size,
+                    nhead=all_config.CONF_NUM_HEAD,
+                    dim_feedforward=hidden_size,
+                    dropout=all_config.CONF_DROPOUT,
+                    activation="gelu",
+                    batch_first=True,
+                ) for _ in range(all_config.CONF_RNN_LAYER)  # Creates unique layers
+            ])
+            # transformer_layer = nn.TransformerEncoderLayer(
+            #     d_model=rnn_input_size,  # Match input size to transformer model
+            #     nhead=all_config.CONF_NUM_HEAD,  # Number of attention heads (adjust as needed)
+            #     dim_feedforward=hidden_size,  # Feedforward expansion
+            #     dropout=all_config.CONF_DROPOUT,
+            #     activation="gelu",
+            #     batch_first=True,  # Ensure batch is first dimension
+            # )
+            # self.rnn = nn.TransformerEncoder(transformer_layer, num_layers=all_config.CONF_RNN_LAYER)
             self.rnn_output_size = rnn_input_size  # Transformer output matches input size
 
         else:  # GRU

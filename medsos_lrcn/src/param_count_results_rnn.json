@@ -1,0 +1,4538 @@
+[
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1190460
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1189436
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1670708
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1666612
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3581220
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3564836
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1195580
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1194556
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1691188
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1687092
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3663140
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3646756
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1200700
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1199676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 1711668
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1707572
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3745060
+    },
+    {
+        "RNN_TYPE": "mamba",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3728676
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 3362236
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 1616780
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10348596
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3374036
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38274340
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10390628
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 6271980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 2347812
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 21980308
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 6294532
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 84786660
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 22065348
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 10343964
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 8,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 3370428
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 38260980
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 16,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 10381364
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 2,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 3,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": true,
+        "NUM_PARAMETERS": 149894820
+    },
+    {
+        "RNN_TYPE": "lstm",
+        "RNN_INPUT_SIZE": 32,
+        "RNN_LAYER": 4,
+        "BIDIR": false,
+        "NUM_PARAMETERS": 38405412
+    }
+]
