@@ -44,7 +44,7 @@ CMD ["python", "backend.py"]
 #run
 #docker network create backend-network
 #docker run -d --name mongodb --network backend-network -p 27017:27017 mongo:5.0 [if first time]
-#docker run -d --name backend_rt --network backend-network -p 5000:5000 backend_rt python3 backend_rt.py [if first time]
+#docker run -d --name backend_rt --network backend-network -p 5000:5000 backend python3 backend_rt.py [if first time]
 #docker run -it --rm --name backend_rt --network backend-network -p 5000:5000 backend_rt bash [interactive test]
 
 #test endpoint:

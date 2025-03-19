@@ -21,7 +21,7 @@ else:
 
 pyk.specify_browser('firefox')
 # Load parameters from environment variables or all_config
-MODEL_PATH = os.getenv("MODEL_PATH", "/home/arifadh/Desktop/Skripsi-Magang-Proyek/new_best_model/seq60_max1000_mobilenetv2_mamba_batch32_hidden32_rnninp8_layer3_unidir_adp123normsiludrop0.3_dinner4dmodel_dtrankeqnstate_epoch8_acc0.8189.pth")
+MODEL_PATH = os.getenv("MODEL_PATH", "/home/arifadh/Desktop/Skripsi-Magang-Proyek/grid_best_models_medsos/seq60_batch16_hidden48_cnnresnet50_rnn16_layer3_rnnTypelstm_drop0.4_bidirTrue_acc0.8214_f10.8203.pth")
 SAMPLING_METHOD = os.getenv("SAMPLING_METHOD", "uniform")  # Example: sampling method
 SEQUENCE_LENGTH = int(os.getenv("SEQUENCE_LENGTH", 60))  # Example: sequence length
 VIDEO_DIR = os.getenv("VIDEO_DIR", "/home/arifadh/Downloads/tiktok_videos")
