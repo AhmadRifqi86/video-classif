@@ -85,7 +85,7 @@ def main():
     data1 = modify_rnn_type(data1)
     data2 = modify_rnn_type(data2)
 
-    # Plot both datasets in the same image
+    # Plot both datasets in the same image and calculate the IQR and standard deviation of all four chart
     plot_violin(data1, data2)
 
 if __name__ == "__main__":

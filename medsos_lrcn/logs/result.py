@@ -4,6 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from scipy.stats import entropy
 import numpy as np
+from scipy.stats import kurtosis
 
 # Load JSON data from file
 def load_json_from_file(file_path):
@@ -51,12 +52,66 @@ def compute_kl_divergence(data, cnn, rnn1, rnn2, metric):
     return kl_div
 
 # Plot the violin chart
+# def plot_violin(data):
+#     """
+#     Generate violin plots for Accuracy, F1-Score, and Training Duration.
+#     """
+#     plt.figure(figsize=(12, 6))
+#     sns.violinplot(
+#         data=data,
+#         x="CNN_BACKBONE",
+#         y="accuracy",
+#         hue="RNN_TYPE",
+#         split=True,
+#         inner="quart",
+#         palette="muted"
+#     )
+#     plt.title("Accuracy Distribution (SSM vs Transformer)")
+#     plt.show()
+    
+#     plt.figure(figsize=(12, 6))
+#     sns.violinplot(
+#         data=data,
+#         x="CNN_BACKBONE",
+#         y="f1_score",
+#         hue="RNN_TYPE",
+#         split=True,
+#         inner="quart",
+#         palette="muted"
+#     )
+#     plt.title("F1-Score Distribution (SSM vs Transformer)")
+#     plt.show()
+
+#     plt.figure(figsize=(12, 6))
+#     sns.violinplot(
+#         data=data,
+#         x="CNN_BACKBONE",
+#         y="training_duration",
+#         hue="RNN_TYPE",
+#         split=True,
+#         inner="quart",
+#         palette="muted"
+#     )
+#     plt.title("Training Duration Distribution (SSM vs Transformer)")
+#     plt.show()
+
+
 def plot_violin(data):
     """
-    Generate violin plots for Accuracy, F1-Score, and Training Duration.
+    Generate violin plots for Accuracy, F1-Score, and Training Duration,
+    and display IQR and STD for each distribution.
     """
+    # Define a helper function to calculate IQR and STD
+    def calculate_stats(series):
+        iqr = np.percentile(series, 75) - np.percentile(series, 25)
+        var = np.std(series)
+        cv = var * 100/np.mean(series)
+        kurt = kurtosis(series, fisher=True)
+        return iqr, var, cv, kurt
+
+    # Accuracy Distribution
     plt.figure(figsize=(12, 6))
-    sns.violinplot(
+    ax = sns.violinplot(
         data=data,
         x="CNN_BACKBONE",
         y="accuracy",
@@ -66,10 +121,25 @@ def plot_violin(data):
         palette="muted"
     )
     plt.title("Accuracy Distribution (SSM vs Transformer)")
-    plt.show()
     
+    # Calculate and display IQR and STD for Accuracy
+    for i, cnn in enumerate(data["CNN_BACKBONE"].unique()):
+        for rnn_type in data["RNN_TYPE"].unique():
+            subset = data[(data["CNN_BACKBONE"] == cnn) & (data["RNN_TYPE"] == rnn_type)]
+            iqr, var, cv, _ = calculate_stats(subset["accuracy"])
+            print(f'Metrics: Accuracy, CNN Backbone: {cnn}, RNN Type: {rnn_type} - IQR: {iqr:.3f}, STD: {var:.3f}, CV: {cv:.3f}')
+            ax.text(
+                x=i, y=0.85,  # Adjust the x and y coordinates as needed
+                s=f'IQR: {iqr:.2f}\nSTD: {var:.2f}',
+                ha="center", va="top", fontsize=10, color='black'
+            )
+
+    plt.tight_layout()  # Adjust layout to make sure text is inside the figure
+    plt.show()
+
+    # F1-Score Distribution
     plt.figure(figsize=(12, 6))
-    sns.violinplot(
+    ax = sns.violinplot(
         data=data,
         x="CNN_BACKBONE",
         y="f1_score",
@@ -79,10 +149,25 @@ def plot_violin(data):
         palette="muted"
     )
     plt.title("F1-Score Distribution (SSM vs Transformer)")
+
+    # Calculate and display IQR and STD for F1-Score
+    for i, cnn in enumerate(data["CNN_BACKBONE"].unique()):
+        for rnn_type in data["RNN_TYPE"].unique():
+            subset = data[(data["CNN_BACKBONE"] == cnn) & (data["RNN_TYPE"] == rnn_type)]
+            iqr, var, cv, _ = calculate_stats(subset["f1_score"])
+            print(f'Metrics: F1-Score, CNN Backbone: {cnn}, RNN Type: {rnn_type} - IQR: {iqr:.2f}, STD: {var:.2f}, CV: {cv:.3f}')
+            ax.text(
+                x=i, y=0.85,  # Adjust the x and y coordinates as needed
+                s=f'IQR: {iqr:.2f}\nSTD: {var:.2f}',
+                ha="center", va="top", fontsize=10, color='black'
+            )
+
+    plt.tight_layout()  # Adjust layout to make sure text is inside the figure
     plt.show()
 
+    # Training Duration Distribution
     plt.figure(figsize=(12, 6))
-    sns.violinplot(
+    ax = sns.violinplot(
         data=data,
         x="CNN_BACKBONE",
         y="training_duration",
@@ -92,7 +177,22 @@ def plot_violin(data):
         palette="muted"
     )
     plt.title("Training Duration Distribution (SSM vs Transformer)")
+
+    # Calculate and display IQR and STD for Training Duration
+    for i, cnn in enumerate(data["CNN_BACKBONE"].unique()):
+        for rnn_type in data["RNN_TYPE"].unique():
+            subset = data[(data["CNN_BACKBONE"] == cnn) & (data["RNN_TYPE"] == rnn_type)]
+            iqr, var, cv,_= calculate_stats(subset["training_duration"])
+            ax.text(
+                x=i, y=0.85,  # Adjust the x and y coordinates as needed
+                s=f'IQR: {iqr:.2f}\nSTD: {var:.2f}',
+                ha="center", va="top", fontsize=10, color='black'
+            )
+
+    plt.tight_layout()  # Adjust layout to make sure text is inside the figure
     plt.show()
+
+
 
 # Display KL divergence
 def display_kl_divergence(data):
@@ -123,7 +223,7 @@ def main():
     data = modify_rnn_type(data)
 
     # **Filter only SSM and Transformer (Remove LSTM)**
-    data = data[data["RNN_TYPE"].isin(["ssm", "transformer"])]
+    data = data[data["RNN_TYPE"].isin(["ssm", "lstm"])]
 
     # **Plot results**
     plot_violin(data)
