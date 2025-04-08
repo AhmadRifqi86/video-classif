@@ -72,10 +72,15 @@ EXPOSE 54000
 CMD ["python3","worker.py"]
 
 #docker run --gpus all -d --name worker --network backend-network -p 54000:54000 -v /home/arifadh/Desktop/Skripsi-Magang-Proyek/grid_best_models_medsos:/app/models worker python3 worker.py
+
 # tambah -e untuk ganti model, sequence_length, sampling method
 #docker run --gpus all -it --rm --name worker --network backend-network -p 54000:54000 -v /home/arifadh/Desktop/Skripsi-Magang-Proyek/grid_best_models_medsos:/app/models worker bash
 #test script:
 #curl -X GET "http://localhost:5000/get_labels?url=https://www.tiktok.com/@devtyyyy/video/7375422441587313926"
 
 
+#docker run --gpus all -d --name worker --network backend-network -p 54000:54000 -v /home/arifadh/Desktop/Skripsi-Magang-Proyek/grid_best_models_medsos:/app/models -e MODEL_PATH=/app/models/seq60_batch16_hidden48_cnnresnet50_rnn16_layer3_rnnTypelstm_drop0.4_bidirFalse_acc0.7959_f10.7945.pth worker python3 worker.py
 
+#docker run --gpus all -d --name worker --network backend-network -p 54000:54000 -v /home/arifadh/Desktop/Skripsi-Magang-Proyek/grid_best_models_medsos:/app/models -e MODEL_PATH=/app/models/seq60_batch16_hidden64_cnnmobilenet_v2_rnn16_layer3_rnnTypemamba_drop0.5_bidirFalse_acc0.7934_f10.7940.pth worker python3 worker.py
+
+#docker run --gpus all -d --name worker --network backend-network -p 54000:54000 -v /home/arifadh/Desktop/Skripsi-Magang-Proyek/grid_best_models_medsos:/app/models -e MODEL_PATH=/app/models/seq60_batch16_hidden64_cnnmobilenet_v2_rnn16_layer3_rnnTypelstm_drop0.4_bidirFalse_acc0.7883_f10.7888.pth worker python3 worker.py
